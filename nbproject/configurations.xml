@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="80">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="f1"
+                   displayName="Диаграммы"
+                   projectFiles="true"
+                   kind="ROOT">
+      <itemPath>docs/diagrams/class diagram/CoreClassDiagram.png</itemPath>
+    </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Исходные файлы "
                    projectFiles="true">

@@ -3,15 +3,10 @@
  <object class="com.horstmann.violet.ClassDiagramGraph">
   <void method="addNode">
    <object id="ClassNode0" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>880.0</double>
-       <double>350.0</double>
-       <double>100.0</double>
-       <double>60.0</double>
-      </void>
-     </object>
+    <void property="methods">
+     <void property="text">
+      <string> </string>
+     </void>
     </void>
     <void property="name">
      <void property="text">
@@ -21,26 +16,16 @@
    </object>
    <object class="java.awt.geom.Point2D$Double">
     <void method="setLocation">
-     <double>880.0</double>
-     <double>350.0</double>
+     <double>522.203968719607</double>
+     <double>340.10050506338837</double>
     </void>
    </object>
   </void>
   <void method="addNode">
    <object id="ClassNode1" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>1060.0</double>
-       <double>110.0</double>
-       <double>380.0</double>
-       <double>60.0</double>
-      </void>
-     </object>
-    </void>
     <void property="methods">
      <void property="text">
-      <string>+validate(String):void throws ErrorWasDetectedExeption
+      <string>+validate(String):void
 </string>
      </void>
     </void>
@@ -53,56 +38,16 @@
    </object>
    <object class="java.awt.geom.Point2D$Double">
     <void method="setLocation">
-     <double>1060.0</double>
-     <double>110.0</double>
+     <double>1154.101426213304</double>
+     <double>2.0705451125888104</double>
     </void>
    </object>
   </void>
   <void method="addNode">
    <object id="ClassNode2" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>280.0</double>
-       <double>460.0</double>
-       <double>160.0</double>
-       <double>60.0</double>
-      </void>
-     </object>
-    </void>
     <void property="methods">
      <void property="text">
-      <string>process(String):String</string>
-     </void>
-    </void>
-    <void property="name">
-     <void property="text">
-      <string>Preprocessor</string>
-     </void>
-    </void>
-   </object>
-   <object class="java.awt.geom.Point2D$Double">
-    <void method="setLocation">
-     <double>280.0</double>
-     <double>460.0</double>
-    </void>
-   </object>
-  </void>
-  <void method="addNode">
-   <object id="ClassNode3" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>680.0</double>
-       <double>200.0</double>
-       <double>400.0</double>
-       <double>60.0</double>
-      </void>
-     </object>
-    </void>
-    <void property="methods">
-     <void property="text">
-      <string>+analyse(SyntaxTree):void throws ErrorWasDetectedExeption</string>
+      <string>+analyse(SyntaxTree):void</string>
      </void>
     </void>
     <void property="name">
@@ -113,23 +58,13 @@
    </object>
    <object class="java.awt.geom.Point2D$Double">
     <void method="setLocation">
-     <double>680.0</double>
-     <double>200.0</double>
+     <double>969.4312855788256</double>
+     <double>75.62991564325472</double>
     </void>
    </object>
   </void>
   <void method="addNode">
-   <object id="ClassNode4" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>1130.0</double>
-       <double>470.0</double>
-       <double>180.0</double>
-       <double>80.0</double>
-      </void>
-     </object>
-    </void>
+   <object id="ClassNode3" class="com.horstmann.violet.ClassNode">
     <void property="attributes">
      <void property="text">
       <string>-symbol: String</string>
@@ -137,14 +72,14 @@
     </void>
     <void property="methods">
      <void property="text">
-      <string>+accept(ErrorVisitor):void
+      <string>+share(EventBroadcaster):void
 +getSymbol():String</string>
      </void>
     </void>
     <void property="name">
      <void property="text">
       <string>«abstract»
-Error</string>
+ErrorEvent</string>
      </void>
     </void>
    </object>
@@ -156,53 +91,7 @@ Error</string>
    </object>
   </void>
   <void method="addNode">
-   <object id="ClassNode5" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>1140.0</double>
-       <double>280.0</double>
-       <double>240.0</double>
-       <double>80.0</double>
-      </void>
-     </object>
-    </void>
-    <void property="attributes">
-     <void property="text">
-      <string>-error:Error</string>
-     </void>
-    </void>
-    <void property="methods">
-     <void property="text">
-      <string>+ErrorWasDetectedExeption(Error)
-+getError():Error</string>
-     </void>
-    </void>
-    <void property="name">
-     <void property="text">
-      <string>ErrorWasDetectedExeption</string>
-     </void>
-    </void>
-   </object>
-   <object class="java.awt.geom.Point2D$Double">
-    <void method="setLocation">
-     <double>1140.0</double>
-     <double>280.0</double>
-    </void>
-   </object>
-  </void>
-  <void method="addNode">
-   <object id="ClassNode6" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>260.0</double>
-       <double>100.0</double>
-       <double>200.0</double>
-       <double>80.0</double>
-      </void>
-     </object>
-    </void>
+   <object id="ClassNode4" class="com.horstmann.violet.ClassNode">
     <void property="methods">
      <void property="text">
       <string>+analyse(String):List&lt;Error&gt;</string>
@@ -217,118 +106,78 @@ Analyser</string>
    </object>
    <object class="java.awt.geom.Point2D$Double">
     <void method="setLocation">
-     <double>260.0</double>
-     <double>100.0</double>
+     <double>29.483978080870315</double>
+     <double>52.270095082986856</double>
     </void>
    </object>
   </void>
   <void method="addNode">
-   <object id="ClassNode7" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>960.0</double>
-       <double>620.0</double>
-       <double>180.0</double>
-       <double>80.0</double>
-      </void>
-     </object>
-    </void>
+   <object id="ClassNode5" class="com.horstmann.violet.ClassNode">
     <void property="methods">
      <void property="text">
-      <string>+accept(ErrorVisitor):void</string>
+      <string> </string>
      </void>
     </void>
     <void property="name">
      <void property="text">
       <string>«abstract»
-SyntaxError</string>
+SyntaxErrorEvent</string>
      </void>
     </void>
    </object>
    <object class="java.awt.geom.Point2D$Double">
     <void method="setLocation">
      <double>960.0</double>
-     <double>620.0</double>
+     <double>610.1005050633884</double>
     </void>
    </object>
   </void>
   <void method="addNode">
-   <object id="ClassNode8" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>1310.0</double>
-       <double>620.0</double>
-       <double>180.0</double>
-       <double>80.0</double>
-      </void>
-     </object>
-    </void>
+   <object id="ClassNode6" class="com.horstmann.violet.ClassNode">
     <void property="methods">
      <void property="text">
-      <string>+accept(ErrorVisitor):void</string>
+      <string> </string>
      </void>
     </void>
     <void property="name">
      <void property="text">
       <string>«abstract»
-SemanticError</string>
+SemanticErrorEvent</string>
      </void>
     </void>
    </object>
    <object class="java.awt.geom.Point2D$Double">
     <void method="setLocation">
-     <double>1310.0</double>
-     <double>620.0</double>
+     <double>1465.5634918610403</double>
+     <double>614.3431457505076</double>
     </void>
    </object>
   </void>
   <void method="addNode">
-   <object id="ClassNode9" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>540.0</double>
-       <double>460.0</double>
-       <double>180.0</double>
-       <double>100.0</double>
-      </void>
-     </object>
-    </void>
+   <object id="ClassNode7" class="com.horstmann.violet.ClassNode">
     <void property="methods">
      <void property="text">
-      <string>+visit(FatalSyntaxError)
-+visit(FatalSemanticError)
-+visit(SemanticWarning)</string>
+      <string>+onFatalSyntaxError(FatalSyntaxErrorEvent):void
++onFatalSemanticError(FatalSemanticErrorEvent):void
++onSemanticWarning(SemanticWarningEvent):void</string>
      </void>
     </void>
     <void property="name">
      <void property="text">
       <string>«interface»
-ErrorVisitor</string>
+ErrorListener</string>
      </void>
     </void>
    </object>
    <object class="java.awt.geom.Point2D$Double">
     <void method="setLocation">
-     <double>540.0</double>
-     <double>460.0</double>
+     <double>366.05173182810927</double>
+     <double>587.2792206135787</double>
     </void>
    </object>
   </void>
   <void method="addNode">
-   <object id="ClassNode10" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>560.0</double>
-       <double>730.0</double>
-       <double>140.0</double>
-       <double>80.0</double>
-      </void>
-     </object>
-    </void>
+   <object id="ClassNode8" class="com.horstmann.violet.ClassNode">
     <void property="attributes">
      <void property="text">
       <string>+errors:List&lt;Error&gt;</string>
@@ -348,116 +197,76 @@ ErrorVisitor</string>
    </object>
    <object class="java.awt.geom.Point2D$Double">
     <void method="setLocation">
-     <double>560.0</double>
-     <double>730.0</double>
+     <double>382.46594539048243</double>
+     <double>847.6223663640861</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object id="ClassNode9" class="com.horstmann.violet.ClassNode">
+    <void property="methods">
+     <void property="text">
+      <string>+FatalSemanticErrorEvent(symbol:String)
++share(ErrorEventBroadcaster):void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>FatalSemanticErrorEvent</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1222.2253967444162</double>
+     <double>764.142135623731</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object id="ClassNode10" class="com.horstmann.violet.ClassNode">
+    <void property="methods">
+     <void property="text">
+      <string>+SemanticWarningEvent(symbol:String)
++share(ErrorEventBroadcaster):void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>SemanticWarningEvent</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>1589.6051224213832</double>
+     <double>762.7279220613578</double>
     </void>
    </object>
   </void>
   <void method="addNode">
    <object id="ClassNode11" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>1160.0</double>
-       <double>750.0</double>
-       <double>240.0</double>
-       <double>80.0</double>
-      </void>
-     </object>
-    </void>
     <void property="methods">
      <void property="text">
-      <string>+FatalSemanticError(symbol:String)
-+accept(ErrorVisitor):void</string>
+      <string>+FatalSyntaxErrorEvent(symbol:String)
++share(ErrorEventBroadcaster):void</string>
      </void>
     </void>
     <void property="name">
      <void property="text">
-      <string>FatalSemanticError</string>
+      <string>FatalSyntaxErrorEvent</string>
      </void>
     </void>
    </object>
    <object class="java.awt.geom.Point2D$Double">
     <void method="setLocation">
-     <double>1160.0</double>
-     <double>750.0</double>
+     <double>890.177013806183</double>
+     <double>766.3597182845168</double>
     </void>
    </object>
   </void>
   <void method="addNode">
    <object id="ClassNode12" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>1410.0</double>
-       <double>750.0</double>
-       <double>240.0</double>
-       <double>80.0</double>
-      </void>
-     </object>
-    </void>
-    <void property="methods">
-     <void property="text">
-      <string>+SemanticWarning(symbol:String)
-+accept(ErrorVisitor):void</string>
-     </void>
-    </void>
-    <void property="name">
-     <void property="text">
-      <string>SemanticWarning</string>
-     </void>
-    </void>
-   </object>
-   <object class="java.awt.geom.Point2D$Double">
-    <void method="setLocation">
-     <double>1410.0</double>
-     <double>750.0</double>
-    </void>
-   </object>
-  </void>
-  <void method="addNode">
-   <object id="ClassNode13" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>930.0</double>
-       <double>750.0</double>
-       <double>220.0</double>
-       <double>80.0</double>
-      </void>
-     </object>
-    </void>
-    <void property="methods">
-     <void property="text">
-      <string>+FatalSyntaxError(symbol:String)
-+accept(ErrorVisitor):void</string>
-     </void>
-    </void>
-    <void property="name">
-     <void property="text">
-      <string>FatalSyntaxError</string>
-     </void>
-    </void>
-   </object>
-   <object class="java.awt.geom.Point2D$Double">
-    <void method="setLocation">
-     <double>930.0</double>
-     <double>750.0</double>
-    </void>
-   </object>
-  </void>
-  <void method="addNode">
-   <object id="ClassNode14" class="com.horstmann.violet.ClassNode">
-    <void property="bounds">
-     <object class="java.awt.geom.Rectangle2D$Double">
-      <void method="setRect">
-       <double>620.0</double>
-       <double>350.0</double>
-       <double>140.0</double>
-       <double>60.0</double>
-      </void>
-     </object>
-    </void>
     <void property="methods">
      <void property="text">
       <string>+SyntaxTree(String)</string>
@@ -472,8 +281,82 @@ ErrorVisitor</string>
    </object>
    <object class="java.awt.geom.Point2D$Double">
     <void method="setLocation">
-     <double>620.0</double>
-     <double>350.0</double>
+     <double>508.2771285725255</double>
+     <double>457.48023074035524</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object id="ClassNode13" class="com.horstmann.violet.ClassNode">
+    <void property="attributes">
+     <void property="text">
+      <string>-listeners:List&lt;ErrorListener&gt;</string>
+     </void>
+    </void>
+    <void property="methods">
+     <void property="text">
+      <string>+addErrorListener(ErrorListener):void
++removeErrorListener(ErrorListener):void
++broadcast(FatalSyntaxErrorEvent):void
++broadcast(FatalSemanticErrorEvent):void
++broadcast(SemanticWarningEvent):void</string>
+     </void>
+    </void>
+    <void property="name">
+     <void property="text">
+      <string>ErrorEventBroadcaster</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>787.2455992799496</double>
+     <double>418.1787155501902</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object id="NoteNode0" class="com.horstmann.violet.NoteNode">
+    <void property="text">
+     <void property="text">
+      <string>void share(const EventBroadcaster&amp; broadcaster) {
+        broadcaster.broadcast(*this);
+}</string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>868.3271272970803</double>
+     <double>898.0256121069152</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object id="NoteNode1" class="com.horstmann.violet.NoteNode">
+    <void property="text">
+     <void property="text">
+      <string>void broadcast(const FatalSyntaxErrorEvent&amp; event) const {
+    for(size_t i=0;i&lt;listeners.lenth(); i++) {
+         listeners[i].onFatalSyntaxError(event);
+    }
+} </string>
+     </void>
+    </void>
+   </object>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>822.9313235818829</double>
+     <double>318.7075068207291</double>
+    </void>
+   </object>
+  </void>
+  <void method="addNode">
+   <object class="com.horstmann.violet.ClassNode"/>
+   <object class="java.awt.geom.Point2D$Double">
+    <void method="setLocation">
+     <double>583.900693466336</double>
+     <double>147.4616822603374</double>
     </void>
    </object>
   </void>
@@ -486,31 +369,7 @@ ErrorVisitor</string>
      <object class="com.horstmann.violet.ArrowHead" field="V"/>
     </void>
    </object>
-   <object idref="ClassNode1"/>
-   <object idref="ClassNode5"/>
-  </void>
-  <void method="connect">
-   <object class="com.horstmann.violet.ClassRelationshipEdge">
-    <void property="bentStyle">
-     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
-    </void>
-    <void property="endArrowHead">
-     <object class="com.horstmann.violet.ArrowHead" field="V"/>
-    </void>
-   </object>
-   <object idref="ClassNode5"/>
-   <object idref="ClassNode4"/>
-  </void>
-  <void method="connect">
-   <object class="com.horstmann.violet.ClassRelationshipEdge">
-    <void property="bentStyle">
-     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
-    </void>
-    <void property="endArrowHead">
-     <object class="com.horstmann.violet.ArrowHead" field="V"/>
-    </void>
-   </object>
-   <object idref="ClassNode3"/>
+   <object idref="ClassNode2"/>
    <object idref="ClassNode0"/>
   </void>
   <void method="connect">
@@ -522,8 +381,8 @@ ErrorVisitor</string>
      <object class="com.horstmann.violet.ArrowHead" field="TRIANGLE"/>
     </void>
    </object>
-   <object idref="ClassNode7"/>
-   <object idref="ClassNode4"/>
+   <object idref="ClassNode5"/>
+   <object idref="ClassNode3"/>
   </void>
   <void method="connect">
    <object class="com.horstmann.violet.ClassRelationshipEdge">
@@ -534,8 +393,32 @@ ErrorVisitor</string>
      <object class="com.horstmann.violet.ArrowHead" field="TRIANGLE"/>
     </void>
    </object>
-   <object idref="ClassNode8"/>
-   <object idref="ClassNode4"/>
+   <object idref="ClassNode6"/>
+   <object idref="ClassNode3"/>
+  </void>
+  <void method="connect">
+   <object class="com.horstmann.violet.ClassRelationshipEdge">
+    <void property="bentStyle">
+     <object class="com.horstmann.violet.BentStyle" field="VHV"/>
+    </void>
+    <void property="endArrowHead">
+     <object class="com.horstmann.violet.ArrowHead" field="TRIANGLE"/>
+    </void>
+   </object>
+   <object idref="ClassNode9"/>
+   <object idref="ClassNode6"/>
+  </void>
+  <void method="connect">
+   <object class="com.horstmann.violet.ClassRelationshipEdge">
+    <void property="bentStyle">
+     <object class="com.horstmann.violet.BentStyle" field="VHV"/>
+    </void>
+    <void property="endArrowHead">
+     <object class="com.horstmann.violet.ArrowHead" field="TRIANGLE"/>
+    </void>
+   </object>
+   <object idref="ClassNode10"/>
+   <object idref="ClassNode6"/>
   </void>
   <void method="connect">
    <object class="com.horstmann.violet.ClassRelationshipEdge">
@@ -547,7 +430,31 @@ ErrorVisitor</string>
     </void>
    </object>
    <object idref="ClassNode11"/>
-   <object idref="ClassNode8"/>
+   <object idref="ClassNode5"/>
+  </void>
+  <void method="connect">
+   <object class="com.horstmann.violet.ClassRelationshipEdge">
+    <void property="bentStyle">
+     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
+    </void>
+    <void property="endArrowHead">
+     <object class="com.horstmann.violet.ArrowHead" field="V"/>
+    </void>
+   </object>
+   <object idref="ClassNode4"/>
+   <object idref="ClassNode2"/>
+  </void>
+  <void method="connect">
+   <object class="com.horstmann.violet.ClassRelationshipEdge">
+    <void property="bentStyle">
+     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
+    </void>
+    <void property="endArrowHead">
+     <object class="com.horstmann.violet.ArrowHead" field="V"/>
+    </void>
+   </object>
+   <object idref="ClassNode4"/>
+   <object idref="ClassNode1"/>
   </void>
   <void method="connect">
    <object class="com.horstmann.violet.ClassRelationshipEdge">
@@ -559,6 +466,30 @@ ErrorVisitor</string>
     </void>
    </object>
    <object idref="ClassNode12"/>
+   <object idref="ClassNode0"/>
+  </void>
+  <void method="connect">
+   <object class="com.horstmann.violet.ClassRelationshipEdge">
+    <void property="bentStyle">
+     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
+    </void>
+    <void property="endArrowHead">
+     <object class="com.horstmann.violet.ArrowHead" field="V"/>
+    </void>
+   </object>
+   <object idref="ClassNode4"/>
+   <object idref="ClassNode12"/>
+  </void>
+  <void method="connect">
+   <object class="com.horstmann.violet.ClassRelationshipEdge">
+    <void property="bentStyle">
+     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
+    </void>
+    <void property="endArrowHead">
+     <object class="com.horstmann.violet.ArrowHead" field="V"/>
+    </void>
+   </object>
+   <object idref="ClassNode4"/>
    <object idref="ClassNode8"/>
   </void>
   <void method="connect">
@@ -573,16 +504,28 @@ ErrorVisitor</string>
      <object class="com.horstmann.violet.LineStyle" field="DOTTED"/>
     </void>
    </object>
-   <object idref="ClassNode10"/>
-   <object idref="ClassNode9"/>
+   <object idref="ClassNode8"/>
+   <object idref="ClassNode7"/>
   </void>
   <void method="connect">
    <object class="com.horstmann.violet.ClassRelationshipEdge">
     <void property="bentStyle">
-     <object class="com.horstmann.violet.BentStyle" field="VHV"/>
+     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
     </void>
     <void property="endArrowHead">
-     <object class="com.horstmann.violet.ArrowHead" field="TRIANGLE"/>
+     <object class="com.horstmann.violet.ArrowHead" field="V"/>
+    </void>
+   </object>
+   <object idref="ClassNode3"/>
+   <object idref="ClassNode13"/>
+  </void>
+  <void method="connect">
+   <object class="com.horstmann.violet.ClassRelationshipEdge">
+    <void property="bentStyle">
+     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
+    </void>
+    <void property="endArrowHead">
+     <object class="com.horstmann.violet.ArrowHead" field="V"/>
     </void>
    </object>
    <object idref="ClassNode13"/>
@@ -597,31 +540,7 @@ ErrorVisitor</string>
      <object class="com.horstmann.violet.ArrowHead" field="V"/>
     </void>
    </object>
-   <object idref="ClassNode3"/>
-   <object idref="ClassNode5"/>
-  </void>
-  <void method="connect">
-   <object class="com.horstmann.violet.ClassRelationshipEdge">
-    <void property="bentStyle">
-     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
-    </void>
-    <void property="endArrowHead">
-     <object class="com.horstmann.violet.ArrowHead" field="V"/>
-    </void>
-   </object>
-   <object idref="ClassNode6"/>
    <object idref="ClassNode2"/>
-  </void>
-  <void method="connect">
-   <object class="com.horstmann.violet.ClassRelationshipEdge">
-    <void property="bentStyle">
-     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
-    </void>
-    <void property="endArrowHead">
-     <object class="com.horstmann.violet.ArrowHead" field="V"/>
-    </void>
-   </object>
-   <object idref="ClassNode6"/>
    <object idref="ClassNode3"/>
   </void>
   <void method="connect">
@@ -633,68 +552,30 @@ ErrorVisitor</string>
      <object class="com.horstmann.violet.ArrowHead" field="V"/>
     </void>
    </object>
-   <object idref="ClassNode6"/>
    <object idref="ClassNode1"/>
+   <object idref="ClassNode3"/>
   </void>
   <void method="connect">
-   <object class="com.horstmann.violet.ClassRelationshipEdge">
-    <void property="bentStyle">
-     <object class="com.horstmann.violet.BentStyle" field="VHV"/>
-    </void>
-    <void property="endArrowHead">
-     <object class="com.horstmann.violet.ArrowHead" field="TRIANGLE"/>
-    </void>
-   </object>
-   <object idref="ClassNode14"/>
-   <object idref="ClassNode0"/>
+   <object class="com.horstmann.violet.NoteEdge"/>
+   <object idref="ClassNode11"/>
+   <object idref="NoteNode0"/>
   </void>
   <void method="connect">
-   <object class="com.horstmann.violet.ClassRelationshipEdge">
-    <void property="bentStyle">
-     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
-    </void>
-    <void property="endArrowHead">
-     <object class="com.horstmann.violet.ArrowHead" field="V"/>
-    </void>
-   </object>
-   <object idref="ClassNode6"/>
-   <object idref="ClassNode14"/>
+   <object class="com.horstmann.violet.NoteEdge"/>
+   <object idref="ClassNode13"/>
+   <object idref="NoteNode1"/>
   </void>
   <void method="connect">
    <object class="com.horstmann.violet.ClassRelationshipEdge">
     <void property="bentStyle">
      <object class="com.horstmann.violet.BentStyle" field="HVH"/>
     </void>
-    <void property="endArrowHead">
-     <object class="com.horstmann.violet.ArrowHead" field="V"/>
+    <void property="startArrowHead">
+     <object class="com.horstmann.violet.ArrowHead" field="DIAMOND"/>
     </void>
    </object>
-   <object idref="ClassNode6"/>
-   <object idref="ClassNode10"/>
-  </void>
-  <void method="connect">
-   <object class="com.horstmann.violet.ClassRelationshipEdge">
-    <void property="bentStyle">
-     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
-    </void>
-    <void property="endArrowHead">
-     <object class="com.horstmann.violet.ArrowHead" field="V"/>
-    </void>
-   </object>
-   <object idref="ClassNode9"/>
-   <object idref="ClassNode4"/>
-  </void>
-  <void method="connect">
-   <object class="com.horstmann.violet.ClassRelationshipEdge">
-    <void property="bentStyle">
-     <object class="com.horstmann.violet.BentStyle" field="HVH"/>
-    </void>
-    <void property="endArrowHead">
-     <object class="com.horstmann.violet.ArrowHead" field="V"/>
-    </void>
-   </object>
-   <object idref="ClassNode4"/>
-   <object idref="ClassNode9"/>
+   <object idref="ClassNode13"/>
+   <object idref="ClassNode7"/>
   </void>
  </object>
 </java>
