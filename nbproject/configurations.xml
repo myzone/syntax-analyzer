@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="80">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
-    <logicalFolder name="f1"
-                   displayName="Диаграммы"
-                   projectFiles="true"
-                   kind="ROOT">
+    <logicalFolder name="f1" displayName="Диаграммы" projectFiles="true">
       <itemPath>docs/diagrams/class diagram/CoreClassDiagram.png</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Исходные файлы "
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="Core" projectFiles="true">
+        <itemPath>src/Core/Analyzer.cpp</itemPath>
+        <itemPath>src/Core/ErrorEvent.cpp</itemPath>
+        <itemPath>src/Core/ErrorEventBroadcaster.cpp</itemPath>
+        <itemPath>src/Core/ErrorEventListener.cpp</itemPath>
+        <itemPath>src/Core/SyntaxTree.cpp</itemPath>
+        <itemPath>src/Core/TextValidator.cpp</itemPath>
+        <itemPath>src/Core/TreeAnalyzer.cpp</itemPath>
+      </logicalFolder>
       <itemPath>src/main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="HeaderFiles"
                    displayName="Файлы заголовков"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="Core" projectFiles="true">
+        <itemPath>src/Core/Analyzer.h</itemPath>
+        <itemPath>src/Core/ErrorEvent.h</itemPath>
+        <itemPath>src/Core/ErrorEventBroadcaster.h</itemPath>
+        <itemPath>src/Core/ErrorEventListener.h</itemPath>
+        <itemPath>src/Core/SyntaxTree.h</itemPath>
+        <itemPath>src/Core/TextValidator.h</itemPath>
+        <itemPath>src/Core/TreeAnalyzer.h</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Файлы ресурсов"
