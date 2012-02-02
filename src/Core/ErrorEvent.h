@@ -2,7 +2,7 @@
 
 #include <QString>
 
-#include "ErrorEventBroadcaster.h"
+//#include "ErrorEventBroadcaster.h"
 
 class ErrorEventBroadcaster;
 
@@ -11,10 +11,11 @@ class ErrorEventBroadcaster;
 
 #define DECLARE_ERROR_EVENT_SUBCLASS(class_name) \
     class class_name : public ErrorEvent {\
+    public:\
         class_name(const QString& symbol);\
         virtual ~class_name();\
         DECLARE_SHARE_METHOD(class_name);\
-    }
+    };
 
 class ErrorEvent {
 private:

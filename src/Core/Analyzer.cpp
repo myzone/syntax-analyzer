@@ -1,6 +1,5 @@
 #include "Analyzer.h"
 
-
 Analyzer::Analyzer() {
     this->broadcaster = ErrorEventBroadcaster();
 }
@@ -12,12 +11,12 @@ const ErrorEventBroadcaster& Analyzer::getErrorEventBroadcaster() const {
     return broadcaster;
 }
 
-void Analyzer::addErrorEventListener(const ErrorEventListener& listener) {
+void Analyzer::addErrorEventListener(ErrorEventListener* listener) {
     broadcaster.addErrorEventListener(listener);
 }
 
-void Analyzer::removeErrorEventListener(const ErrorEventListener& listener) {
-    broadcaster.removeErrorEventListener(listener);
+void Analyzer::removeErrorEventListener(ErrorEventListener* listener) {
+    broadcaster.removeErrorEventListener(listener); 
 }
 
 void Analyzer::analyze(const QString& string) const {

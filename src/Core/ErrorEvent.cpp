@@ -1,5 +1,7 @@
 #include "ErrorEvent.h"
 
+#include "ErrorEventBroadcaster.h"
+
 #define IMPLEMENT_SHARE_METHOD(class_name) \
     void class_name::share(const ErrorEventBroadcaster& broadcaster) const {\
         broadcaster.broadcast<class_name>(*this);\

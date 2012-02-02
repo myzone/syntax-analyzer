@@ -14,7 +14,6 @@ public:
     void analyze(const QString& string) const;
 
     const ErrorEventBroadcaster& getErrorEventBroadcaster() const;
-    void addErrorEventListener(const ErrorEventListener& listener);
-    void removeErrorEventListener(const ErrorEventListener& listener);
+    void addErrorEventListener(ErrorEventListener* listener);
+    void removeErrorEventListener(ErrorEventListener* listener);
 };
-

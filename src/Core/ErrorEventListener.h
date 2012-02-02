@@ -2,18 +2,17 @@
 
 #include "ErrorEvent.h"
 
-#define pure =0
-
 class ErrorEventListener {
 public:
     ErrorEventListener();
     virtual ~ErrorEventListener();
 
-    virtual void handle(FatalErrorEvent event) {
-    };
+    virtual void handle(const FatalErrorEvent& event) {
+    }
 
-    virtual void handle(WarningEvent event) {
-    };
+    virtual void handle(const WarningEvent& event) {
+    }
 
-    bool operator==(const ErrorEventListener& that) const;
+    virtual void handle(const ErrorEvent& event) {
+    }
 };
