@@ -1,0 +1,5 @@
+Text Validator {
+    RegExp Pattern - [_A-Za-z]+[_A-Za-z-0-9]* *-> *[_A-Za-z]+[_A-Za-z0-9]* *(\"[\+\-\*\/]\" [_A-Za-z]+[_A-Za-z0-9]*)* *
+
+    Escape string = "[_A-Za-z]+[_A-Za-z-0-9]* *-> *[_A-Za-z]+[_A-Za-z0-9]* *(\\\"[\\+\\-\\*\\/]\\\" [_A-Za-z]+[_A-Za-z0-9]*)* *";   
+}
