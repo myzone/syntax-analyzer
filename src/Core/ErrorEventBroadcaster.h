@@ -5,19 +5,22 @@
 
 #include "ErrorEventListener.h"
 
-class ErrorEventBroadcaster {
-private:
-    QLinkedList<ErrorEventListener*> listeners;
-public:
-    ErrorEventBroadcaster();
-    virtual ~ErrorEventBroadcaster();
+namespace Core {
 
-    void addErrorEventListener(ErrorEventListener* listener);
-    void removeErrorEventListener(ErrorEventListener* listener);
-    
-    template<typename T> void broadcast(T event) const  {
-        for (QLinkedList<ErrorEventListener*>::ConstIterator it = listeners.begin(); it != listeners.end(); it++) {
-            (*it)->handle(event);
+    class ErrorEventBroadcaster {
+    private:
+        QLinkedList<ErrorEventListener*> listeners;
+    public:
+        ErrorEventBroadcaster();
+        virtual ~ErrorEventBroadcaster();
+
+        void addErrorEventListener(ErrorEventListener* listener);
+        void removeErrorEventListener(ErrorEventListener* listener);
+
+        template<typename T> void broadcast(T event) const {
+            for (QLinkedList<ErrorEventListener*>::ConstIterator it = listeners.begin(); it != listeners.end(); it++) {
+                (*it)->handle(event);
+            }
         }
-    }
-};
+    };
+}

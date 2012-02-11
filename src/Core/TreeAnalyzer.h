@@ -1,13 +1,19 @@
 #pragma once
 
-#include "SyntaxTree.h"
-#include "ErrorEventBroadcaster.h"
+#include <QString>
 
-class TreeAnalyzer {
-public:
-    TreeAnalyzer();
-    virtual ~TreeAnalyzer();
-    
-    void analyzeTree(const SyntaxTree& tree, const ErrorEventBroadcaster& broadcaster) const;
-};
+#include "ErrorEventBroadcaster.h"
+#include "Tree.h"
+
+namespace Core {
+
+    class TreeAnalyzer {
+    public:
+        TreeAnalyzer();
+        virtual ~TreeAnalyzer();
+
+        void analyzeTree(const Tree<QString>& tree, const ErrorEventBroadcaster& broadcaster) const;
+    };
+
+}
 

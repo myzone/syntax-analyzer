@@ -1,8 +1,11 @@
 #include "ErrorEventListener.h"
 
-ErrorEventListener::ErrorEventListener() {
-}
+namespace Core {
 
-ErrorEventListener::~ErrorEventListener() {
-}
+    ErrorEventListener::ErrorEventListener() {
+    }
 
+    ErrorEventListener::~ErrorEventListener() {
+    }
+
+}

@@ -36,6 +36,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES=
 
+# Test Directory
+TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
+
+# Test Files
+TESTFILES=
 
 # C Compiler Flags
 CFLAGS=
@@ -68,6 +73,15 @@ ${CND_BUILDDIR}/Release/%.o: nbproject/qt-${CND_CONF}.mk
 
 # Subprojects
 .build-subprojects:
+
+# Run Test Targets
+.test-conf:
+	@if [ "${TEST}" = "" ]; \
+	then  \
+	    ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/Syntax_Analyzer || true; \
+	else  \
+	    ./${TEST} || true; \
+	fi
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS} nbproject/qt-${CND_CONF}.mk

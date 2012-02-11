@@ -2,10 +2,6 @@
 
 #include <QString>
 
-//#include "ErrorEventBroadcaster.h"
-
-class ErrorEventBroadcaster;
-
 #define DECLARE_SHARE_METHOD(class_name) \
     void share(const ErrorEventBroadcaster& broadcaster) const;
 
@@ -17,16 +13,22 @@ class ErrorEventBroadcaster;
         DECLARE_SHARE_METHOD(class_name);\
     };
 
-class ErrorEvent {
-private:
-    QString symbol;
-public:
-    ErrorEvent(const QString& symbol);
-    virtual ~ErrorEvent();
-    const QString& getSymbol() const;
-    
-    DECLARE_SHARE_METHOD(ErrorEvent);
-};
+namespace Core {
 
-DECLARE_ERROR_EVENT_SUBCLASS(FatalErrorEvent);
-DECLARE_ERROR_EVENT_SUBCLASS(WarningEvent);
+    class ErrorEventBroadcaster;
+
+    class ErrorEvent {
+    private:
+        QString symbol;
+    public:
+        ErrorEvent(const QString& symbol);
+        virtual ~ErrorEvent();
+        const QString& getSymbol() const;
+
+        DECLARE_SHARE_METHOD(ErrorEvent);
+    };
+
+    DECLARE_ERROR_EVENT_SUBCLASS(FatalErrorEvent);
+    DECLARE_ERROR_EVENT_SUBCLASS(WarningEvent);
+
+}

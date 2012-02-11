@@ -12,17 +12,23 @@
         class_name::~class_name() {}\
         IMPLEMENT_SHARE_METHOD(class_name);
 
-ErrorEvent::ErrorEvent(const QString& symbol) {
-    this->symbol = symbol;
-}
-ErrorEvent::~ErrorEvent() {
+namespace Core {
+
+    ErrorEvent::ErrorEvent(const QString& symbol) {
+        this->symbol = symbol;
+    }
+
+    ErrorEvent::~ErrorEvent() {
+
+    }
+
+    const QString& ErrorEvent::getSymbol() const {
+        return symbol;
+    };
+
+    IMPLEMENT_SHARE_METHOD(ErrorEvent);
+
+    IMPLEMENT_ERROR_EVENT_SUBCLASS(FatalErrorEvent);
+    IMPLEMENT_ERROR_EVENT_SUBCLASS(WarningEvent);
     
 }
-const QString& ErrorEvent::getSymbol() const {
-    return symbol;
-};
-
-IMPLEMENT_SHARE_METHOD(ErrorEvent);
-
-IMPLEMENT_ERROR_EVENT_SUBCLASS(FatalErrorEvent);
-IMPLEMENT_ERROR_EVENT_SUBCLASS(WarningEvent);
