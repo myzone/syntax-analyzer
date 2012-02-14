@@ -1,22 +1,25 @@
 #pragma once
 
 template<typename T> class Enum {
-private:
+protected:
     T value;
 
-    //Enum() {}
-protected:
     Enum(const T& value) {
         this->value = value;
     }
+public:
+    Enum() {};
 
-    Enum(const Enum& that) {
+    Enum(const Enum<T>& that) {
         this->value = that.value;
     }
-
-public:
+    
     bool operator ==(const Enum<T>& e) const {
         return value == e.value;
+    }
+    
+    bool operator !=(const Enum<T>& e) const {
+        return value != e.value;
     }
 
     operator const T&() const {

@@ -11,9 +11,9 @@ namespace Core {
     const QRegExp Preprocessor::TEXT_SPLITTER = QRegExp("\\s*;(\\s|\n)*");
     const QRegExp Preprocessor::LINE_SPLITTER = QRegExp("\\s+");
     const QRegExp Preprocessor::COMMENTS_REMOVER = QRegExp("(\\/\\/[^\n]*\n)|(\\/\\*.*\\*\\/)");
+    const QRegExp Preprocessor::SPACES_REMOVER = QRegExp("[\n\t\\s]+");
 
-    Preprocessor::Preprocessor(const QString& pathToLibrary) {
-        this->pathToLibrary = pathToLibrary;
+    Preprocessor::Preprocessor(const QString& pathToLibrary) : pathToLibrary(pathToLibrary) {
     }
 
     Preprocessor::~Preprocessor() {
@@ -31,7 +31,7 @@ namespace Core {
                 import(result, lines[i].split(LINE_SPLITTER, QString::SkipEmptyParts)[1]);
             }
         }
-        return result;
+        return result.replace(SPACES_REMOVER, "");
     }
 
     void Preprocessor::removeComments(QString& source) {

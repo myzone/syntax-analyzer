@@ -8,13 +8,17 @@
                    displayName="Исходные файлы "
                    projectFiles="true">
       <logicalFolder name="f1" displayName="Core" projectFiles="true">
-        <itemPath>src/Core/ErrorEvent.cpp</itemPath>
-        <itemPath>src/Core/ErrorEventBroadcaster.cpp</itemPath>
-        <itemPath>src/Core/ErrorEventListener.cpp</itemPath>
+        <itemPath>src/Core/Analyzer.cpp</itemPath>
+        <itemPath>src/Core/Exeption.cpp</itemPath>
         <itemPath>src/Core/Preprocessor.cpp</itemPath>
         <itemPath>src/Core/SyntaxTreeFactory.cpp</itemPath>
-        <itemPath>src/Core/Tree.cpp</itemPath>
+        <itemPath>src/Utils/Tree.cpp</itemPath>
         <itemPath>src/Core/TreeAnalyzer.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Events" projectFiles="true">
+        <itemPath>src/Events/Event.cpp</itemPath>
+        <itemPath>src/Events/EventBroadcaster.cpp</itemPath>
+        <itemPath>src/Events/EventListener.cpp</itemPath>
       </logicalFolder>
       <itemPath>src/main.cpp</itemPath>
     </logicalFolder>
@@ -22,13 +26,17 @@
                    displayName="Файлы заголовков"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="Core" projectFiles="true">
-        <itemPath>src/Core/ErrorEvent.h</itemPath>
-        <itemPath>src/Core/ErrorEventBroadcaster.h</itemPath>
-        <itemPath>src/Core/ErrorEventListener.h</itemPath>
+        <itemPath>src/Core/Analyzer.h</itemPath>
+        <itemPath>src/Core/Exeption.h</itemPath>
         <itemPath>src/Core/Preprocessor.h</itemPath>
         <itemPath>src/Core/SyntaxTreeFactory.h</itemPath>
-        <itemPath>src/Core/Tree.h</itemPath>
+        <itemPath>src/Utils/Tree.h</itemPath>
         <itemPath>src/Core/TreeAnalyzer.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Events" projectFiles="true">
+        <itemPath>src/Events/Event.h</itemPath>
+        <itemPath>src/Events/EventBroadcaster.h</itemPath>
+        <itemPath>src/Events/EventListener.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -39,9 +47,6 @@
                    displayName="Файлы тестов"
                    projectFiles="false"
                    kind="TEST_LOGICAL_FOLDER">
-      <logicalFolder name="f1" displayName="NewTest" projectFiles="true" kind="TEST">
-        <itemPath>tests/NewTest.cpp</itemPath>
-      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Важные файлы"
@@ -61,8 +66,6 @@
         <modules>core gui</modules>
       </qt>
       <compileType>
-      </compileType>
-      <folder path="TestFiles/f1">
         <cTool>
           <incDir>
             <pElem>.</pElem>
@@ -76,7 +79,7 @@
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f1</output>
         </linkerTool>
-      </folder>
+      </compileType>
     </conf>
     <conf name="Release" type="4">
       <toolsSet>

@@ -8,7 +8,7 @@ namespace Core {
     TreeAnalyzer::~TreeAnalyzer() {
     }
 
-    void TreeAnalyzer::analyzeTree(const Tree<QString>& tree, const ErrorEventBroadcaster& broadcaster) const {
+    void TreeAnalyzer::analyzeTree(const Tree<QString>& tree, const Events::EventBroadcaster& broadcaster) const {
         
     }
 

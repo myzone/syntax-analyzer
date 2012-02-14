@@ -6,8 +6,11 @@
  */
 
 
-#include "../src/Core/Preprocessor.h"
-#include "Core/Tree.h"
+#include "Utils/Tree.h"
+#include "Core/Preprocessor.h"
+#include "Core/SyntaxTreeFactory.h"
+#include "Core/Exeption.h"
+
 
 #include <iostream>
 #define cout std::cout
@@ -22,11 +25,70 @@ void test1() {
 
 void test2() {
 
+    class A : public Tree<QString>::IDataProcessor {
+    private:
+        mutable int i;
+    public:
+
+        virtual void dataProcessingStarts() {
+            i = 0;
+        }
+
+        virtual void dataProcessingEnds() {
+
+        }
+
+        virtual void processData(Tree<QString>::DataProvider& nodeProvider) {
+            cout << i++ << " " << nodeProvider.get().toStdString().c_str() << " ";
+            if (nodeProvider.isLeaf()) {
+                cout << "leaf";
+            }
+            cout << "\n";
+        }
+
+        virtual void processData(const Tree<QString>::DataProvider& nodeProvider) const {
+        }
+
+        virtual const TraverseType& getTraverseType() const {
+            return TraverseType::DEPTH_TRAVERSE;
+        }
+    };
+
+    A a = A();
+
+    Tree<QString> t1 = Tree<QString > ();
+    Tree<QString> t2 = Tree<QString > ();
+    Tree<QString> t3 = Tree<QString > ();
+
+    t1 = "t1";
+
+    t2 = "t2";
+    t2[0] = t1;
+
+    t3 = "t3";
+    t3[0] = t2;
+    t3[1] = t1;
+
+    t1[0] = "t1[0]";
+    t1[0][1] = "t1[0][1]";
+    t1[1] = "t1[1]";
+    t1[1][0] = "t1[1][0]";
+    t1[1][1] = "t1[1][1]";
+
+    t3.walk(a);
 
 }
 
-int main(void) {
-    test2();
+void test3() {
+     SyntaxTreeFactory f = SyntaxTreeFactory();
+     cout << f.toPostfixString("(a|b)\"c\"(d|e|f)").toStdString().c_str();
+}
 
+int main(void) {
+    cout << "Start\n";
+
+    test3();
+
+    cout << "End\n";
     return 0;
 }

@@ -1,8 +1,9 @@
 #pragma once
 
 #include <QString>
-#include "ErrorEventBroadcaster.h"
-#include "Enum.h"
+#include "../Events/EventBroadcaster.h"
+#include "../Events/Event.h"
+#include "../Utils/Enum.h"
 
 namespace Core {
 
@@ -20,10 +21,12 @@ namespace Core {
         };
 
         QString pathToLibrary;
+        Events::EventBroadcaster* broadcaster;
 
         static const QRegExp TEXT_SPLITTER;
         static const QRegExp LINE_SPLITTER;
         static const QRegExp COMMENTS_REMOVER;
+        static const QRegExp SPACES_REMOVER;
 
     public:
         Preprocessor(const QString& pathToLibrary);

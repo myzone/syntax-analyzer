@@ -2,8 +2,8 @@
 
 #include <QString>
 
-#include "ErrorEventBroadcaster.h"
-#include "Tree.h"
+#include "../Utils/Tree.h"
+#include "../Events/EventBroadcaster.h"
 
 namespace Core {
 
@@ -12,7 +12,7 @@ namespace Core {
         TreeAnalyzer();
         virtual ~TreeAnalyzer();
 
-        void analyzeTree(const Tree<QString>& tree, const ErrorEventBroadcaster& broadcaster) const;
+        void analyzeTree(const Tree<QString>& tree, const Events::EventBroadcaster& broadcaster) const;
     };
 
 }
