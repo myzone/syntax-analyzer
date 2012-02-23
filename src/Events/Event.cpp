@@ -22,7 +22,7 @@ namespace Events {
 
     IMPLEMENT_SHARE_METHOD(Event);
     IMPLEMENT_TO_STRING_METHOD(Event);
-    
+
     ErrorEvent::ErrorEvent(const QString& symbol) {
         this->symbol = symbol;
     }
@@ -38,9 +38,7 @@ namespace Events {
     IMPLEMENT_SHARE_METHOD(ErrorEvent);
     IMPLEMENT_TO_STRING_METHOD(ErrorEvent);
 
-    IMPLEMENT_ERROR_EVENT_SUBCLASS(FatalErrorEvent);
-    IMPLEMENT_ERROR_EVENT_SUBCLASS(WarningEvent);
-    
     IMPLEMENT_ERROR_EVENT_SUBCLASS(DoubleDefenitionErrorEvent);
     IMPLEMENT_ERROR_EVENT_SUBCLASS(SymbolIsNotDefinedErrorEvent);
+    IMPLEMENT_ERROR_EVENT_SUBCLASS(LibraryFileCannotBeFound);
 }

@@ -40,9 +40,7 @@ namespace Events {
         DECLARE_TO_STRING_METHOD(ErrorEvent);
     };
 
-    DECLARE_ERROR_EVENT_SUBCLASS(FatalErrorEvent);
-    DECLARE_ERROR_EVENT_SUBCLASS(WarningEvent);
-
     DECLARE_ERROR_EVENT_SUBCLASS(DoubleDefenitionErrorEvent);
     DECLARE_ERROR_EVENT_SUBCLASS(SymbolIsNotDefinedErrorEvent);
+    DECLARE_ERROR_EVENT_SUBCLASS(LibraryFileCannotBeFound);
 }

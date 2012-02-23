@@ -8,7 +8,7 @@ protected:
         this->value = value;
     }
 public:
-    Enum() {};
+    Enum() {}
 
     Enum(const Enum<T>& that) {
         this->value = that.value;

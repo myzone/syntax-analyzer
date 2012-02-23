@@ -1,0 +1,12 @@
+INPUT(
+./build\Debug\GNU-Linux-x86\TreeAnalyzer.o
+./build\Debug\GNU-Linux-x86\main.o
+./build\Debug\GNU-Linux-x86\EventBroadcaster.o
+./build\Debug\GNU-Linux-x86\Analyzer.o
+./build\Debug\GNU-Linux-x86\Tree.o
+./build\Debug\GNU-Linux-x86\EventListener.o
+./build\Debug\GNU-Linux-x86\SyntaxTreeFactory.o
+./build\Debug\GNU-Linux-x86\Event.o
+./build\Debug\GNU-Linux-x86\Exeption.o
+./build\Debug\GNU-Linux-x86\Preprocessor.o
+);

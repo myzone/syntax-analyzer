@@ -6,18 +6,7 @@
 
 #include "Enum.h"
 
-
-#ifndef null
-    #define null NULL
-#endif
-
-#ifndef pure
-    #define pure =0
-#endif
-
-#ifndef throws
-    #define throws throw
-#endif
+#include "defines.h"
 
 class TraverseType : public Enum<QString> {
 private:

@@ -6,7 +6,7 @@
 #include "../Events/EventBroadcaster.h"
 #include "Exeption.h"
 
-#define throws throw
+#include "defines.h"
 
 namespace Core {
 
@@ -14,43 +14,44 @@ namespace Core {
     public:
 
         struct SymbolTypeData {
-            QString string;
+            QChar symbol;
             int priority;
             
-            const SymbolTypeData& operator =(const SymbolTypeData& that) {
-                string = that.string;
+            SymbolTypeData& operator =(const SymbolTypeData& that) {
+                symbol = that.symbol;
                 priority = that.priority;
                 
                 return *this;
             }
             
             bool operator ==(const SymbolTypeData& that) const {
-                return string == that.string && priority == that.priority;
+                return symbol == that.symbol && priority == that.priority;
             }
             
             bool operator !=(const SymbolTypeData& that) const {
-                return string != that.string || priority != that.priority;
+                return symbol != that.symbol || priority != that.priority;
             }
 
         };
 
         class SymbolType : public Enum<Symbol::SymbolTypeData> {
         protected:
-            SymbolType(const QString string, int priority);
+            SymbolType(const QChar& symbol, int priority);
 
         public:
             SymbolType();
-            SymbolType(const SymbolType& that);
             
             static const SymbolType CLOSE_BRACKET;
             static const SymbolType OPEN_BRACKET;
             static const SymbolType OR;
             static const SymbolType AND;
             static const SymbolType LITHERAL;
-            static const SymbolType OTHER;
+            static const SymbolType IDENTYFIER;
+            static const SymbolType SPACE;
+            static const SymbolType BACKSLASH;
 
-            inline const QString& getString() const {
-                return value.string;
+            inline const QChar& toChar() const {
+                return value.symbol;
             }
 
             inline int getPriority() const {
@@ -62,8 +63,9 @@ namespace Core {
         SymbolType type;
 
     public:
+        Symbol();
         Symbol(const QString& string, const Symbol::SymbolType& type);
-        Symbol(const Symbol& that);
+        Symbol(const Symbol::SymbolType& type);
 
         const QString& getString() const;
         const SymbolType& getType() const;
@@ -81,14 +83,23 @@ namespace Core {
         SymbolFactory(const SymbolFactory& string);
 
         Symbol getNextSymbol() throws(AnalyzeCrashExeption, WarningExeption);
+        bool isNextSymbol();
+    private:
+        void skipFirst(const Symbol::SymbolType& symbolType);
+        void skipAll(const Symbol::SymbolType& symbolType);
     };
 
     class SyntaxTreeFactory {
+    private:
+        SyntaxTreeFactory() {}
+        
     public:
-
-    //private:
-        QString toPostfixString(const QString& line) const throws(AnalyzeCrashExeption);
-
+        static Tree<QString> createTree(const QString& text) throws(AnalyzeCrashExeption);
+        
+    private:
+        static void processLine(const QString& line, Tree<QString>& tree) throws(AnalyzeCrashExeption);
+        static QList<QString> toSymbolList(const QString& line) throws(AnalyzeCrashExeption);
+    
     };
 
 

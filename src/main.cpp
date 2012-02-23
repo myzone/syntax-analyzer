@@ -80,14 +80,25 @@ void test2() {
 }
 
 void test3() {
-     SyntaxTreeFactory f = SyntaxTreeFactory();
-     cout << f.toPostfixString("(a|b)\"c\"(d|e|f)").toStdString().c_str();
+    SymbolFactory f = SymbolFactory("( a \"+\" b ) | c");
+
+    while (f.isNextSymbol()) {
+        cout << f.getNextSymbol().getString().toStdString() << ".";
+    }
+}
+
+void test4() {
+
 }
 
 int main(void) {
     cout << "Start\n";
 
     test3();
+    cout << "\n";
+    test3();
+    cout << "\n";
+    test4();
 
     cout << "End\n";
     return 0;

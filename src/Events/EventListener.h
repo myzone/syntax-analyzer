@@ -18,8 +18,6 @@ namespace Events{
 
         DECLARE_PURE_HANDLE_METHOD(Event);
 
-        DECLARE_PURE_HANDLE_METHOD(FatalErrorEvent);
-        DECLARE_PURE_HANDLE_METHOD(WarningEvent);
         DECLARE_PURE_HANDLE_METHOD(ErrorEvent);
         
         DECLARE_PURE_HANDLE_METHOD(DoubleDefenitionErrorEvent);
