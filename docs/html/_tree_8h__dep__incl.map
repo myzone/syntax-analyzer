@@ -1,7 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_syntax_tree_factory_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/SyntaxTreeFactory.h" alt="" coords="12,83,417,112"/>
-<area shape="rect" id="node7" href="$_tree_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Tree.cpp" alt="" coords="441,83,775,112"/>
-<area shape="rect" id="node9" href="$_tree_analyzer_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/TreeAnalyzer.h" alt="" coords="799,83,1169,112"/>
-<area shape="rect" id="node5" href="$_syntax_tree_factory_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/SyntaxTreeFactory.cpp" alt="" coords="5,160,424,189"/>
-<area shape="rect" id="node11" href="$_tree_analyzer_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/TreeAnalyzer.cpp" alt="" coords="791,160,1177,189"/>
+<area shape="rect" id="node3" href="$_syntax_tree_factory_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/SyntaxTreeFactory.h" alt="" coords="92,83,497,112"/>
+<area shape="rect" id="node9" href="$main_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/main.cpp" alt="" coords="383,160,687,189"/>
+<area shape="rect" id="node12" href="$_tree_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Utils/Tree.cpp" alt="" coords="572,83,905,112"/>
+<area shape="rect" id="node5" href="$_analyzer_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.h" alt="" coords="12,160,359,189"/>
+<area shape="rect" id="node7" href="$_analyzer_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.cpp" alt="" coords="5,237,365,267"/>
 </map>

@@ -2,15 +2,27 @@
 
 #include <QString>
 
+#include "../defines.h"
+
 #define DECLARE_SHARE_METHOD(class_name) \
     virtual void share(const EventBroadcaster& broadcaster) const;
 
 #define DECLARE_TO_STRING_METHOD(class_name) \
     virtual const QString toString() const;
 
+#define DECLARE_EVENT_SUBCLASS(class_name) \
+    class class_name : public Event {\
+    public:\
+        class_name();\
+        virtual ~class_name();\
+        DECLARE_SHARE_METHOD(class_name);\
+        DECLARE_TO_STRING_METHOD(class_name);\
+    };
+
 #define DECLARE_ERROR_EVENT_SUBCLASS(class_name) \
     class class_name : public ErrorEvent {\
     public:\
+        class_name();\
         class_name(const QString& symbol);\
         virtual ~class_name();\
         DECLARE_SHARE_METHOD(class_name);\
@@ -23,6 +35,8 @@ namespace Events {
 
     class Event {       
     public:
+        Event();
+        virtual ~Event();
         DECLARE_SHARE_METHOD(Event);
         DECLARE_TO_STRING_METHOD(Event)
     };
@@ -40,7 +54,14 @@ namespace Events {
         DECLARE_TO_STRING_METHOD(ErrorEvent);
     };
 
+    DECLARE_EVENT_SUBCLASS(AnalysingWasStartedEvent);
+    DECLARE_EVENT_SUBCLASS(AnalysingWasEndedEvent);
+    
+    DECLARE_ERROR_EVENT_SUBCLASS(LibraryFileCannotBeFoundErrorEvent);
+
     DECLARE_ERROR_EVENT_SUBCLASS(DoubleDefenitionErrorEvent);
     DECLARE_ERROR_EVENT_SUBCLASS(SymbolIsNotDefinedErrorEvent);
-    DECLARE_ERROR_EVENT_SUBCLASS(LibraryFileCannotBeFound);
+
+    DECLARE_ERROR_EVENT_SUBCLASS(LitheralIsNotClosedErrorEvent);
+    DECLARE_ERROR_EVENT_SUBCLASS(WrongBracketsNumberErrorEvent);
 }

@@ -1,11 +1,13 @@
 #pragma once
 
 #include <QString>
+
 #include "../Events/EventBroadcaster.h"
 #include "../Events/Event.h"
 #include "../Utils/Enum.h"
+#include "../Core/Exeption.h"
 
-#include "defines.h"
+#include "../defines.h"
 
 namespace Core {
 
@@ -26,7 +28,7 @@ namespace Core {
             static const Directive IMPORT;
 
             QRegExp getMatcherRegExp() const {
-                return QRegExp(value + SPACE_STRING + IDENTYFIER_STRING + END_OF_STRING);
+                return QRegExp(value + SPACE_STRING + IDENTYFIER_STRING);
             }
 
             QRegExp getRemoverRegExp(const QString& identifier) const {
@@ -48,11 +50,11 @@ namespace Core {
         Preprocessor(const QString& pathToLibrary);
         virtual ~Preprocessor();
 
-        QString process(const QString& source);
+        QString process(const QString& source) const throws(AnalyzeCrashExeption);
 
     private:
-        void removeComments(QString& source);
-        void import(QString& source, const QString& importName);
+        void removeComments(QString& source) const;
+        void import(QString& source, const QString& importName) const throws(AnalyzeCrashExeption);
 
     };
 

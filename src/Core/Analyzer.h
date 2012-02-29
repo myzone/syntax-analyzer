@@ -1,21 +1,23 @@
 #pragma once
 
 #include "../Events/EventBroadcaster.h"
+#include "../Core/Preprocessor.h"
+#include "../Core/SyntaxTreeFactory.h"
 
-#define throws throw
+#include "../defines.h"
 
 namespace Core {
 
     class Analyzer {
     private:
         Events::EventBroadcaster broadcaster;
-
+        Preprocessor preprocessor;
+        SyntaxTreeFactory syntaxTreeFactory;
     public:
-        Analyzer();
-        Analyzer(const Analyzer& orig);
+        Analyzer(const QString& pathToLibrary);
         virtual ~Analyzer();
 
-        void analyze(const QString& text);
+        void analyze(const QString& text) const;
 
         const Events::EventBroadcaster& getErrorEventBroadcaster() const;
         void addErrorEventListener(Events::EventListener* listener);

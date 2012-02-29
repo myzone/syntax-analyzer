@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.01</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.02</span></div>
   </td>
  </tr>
  </tbody>
@@ -65,27 +65,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <div class="textblock"><code>#include &lt;QString&gt;</code><br/>
-<code>#include &quot;<a class="el" href="">Tree.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="">ErrorEventBroadcaster.h</a>&quot;</code><br/>
+<code>#include &quot;../defines.h&quot;</code><br/>
+<code>#include &quot;../Utils/Tree.h&quot;</code><br/>
+<code>#include &quot;../Events/EventBroadcaster.h&quot;</code><br/>
+<code>#include &quot;../Core/Exeption.h&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for SyntaxTreeFactory.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_syntax_tree_factory_8h__incl.png" border="0" usemap="#_2host_2_coding_2_c_09_09_2_syntax_01_analyzer_2src_2_core_2_syntax_tree_factory_8h" alt=""/></div>
 <map name="_2host_2_coding_2_c_09_09_2_syntax_01_analyzer_2src_2_core_2_syntax_tree_factory_8h" id="_2host_2_coding_2_c_09_09_2_syntax_01_analyzer_2src_2_core_2_syntax_tree_factory_8h">
-<area shape="rect" id="node5" href="_tree_8h.html" title="Tree.h" alt="" coords="179,83,237,112"/><area shape="rect" id="node14" href="_error_event_broadcaster_8h.html" title="ErrorEventBroadcaster.h" alt="" coords="404,83,569,112"/><area shape="rect" id="node12" href="_enum_8h.html" title="Enum.h" alt="" coords="313,160,380,189"/><area shape="rect" id="node20" href="_error_event_listener_8h.html" title="ErrorEventListener.h" alt="" coords="607,160,748,189"/><area shape="rect" id="node22" href="_error_event_8h.html" title="ErrorEvent.h" alt="" coords="380,237,473,267"/></map>
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_syntax_tree_factory_8h__dep__incl.png" border="0" usemap="#_2host_2_coding_2_c_09_09_2_syntax_01_analyzer_2src_2_core_2_syntax_tree_factory_8hdep" alt=""/></div>
 <map name="_2host_2_coding_2_c_09_09_2_syntax_01_analyzer_2src_2_core_2_syntax_tree_factory_8hdep" id="_2host_2_coding_2_c_09_09_2_syntax_01_analyzer_2src_2_core_2_syntax_tree_factory_8hdep">
-<area shape="rect" id="node3" href="_syntax_tree_factory_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/SyntaxTreeFactory.cpp" alt="" coords="5,83,424,112"/></map>
+<area shape="rect" id="node3" href="_analyzer_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.h" alt="" coords="12,83,359,112"/><area shape="rect" id="node7" href="main_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/main.cpp" alt="" coords="383,83,687,112"/><area shape="rect" id="node5" href="_analyzer_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.cpp" alt="" coords="5,160,365,189"/></map>
 </div>
 </div>
 <p><a href="">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol.html">Core::Symbol</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html">Core::Symbol::SymbolTypeData</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Core::Symbol::SymbolType</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type_1_1_and.html">Core::Symbol::SymbolType::And</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type_1_1_or.html">Core::Symbol::SymbolType::Or</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type_1_1_litheral.html">Core::Symbol::SymbolType::Litheral</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type_1_1_identifier.html">Core::Symbol::SymbolType::Identifier</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_factory.html">Core::SymbolFactory</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html">Core::SyntaxTreeFactory</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -106,7 +116,7 @@ Namespaces</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sat Feb 11 2012 12:57:08 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

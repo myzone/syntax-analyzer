@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.01</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.02</span></div>
   </td>
  </tr>
  </tbody>
@@ -64,14 +64,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">/host/Coding/C++/Syntax Analyzer/src/main.cpp File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
-<code>#include &quot;../src/Core/Preprocessor.h&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="">Utils/Tree.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">Core/Preprocessor.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">Core/SyntaxTreeFactory.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">Core/Exeption.h</a>&quot;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#_2host_2_coding_2_c_09_09_2_syntax_01_analyzer_2src_2main_8cpp" alt=""/></div>
 <map name="_2host_2_coding_2_c_09_09_2_syntax_01_analyzer_2src_2main_8cpp" id="_2host_2_coding_2_c_09_09_2_syntax_01_analyzer_2src_2main_8cpp">
-</map>
+<area shape="rect" id="node3" href="_tree_8h.html" title="Utils/Tree.h" alt="" coords="199,83,289,112"/><area shape="rect" id="node15" href="_preprocessor_8h.html" title="Core/Preprocessor.h" alt="" coords="452,83,593,112"/><area shape="rect" id="node26" href="_syntax_tree_factory_8h.html" title="Core/SyntaxTreeFactory.h" alt="" coords="617,83,793,112"/><area shape="rect" id="node34" href="_exeption_8h.html" title="Core/Exeption.h" alt="" coords="313,83,428,112"/></map>
 </div>
 </div>
 <p><a href="">Go to the source code of this file.</a></p>
@@ -81,7 +84,10 @@ Defines</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a101fd144d7d407e15633eba37102f1ed">cout</a>&#160;&#160;&#160;std::cout</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a3f93b60e229b6683e24c4754a7106ee8">test1</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a1440a7779ac56f47a3f355ce4a8c7da0">test1</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a0283886819c7c140a023582b7269e2d0">test2</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a6d0455dd5c30adda100e95f0423c786e">test3</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a327d8cef466a7560ead5eb3995c0cbae">test4</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
@@ -96,7 +102,7 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L11">11</a> of file <a class="el" href="">main.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L16">16</a> of file <a class="el" href="">main.cpp</a>.</p>
 
 </div>
 </div>
@@ -116,21 +122,24 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L21">21</a> of file <a class="el" href="">main.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L109">109</a> of file <a class="el" href="">main.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">               {
-    <a class="code" href="main_8cpp.html#a3f93b60e229b6683e24c4754a7106ee8">test1</a>();
-    
+    <a class="code" href="main_8cpp.html#a101fd144d7d407e15633eba37102f1ed">cout</a> &lt;&lt; <span class="stringliteral">&quot;Start\n&quot;</span>;
+
+    <a class="code" href="main_8cpp.html#a327d8cef466a7560ead5eb3995c0cbae">test4</a>();
+
+    <a class="code" href="main_8cpp.html#a101fd144d7d407e15633eba37102f1ed">cout</a> &lt;&lt; <span class="stringliteral">&quot;End\n&quot;</span>;
     <span class="keywordflow">return</span> 0;
 }
 </pre></div>
 </div>
 </div>
-<a class="anchor" id="a3f93b60e229b6683e24c4754a7106ee8"></a><!-- doxytag: member="main.cpp::test1" ref="a3f93b60e229b6683e24c4754a7106ee8" args="()" -->
+<a class="anchor" id="a1440a7779ac56f47a3f355ce4a8c7da0"></a><!-- doxytag: member="main.cpp::test1" ref="a1440a7779ac56f47a3f355ce4a8c7da0" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool test1 </td>
+          <td class="memname">void test1 </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -139,11 +148,139 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L15">15</a> of file <a class="el" href="">main.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L20">20</a> of file <a class="el" href="">main.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">             {
     <a class="code" href="class_core_1_1_preprocessor.html">Preprocessor</a> proc = <a class="code" href="class_core_1_1_preprocessor.html">Preprocessor</a>(<span class="stringliteral">&quot;/home/myzone/Рабочий стол/&quot;</span>);
-    <a class="code" href="main_8cpp.html#a101fd144d7d407e15633eba37102f1ed">cout</a> &lt;&lt; proc.<a class="code" href="class_core_1_1_preprocessor.html#aa467f1faf8a93ed0ee9713096d5de08a">process</a>(<span class="stringliteral">&quot;import lib;import lib;main-&gt;;\n&quot;</span>).toStdString() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-    <span class="keywordflow">return</span> <span class="keyword">false</span>;
+    <a class="code" href="main_8cpp.html#a101fd144d7d407e15633eba37102f1ed">cout</a> &lt;&lt; proc.<a class="code" href="class_core_1_1_preprocessor.html#ab975885101dabb0edbea8a338bb792ad">process</a>(<span class="stringliteral">&quot;import lib;import lib;main-&gt;;\n&quot;</span>).toStdString() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a0283886819c7c140a023582b7269e2d0"></a><!-- doxytag: member="main.cpp::test2" ref="a0283886819c7c140a023582b7269e2d0" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L26">26</a> of file <a class="el" href="">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">             {
+
+    <span class="keyword">class </span>A : <span class="keyword">public</span> <a class="code" href="class_tree.html">Tree</a>&lt;QString&gt;::IDataProcessor {
+    <span class="keyword">private</span>:
+        <span class="keyword">mutable</span> <span class="keywordtype">int</span> i;
+    <span class="keyword">public</span>:
+
+        <span class="keyword">virtual</span> <span class="keywordtype">void</span> dataProcessingStarts() {
+            i = 0;
+        }
+
+        <span class="keyword">virtual</span> <span class="keywordtype">void</span> dataProcessingEnds() {
+
+        }
+
+        <span class="keyword">virtual</span> <span class="keywordtype">void</span> processData(<a class="code" href="class_tree_1_1_data_provider.html">Tree&lt;QString&gt;::DataProvider</a>&amp; nodeProvider) {
+            <a class="code" href="main_8cpp.html#a101fd144d7d407e15633eba37102f1ed">cout</a> &lt;&lt; i++ &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; nodeProvider.<a class="code" href="class_tree_1_1_data_provider.html#a8c98bc5a3918b3ac6618ae7f5440b6a7">get</a>().toStdString().c_str() &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
+            <span class="keywordflow">if</span> (nodeProvider.<a class="code" href="class_tree_1_1_data_provider.html#abb1705655243d1d84c0527bd6091f66c">isLeaf</a>()) {
+
+                <a class="code" href="main_8cpp.html#a101fd144d7d407e15633eba37102f1ed">cout</a> &lt;&lt; <span class="stringliteral">&quot;leaf&quot;</span>;
+            }
+            <a class="code" href="main_8cpp.html#a101fd144d7d407e15633eba37102f1ed">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+        }
+
+        <span class="keyword">virtual</span> <span class="keywordtype">void</span> processData(<span class="keyword">const</span> <a class="code" href="class_tree_1_1_data_provider.html">Tree&lt;QString&gt;::DataProvider</a>&amp; nodeProvider)<span class="keyword"> const </span>{
+        }
+
+        <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="class_traverse_type.html">TraverseType</a>&amp; getTraverseType()<span class="keyword"> const </span>{
+            <span class="keywordflow">return</span> <a class="code" href="class_traverse_type.html#a90eebe6b103d8a668d0e4bc86b6f65ae">TraverseType::DEPTH_TRAVERSE</a>;
+        }
+    };
+
+    A a = A();
+
+    <a class="code" href="class_tree.html">Tree&lt;QString&gt;</a> t1 = <a class="code" href="class_tree.html">Tree&lt;QString &gt;</a> ();
+    <a class="code" href="class_tree.html">Tree&lt;QString&gt;</a> t2 = <a class="code" href="class_tree.html">Tree&lt;QString &gt;</a> ();
+    <a class="code" href="class_tree.html">Tree&lt;QString&gt;</a> t3 = <a class="code" href="class_tree.html">Tree&lt;QString &gt;</a> ();
+
+    t1 = <span class="stringliteral">&quot;t1&quot;</span>;
+
+    t2 = <span class="stringliteral">&quot;t2&quot;</span>;
+    t2[0] = t1;
+
+    t3 = <span class="stringliteral">&quot;t3&quot;</span>;
+    t3[0] = t2;
+    t3[1] = t1;
+
+    t1[0] = <span class="stringliteral">&quot;t1[0]&quot;</span>;
+    t1[0][1] = <span class="stringliteral">&quot;t1[0][1]&quot;</span>;
+    t1[1] = <span class="stringliteral">&quot;t1[1]&quot;</span>;
+    t1[1][0] = <span class="stringliteral">&quot;t1[1][0]&quot;</span>;
+    t1[1][1] = <span class="stringliteral">&quot;t1[1][1]&quot;</span>;
+
+    t3.<a class="code" href="class_tree.html#a3f213eff91029980312bbbdef74fe97d">walk</a>(a);
+
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a6d0455dd5c30adda100e95f0423c786e"></a><!-- doxytag: member="main.cpp::test3" ref="a6d0455dd5c30adda100e95f0423c786e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test3 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L83">83</a> of file <a class="el" href="">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">             {
+    <a class="code" href="class_core_1_1_symbol_factory.html">SymbolFactory</a> f = <a class="code" href="class_core_1_1_symbol_factory.html">SymbolFactory</a>(<span class="stringliteral">&quot;( hello\&quot;+\\\&quot;\&quot;dude mother) | c&quot;</span>);
+
+    <span class="keywordflow">while</span> (f.<a class="code" href="class_core_1_1_symbol_factory.html#aefdbd26c01bb100487515cff9b37c001">isNextSymbol</a>()) {
+        <a class="code" href="main_8cpp.html#a101fd144d7d407e15633eba37102f1ed">cout</a> &lt;&lt; f.<a class="code" href="class_core_1_1_symbol_factory.html#a27c72d69a95d96f7b3165cee3da43641">getNextSymbol</a>().<a class="code" href="class_core_1_1_symbol.html#adf6a090522e00562a315c70f2dccd970">getString</a>().toStdString() &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
+    }
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a327d8cef466a7560ead5eb3995c0cbae"></a><!-- doxytag: member="main.cpp::test4" ref="a327d8cef466a7560ead5eb3995c0cbae" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void test4 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L97">97</a> of file <a class="el" href="">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">             {
+    <a class="code" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a> b;
+    
+    <a class="code" href="class_core_1_1_syntax_tree_factory.html">SyntaxTreeFactory</a> f = <a class="code" href="class_core_1_1_syntax_tree_factory.html">SyntaxTreeFactory</a>(&amp;b);
+<span class="comment">//    QList&lt;QString&gt; l = f.toPostfixSymbolsList(&quot;( hello\&quot;+\&quot;\&quot;dude mother) | c&quot;);</span>
+    
+<span class="comment">//    foreach(QString str, l) {</span>
+<span class="comment">//        cout &lt;&lt; str.toStdString() &lt;&lt; &quot; &quot;;</span>
+<span class="comment">//   }</span>
+    
 }
 </pre></div>
 </div>
@@ -163,7 +300,7 @@ Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sat Feb 11 2012 12:57:08 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.01</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.02</span></div>
   </td>
  </tr>
  </tbody>
@@ -78,30 +78,28 @@ Collaboration diagram for Core::SyntaxTreeFactory:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_core_1_1_syntax_tree_factory__coll__graph.png" border="0" usemap="#_core_1_1_syntax_tree_factory_coll__map" alt="Collaboration graph"/></div>
 <map name="_core_1_1_syntax_tree_factory_coll__map" id="_core_1_1_syntax_tree_factory_coll__map">
-<area shape="rect" id="node2" href="class_core_1_1_error_event_broadcaster.html" title="{Core::ErrorEventBroadcaster\n|&#45; listeners\l|+ ErrorEventBroadcaster()\l+ ~ErrorEventBroadcaster()\l+ addErrorEventListener()\l+ removeErrorEventListener()\l+ broadcast()\l}" alt="" coords="5,5,197,160"/></map>
+<area shape="rect" id="node2" href="class_events_1_1_event_broadcaster.html" title="{Events::EventBroadcaster\n|&#45; listeners\l|+ EventBroadcaster()\l+ ~EventBroadcaster()\l+ addErrorEventListener()\l+ removeErrorEventListener()\l+ broadcast()\l}" alt="" coords="5,5,197,160"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a6e0d5bdc9ebe9be9fe2b29abf3ecbdf3">SyntaxTreeFactory</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a8d0d38e0a1abb9f64ceb61b94ca62ecd">SyntaxTreeFactory</a> (const <a class="el" href="class_core_1_1_syntax_tree_factory.html">SyntaxTreeFactory</a> &amp;orig)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#aabbc4627819e85a0666234aab7304582">~SyntaxTreeFactory</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tree.html">Tree</a>&lt; QString &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a45531aaf22e2c3356375b627f9599c71">createTree</a> (QString string)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_core_1_1_error_event_broadcaster.html">ErrorEventBroadcaster</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a6ac3ab48780f07c1bd800df7fcb5354a">getErrorEventBroadcaster</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a6a5240307928ea69a88d119f88fe978a">addErrorEventListener</a> (<a class="el" href="class_core_1_1_error_event_listener.html">ErrorEventListener</a> *listener)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a367d6c4bb2c4fe3046bd595b0690dfdf">removeErrorEventListener</a> (<a class="el" href="class_core_1_1_error_event_listener.html">ErrorEventListener</a> *listener)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#ac9ed6c1a3eb987b62d7668822d3ecc9b">SyntaxTreeFactory</a> (<a class="el" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a> *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a1da8ef08824945e66bb156edd32b53cc">createTree</a> (const QString &amp;text) const throws(AnalyzeCrashExeption)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a1c70f2cd0a1b0931d0d1b0ada69ff5a2">processLine</a> (const QString &amp;line, <a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; tree) const throws(AnalyzeCrashExeption)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#ac957cb36feaffd6515bd86f7f19ecb1b">toPostfixSymbolsList</a> (const QString &amp;line) const throws(AnalyzeCrashExeption)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="#L10">10</a> of file <a class="el" href="">SyntaxTreeFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="#L130">130</a> of file <a class="el" href="">SyntaxTreeFactory.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a6e0d5bdc9ebe9be9fe2b29abf3ecbdf3"></a><!-- doxytag: member="Core::SyntaxTreeFactory::SyntaxTreeFactory" ref="a6e0d5bdc9ebe9be9fe2b29abf3ecbdf3" args="()" -->
+<a class="anchor" id="ac9ed6c1a3eb987b62d7668822d3ecc9b"></a><!-- doxytag: member="Core::SyntaxTreeFactory::SyntaxTreeFactory" ref="ac9ed6c1a3eb987b62d7668822d3ecc9b" args="(Events::EventBroadcaster *)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Core::SyntaxTreeFactory::SyntaxTreeFactory </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a> *&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -109,141 +107,72 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L5">5</a> of file <a class="el" href="">SyntaxTreeFactory.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                         {
-        broadcaster = ErrorEventBroadcaster();
-    }
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="a8d0d38e0a1abb9f64ceb61b94ca62ecd"></a><!-- doxytag: member="Core::SyntaxTreeFactory::SyntaxTreeFactory" ref="a8d0d38e0a1abb9f64ceb61b94ca62ecd" args="(const SyntaxTreeFactory &amp;orig)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Core::SyntaxTreeFactory::SyntaxTreeFactory </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_core_1_1_syntax_tree_factory.html">SyntaxTreeFactory</a> &amp;&#160;</td>
-          <td class="paramname"><em>orig</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="#L9">9</a> of file <a class="el" href="">SyntaxTreeFactory.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                      {
-        this-&gt;broadcaster = broadcaster;
-    }
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="aabbc4627819e85a0666234aab7304582"></a><!-- doxytag: member="Core::SyntaxTreeFactory::~SyntaxTreeFactory" ref="aabbc4627819e85a0666234aab7304582" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Core::SyntaxTreeFactory::~SyntaxTreeFactory </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="#L13">13</a> of file <a class="el" href="">SyntaxTreeFactory.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                          {
-    }
-</pre></div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a6a5240307928ea69a88d119f88fe978a"></a><!-- doxytag: member="Core::SyntaxTreeFactory::addErrorEventListener" ref="a6a5240307928ea69a88d119f88fe978a" args="(ErrorEventListener *listener)" -->
+<a class="anchor" id="a1da8ef08824945e66bb156edd32b53cc"></a><!-- doxytag: member="Core::SyntaxTreeFactory::createTree" ref="a1da8ef08824945e66bb156edd32b53cc" args="(const QString &amp;text) const throws(AnalyzeCrashExeption)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Core::SyntaxTreeFactory::addErrorEventListener </td>
+          <td class="memname"><a class="el" href="class_tree.html">Tree</a>&lt;<a class="el" href="class_core_1_1_symbol.html">Symbol</a>&gt; Core::SyntaxTreeFactory::createTree </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_core_1_1_error_event_listener.html">ErrorEventListener</a> *&#160;</td>
-          <td class="paramname"><em>listener</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="#L25">25</a> of file <a class="el" href="">SyntaxTreeFactory.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                              {
-        broadcaster.addErrorEventListener(listener);
-    }
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="a45531aaf22e2c3356375b627f9599c71"></a><!-- doxytag: member="Core::SyntaxTreeFactory::createTree" ref="a45531aaf22e2c3356375b627f9599c71" args="(QString string)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_tree.html">Tree</a>&lt;QString&gt; Core::SyntaxTreeFactory::createTree </td>
-          <td>(</td>
-          <td class="paramtype">QString&#160;</td>
-          <td class="paramname"><em>string</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6ac3ab48780f07c1bd800df7fcb5354a"></a><!-- doxytag: member="Core::SyntaxTreeFactory::getErrorEventBroadcaster" ref="a6ac3ab48780f07c1bd800df7fcb5354a" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="class_core_1_1_error_event_broadcaster.html">ErrorEventBroadcaster</a> &amp; Core::SyntaxTreeFactory::getErrorEventBroadcaster </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L21">21</a> of file <a class="el" href="">SyntaxTreeFactory.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                                   {
-        <span class="keywordflow">return</span> broadcaster;
-    }
-</pre></div>
 </div>
 </div>
-<a class="anchor" id="a367d6c4bb2c4fe3046bd595b0690dfdf"></a><!-- doxytag: member="Core::SyntaxTreeFactory::removeErrorEventListener" ref="a367d6c4bb2c4fe3046bd595b0690dfdf" args="(ErrorEventListener *listener)" -->
+<a class="anchor" id="a1c70f2cd0a1b0931d0d1b0ada69ff5a2"></a><!-- doxytag: member="Core::SyntaxTreeFactory::processLine" ref="a1c70f2cd0a1b0931d0d1b0ada69ff5a2" args="(const QString &amp;line, Tree&lt; Symbol &gt; tree) const throws(AnalyzeCrashExeption)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Core::SyntaxTreeFactory::removeErrorEventListener </td>
+          <td class="memname">void Core::SyntaxTreeFactory::processLine </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_core_1_1_error_event_listener.html">ErrorEventListener</a> *&#160;</td>
-          <td class="paramname"><em>listener</em></td><td>)</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt;&#160;</td>
+          <td class="paramname"><em>tree</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L29">29</a> of file <a class="el" href="">SyntaxTreeFactory.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                                 {
-        broadcaster.removeErrorEventListener(listener);
-    }
-</pre></div>
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a class="anchor" id="ac957cb36feaffd6515bd86f7f19ecb1b"></a><!-- doxytag: member="Core::SyntaxTreeFactory::toPostfixSymbolsList" ref="ac957cb36feaffd6515bd86f7f19ecb1b" args="(const QString &amp;line) const throws(AnalyzeCrashExeption)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;<a class="el" href="class_core_1_1_symbol.html">Symbol</a>&gt; Core::SyntaxTreeFactory::toPostfixSymbolsList </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>line</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>/host/Coding/C++/Syntax Analyzer/src/Core/<a class="el" href="">SyntaxTreeFactory.h</a></li>
-<li>/host/Coding/C++/Syntax Analyzer/src/Core/<a class="el" href="">SyntaxTreeFactory.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -260,7 +189,7 @@ Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sat Feb 11 2012 12:57:08 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

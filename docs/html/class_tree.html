@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.01</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.02</span></div>
   </td>
  </tr>
  </tbody>
@@ -76,13 +76,15 @@ Collaboration diagram for Tree&lt; T &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_tree__coll__graph.png" border="0" usemap="#_tree_3_01_t_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="_tree_3_01_t_01_4_coll__map" id="_tree_3_01_t_01_4_coll__map">
-<area shape="rect" id="node2" href="class_tree_1_1_node.html" title="{Tree\&lt; T \&gt;::Node\n|+ data\l+ free\l+ id\l+ parent\l+ nextBrother\l+ firstChild\l|+ Node()\l+ Node()\l+ Node()\l}" alt="" coords="5,6,123,213"/></map>
+<area shape="rect" id="node2" href="struct_tree_1_1_node.html" title="{Tree\&lt; T \&gt;::Node\n|+ id\l+ data\l+ parent\l+ child\l+ next\l+ prev\l|+ Node()\l+ Node()\l+ Node()\l+ ~Node()\l+ set()\l}" alt="" coords="21,6,139,247"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_data_provider.html">DataProvider</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_i_data_processor.html">IDataProcessor</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_node.html">Node</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_tree_1_1_node.html">Node</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_out_of_bounds_exeption.html">OutOfBoundsExeption</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#aeb41ed02f1f1080e1c89a90c0676cc30">DataType</a></td></tr>
@@ -91,39 +93,44 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a30ebe31999547d31fea5b40cc805f6a2">Tree</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a181a0ce4ba96e5ca9c46e1c10fcaff0b">Tree</a> (const <a class="el" href="class_tree.html">Tree</a> &amp;orig)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a4fcd13d351f9bf4ecd7e85b83b3b3469">~Tree</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tree.html">Tree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a57e8bec37daba769cc9042b2bf5c0cfd">getSuperTree</a> () const throws(<a class="el" href="class_tree_1_1_out_of_bounds_exeption.html">OutOfBoundsExeption</a>)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tree.html">Tree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#ac3cfe7863661442a9cd30484ce6bc03d">getSubTree</a> (size_t index) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a71e68254568725d4aa124e0dc1149c40">set</a> (const T &amp;data)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#aa3c478d5c84bdc85002a4c25a8bcb290">get</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a0fde092d58dc5d448f2698062a69cf2e">get</a> () const throws(<a class="el" href="class_tree_1_1_out_of_bounds_exeption.html">OutOfBoundsExeption</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a021e9e20d4aa71092f78173530e060d0">insert</a> (const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;data)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a3f213eff91029980312bbbdef74fe97d">walk</a> (<a class="el" href="class_tree_1_1_i_data_processor.html">IDataProcessor</a> &amp;processor)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#ada41cee927fabe585aa26b4445afb916">walk</a> (const <a class="el" href="class_tree_1_1_i_data_processor.html">IDataProcessor</a> &amp;processor) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a1596d1201c2198d6b2fa031b69afb902">dispose</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tree.html">Tree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a4c1ec9071c7711e78526d23fb09e987b">clone</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a1596d1201c2198d6b2fa031b69afb902">dispose</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a852f87180cb66f7a2eb0412a0a7e36d4">equals</a> (const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;that) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tree.html">Tree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a38c80e2eaf093a49af01022933fd7d89">operator[]</a> (unsigned int index) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a297f3afdd24759b3bfafd1d9beaf1c4b">operator==</a> (const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt; other) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#ac5c243e936153c0b288b9a9f58c50b68">operator=</a> (const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#aa231a6e0d344800a18a475d6afbf169c">operator&lt;&lt;</a> (const <a class="el" href="class_tree.html">Tree</a> &amp;data)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a78c655087b58f40cf88be68ba8a1e54f">operator=</a> (const T &amp;data)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a0f2e77dc12309797d323c60efbc8a84b">operator T &amp;</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a35547a14c9b515c02fae1ef313c8eab8">operator T &amp;</a> () throws(<a class="el" href="class_tree_1_1_out_of_bounds_exeption.html">OutOfBoundsExeption</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#acc2f63786bfb45815e8cf063d3a004b2">operator const T &amp;</a> () const throws(<a class="el" href="class_tree_1_1_out_of_bounds_exeption.html">OutOfBoundsExeption</a>)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tree_1_1_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a48b4eb1b62e0c76116824f4db116730e">getNode</a> (size_t index) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#ab1b28bac79bf56ca2ec10769b763de22">Tree</a> (<a class="el" href="class_tree_1_1_node.html">Node</a> *<a class="el" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_tree_1_1_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a48b4eb1b62e0c76116824f4db116730e">getNode</a> (size_t index) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#ab1b28bac79bf56ca2ec10769b763de22">Tree</a> (<a class="el" href="struct_tree_1_1_node.html">Node</a> *<a class="el" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tree_1_1_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_tree_1_1_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_tree_1_1_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br/>
 class Tree&lt; T &gt;</h3>
 
 
-<p>Definition at line <a class="el" href="#L24">24</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L20">20</a> of file <a class="el" href="">Tree.h</a>.</p>
 </div><hr/><h2>Member Typedef Documentation</h2>
 <a class="anchor" id="aeb41ed02f1f1080e1c89a90c0676cc30"></a><!-- doxytag: member="Tree::DataType" ref="aeb41ed02f1f1080e1c89a90c0676cc30" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">typedef T <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::<a class="el" href="class_tree.html#aeb41ed02f1f1080e1c89a90c0676cc30">DataType</a></td>
@@ -132,7 +139,7 @@ template&lt;typename T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L26">26</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L142">142</a> of file <a class="el" href="">Tree.h</a>.</p>
 
 </div>
 </div>
@@ -141,12 +148,12 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::<a class="el" href="class_tree.html">Tree</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_tree_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_tree_1_1_node.html">Node</a> *&#160;</td>
           <td class="paramname"><em>root</em></td><td>)</td>
           <td><code> [inline, protected]</code></td>
         </tr>
@@ -154,9 +161,11 @@ template&lt;typename T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L106">106</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L135">135</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">                     {
         this-&gt;<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a> = <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>;
+
+        <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a> = <a class="code" href="defines_8h.html#ac97b8ee753e4405397a42ad5799b0f9e">null</a>;
     }
 </pre></div>
 </div>
@@ -165,7 +174,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::<a class="el" href="class_tree.html">Tree</a> </td>
@@ -177,9 +186,10 @@ template&lt;typename T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L112">112</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L228">228</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">           {
-        <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a> = <span class="keyword">new</span> Node(0, <a class="code" href="_tree_8h.html#ac97b8ee753e4405397a42ad5799b0f9e">null</a>);
+        <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a> = <span class="keyword">new</span> Node(0, <a class="code" href="defines_8h.html#ac97b8ee753e4405397a42ad5799b0f9e">null</a>);
+        <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a> = <a class="code" href="defines_8h.html#ac97b8ee753e4405397a42ad5799b0f9e">null</a>;
     }
 </pre></div>
 </div>
@@ -188,7 +198,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::<a class="el" href="class_tree.html">Tree</a> </td>
@@ -201,9 +211,10 @@ template&lt;typename T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L116">116</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L233">233</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">                           {
         this-&gt;<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a> = orig.<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>;
+        <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a> = <a class="code" href="defines_8h.html#ac97b8ee753e4405397a42ad5799b0f9e">null</a>;
     }
 </pre></div>
 </div>
@@ -212,7 +223,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">virtual <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::~<a class="el" href="class_tree.html">Tree</a> </td>
@@ -224,7 +235,7 @@ template&lt;typename T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L120">120</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L238">238</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">                    {
 
     }
@@ -236,7 +247,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_tree.html">Tree</a> <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::clone </td>
@@ -248,38 +259,40 @@ template&lt;typename T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L272">272</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L384">384</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">                       {
         <a class="code" href="class_tree.html">Tree</a> newTree = <a class="code" href="class_tree.html#a30ebe31999547d31fea5b40cc805f6a2">Tree</a>();
-        newTree.<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a> = <span class="keyword">new</span> Node(<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="class_tree_1_1_node.html#a9247352a13eb73393276b334255e6519">data</a>, 0, <a class="code" href="_tree_8h.html#ac97b8ee753e4405397a42ad5799b0f9e">null</a>);
+        newTree.<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a> = <span class="keyword">new</span> Node(<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a9b1b59aeac593e26b87fd6af218160c8">data</a>, 0, <a class="code" href="defines_8h.html#ac97b8ee753e4405397a42ad5799b0f9e">null</a>);
 
         QQueue&lt;Node*&gt; nodesQueue = QQueue&lt;Node*&gt;();
         QQueue&lt;Node*&gt; newNodesQueue = QQueue&lt;Node*&gt;();
 
-        nodesQueue.append(<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>);
-        newNodesQueue.append(newTree.<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>);
+        nodesQueue.push_back(<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>);
+        newNodesQueue.push_back(newTree.<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>);
 
         <span class="keywordflow">while</span> (!nodesQueue.empty()) {
             Node* current = nodesQueue.front();
             Node* newCurrent = newNodesQueue.front();
 
-            nodesQueue.detach();
-            newNodesQueue.detach();
+            nodesQueue.pop_front();
+            newNodesQueue.pop_front();
 
-            <span class="keywordflow">if</span> (!current-&gt;firstChild) <span class="keywordflow">continue</span>;
-            current = current-&gt;firstChild;
-            nodesQueue.append(current);
+            Node* firstChild = current-&gt;child;
+            <span class="keywordflow">if</span> (!firstChild) <span class="keywordflow">continue</span>;
+            current = firstChild;
+            nodesQueue.push_back(current);
 
-            newCurrent-&gt;firstChild = <span class="keyword">new</span> Node(current-&gt;data, current-&gt;id, newCurrent, current-&gt;free);
-            newCurrent = newCurrent-&gt;firstChild;
-            newNodesQueue.append(newCurrent);
-            <span class="keywordflow">while</span> (current-&gt;nextBrother) {
-                current = current-&gt;nextBrother;
-                nodesQueue.append(current);
+            newCurrent-&gt;child = <span class="keyword">new</span> Node(current-&gt;data ? <span class="keyword">new</span> T(*current-&gt;data) : <a class="code" href="defines_8h.html#ac97b8ee753e4405397a42ad5799b0f9e">null</a>, current-&gt;id, newCurrent);
+            newCurrent = newCurrent-&gt;child;
 
-                newCurrent-&gt;nextBrother = <span class="keyword">new</span> Node(current-&gt;data, current-&gt;id, newCurrent, current-&gt;free);
-                newCurrent = newCurrent-&gt;nextBrother;
-                newNodesQueue.append(newCurrent);
+            newNodesQueue.push_back();
+            <span class="keywordflow">while</span> (current-&gt;next) {
+                current = current-&gt;next;
+                nodesQueue.push_back(current);
+
+                newCurrent-&gt;next = <span class="keyword">new</span> Node(current-&gt;data ? <span class="keyword">new</span> T(*current-&gt;data) : <a class="code" href="defines_8h.html#ac97b8ee753e4405397a42ad5799b0f9e">null</a>, current-&gt;id, newCurrent);
+                newCurrent = newCurrent-&gt;next;
+                newNodesQueue.push_back(newCurrent);
             }
         }
 
@@ -292,7 +305,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::dispose </td>
@@ -304,29 +317,21 @@ template&lt;typename T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L242">242</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L423">423</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">                   {
         QStack&lt;Node*&gt; nodesStack = QStack&lt;Node*&gt;();
 
         nodesStack.push(<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>);
 
         <span class="keywordflow">while</span> (!nodesStack.empty()) {
-            Node* current = nodesStack.top();
+            Node* current = nodesStack.pop();
 
-            <span class="keywordflow">if</span> (current-&gt;firstChild) {
-                nodesStack.pop();
-                <span class="keywordflow">if</span> (current-&gt;nextBrother) {
-                    nodesStack.push(current-&gt;nextBrother);
-                }
-
-                nodesStack.push(current-&gt;firstChild);
-            } <span class="keywordflow">else</span> {
-                nodesStack.pop();
-                <span class="keywordflow">if</span> (current-&gt;nextBrother) {
-                    nodesStack.push(current-&gt;nextBrother);
-                }
+            <span class="keywordflow">if</span> (current-&gt;next) {
+                nodesStack.push(current-&gt;next);
             }
-
+            <span class="keywordflow">if</span> (current-&gt;child) {
+                nodesStack.push(current-&gt;child);
+            }
             <span class="keyword">delete</span> current;
         }
     }
@@ -337,7 +342,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::equals </td>
@@ -350,14 +355,14 @@ template&lt;typename T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L309">309</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L441">441</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                                  {
-        <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a> &amp;&amp; that-&gt;<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a> &amp;&amp; this-&gt;<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="class_tree_1_1_node.html#a9247352a13eb73393276b334255e6519">data</a> == that.<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="class_tree_1_1_node.html#a9247352a13eb73393276b334255e6519">data</a>;
+        <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a> &amp;&amp; that-&gt;<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a> &amp;&amp; this-&gt;<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a9b1b59aeac593e26b87fd6af218160c8">data</a> == that.<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a9b1b59aeac593e26b87fd6af218160c8">data</a>;
     }
 </pre></div>
 </div>
 </div>
-<a class="anchor" id="aa3c478d5c84bdc85002a4c25a8bcb290"></a><!-- doxytag: member="Tree::get" ref="aa3c478d5c84bdc85002a4c25a8bcb290" args="() const " -->
+<a class="anchor" id="a0fde092d58dc5d448f2698062a69cf2e"></a><!-- doxytag: member="Tree::get" ref="a0fde092d58dc5d448f2698062a69cf2e" args="() const throws(OutOfBoundsExeption)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -373,9 +378,13 @@ template&lt;typename T&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L135">135</a> of file <a class="el" href="">Tree.h</a>.</p>
-<div class="fragment"><pre class="fragment">                          {
-        <span class="keywordflow">return</span> <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="class_tree_1_1_node.html#a9247352a13eb73393276b334255e6519">data</a>;
+<p>Definition at line <a class="el" href="#L262">262</a> of file <a class="el" href="">Tree.h</a>.</p>
+<div class="fragment"><pre class="fragment">                                                      {
+        <span class="keywordflow">if</span> (!<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a9b1b59aeac593e26b87fd6af218160c8">data</a>) {
+            <span class="keywordflow">throw</span> OutOfBoundsExeption();
+        }
+
+        <span class="keywordflow">return</span> *<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a9b1b59aeac593e26b87fd6af218160c8">data</a>;
     }
 </pre></div>
 </div>
@@ -387,7 +396,7 @@ template&lt;typename T&gt; </div>
 template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_tree_1_1_node.html">Node</a>* <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::getNode </td>
+          <td class="memname"><a class="el" href="struct_tree_1_1_node.html">Node</a>* <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::getNode </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -397,30 +406,49 @@ template&lt;typename T&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L81">81</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L91">91</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                      {
-        Node* current = <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>;
+        <span class="keywordflow">if</span> (!<a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>) {
+            <span class="keywordflow">if</span> (!<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a185a8389a684e341631835dac6770680">child</a>) {
+                <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a185a8389a684e341631835dac6770680">child</a> = <span class="keyword">new</span> Node(0, <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>);
+            }
 
-        <span class="keywordflow">if</span> (!current-&gt;firstChild) {
-            current-&gt;<a class="code" href="class_tree_1_1_node.html#a09d6ec398a7a01961db4b6ce2917a624">firstChild</a> = <span class="keyword">new</span> Node(0, current, <span class="keyword">true</span>);
+            <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a> = <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a185a8389a684e341631835dac6770680">child</a>;
         }
 
-        current = current-&gt;firstChild;
+        <span class="keywordflow">if</span> (<a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a1996d9b284bc3695441601f9d3cdf7b0">id</a> &lt; index) {
+            <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
+                <span class="keywordflow">if</span> (!<a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a19d8cd69a82ac19ad212dbb132c92ace">next</a> || (<a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a1996d9b284bc3695441601f9d3cdf7b0">id</a> &lt; index &amp;&amp; <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a19d8cd69a82ac19ad212dbb132c92ace">next</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a1996d9b284bc3695441601f9d3cdf7b0">id</a> &gt; index) || <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a1996d9b284bc3695441601f9d3cdf7b0">id</a> == index) <span class="keywordflow">break</span>;
 
-        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
-            <span class="keywordflow">if</span> (!current-&gt;nextBrother || (current-&gt;id &lt; index &amp;&amp; current-&gt;nextBrother-&gt;id &gt; index) || current-&gt;id == index) <span class="keywordflow">break</span>;
-            current = current-&gt;nextBrother;
+                <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a> = <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a19d8cd69a82ac19ad212dbb132c92ace">next</a>;
+            }
+        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a1996d9b284bc3695441601f9d3cdf7b0">id</a> &gt; index) {
+            <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
+                <span class="keywordflow">if</span> (!<a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a5abb1bb9526e414de9111ecd99c06d0c">prev</a> || (<a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a1996d9b284bc3695441601f9d3cdf7b0">id</a> &gt; index &amp;&amp; <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a5abb1bb9526e414de9111ecd99c06d0c">prev</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a1996d9b284bc3695441601f9d3cdf7b0">id</a> &lt; index) || <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a1996d9b284bc3695441601f9d3cdf7b0">id</a> == index) <span class="keywordflow">break</span>;
+
+                <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a> = <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a5abb1bb9526e414de9111ecd99c06d0c">prev</a>;
+            }
         }
 
-        <span class="keywordflow">if</span> (current-&gt;id != index) {
-            Node* newNode = <span class="keyword">new</span> Node(index, current-&gt;parent, <span class="keyword">true</span>);
-            newNode-&gt;nextBrother = current-&gt;nextBrother;
-            current-&gt;nextBrother = newNode;
+        <span class="keywordflow">if</span> (<a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a1996d9b284bc3695441601f9d3cdf7b0">id</a> != index) {
+            Node* node = <span class="keyword">new</span> Node(index, <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>);
 
-            current = newNode;
+            <span class="keywordflow">if</span> (<a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a1996d9b284bc3695441601f9d3cdf7b0">id</a> &lt; index) {
+                node-&gt;prev = <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>;
+                node-&gt;<a class="code" href="struct_tree_1_1_node.html#a19d8cd69a82ac19ad212dbb132c92ace">next</a> = <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a19d8cd69a82ac19ad212dbb132c92ace">next</a>;
+                <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a19d8cd69a82ac19ad212dbb132c92ace">next</a> = node;
+
+                <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a> = <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a19d8cd69a82ac19ad212dbb132c92ace">next</a>;
+            } <span class="keywordflow">else</span> {
+                node-&gt;<a class="code" href="struct_tree_1_1_node.html#a5abb1bb9526e414de9111ecd99c06d0c">prev</a> = <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a5abb1bb9526e414de9111ecd99c06d0c">prev</a>;
+                node-&gt;<a class="code" href="struct_tree_1_1_node.html#a19d8cd69a82ac19ad212dbb132c92ace">next</a> = <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>;
+                <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a5abb1bb9526e414de9111ecd99c06d0c">prev</a> = node;
+
+                <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a> = <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a5abb1bb9526e414de9111ecd99c06d0c">prev</a>;
+            }
         }
 
-        <span class="keywordflow">return</span> current;
+        <span class="keywordflow">return</span> <a class="code" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a>;
     }
 </pre></div>
 </div>
@@ -442,14 +470,90 @@ template&lt;typename T&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L124">124</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L248">248</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                               {
         <span class="keywordflow">return</span> <a class="code" href="class_tree.html#a30ebe31999547d31fea5b40cc805f6a2">Tree</a>(<a class="code" href="class_tree.html#a48b4eb1b62e0c76116824f4db116730e">getNode</a>(index));
     }
 </pre></div>
 </div>
 </div>
-<a class="anchor" id="a0f2e77dc12309797d323c60efbc8a84b"></a><!-- doxytag: member="Tree::operator T &amp;" ref="a0f2e77dc12309797d323c60efbc8a84b" args="() const " -->
+<a class="anchor" id="a57e8bec37daba769cc9042b2bf5c0cfd"></a><!-- doxytag: member="Tree::getSuperTree" ref="a57e8bec37daba769cc9042b2bf5c0cfd" args="() const throws(OutOfBoundsExeption)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_tree.html">Tree</a> <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::getSuperTree </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L242">242</a> of file <a class="el" href="">Tree.h</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                {
+        <span class="keywordflow">if</span>(!<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a4301249e4ff21c32561e15a3503e2ffa">parent</a>) <span class="keywordflow">throw</span> OutOfBoundsExeption();
+        
+        <span class="keywordflow">return</span> <a class="code" href="class_tree.html#a30ebe31999547d31fea5b40cc805f6a2">Tree</a>(<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a4301249e4ff21c32561e15a3503e2ffa">parent</a>);
+    }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a021e9e20d4aa71092f78173530e060d0"></a><!-- doxytag: member="Tree::insert" ref="a021e9e20d4aa71092f78173530e060d0" args="(const Tree&lt; T &gt; &amp;data)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::insert </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L270">270</a> of file <a class="el" href="">Tree.h</a>.</p>
+<div class="fragment"><pre class="fragment">                                            {
+        <span class="keywordflow">if</span> (<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a4301249e4ff21c32561e15a3503e2ffa">parent</a>) {
+            <span class="keywordflow">if</span> (<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a5abb1bb9526e414de9111ecd99c06d0c">prev</a>) <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a5abb1bb9526e414de9111ecd99c06d0c">prev</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a19d8cd69a82ac19ad212dbb132c92ace">next</a> = data.<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>;
+            <span class="keywordflow">if</span> (<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a19d8cd69a82ac19ad212dbb132c92ace">next</a>) <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a19d8cd69a82ac19ad212dbb132c92ace">next</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a5abb1bb9526e414de9111ecd99c06d0c">prev</a> = data.<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>;
+            <span class="keywordflow">if</span> (<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a4301249e4ff21c32561e15a3503e2ffa">parent</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a185a8389a684e341631835dac6770680">child</a> == <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>) <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a4301249e4ff21c32561e15a3503e2ffa">parent</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a185a8389a684e341631835dac6770680">child</a> = data.<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>;
+        }
+    }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="acc2f63786bfb45815e8cf063d3a004b2"></a><!-- doxytag: member="Tree::operator const T &amp;" ref="acc2f63786bfb45815e8cf063d3a004b2" args="() const throws(OutOfBoundsExeption)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::operator const T &amp; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L473">473</a> of file <a class="el" href="">Tree.h</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                  {
+        <span class="keywordflow">return</span> <span class="keyword">get</span>();
+    }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a35547a14c9b515c02fae1ef313c8eab8"></a><!-- doxytag: member="Tree::operator T &amp;" ref="a35547a14c9b515c02fae1ef313c8eab8" args="() throws(OutOfBoundsExeption)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -459,15 +563,41 @@ template&lt;typename T&gt; </div>
           <td class="memname"><a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::operator T &amp; </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L330">330</a> of file <a class="el" href="">Tree.h</a>.</p>
-<div class="fragment"><pre class="fragment">                               {
+<p>Definition at line <a class="el" href="#L469">469</a> of file <a class="el" href="">Tree.h</a>.</p>
+<div class="fragment"><pre class="fragment">                                                      {
         <span class="keywordflow">return</span> <span class="keyword">get</span>();
+    }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aa231a6e0d344800a18a475d6afbf169c"></a><!-- doxytag: member="Tree::operator&lt;&lt;" ref="aa231a6e0d344800a18a475d6afbf169c" args="(const Tree &amp;data)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_tree.html">Tree</a>&lt;T&gt;&amp; <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L459">459</a> of file <a class="el" href="">Tree.h</a>.</p>
+<div class="fragment"><pre class="fragment">                                                        {
+        <a class="code" href="class_tree.html#a021e9e20d4aa71092f78173530e060d0">insert</a>(data);
+
+        <span class="keywordflow">return</span> *<span class="keyword">this</span>;
     }
 </pre></div>
 </div>
@@ -489,8 +619,8 @@ template&lt;typename T&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L326">326</a> of file <a class="el" href="">Tree.h</a>.</p>
-<div class="fragment"><pre class="fragment">                                              {
+<p>Definition at line <a class="el" href="#L465">465</a> of file <a class="el" href="">Tree.h</a>.</p>
+<div class="fragment"><pre class="fragment">                                             {
         <span class="keywordflow">return</span> <span class="keyword">set</span>(data);
     }
 </pre></div>
@@ -513,9 +643,10 @@ template&lt;typename T&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L321">321</a> of file <a class="el" href="">Tree.h</a>.</p>
-<div class="fragment"><pre class="fragment">                                                          {
-        this-&gt;<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a> = data.<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>;
+<p>Definition at line <a class="el" href="#L453">453</a> of file <a class="el" href="">Tree.h</a>.</p>
+<div class="fragment"><pre class="fragment">                                                         {
+        <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a> = data.<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>;
+
         <span class="keywordflow">return</span> *<span class="keyword">this</span>;
     }
 </pre></div>
@@ -538,7 +669,7 @@ template&lt;typename T&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L317">317</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L449">449</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                                      {
         <span class="keywordflow">return</span> <a class="code" href="class_tree.html#a852f87180cb66f7a2eb0412a0a7e36d4">equals</a>(other);
     }
@@ -562,7 +693,7 @@ template&lt;typename T&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L313">313</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L445">445</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                                     {
         <span class="keywordflow">return</span> <a class="code" href="class_tree.html#ac3cfe7863661442a9cd30484ce6bc03d">getSubTree</a>(index);
     }
@@ -586,10 +717,13 @@ template&lt;typename T&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L128">128</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L252">252</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                       {
-        this-&gt;<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="class_tree_1_1_node.html#a9247352a13eb73393276b334255e6519">data</a> = data;
-        this-&gt;<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="class_tree_1_1_node.html#abaa34f63f5e27ecb8023b41c3e2c3b31">free</a> = <span class="keyword">false</span>;
+        <span class="keywordflow">if</span> (<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a9b1b59aeac593e26b87fd6af218160c8">data</a>) {
+            *<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a9b1b59aeac593e26b87fd6af218160c8">data</a> = data;
+        } <span class="keywordflow">else</span> {
+            <a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>-&gt;<a class="code" href="struct_tree_1_1_node.html#a9b1b59aeac593e26b87fd6af218160c8">data</a> = <span class="keyword">new</span> T(data);
+        }
 
         <span class="keywordflow">return</span> data;
     }
@@ -613,7 +747,7 @@ template&lt;typename T&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L190">190</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L331">331</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                                     {
         processor.dataProcessingStarts();
 
@@ -623,40 +757,42 @@ template&lt;typename T&gt; </div>
             nodesStack.push(<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>);
 
             <span class="keywordflow">while</span> (!nodesStack.empty()) {
-                Node* current = nodesStack.top();
-                nodesStack.pop();
+                Node* current = nodesStack.pop();
+                <span class="keywordflow">if</span> (current-&gt;data) {
+                    <span class="keyword">const</span> DataProvider provider = DataProvider(current);
+                    processor.processData(provider);
+                }
 
-                <span class="keywordflow">if</span> (!current-&gt;free) processor.processData(current-&gt;data);
+                <span class="keywordflow">if</span> (current-&gt;next) {
+                    nodesStack.push(current-&gt;next);
+                }
 
-                <span class="keywordflow">if</span> (current-&gt;firstChild) {
-                    <span class="keywordflow">if</span> (current-&gt;nextBrother) {
-                        nodesStack.push(current-&gt;nextBrother);
-                    }
-
-                    nodesStack.push(current-&gt;firstChild);
-                } <span class="keywordflow">else</span> {
-                    <span class="keywordflow">if</span> (current-&gt;nextBrother) {
-                        nodesStack.push(current-&gt;nextBrother);
-                    }
+                <span class="keywordflow">if</span> (current-&gt;child) {
+                    nodesStack.push(current-&gt;child);
                 }
             }
         } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (processor.getTraverseType() == <a class="code" href="class_traverse_type.html#a16739a062a76d85e74f28b5fe19c642f">TraverseType::WIDTH_TRAVERSE</a>) {
             QQueue&lt;Node*&gt; nodesQueue = QQueue&lt;Node*&gt;();
-            nodesQueue.push(<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>);
+            nodesQueue.push_back(<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>);
 
             <span class="keywordflow">while</span> (!nodesQueue.empty()) {
                 Node* current = nodesQueue.front();
-                nodesQueue.pop();
+                nodesQueue.pop_front();
 
-                <span class="keywordflow">if</span> (!current-&gt;free) processor.processData(current-&gt;data);
+                Node* firstChild = current-&gt;child;
 
-                <span class="keywordflow">if</span> (current-&gt;firstChild) {
-                    nodesQueue.push(current-&gt;firstChild);
-                    current = current-&gt;firstChild;
+                <span class="keywordflow">if</span> (current-&gt;data) {
+                    <span class="keyword">const</span> DataProvider provider = DataProvider(current);
+                    processor.processData(provider);
+                }
 
-                    <span class="keywordflow">while</span> (current-&gt;nextBrother) {
-                        nodesQueue.push(current-&gt;nextBrother);
-                        current = current-&gt;nextBrother;
+                <span class="keywordflow">if</span> (firstChild) {
+                    current = firstChild;
+                    nodesQueue.push_back(current);
+
+                    <span class="keywordflow">while</span> (current-&gt;next) {
+                        nodesQueue.push_back(current-&gt;next);
+                        current = current-&gt;next;
                     }
                 }
             }
@@ -684,7 +820,7 @@ template&lt;typename T&gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L139">139</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L278">278</a> of file <a class="el" href="">Tree.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                         {
         processor.dataProcessingStarts();
 
@@ -694,40 +830,42 @@ template&lt;typename T&gt; </div>
             nodesStack.push(<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>);
 
             <span class="keywordflow">while</span> (!nodesStack.empty()) {
-                Node* current = nodesStack.top();
-                nodesStack.pop();
+                Node* current = nodesStack.pop();
+                <span class="keywordflow">if</span> (current-&gt;data) {
+                    DataProvider provider = DataProvider(current);
+                    processor.processData(provider);
+                }
 
-                <span class="keywordflow">if</span> (!current-&gt;free) processor.processData(current-&gt;data);
+                <span class="keywordflow">if</span> (current-&gt;next) {
+                    nodesStack.push(current-&gt;next);
+                }
 
-                <span class="keywordflow">if</span> (current-&gt;firstChild) {
-                    <span class="keywordflow">if</span> (current-&gt;nextBrother) {
-                        nodesStack.push(current-&gt;nextBrother);
-                    }
-
-                    nodesStack.push(current-&gt;firstChild);
-                } <span class="keywordflow">else</span> {
-                    <span class="keywordflow">if</span> (current-&gt;nextBrother) {
-                        nodesStack.push(current-&gt;nextBrother);
-                    }
+                <span class="keywordflow">if</span> (current-&gt;child) {
+                    nodesStack.push(current-&gt;child);
                 }
             }
         } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (processor.getTraverseType() == <a class="code" href="class_traverse_type.html#a16739a062a76d85e74f28b5fe19c642f">TraverseType::WIDTH_TRAVERSE</a>) {
             QQueue&lt;Node*&gt; nodesQueue = QQueue&lt;Node*&gt;();
-            nodesQueue.push(<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>);
+            nodesQueue.push_back(<a class="code" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a>);
 
             <span class="keywordflow">while</span> (!nodesQueue.empty()) {
                 Node* current = nodesQueue.front();
-                nodesQueue.pop();
+                nodesQueue.pop_front();
 
-                <span class="keywordflow">if</span> (!current-&gt;free) processor.processData(current-&gt;data);
+                Node* firstChild = current-&gt;child;
 
-                <span class="keywordflow">if</span> (current-&gt;firstChild) {
-                    nodesQueue.push(current-&gt;firstChild);
-                    current = current-&gt;firstChild;
+                <span class="keywordflow">if</span> (current-&gt;data) {
+                    DataProvider provider = DataProvider(current);
+                    processor.processData(provider);
+                }
 
-                    <span class="keywordflow">while</span> (current-&gt;nextBrother) {
-                        nodesQueue.push(current-&gt;nextBrother);
-                        current = current-&gt;nextBrother;
+                <span class="keywordflow">if</span> (firstChild) {
+                    current = firstChild;
+                    nodesQueue.push_back(current);
+
+                    <span class="keywordflow">while</span> (current-&gt;next) {
+                        nodesQueue.push_back(current-&gt;next);
+                        current = current-&gt;next;
                     }
                 }
             }
@@ -739,6 +877,23 @@ template&lt;typename T&gt; </div>
 </div>
 </div>
 <hr/><h2>Field Documentation</h2>
+<a class="anchor" id="a049457d34f4a5d06d792a77463be814d"></a><!-- doxytag: member="Tree::iterator" ref="a049457d34f4a5d06d792a77463be814d" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_tree_1_1_node.html">Node</a>* <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::<a class="el" href="class_tree.html#a049457d34f4a5d06d792a77463be814d">iterator</a><code> [mutable, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L89">89</a> of file <a class="el" href="">Tree.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a089fed4e761d328e5567b7906dfa3a7a"></a><!-- doxytag: member="Tree::root" ref="a089fed4e761d328e5567b7906dfa3a7a" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -746,18 +901,18 @@ template&lt;typename T&gt; </div>
 template&lt;typename T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_tree_1_1_node.html">Node</a>* <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::<a class="el" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a><code> [protected]</code></td>
+          <td class="memname"><a class="el" href="struct_tree_1_1_node.html">Node</a>* <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::<a class="el" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">root</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L79">79</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L88">88</a> of file <a class="el" href="">Tree.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/host/Coding/C++/Syntax Analyzer/src/Core/<a class="el" href="">Tree.h</a></li>
+<li>/host/Coding/C++/Syntax Analyzer/src/Utils/<a class="el" href="">Tree.h</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -774,7 +929,7 @@ template&lt;typename T&gt; </div>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sat Feb 11 2012 12:57:08 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

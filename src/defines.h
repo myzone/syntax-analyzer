@@ -15,3 +15,7 @@
 #ifndef pure
         #define pure =0
 #endif
+
+#ifndef extends
+        #define extends :
+#endif

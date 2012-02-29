@@ -2,45 +2,51 @@
 
 #include <QString>
 
+#include "../defines.h"
 #include "../Utils/Tree.h"
 #include "../Events/EventBroadcaster.h"
-#include "Exeption.h"
-
-#include "defines.h"
+#include "../Core/Exeption.h"
 
 namespace Core {
 
+    /*
+     * Класс, реализующий Token
+     */
     class Symbol {
     public:
 
         struct SymbolTypeData {
             QChar symbol;
-            int priority;
-            
-            SymbolTypeData& operator =(const SymbolTypeData& that) {
+            unsigned int argsNumber;
+            unsigned int priority;
+            bool (*operation) (const QList<bool>& args);
+
+            SymbolTypeData& operator =(const SymbolTypeData & that) {
                 symbol = that.symbol;
+                argsNumber = that.argsNumber;
                 priority = that.priority;
-                
+                operation = that.operation;
+
                 return *this;
             }
-            
-            bool operator ==(const SymbolTypeData& that) const {
-                return symbol == that.symbol && priority == that.priority;
+
+            bool operator ==(const SymbolTypeData & that) const {
+                return symbol == that.symbol && argsNumber == that.argsNumber && priority == that.priority;
             }
-            
-            bool operator !=(const SymbolTypeData& that) const {
-                return symbol != that.symbol || priority != that.priority;
+
+            bool operator !=(const SymbolTypeData & that) const {
+                return symbol != that.symbol || argsNumber != that.argsNumber || priority != that.priority;
             }
 
         };
 
         class SymbolType : public Enum<Symbol::SymbolTypeData> {
         protected:
-            SymbolType(const QChar& symbol, int priority);
+            SymbolType(const QChar& symbol, bool (*operation) (const QList<bool>& args), unsigned int argsNumber, unsigned int priority = ~0u);
 
         public:
             SymbolType();
-            
+
             static const SymbolType CLOSE_BRACKET;
             static const SymbolType OPEN_BRACKET;
             static const SymbolType OR;
@@ -50,57 +56,128 @@ namespace Core {
             static const SymbolType SPACE;
             static const SymbolType BACKSLASH;
 
+            inline bool operation(const QList<bool>& args) const {
+                return value.operation(args);
+            }
+
             inline const QChar& toChar() const {
                 return value.symbol;
             }
 
-            inline int getPriority() const {
+            inline unsigned int getArgsNumber() const {
+                return value.argsNumber;
+            }
+            
+            inline unsigned int getPriority() const {
                 return value.priority;
             }
+
+        private:
+            static bool AndOperation(const QList<bool>& args);
+            static bool OrOperation(const QList<bool>& args);
+            static bool EqualOperation(const QList<bool>& args);
+            static bool OtherOperation(const QList<bool>& args);
         };
+
     protected:
         QString string;
         SymbolType type;
 
     public:
         Symbol();
+        Symbol(const Symbol& that);
         Symbol(const QString& string, const Symbol::SymbolType& type);
         Symbol(const Symbol::SymbolType& type);
 
-        const QString& getString() const;
+        const QString& toString() const;
         const SymbolType& getType() const;
     };
 
+    /*
+     * Класс, реализующий Lexer, т.е. класс разбивающий входную строку на Token'ы
+     */
     class SymbolFactory {
     private:
         QString line;
         QString::ConstIterator position;
-        
+
         QString lastString;
         Symbol::SymbolType lastSymbolType;
+
     public:
         SymbolFactory(const QString& string);
-        SymbolFactory(const SymbolFactory& string);
 
         Symbol getNextSymbol() throws(AnalyzeCrashExeption, WarningExeption);
         bool isNextSymbol();
+
     private:
         void skipFirst(const Symbol::SymbolType& symbolType);
         void skipAll(const Symbol::SymbolType& symbolType);
     };
 
+    /*
+     * Класс реализующий семантический анализ
+     */
     class SyntaxTreeFactory {
     private:
-        SyntaxTreeFactory() {}
-        
+
+        Events::EventBroadcaster* broadcaster;
+
+        SyntaxTreeFactory() {
+        }
+
+        class TreeProcessor : public Tree<Symbol>::DataProcessor {
+        private:
+            QMap<QString, QString>* map;
+            QString symbol;
+        public:
+
+            TreeProcessor(QMap<QString, QString>* map) : map(map) {
+            }
+
+            virtual void dataProcessingStarts() {
+                symbol = "";
+            }
+
+            virtual void dataProcessingEnds() {
+            }
+
+            virtual void processData(Tree<Symbol>& nodeProvider) throws(Tree<Symbol>::TraverseStoppedExeption) {
+                if (!nodeProvider.isLeaf()) return;
+
+                if (nodeProvider.get().getType() == Symbol::SymbolType::IDENTYFIER) {
+                    if (map->contains(nodeProvider.get().toString())) {
+                        symbol = nodeProvider.get().toString();
+                        stop();
+                    }
+                }
+            }
+
+            virtual void processData(const Tree<Symbol>& nodeProvider) const throws(Tree<Symbol>::TraverseStoppedExeption) {
+            }
+
+            virtual const TraverseType& getTraverseType() const {
+                return TraverseType::WIDTH_TRAVERSE;
+            }
+
+            const QString& getSymbol() const {
+                return symbol;
+            }
+
+            bool isEnd() const {
+                return symbol=="";
+            }
+        };
+
     public:
-        static Tree<QString> createTree(const QString& text) throws(AnalyzeCrashExeption);
-        
-    private:
-        static void processLine(const QString& line, Tree<QString>& tree) throws(AnalyzeCrashExeption);
-        static QList<QString> toSymbolList(const QString& line) throws(AnalyzeCrashExeption);
-    
+        SyntaxTreeFactory(Events::EventBroadcaster* broadcaster);
+        Tree<Symbol> createTree(const QString& text) const throws(AnalyzeCrashExeption);
+
+        //private:
+
+        QMap<QString, QString> createLinesMap(const QString& text) const;
+        void processLine(const QString& line, Tree<Symbol> tree) const throws(AnalyzeCrashExeption);
+        QList<Symbol> toPostfixSymbolsList(const QString & line) const throws(AnalyzeCrashExeption);
+
     };
-
-
 }

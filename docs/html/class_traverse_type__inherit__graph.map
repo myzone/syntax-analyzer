@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node2" href="$class_enum.html" title="{Enum\&lt; QString \&gt;\n|&#45; value\l|+ operator==()\l+ operator const QString &amp;()\l# Enum()\l# Enum()\l}" alt="" coords="5,211,192,349"/>
-<area shape="rect" id="node4" href="$class_enum.html" title="{Enum\&lt; T \&gt;\n|&#45; value\l|+ operator==()\l+ operator const T &amp;()\l# Enum()\l# Enum()\l}" alt="" coords="24,6,173,143"/>
+<area shape="rect" id="node2" href="$class_enum.html" title="{Enum\&lt; QString \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const QString &amp;()\l# Enum()\l}" alt="" coords="5,246,192,418"/>
+<area shape="rect" id="node4" href="$class_enum.html" title="{Enum\&lt; T \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const T &amp;()\l# Enum()\l}" alt="" coords="24,6,173,178"/>
 </map>

@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.01</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.02</span></div>
   </td>
  </tr>
  </tbody>
@@ -74,6 +74,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <!-- doxytag: class="Core::Preprocessor" -->
 <p><code>#include &lt;<a class="el" href="">Preprocessor.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Core::Preprocessor:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_core_1_1_preprocessor__coll__graph.png" border="0" usemap="#_core_1_1_preprocessor_coll__map" alt="Collaboration graph"/></div>
+<map name="_core_1_1_preprocessor_coll__map" id="_core_1_1_preprocessor_coll__map">
+<area shape="rect" id="node2" href="class_events_1_1_event_broadcaster.html" title="{Events::EventBroadcaster\n|&#45; listeners\l|+ EventBroadcaster()\l+ ~EventBroadcaster()\l+ addErrorEventListener()\l+ removeErrorEventListener()\l+ broadcast()\l}" alt="" coords="5,5,197,160"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
@@ -82,11 +89,11 @@ Data Structures</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_preprocessor.html#ac1fed9b259466c9a509a45b9d651b1e1">Preprocessor</a> (const QString &amp;pathToLibrary)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_preprocessor.html#ac1f877fb9a0ae18c85b48b2993549e23">~Preprocessor</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_preprocessor.html#aa467f1faf8a93ed0ee9713096d5de08a">process</a> (const QString &amp;source)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_preprocessor.html#ab975885101dabb0edbea8a338bb792ad">process</a> (const QString &amp;source) const throws(AnalyzeCrashExeption)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="#L9">9</a> of file <a class="el" href="">Preprocessor.h</a>.</p>
+<p>Definition at line <a class="el" href="#L14">14</a> of file <a class="el" href="">Preprocessor.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ac1fed9b259466c9a509a45b9d651b1e1"></a><!-- doxytag: member="Core::Preprocessor::Preprocessor" ref="ac1fed9b259466c9a509a45b9d651b1e1" args="(const QString &amp;pathToLibrary)" -->
 <div class="memitem">
@@ -103,9 +110,8 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L15">15</a> of file <a class="el" href="">Preprocessor.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                           {
-        this-&gt;pathToLibrary = pathToLibrary;
+<p>Definition at line <a class="el" href="#L24">24</a> of file <a class="el" href="">Preprocessor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">                                                           : pathToLibrary(pathToLibrary) {
     }
 </pre></div>
 </div>
@@ -124,14 +130,14 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L19">19</a> of file <a class="el" href="">Preprocessor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L27">27</a> of file <a class="el" href="">Preprocessor.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">                                {
     }
 </pre></div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aa467f1faf8a93ed0ee9713096d5de08a"></a><!-- doxytag: member="Core::Preprocessor::process" ref="aa467f1faf8a93ed0ee9713096d5de08a" args="(const QString &amp;source)" -->
+<a class="anchor" id="ab975885101dabb0edbea8a338bb792ad"></a><!-- doxytag: member="Core::Preprocessor::process" ref="ab975885101dabb0edbea8a338bb792ad" args="(const QString &amp;source) const throws(AnalyzeCrashExeption)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -140,26 +146,34 @@ Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const QString &amp;&#160;</td>
           <td class="paramname"><em>source</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L22">22</a> of file <a class="el" href="">Preprocessor.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                       {
+<p>Definition at line <a class="el" href="#L30">30</a> of file <a class="el" href="">Preprocessor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                          {
         QString result = source;
 
         removeComments(result);
 
         QStringList lines = result.split(TEXT_SPLITTER, QString::SkipEmptyParts);
 
+        <span class="keywordtype">bool</span> ok = <span class="keyword">true</span>;
         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; lines.size(); i++) {
-            <span class="keywordflow">if</span> (((QRegExp) Directive::IMPORT).exactMatch(lines[i])) {
-                <span class="keyword">import</span>(result, lines[i].split(LINE_SPLITTER, QString::SkipEmptyParts)[1]);
+            <span class="keywordflow">if</span> (Directive::IMPORT.getMatcherRegExp().exactMatch(lines[i])) {
+                <span class="keywordflow">try</span>{
+                    <span class="keyword">import</span>(result, lines[i].split(LINE_SPLITTER, QString::SkipEmptyParts)[1]);
+                }<span class="keywordflow">catch</span>(AnalyzeCrashExeption) {
+                    ok = <span class="keyword">false</span>;
+                }
             }
         }
-        <span class="keywordflow">return</span> result;
+        
+        <span class="keywordflow">if</span>(!ok) <span class="keywordflow">throw</span> AnalyzeCrashExeption();
+        
+        <span class="keywordflow">return</span> result.replace(SPACES_REMOVER, <span class="stringliteral">&quot;&quot;</span>);
     }
 </pre></div>
 </div>
@@ -183,7 +197,7 @@ Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sat Feb 11 2012 12:57:08 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

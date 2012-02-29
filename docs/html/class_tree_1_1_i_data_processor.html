@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.01</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.02</span></div>
   </td>
  </tr>
  </tbody>
@@ -78,8 +78,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_i_data_processor.html#a580dd12d8d916e61822125d678468c45">dataProcessingStarts</a> () pure</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_i_data_processor.html#a497b67d0dd1b93848ae1feb13ac6de12">dataProcessingEnds</a> () pure</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_i_data_processor.html#a2875f560e7bfc8dcdd6a77f64bc0238e">processData</a> (<a class="el" href="class_tree.html#aeb41ed02f1f1080e1c89a90c0676cc30">DataType</a> &amp;nodeData) pure</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_i_data_processor.html#aff235932741ac677590408b9e01342c1">processData</a> (const <a class="el" href="class_tree.html#aeb41ed02f1f1080e1c89a90c0676cc30">DataType</a> &amp;nodeData) const pure</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_i_data_processor.html#a8c63d322ba443952d779a455bd794d79">processData</a> (<a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::<a class="el" href="class_tree_1_1_data_provider.html">DataProvider</a> &amp;nodeProvider) pure</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_i_data_processor.html#a4194208f953ee0332886821684bf44af">processData</a> (const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::<a class="el" href="class_tree_1_1_data_provider.html">DataProvider</a> &amp;nodeProvider) const pure</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_traverse_type.html">TraverseType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_i_data_processor.html#a3579fb1399d80e70b1fdafc1e2c087c9">getTraverseType</a> () const pure</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
@@ -87,7 +87,7 @@ Public Member Functions</h2></td></tr>
 class Tree&lt; T &gt;::IDataProcessor</h3>
 
 
-<p>Definition at line <a class="el" href="#L28">28</a> of file <a class="el" href="">Tree.h</a>.</p>
+<p>Definition at line <a class="el" href="#L218">218</a> of file <a class="el" href="">Tree.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a497b67d0dd1b93848ae1feb13ac6de12"></a><!-- doxytag: member="Tree::IDataProcessor::dataProcessingEnds" ref="a497b67d0dd1b93848ae1feb13ac6de12" args="() pure" -->
 <div class="memitem">
@@ -143,7 +143,7 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a2875f560e7bfc8dcdd6a77f64bc0238e"></a><!-- doxytag: member="Tree::IDataProcessor::processData" ref="a2875f560e7bfc8dcdd6a77f64bc0238e" args="(DataType &amp;nodeData) pure" -->
+<a class="anchor" id="a8c63d322ba443952d779a455bd794d79"></a><!-- doxytag: member="Tree::IDataProcessor::processData" ref="a8c63d322ba443952d779a455bd794d79" args="(Tree&lt; T &gt;::DataProvider &amp;nodeProvider) pure" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -152,8 +152,8 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::IDataProcessor::processData </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_tree.html#aeb41ed02f1f1080e1c89a90c0676cc30">DataType</a> &amp;&#160;</td>
-          <td class="paramname"><em>nodeData</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::<a class="el" href="class_tree_1_1_data_provider.html">DataProvider</a> &amp;&#160;</td>
+          <td class="paramname"><em>nodeProvider</em></td><td>)</td>
           <td><code> [virtual]</code></td>
         </tr>
       </table>
@@ -162,7 +162,7 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="aff235932741ac677590408b9e01342c1"></a><!-- doxytag: member="Tree::IDataProcessor::processData" ref="aff235932741ac677590408b9e01342c1" args="(const DataType &amp;nodeData) const pure" -->
+<a class="anchor" id="a4194208f953ee0332886821684bf44af"></a><!-- doxytag: member="Tree::IDataProcessor::processData" ref="a4194208f953ee0332886821684bf44af" args="(const Tree&lt; T &gt;::DataProvider &amp;nodeProvider) const pure" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -171,8 +171,8 @@ template&lt;typename T&gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::IDataProcessor::processData </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_tree.html#aeb41ed02f1f1080e1c89a90c0676cc30">DataType</a> &amp;&#160;</td>
-          <td class="paramname"><em>nodeData</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::<a class="el" href="class_tree_1_1_data_provider.html">DataProvider</a> &amp;&#160;</td>
+          <td class="paramname"><em>nodeProvider</em></td><td>)</td>
           <td> const<code> [virtual]</code></td>
         </tr>
       </table>
@@ -182,7 +182,7 @@ template&lt;typename T&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/host/Coding/C++/Syntax Analyzer/src/Core/<a class="el" href="">Tree.h</a></li>
+<li>/host/Coding/C++/Syntax Analyzer/src/Utils/<a class="el" href="">Tree.h</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -199,7 +199,7 @@ template&lt;typename T&gt; </div>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Sat Feb 11 2012 12:57:08 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

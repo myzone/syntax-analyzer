@@ -17,88 +17,70 @@
 
 using namespace Core;
 
+class ToDOT : public Tree<Symbol>::DataProcessor {
+private:
+    File* out;
+public:
+
+    virtual void dataProcessingStarts() {
+        out = stdout; //fopen("tree.dot", "wt");
+
+        fprintf(out, "datagram G {\n");
+    }
+
+    virtual void dataProcessingEnds() {
+        fprintf(out, "}");
+    }
+
+    virtual void processData(Tree<Symbol>& nodeProvider) throws(Tree<Symbol>::TraverseStoppedExeption) {
+        if (!nodeProvider.isRoot()) {
+            fprintf(out, "\t%s -> %s\n", nodeProvider.getSuperTree().get().toString().toStdString().c_str(), nodeProvider.get().toString().toStdString().c_str());
+        }
+    }
+
+    virtual void processData(const Tree<Symbol>& nodeProvider) const throws(Tree<Symbol>::TraverseStoppedExeption) {
+    }
+
+    virtual const TraverseType & getTraverseType() const {
+        return TraverseType::WIDTH_TRAVERSE;
+    }
+};
+
 void test1() {
     Preprocessor proc = Preprocessor("/home/myzone/Рабочий стол/");
     cout << proc.process("import lib;import lib;main->;\n").toStdString() << "\n";
 
 }
 
-void test2() {
-
-    class A : public Tree<QString>::IDataProcessor {
-    private:
-        mutable int i;
-    public:
-
-        virtual void dataProcessingStarts() {
-            i = 0;
-        }
-
-        virtual void dataProcessingEnds() {
-
-        }
-
-        virtual void processData(Tree<QString>::DataProvider& nodeProvider) {
-            cout << i++ << " " << nodeProvider.get().toStdString().c_str() << " ";
-            if (nodeProvider.isLeaf()) {
-                cout << "leaf";
-            }
-            cout << "\n";
-        }
-
-        virtual void processData(const Tree<QString>::DataProvider& nodeProvider) const {
-        }
-
-        virtual const TraverseType& getTraverseType() const {
-            return TraverseType::DEPTH_TRAVERSE;
-        }
-    };
-
-    A a = A();
-
-    Tree<QString> t1 = Tree<QString > ();
-    Tree<QString> t2 = Tree<QString > ();
-    Tree<QString> t3 = Tree<QString > ();
-
-    t1 = "t1";
-
-    t2 = "t2";
-    t2[0] = t1;
-
-    t3 = "t3";
-    t3[0] = t2;
-    t3[1] = t1;
-
-    t1[0] = "t1[0]";
-    t1[0][1] = "t1[0][1]";
-    t1[1] = "t1[1]";
-    t1[1][0] = "t1[1][0]";
-    t1[1][1] = "t1[1][1]";
-
-    t3.walk(a);
-
-}
-
 void test3() {
-    SymbolFactory f = SymbolFactory("( a \"+\" b ) | c");
-
-    while (f.isNextSymbol()) {
-        cout << f.getNextSymbol().getString().toStdString() << ".";
+    Events::EventBroadcaster b;
+    SyntaxTreeFactory f = SyntaxTreeFactory(&b);
+    QList<Symbol> l = f.toPostfixSymbolsList("( hello\"+\\\"\"dude mother) | c");
+    for (int i = 0; i < l.size(); i++) {
+        cout << l[i].toString().toStdString() << " ";
     }
 }
 
+/*
+    (asd & b) | a
+     a asd b & a |
+ */
+
+
 void test4() {
 
+    ToDOT dot;
+
+    //SyntaxTreeFactory f = SyntaxTreeFactory(&b);
+    //Tree<Symbol> t = f.createTree("main -> A; A->\"a\"");
+    //t[0] = Symbol("asd", Symbol::SymbolType::IDENTYFIER);
+    //t.walk(dot);
 }
 
 int main(void) {
     cout << "Start\n";
 
     test3();
-    cout << "\n";
-    test3();
-    cout << "\n";
-    test4();
 
     cout << "End\n";
     return 0;

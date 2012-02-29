@@ -38,6 +38,7 @@
         <itemPath>src/Events/EventBroadcaster.h</itemPath>
         <itemPath>src/Events/EventListener.h</itemPath>
       </logicalFolder>
+      <itemPath>src/defines.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Файлы ресурсов"

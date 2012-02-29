@@ -1,6 +1,6 @@
 INPUT(
-./build\Debug\GNU-Linux-x86\TreeAnalyzer.o
 ./build\Debug\GNU-Linux-x86\main.o
+./build\Debug\GNU-Linux-x86\TreeAnalyzer.o
 ./build\Debug\GNU-Linux-x86\EventBroadcaster.o
 ./build\Debug\GNU-Linux-x86\Analyzer.o
 ./build\Debug\GNU-Linux-x86\Tree.o

@@ -1,6 +1,6 @@
 #pragma once
 
-template<typename T> class Enum {
+template<typename T> class Enum{
 protected:
     T value;
 

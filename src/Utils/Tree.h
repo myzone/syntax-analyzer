@@ -4,12 +4,12 @@
 #include <QStack>
 #include <QQueue>
 
-#include "Enum.h"
-
-#include "defines.h"
+#include "../Utils/Enum.h"
+#include "../defines.h"
 
 class TraverseType : public Enum<QString> {
 private:
+
     TraverseType(const QString& value) : Enum<QString>(value) {
     }
 
@@ -144,85 +144,47 @@ public:
 
     class OutOfBoundsExeption {
     public:
-        OutOfBoundsExeption(){}
+
+        OutOfBoundsExeption() {
+        }
+
         virtual ~OutOfBoundsExeption() {
         }
     };
-    
-    class DataProvider {
-    private:
-        Node* node;
+
+    class TraverseStoppedExeption {
     public:
 
-        DataProvider(Node* node) {
-            this->node = node;
+        TraverseStoppedExeption() {
+
         }
 
-        inline T& get() {
-            return *node->data;
+        virtual ~TraverseStoppedExeption() {
+
         }
 
-        inline const T& get() const {
-            return *node->data;
-        }
-
-        inline const T& set(const T& data) {
-            *node->data = data;
-
-            return data;
-        }
-
-        inline operator DataType& () {
-            return get();
-        }
-
-        inline operator const DataType& () const {
-            return get();
-        }
-
-        inline DataProvider& getParent() throws(OutOfBoundsExeption) {
-            if(isRoot()) throw OutOfBoundsExeption();
-                
-            DataProvider provider = DataProvider(node->parent);
-            
-            return provider;
-        }
-        
-        inline DataProvider& getParent() const throws(OutOfBoundsExeption) {
-            if(isRoot()) throw OutOfBoundsExeption();
-                
-            const DataProvider provider = DataProvider(node->parent);
-            
-            return provider;
-        }
-        
-        inline bool isRoot() const {
-            return !node->parent;
-        }
-
-        inline bool isLeaf() const {
-            if (!node->child) {
-                return true;
-            }
-
-            Node* current = node->child;
-            while (current) {
-                if (current->data) return false;
-
-                current = current->next;
-            }
-            return true;
-        }
-        
     };
 
-    class IDataProcessor {
+    class DataProcessor {
+    protected:
+        
+        void stop() {
+            throw TraverseStoppedExeption();
+        }
     public:
 
-        virtual void dataProcessingStarts() pure;
-        virtual void dataProcessingEnds() pure;
-        virtual void processData(Tree<T>::DataProvider& nodeProvider) pure;
-        virtual void processData(const Tree<T>::DataProvider& nodeProvider) const pure;
+        virtual void dataProcessingStarts() {
+        }
+
+        virtual void dataProcessingEnds() {
+        }
+
+        virtual void processData(Tree<T>& nodeProvider) throws(TraverseStoppedExeption) {
+        }
+
+        virtual void processData(const Tree<T>& nodeProvider) const throws(TraverseStoppedExeption) {
+        }
+
         virtual const TraverseType& getTraverseType() const pure;
     };
 
@@ -240,12 +202,12 @@ public:
 
     }
 
-    inline Tree getSuperTree() const throws(OutOfBoundsExeption){
-        if(!root->parent) throw OutOfBoundsExeption();
-        
+    inline Tree getSuperTree() const throws(OutOfBoundsExeption) {
+        if (!root->parent) throw OutOfBoundsExeption();
+
         return Tree(root->parent);
     }
-    
+
     inline Tree getSubTree(size_t index) const {
         return Tree(getNode(index));
     }
@@ -276,107 +238,115 @@ public:
         }
     }
 
-    void walk(IDataProcessor& processor) {
+    void walk(DataProcessor& processor) {
         processor.dataProcessingStarts();
 
-        if (processor.getTraverseType() == TraverseType::DEPTH_TRAVERSE) {
-            QStack<Node*> nodesStack = QStack<Node*>();
+        try {
+            if (processor.getTraverseType() == TraverseType::DEPTH_TRAVERSE) {
+                QStack<Node*> nodesStack = QStack<Node*>();
 
-            nodesStack.push(root);
+                nodesStack.push(root);
 
-            while (!nodesStack.empty()) {
-                Node* current = nodesStack.pop();
-                if (current->data) {
-                    DataProvider provider = DataProvider(current);
-                    processor.processData(provider);
+                while (!nodesStack.empty()) {
+                    Node* current = nodesStack.pop();
+                    if (current->data) {
+                        Tree<T> provider = Tree<T> (current);
+                        processor.processData(provider);
+                    }
+
+                    if (current->next) {
+                        nodesStack.push(current->next);
+                    }
+
+                    if (current->child) {
+                        nodesStack.push(current->child);
+                    }
                 }
+            } else if (processor.getTraverseType() == TraverseType::WIDTH_TRAVERSE) {
+                QQueue<Node*> nodesQueue = QQueue<Node*>();
+                nodesQueue.push_back(root);
 
-                if (current->next) {
-                    nodesStack.push(current->next);
-                }
+                while (!nodesQueue.empty()) {
+                    Node* current = nodesQueue.front();
+                    nodesQueue.pop_front();
 
-                if (current->child) {
-                    nodesStack.push(current->child);
-                }
-            }
-        } else if (processor.getTraverseType() == TraverseType::WIDTH_TRAVERSE) {
-            QQueue<Node*> nodesQueue = QQueue<Node*>();
-            nodesQueue.push_back(root);
+                    Node* firstChild = current->child;
 
-            while (!nodesQueue.empty()) {
-                Node* current = nodesQueue.front();
-                nodesQueue.pop_front();
+                    if (current->data) {
+                        Tree<T> provider = Tree<T>(current);
+                        processor.processData(provider);
+                    }
 
-                Node* firstChild = current->child;
+                    if (firstChild) {
+                        current = firstChild;
+                        nodesQueue.push_back(current);
 
-                if (current->data) {
-                    DataProvider provider = DataProvider(current);
-                    processor.processData(provider);
-                }
-
-                if (firstChild) {
-                    current = firstChild;
-                    nodesQueue.push_back(current);
-
-                    while (current->next) {
-                        nodesQueue.push_back(current->next);
-                        current = current->next;
+                        while (current->next) {
+                            nodesQueue.push_back(current->next);
+                            current = current->next;
+                        }
                     }
                 }
             }
+        } catch (TraverseStoppedExeption) {
+            // All is ok;
         }
 
         processor.dataProcessingEnds();
     }
 
-    void walk(const IDataProcessor& processor) const {
+    void walk(const DataProcessor& processor) const {
         processor.dataProcessingStarts();
 
-        if (processor.getTraverseType() == TraverseType::DEPTH_TRAVERSE) {
-            QStack<Node*> nodesStack = QStack<Node*>();
+        try {
+            if (processor.getTraverseType() == TraverseType::DEPTH_TRAVERSE) {
+                QStack<Node*> nodesStack = QStack<Node*>();
 
-            nodesStack.push(root);
+                nodesStack.push(root);
 
-            while (!nodesStack.empty()) {
-                Node* current = nodesStack.pop();
-                if (current->data) {
-                    const DataProvider provider = DataProvider(current);
-                    processor.processData(provider);
+                while (!nodesStack.empty()) {
+                    Node* current = nodesStack.pop();
+                    if (current->data) {
+                        const Tree<T> provider = Tree<T > (current);
+                        processor.processData(provider);
+                    }
+
+                    if (current->next) {
+                        nodesStack.push(current->next);
+                    }
+
+                    if (current->child) {
+                        nodesStack.push(current->child);
+                    }
                 }
+            } else if (processor.getTraverseType() == TraverseType::WIDTH_TRAVERSE) {
+                QQueue<Node*> nodesQueue = QQueue<Node*>();
+                nodesQueue.push_back(root);
 
-                if (current->next) {
-                    nodesStack.push(current->next);
-                }
+                while (!nodesQueue.empty()) {
+                    Node* current = nodesQueue.front();
+                    nodesQueue.pop_front();
 
-                if (current->child) {
-                    nodesStack.push(current->child);
-                }
-            }
-        } else if (processor.getTraverseType() == TraverseType::WIDTH_TRAVERSE) {
-            QQueue<Node*> nodesQueue = QQueue<Node*>();
-            nodesQueue.push_back(root);
+                    Node* firstChild = current->child;
 
-            while (!nodesQueue.empty()) {
-                Node* current = nodesQueue.front();
-                nodesQueue.pop_front();
+                    if (current->data) {
+                        const Tree<T> provider = Tree<T > (current);
+                        processor.processData(provider);
+                    }
 
-                Node* firstChild = current->child;
+                    if (firstChild) {
+                        current = firstChild;
+                        nodesQueue.push_back(current);
 
-                if (current->data) {
-                    const DataProvider provider = DataProvider(current);
-                    processor.processData(provider);
-                }
-
-                if (firstChild) {
-                    current = firstChild;
-                    nodesQueue.push_back(current);
-
-                    while (current->next) {
-                        nodesQueue.push_back(current->next);
-                        current = current->next;
+                        while (current->next) {
+                            nodesQueue.push_back(current->next);
+                            current = current->next;
+                        }
                     }
                 }
             }
+        } catch (TraverseStoppedExeption) {
+            // All is ok;
         }
 
         processor.dataProcessingEnds();
@@ -441,6 +411,25 @@ public:
 
     inline bool equals(const Tree<T>& that) const {
         return this->root && that->root && this->root->data == that.root->data;
+    }
+
+    inline bool isRoot() const {
+        return !root->parent;
+    }
+
+    inline bool isLeaf() const {
+        if (!root->child) {
+            return true;
+        }
+
+        Node* current = root->child;
+        while (current) {
+            if (current->data) return false;
+
+            current = current->next;
+        }
+
+        return true;
     }
 
     inline Tree operator[](unsigned int index) const {

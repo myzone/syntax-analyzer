@@ -3,27 +3,16 @@
 
 namespace Core {
 
-    
-    
-    Analyzer::Analyzer() {
-        broadcaster = Events::EventBroadcaster();
+    Analyzer::Analyzer(const QString& pathToLibrary) : broadcaster(), preprocessor(pathToLibrary), syntaxTreeFactory(&this->broadcaster) {
     }
 
-    Analyzer::Analyzer(const Analyzer& that) {
-        broadcaster = that.broadcaster;
-    }
-    
     Analyzer::~Analyzer() {
-        
     }
-    
-    void Analyzer::analyze(const QString& text) {
+
+    void Analyzer::analyze(const QString& text) const {
         try {
-            
-        } catch(AnalyzeCrashExeption) {
-            Events::Event event = Events::Event();
-            
-            event.share(broadcaster);
+
+        } catch (AnalyzeCrashExeption) {
         }
     }
 
