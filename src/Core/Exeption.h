@@ -2,6 +2,8 @@
 
 #include <QString>
 
+#include "../defines.h"
+
 #define DECLARE_EXEPTION_SUBCLASS(class_name) \
         class class_name : public Exeption {\
         public:\

@@ -2,10 +2,13 @@
 
 #include <QString>
 
-#include "../defines.h"
 #include "../Utils/Tree.h"
 #include "../Events/EventBroadcaster.h"
 #include "../Core/Exeption.h"
+
+#include "../defines.h"
+
+#include <iostream>
 
 namespace Core {
 
@@ -67,7 +70,7 @@ namespace Core {
             inline unsigned int getArgsNumber() const {
                 return value.argsNumber;
             }
-            
+
             inline unsigned int getPriority() const {
                 return value.priority;
             }
@@ -82,6 +85,7 @@ namespace Core {
     protected:
         QString string;
         SymbolType type;
+        QString id;
 
     public:
         Symbol();
@@ -91,6 +95,14 @@ namespace Core {
 
         const QString& toString() const;
         const SymbolType& getType() const;
+
+        inline void setId(const QString& id) {
+            this->id = id;
+        }
+
+        inline const QString& getId() {
+            return id;
+        }
     };
 
     /*
@@ -100,6 +112,7 @@ namespace Core {
     private:
         QString line;
         QString::ConstIterator position;
+        QString::ConstIterator end;
 
         QString lastString;
         Symbol::SymbolType lastSymbolType;
@@ -129,17 +142,15 @@ namespace Core {
         class TreeProcessor : public Tree<Symbol>::DataProcessor {
         private:
             QMap<QString, QString>* map;
-            QString symbol;
+            bool ended;
+            Tree<Symbol> node;
         public:
 
             TreeProcessor(QMap<QString, QString>* map) : map(map) {
             }
 
             virtual void dataProcessingStarts() {
-                symbol = "";
-            }
-
-            virtual void dataProcessingEnds() {
+                ended = true;
             }
 
             virtual void processData(Tree<Symbol>& nodeProvider) throws(Tree<Symbol>::TraverseStoppedExeption) {
@@ -147,25 +158,23 @@ namespace Core {
 
                 if (nodeProvider.get().getType() == Symbol::SymbolType::IDENTYFIER) {
                     if (map->contains(nodeProvider.get().toString())) {
-                        symbol = nodeProvider.get().toString();
+                        node = nodeProvider;
+                        ended = false;
                         stop();
                     }
                 }
-            }
-
-            virtual void processData(const Tree<Symbol>& nodeProvider) const throws(Tree<Symbol>::TraverseStoppedExeption) {
             }
 
             virtual const TraverseType& getTraverseType() const {
                 return TraverseType::WIDTH_TRAVERSE;
             }
 
-            const QString& getSymbol() const {
-                return symbol;
+            const Tree<Symbol>& getNode() const {
+                return node;
             }
 
             bool isEnd() const {
-                return symbol=="";
+                return ended;
             }
         };
 
@@ -173,8 +182,7 @@ namespace Core {
         SyntaxTreeFactory(Events::EventBroadcaster* broadcaster);
         Tree<Symbol> createTree(const QString& text) const throws(AnalyzeCrashExeption);
 
-        //private:
-
+    private:
         QMap<QString, QString> createLinesMap(const QString& text) const;
         void processLine(const QString& line, Tree<Symbol> tree) const throws(AnalyzeCrashExeption);
         QList<Symbol> toPostfixSymbolsList(const QString & line) const throws(AnalyzeCrashExeption);

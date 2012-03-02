@@ -5,6 +5,7 @@
 #include <QQueue>
 
 #include "../Utils/Enum.h"
+
 #include "../defines.h"
 
 class TraverseType : public Enum<QString> {
@@ -136,7 +137,8 @@ protected:
     Tree(Node* root) {
         this->root = root;
 
-        iterator = null;
+
+        iterator = root ? root->child : null;
     }
 
 public:
@@ -167,7 +169,7 @@ public:
 
     class DataProcessor {
     protected:
-        
+
         void stop() {
             throw TraverseStoppedExeption();
         }
@@ -250,7 +252,7 @@ public:
                 while (!nodesStack.empty()) {
                     Node* current = nodesStack.pop();
                     if (current->data) {
-                        Tree<T> provider = Tree<T> (current);
+                        Tree<T> provider = Tree<T > (current);
                         processor.processData(provider);
                     }
 
@@ -273,7 +275,7 @@ public:
                     Node* firstChild = current->child;
 
                     if (current->data) {
-                        Tree<T> provider = Tree<T>(current);
+                        Tree<T> provider = Tree<T > (current);
                         processor.processData(provider);
                     }
 
@@ -413,6 +415,10 @@ public:
         return this->root && that->root && this->root->data == that.root->data;
     }
 
+    inline bool isEmpty() const {
+        return !this->root || !this->root->data;
+    }
+
     inline bool isRoot() const {
         return !root->parent;
     }
@@ -432,7 +438,9 @@ public:
         return true;
     }
 
-    inline Tree operator[](unsigned int index) const {
+    inline Tree operator[](size_t index) const {
+        if (index == ~(size_t)0) return getSuperTree();
+
         return getSubTree(index);
     }
 
@@ -442,6 +450,7 @@ public:
 
     inline const Tree<T>& operator=(const Tree<T>& data) {
         root = data.root;
+        iterator = data.iterator;
 
         return *this;
     }

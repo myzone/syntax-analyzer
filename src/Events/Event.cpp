@@ -54,6 +54,7 @@ namespace Events {
     IMPLEMENT_ERROR_EVENT_SUBCLASS(LibraryFileCannotBeFoundErrorEvent);
 
     IMPLEMENT_ERROR_EVENT_SUBCLASS(DoubleDefenitionErrorEvent);
+    IMPLEMENT_ERROR_EVENT_SUBCLASS(SymbolIsNotUsedErrorEvent);
     IMPLEMENT_ERROR_EVENT_SUBCLASS(SymbolIsNotDefinedErrorEvent);
     
     IMPLEMENT_ERROR_EVENT_SUBCLASS(LitheralIsNotClosedErrorEvent);

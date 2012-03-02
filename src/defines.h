@@ -1,21 +1,17 @@
 #pragma once
 
 #ifndef null
-        #define null NULL
+#define null NULL
 #endif
 
 #ifndef File
-        #define File FILE
+#define File FILE
 #endif
 
 #ifndef throws
-        #define throws throw
+#define throws throw
 #endif
 
 #ifndef pure
-        #define pure =0
-#endif
-
-#ifndef extends
-        #define extends :
+#define pure =0
 #endif

@@ -60,6 +60,7 @@ namespace Events {
     DECLARE_ERROR_EVENT_SUBCLASS(LibraryFileCannotBeFoundErrorEvent);
 
     DECLARE_ERROR_EVENT_SUBCLASS(DoubleDefenitionErrorEvent);
+    DECLARE_ERROR_EVENT_SUBCLASS(SymbolIsNotUsedErrorEvent);
     DECLARE_ERROR_EVENT_SUBCLASS(SymbolIsNotDefinedErrorEvent);
 
     DECLARE_ERROR_EVENT_SUBCLASS(LitheralIsNotClosedErrorEvent);
