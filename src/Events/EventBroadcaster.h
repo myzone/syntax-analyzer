@@ -14,10 +14,10 @@ namespace Events {
         EventBroadcaster();
         virtual ~EventBroadcaster();
 
-        void addErrorEventListener(EventListener* listener);
-        void removeErrorEventListener(EventListener* listener);
+        void addEventListener(EventListener* listener);
+        void removeEventListener(EventListener* listener);
 
-        template<typename T> void broadcast(T event) const {
+        template<typename T> void broadcast(const T& event) const {
             for (QLinkedList<EventListener*>::ConstIterator it = listeners.begin(); it != listeners.end(); it++) {
                 (*it)->handle(event);
             }

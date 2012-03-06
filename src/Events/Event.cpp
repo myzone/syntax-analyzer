@@ -35,14 +35,14 @@ namespace Events {
     IMPLEMENT_SHARE_METHOD(Event);
     IMPLEMENT_TO_STRING_METHOD(Event);
 
-    ErrorEvent::ErrorEvent(const QString& symbol) : symbol(symbol) {
+    ErrorEvent::ErrorEvent(const QString& symbol) : representation(symbol) {
     }
 
     ErrorEvent::~ErrorEvent() {
     }
 
-    const QString& ErrorEvent::getSymbol() const {
-        return symbol;
+    const QString& ErrorEvent::getRepresentation() const {
+        return representation;
     };
 
     IMPLEMENT_SHARE_METHOD(ErrorEvent);

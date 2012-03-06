@@ -3,17 +3,21 @@
 
 namespace Core {
 
-    Analyzer::Analyzer(const QString& pathToLibrary) : broadcaster(), preprocessor(pathToLibrary), syntaxTreeFactory(&this->broadcaster) {
-    }
+    Analyzer::Analyzer(const QString& pathToLibrary) : broadcaster(), preprocessor(pathToLibrary), syntaxTreeFactory(&this->broadcaster) { }
 
-    Analyzer::~Analyzer() {
-    }
+    Analyzer::~Analyzer() { }
 
     void Analyzer::analyze(const QString& text) const {
-        try {
+        shareStartEvent();
 
+        try {
+            QString source = preprocessor.process(text);
+            Tree<Symbol> tree = syntaxTreeFactory.createTree(source);
         } catch (AnalyzeCrashExeption) {
+            shareEndEvent();
         }
+
+        shareEndEvent();
     }
 
     const Events::EventBroadcaster& Analyzer::getErrorEventBroadcaster() const {
@@ -21,11 +25,20 @@ namespace Core {
     }
 
     void Analyzer::addErrorEventListener(Events::EventListener* listener) {
-        broadcaster.addErrorEventListener(listener);
+        broadcaster.addEventListener(listener);
     }
 
     void Analyzer::removeErrorEventListener(Events::EventListener* listener) {
-        broadcaster.removeErrorEventListener(listener);
+        broadcaster.removeEventListener(listener);
     }
 
+    void Analyzer::shareStartEvent() const {
+        Events::AnalysingWasStartedEvent event = Events::AnalysingWasStartedEvent();
+        event.share(broadcaster);
+    }
+
+    void Analyzer::shareEndEvent() const {
+        Events::AnalysingWasEndedEvent event = Events::AnalysingWasEndedEvent();
+        event.share(broadcaster);
+    }
 }

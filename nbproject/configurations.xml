@@ -11,6 +11,7 @@
         <itemPath>src/Core/Analyzer.cpp</itemPath>
         <itemPath>src/Core/Exeption.cpp</itemPath>
         <itemPath>src/Core/Preprocessor.cpp</itemPath>
+        <itemPath>src/Core/Symbol.cpp</itemPath>
         <itemPath>src/Core/SyntaxTreeFactory.cpp</itemPath>
         <itemPath>src/Utils/Tree.cpp</itemPath>
         <itemPath>src/Core/TreeAnalyzer.cpp</itemPath>
@@ -29,6 +30,7 @@
         <itemPath>src/Core/Analyzer.h</itemPath>
         <itemPath>src/Core/Exeption.h</itemPath>
         <itemPath>src/Core/Preprocessor.h</itemPath>
+        <itemPath>src/Core/Symbol.h</itemPath>
         <itemPath>src/Core/SyntaxTreeFactory.h</itemPath>
         <itemPath>src/Utils/Tree.h</itemPath>
         <itemPath>src/Core/TreeAnalyzer.h</itemPath>

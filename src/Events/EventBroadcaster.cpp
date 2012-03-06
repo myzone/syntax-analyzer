@@ -8,11 +8,11 @@ namespace Events {
     EventBroadcaster::~EventBroadcaster() {
     }
 
-    void EventBroadcaster::addErrorEventListener(EventListener* listener) {
+    void EventBroadcaster::addEventListener(EventListener* listener) {
         listeners.push_back(listener);
     }
 
-    void EventBroadcaster::removeErrorEventListener(EventListener* listener) {
+    void EventBroadcaster::removeEventListener(EventListener* listener) {
         listeners.removeOne(listener);
     }
 

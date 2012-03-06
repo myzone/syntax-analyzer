@@ -19,7 +19,7 @@ namespace Core {
     const QRegExp Preprocessor::TEXT_SPLITTER = QRegExp("\\s*;(\\s|\n)*");
     const QRegExp Preprocessor::LINE_SPLITTER = QRegExp("\\s+");
     const QRegExp Preprocessor::COMMENTS_REMOVER = QRegExp("(\\/\\/[^\n]*\n)|(\\/\\*.*\\*\\/)");
-    const QRegExp Preprocessor::SPACES_REMOVER = QRegExp("[\n\t\\s]+");
+    const QRegExp Preprocessor::SPACES_REMOVER = QRegExp("\n(\\s*\n)*");
 
     Preprocessor::Preprocessor(const QString& pathToLibrary) : pathToLibrary(pathToLibrary) {
     }
@@ -47,7 +47,7 @@ namespace Core {
         
         if(!ok) throw AnalyzeCrashExeption();
         
-        return result.replace(SPACES_REMOVER, "");
+        return result.replace(SPACES_REMOVER, "\n");
     }
 
     void Preprocessor::removeComments(QString& source) const {
@@ -57,8 +57,10 @@ namespace Core {
     void Preprocessor::import(QString& source, const QString& importName) const throws(AnalyzeCrashExeption) {
         File* fileDescriptor = null;
 
-        if (!fileDescriptor) fileDescriptor = fopen((pathToLibrary + importName + FILE_FORMAT_MASK).toLocal8Bit(), "rt");
+        // search lib file in current folder 
         if (!fileDescriptor) fileDescriptor = fopen((importName + FILE_FORMAT_MASK).toLocal8Bit(), "rt");
+        // search lib file in libraries folder
+        if (!fileDescriptor) fileDescriptor = fopen((pathToLibrary + importName + FILE_FORMAT_MASK).toLocal8Bit(), "rt");
         if (!fileDescriptor) {
             Events::LibraryFileCannotBeFoundErrorEvent event = Events::LibraryFileCannotBeFoundErrorEvent(importName);
             event.share(*broadcaster);

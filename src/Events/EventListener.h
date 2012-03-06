@@ -2,26 +2,36 @@
 
 #include "Event.h"
 
-#ifndef pure
-    #define pure =0
-#endif
+#define DECLARE_HANDLE_METHOD(class_name) \
+        virtual void handle(const class_name& event) { }
 
-#define DECLARE_PURE_HANDLE_METHOD(class_name) \
-        virtual void handle(const class_name& event) pure;
-
-namespace Events{
+namespace Events {
 
     class EventListener {
     public:
         EventListener();
         virtual ~EventListener();
-
-        DECLARE_PURE_HANDLE_METHOD(Event);
-
-        DECLARE_PURE_HANDLE_METHOD(ErrorEvent);
         
-        DECLARE_PURE_HANDLE_METHOD(DoubleDefenitionErrorEvent);
-        DECLARE_PURE_HANDLE_METHOD(SymbolIsNotDefinedErrorEvent);
+        /**
+         * @brief Don't implement it;
+         */
+        DECLARE_HANDLE_METHOD(Event);
+        /**
+         * @brief Don't implement it;
+         */
+        DECLARE_HANDLE_METHOD(ErrorEvent);
+
+        DECLARE_HANDLE_METHOD(AnalysingWasStartedEvent);
+        DECLARE_HANDLE_METHOD(AnalysingWasEndedEvent);
+
+        DECLARE_HANDLE_METHOD(LibraryFileCannotBeFoundErrorEvent);
+
+        DECLARE_HANDLE_METHOD(DoubleDefenitionErrorEvent);
+        DECLARE_HANDLE_METHOD(SymbolIsNotUsedErrorEvent);
+        DECLARE_HANDLE_METHOD(SymbolIsNotDefinedErrorEvent);
+
+        DECLARE_HANDLE_METHOD(LitheralIsNotClosedErrorEvent);
+        DECLARE_HANDLE_METHOD(WrongBracketsNumberErrorEvent);
     };
 
 }

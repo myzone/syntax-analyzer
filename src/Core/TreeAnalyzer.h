@@ -8,11 +8,14 @@
 namespace Core {
 
     class TreeAnalyzer {
+    private:
+        const Events::EventBroadcaster* broadcaster;
+
     public:
-        TreeAnalyzer();
+        TreeAnalyzer(const Events::EventBroadcaster* broadcaster);
         virtual ~TreeAnalyzer();
 
-        void analyzeTree(const Tree<QString>& tree, const Events::EventBroadcaster& broadcaster) const;
+    //   void analyzeTree(const Tree<Symbol>& tree) const;
     };
 
 }

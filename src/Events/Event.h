@@ -44,11 +44,11 @@ namespace Events {
     
     class ErrorEvent : public Event {
     private:
-        QString symbol;
+        QString representation;
     public:
         ErrorEvent(const QString& symbol);
         virtual ~ErrorEvent();
-        const QString& getSymbol() const;
+        const QString& getRepresentation() const;
 
         DECLARE_SHARE_METHOD(ErrorEvent);
         DECLARE_TO_STRING_METHOD(ErrorEvent);

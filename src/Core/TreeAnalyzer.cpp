@@ -1,15 +1,17 @@
+#include <QStack>
+
 #include "TreeAnalyzer.h"
+#include "SyntaxTreeFactory.h"
+
+
 
 namespace Core {
 
-    TreeAnalyzer::TreeAnalyzer() {
-    }
+    TreeAnalyzer::TreeAnalyzer(const Events::EventBroadcaster* broadcaster) : broadcaster(broadcaster) { }
 
-    TreeAnalyzer::~TreeAnalyzer() {
-    }
+    TreeAnalyzer::~TreeAnalyzer() { }
 
-    void TreeAnalyzer::analyzeTree(const Tree<QString>& tree, const Events::EventBroadcaster& broadcaster) const {
-        
-    }
-
+    /*void TreeAnalyzer::analyzeTree(const Tree<Symbol>& tree) const {
+        QList<Tree<Symbol> > list = QList<Tree<Symbol>>();
+    }*/
 }

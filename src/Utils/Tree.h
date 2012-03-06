@@ -9,14 +9,13 @@
 #include "../defines.h"
 
 class TraverseType : public Enum<QString> {
-private:
-
-    TraverseType(const QString& value) : Enum<QString>(value) {
-    }
+protected:
+    TraverseType(const QString& value) : Enum<QString>(value) {}
 
 public:
     static const TraverseType DEPTH_TRAVERSE;
     static const TraverseType WIDTH_TRAVERSE;
+
 };
 
 template<typename T>class Tree {
@@ -137,12 +136,21 @@ protected:
     Tree(Node* root) {
         this->root = root;
 
-
         iterator = root ? root->child : null;
     }
 
 public:
-    typedef T DataType;
+
+    class TreeGetter : public Enum<QString> {
+    protected:
+        TreeGetter(const QString& value) : Enum<QString>(value) {}
+
+    public:
+        //static const TreeGetter SUPER_TREE = TreeGetter("super");
+
+    };
+
+    //static const TreeGetter SUPER_TREE = TreeGetter::SUPER_TREE;
 
     class OutOfBoundsExeption {
     public:
@@ -170,9 +178,10 @@ public:
     class DataProcessor {
     protected:
 
-        void stop() {
+        void stop() throws(TraverseStoppedExeption) {
             throw TraverseStoppedExeption();
         }
+
     public:
 
         virtual void dataProcessingStarts() {
@@ -181,13 +190,14 @@ public:
         virtual void dataProcessingEnds() {
         }
 
-        virtual void processData(Tree<T>& nodeProvider) throws(TraverseStoppedExeption) {
+        virtual void processData(Tree<T>& nodeProvider) {
         }
 
-        virtual void processData(const Tree<T>& nodeProvider) const throws(TraverseStoppedExeption) {
+        virtual void processData(const Tree<T>& nodeProvider) const {
         }
 
         virtual const TraverseType& getTraverseType() const pure;
+
     };
 
     Tree() {
@@ -196,21 +206,21 @@ public:
     }
 
     Tree(const Tree& orig) {
-        this->root = orig.root;
-        iterator = null;
+        root = orig.root;
+        iterator = orig.iterator;
     }
 
     virtual ~Tree() {
 
     }
 
-    inline Tree getSuperTree() const throws(OutOfBoundsExeption) {
+    inline Tree getSupertree() const throws(OutOfBoundsExeption) {
         if (!root->parent) throw OutOfBoundsExeption();
 
         return Tree(root->parent);
     }
 
-    inline Tree getSubTree(size_t index) const {
+    inline Tree getSubtree(size_t index) const {
         return Tree(getNode(index));
     }
 
@@ -240,7 +250,7 @@ public:
         }
     }
 
-    void walk(DataProcessor& processor) {
+    void traverse(DataProcessor& processor) {
         processor.dataProcessingStarts();
 
         try {
@@ -252,7 +262,7 @@ public:
                 while (!nodesStack.empty()) {
                     Node* current = nodesStack.pop();
                     if (current->data) {
-                        Tree<T> provider = Tree<T > (current);
+                        Tree<T> provider = Tree<T>(current);
                         processor.processData(provider);
                     }
 
@@ -439,10 +449,15 @@ public:
     }
 
     inline Tree operator[](size_t index) const {
-        if (index == ~(size_t)0) return getSuperTree();
-
-        return getSubTree(index);
+        return getSubtree(index);
     }
+
+    /*
+     *  has error
+     *  
+    inline Tree operator[](const TreeGetter&) const {
+        return getSupertree();
+    }*/
 
     inline bool operator==(const Tree<T> other) const {
         return equals(other);

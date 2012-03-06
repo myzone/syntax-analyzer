@@ -22,6 +22,10 @@ namespace Core {
         const Events::EventBroadcaster& getErrorEventBroadcaster() const;
         void addErrorEventListener(Events::EventListener* listener);
         void removeErrorEventListener(Events::EventListener* listener);
+        
+    private:
+        void shareStartEvent() const;
+        void shareEndEvent() const;
     };
 
 }

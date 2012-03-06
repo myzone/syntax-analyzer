@@ -2,18 +2,21 @@
  * File:   main.cpp
  * Author: myzone
  *
- * Created on 1 February 2012 y., 18:03
+ * Created on 1 February 2012 y.
  */
-#define MYZONES_DEBUG_MODE
+
+#define _DEBUG_MODE_
 
 #include "Utils/Tree.h"
 #include "Core/Preprocessor.h"
 #include "Core/SyntaxTreeFactory.h"
 #include "Core/Exeption.h"
 
-
 #include "defines.h"
 #include <string>
+
+
+#include <iostream>
 
 using namespace Core;
 
@@ -24,8 +27,7 @@ private:
 public:
 
     virtual void dataProcessingStarts() {
-        outFile = stdout; //fopen("tree.dot", "wt");
-
+        outFile = fopen("/home/myzone/Рабочий стол/tree.dot", "wt");
         fprintf(outFile, "digraph G {\n");
     }
 
@@ -33,17 +35,18 @@ public:
         fprintf(outFile, "}\n");
     }
 
-    virtual void processData(Tree<Symbol>& nodeProvider) throws(Tree<Symbol>::TraverseStoppedExeption) {
+    virtual void processData(Tree<Symbol>& nodeProvider) {
         if (!nodeProvider.isRoot()) {
-            std::cout << "\t" << nodeProvider.getSuperTree().get().getId().toStdString() << " -> " << nodeProvider.get().getId().toStdString() << "\n";
-            std::cout << "\t" << nodeProvider.getSuperTree().get().getId().toStdString()
-                    << " [label=\"" << QString(nodeProvider.getSuperTree().get().toString()).replace("\"", "\\\"").toStdString() << "\"]\n";
-            std::cout << "\t" << nodeProvider.get().getId().toStdString() << " [label=\""
-                    << QString(nodeProvider.get().toString()).replace("\"", "\\\"").toStdString() << "\"]\n";
+            fprintf(outFile, "\t%s -> %s\n", nodeProvider.getSupertree().get().getId().toStdString().c_str(), nodeProvider.get().getId().toStdString().c_str());
+            fprintf(outFile, "\t%s [label=\"%s\"]\n",
+                    nodeProvider.getSupertree().get().getId().toStdString().c_str(),
+                    QString(nodeProvider.getSupertree().get().getRepresentation()).replace("\"", "\\\"").toStdString().c_str()
+                    );
+            fprintf(outFile, "\t%s [label=\"%s\"]\n",
+                    nodeProvider.get().getId().toStdString().c_str(),
+                    QString(nodeProvider.get().getRepresentation()).replace("\"", "\\\"").toStdString().c_str()
+                    );
         }
-    }
-
-    virtual void processData(const Tree<Symbol>& nodeProvider) const throws(Tree<Symbol>::TraverseStoppedExeption) {
     }
 
     virtual const TraverseType & getTraverseType() const {
@@ -51,50 +54,41 @@ public:
     }
 };
 
+class Listener : public Events::EventListener {
+
+    virtual void handle(const Events::SymbolIsNotUsedErrorEvent& event) {
+        std::cout << event.getRepresentation().toStdString() << "\n";
+    }
+};
+
 void test1() {
+
     Preprocessor proc = Preprocessor("/home/myzone/Рабочий стол/");
     std::cout << proc.process("import lib;import lib;main->;\n").toStdString() << "\n";
 }
 
-void test2(Tree<std::string> tree) {
-
-    tree = "tree";
-    std::cout << tree.get() << "\n";
-
-    // tree[1][1] = "tree[1][1]";
-
-    tree = tree[1];
-    tree[1][1] = "tree[1][1]";
-    //tree_1[1][1] = "tree_1[1][1]";
-
-    //   std::cout << "tree "<<(tree.getSuperTree())[1][1].get().toString().toStdString() << "\n";
-}
-
-/*
-    (asd & b) | a
-     a asd b & a |
- */
-
-
 void test4() {
+
     Events::EventBroadcaster b;
     ToDOT dot;
+
+    b.addEventListener(new Listener());
 
     SyntaxTreeFactory f = SyntaxTreeFactory(&b);
 
     QFile file;
-    file.open(fopen("/home/myzone/a", "rt"), QFile::ReadOnly | QFile::Text);
+    file.open(fopen("/home/myzone/Рабочий стол/self.lng", "rt"), QFile::ReadOnly | QFile::Text);
 
     QString def = "";
     def += file.readAll();
+    std::cout << def.toStdString() << "\n";
 
-    //std::cout << def.toStdString() << "\n";
 
     Tree<Symbol> t = f.createTree(def);
-    t.walk(dot);
+    t.traverse(dot);
 }
 
-int main(void) {
+int main() {
     std::cout << "Start\n";
 
     test4();
