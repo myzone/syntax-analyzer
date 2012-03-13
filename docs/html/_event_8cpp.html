@@ -71,8 +71,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Include dependency graph for Event.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_event_8cpp__incl.png" border="0" usemap="#_2host_2_coding_2_c_09_09_2_syntax_01_analyzer_2src_2_events_2_event_8cpp" alt=""/></div>
-<map name="_2host_2_coding_2_c_09_09_2_syntax_01_analyzer_2src_2_events_2_event_8cpp" id="_2host_2_coding_2_c_09_09_2_syntax_01_analyzer_2src_2_events_2_event_8cpp">
-</map>
 </div>
 </div>
 <p><a href="">Go to the source code of this file.</a></p>
@@ -96,6 +94,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#a310da7e82fbdfb03b5fdb8b4e974ca32">Events::IMPLEMENT_EVENT_SUBCLASS</a> (AnalysingWasEndedEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#a57fb82f59e279c43f9b8780079b51fc7">Events::IMPLEMENT_ERROR_EVENT_SUBCLASS</a> (LibraryFileCannotBeFoundErrorEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#adafb9fb0d5493a438b57014c294d0bab">Events::IMPLEMENT_ERROR_EVENT_SUBCLASS</a> (DoubleDefenitionErrorEvent)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#a9f59786296e51383c91454327d082416">Events::IMPLEMENT_ERROR_EVENT_SUBCLASS</a> (SymbolIsNotUsedErrorEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#a2c602652925834be2191dd56bc664e8b">Events::IMPLEMENT_ERROR_EVENT_SUBCLASS</a> (SymbolIsNotDefinedErrorEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#aed11e1e6cbb2307e5dc2137cbfadf6c1">Events::IMPLEMENT_ERROR_EVENT_SUBCLASS</a> (LitheralIsNotClosedErrorEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#ab7f7fd40422b8848ec0f8908652ab214">Events::IMPLEMENT_ERROR_EVENT_SUBCLASS</a> (WrongBracketsNumberErrorEvent)</td></tr>
@@ -184,7 +183,7 @@ Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-<b>Value:</b><div class="fragment"><pre class="fragment"><span class="keyword">const</span> QString&amp; class_name::toString()<span class="keyword"> const </span>{\
+<b>Value:</b><div class="fragment"><pre class="fragment"><span class="keyword">const</span> QString class_name::toString()<span class="keyword"> const </span>{\
         <span class="keywordflow">return</span> #class_name;\
     }
 </pre></div>
@@ -198,7 +197,7 @@ Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -207,7 +206,7 @@ Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Mar 7 2012 02:02:17 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

@@ -9,6 +9,7 @@
 
 #include "../defines.h"
 
+#include <iostream>
 
 namespace Core {
 
@@ -19,7 +20,8 @@ namespace Core {
     private:
         Events::EventBroadcaster* broadcaster;
 
-        SyntaxTreeFactory() { }
+        SyntaxTreeFactory() {
+        }
 
     public:
         SyntaxTreeFactory(Events::EventBroadcaster* broadcaster);
@@ -33,14 +35,13 @@ namespace Core {
 
         class TreeProcessor : public Tree<Symbol>::DataProcessor {
         private:
-            QMap<QString, QString>* map;
-            QList<Tree<Symbol> > nodes;
+            mutable QList<Tree<Symbol> > nodes;
         public:
 
-            TreeProcessor(QMap<QString, QString>* map) : map(map), nodes() {
+            TreeProcessor() : nodes() {
             }
 
-            virtual void dataProcessingStarts() {
+            virtual void dataProcessingStarts() const {
                 nodes.clear();
             }
 
@@ -48,7 +49,7 @@ namespace Core {
                 if (!nodeProvider.isLeaf()) return;
 
                 if (nodeProvider.get().getType() == Symbol::SymbolType::IDENTYFIER) {
-                    if (!containsInSupertree(nodeProvider) && map->contains(nodeProvider.get().getRepresentation())) {
+                    if (!nodeProvider.isEmpty() && !containsInSupertree(nodeProvider)) {
                         nodes.append(nodeProvider);
                     }
                 }
@@ -63,9 +64,8 @@ namespace Core {
             }
 
             bool isEnd() const {
-                return nodes.size() == 0;
+                return nodes.isEmpty();
             }
-
         private:
 
             static bool containsInSupertree(const Tree<Symbol>& tree) {

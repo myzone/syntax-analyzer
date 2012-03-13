@@ -11,6 +11,7 @@
 #include "Core/Preprocessor.h"
 #include "Core/SyntaxTreeFactory.h"
 #include "Core/Exeption.h"
+#include "Core/TreeAnalyzer.h"
 
 #include "defines.h"
 #include <string>
@@ -22,16 +23,16 @@ using namespace Core;
 
 class ToDOT : public Tree<Symbol>::DataProcessor {
 private:
-    File* outFile;
-    unsigned int i;
+    mutable File* outFile;
+    mutable unsigned int i;
 public:
 
-    virtual void dataProcessingStarts() {
+    virtual void dataProcessingStarts() const {
         outFile = fopen("/home/myzone/Рабочий стол/tree.dot", "wt");
         fprintf(outFile, "digraph G {\n");
     }
 
-    virtual void dataProcessingEnds() {
+    virtual void dataProcessingEnds() const {
         fprintf(outFile, "}\n");
     }
 
@@ -56,8 +57,24 @@ public:
 
 class Listener : public Events::EventListener {
 
+    virtual void handle(const Events::WrongBracketsNumberErrorEvent& event) {
+        std::cout << event.toString().toStdString() << ":" << event.getRepresentation().toStdString() << "|\n";
+    }
+
+    virtual void handle(const Events::LitheralIsNotClosedErrorEvent& event) {
+        std::cout << event.toString().toStdString() << ":" << event.getRepresentation().toStdString() << "|\n";
+    }
+
     virtual void handle(const Events::SymbolIsNotUsedErrorEvent& event) {
-        std::cout << event.getRepresentation().toStdString() << "\n";
+        std::cout << event.toString().toStdString() << ":" << event.getRepresentation().toStdString() << "|\n";
+    }
+
+    virtual void handle(const Events::SymbolIsNotDefinedErrorEvent& event) {
+        std::cout << event.toString().toStdString() << ":" << event.getRepresentation().toStdString() << "|\n";
+    }
+    
+    virtual void handle(const Events::SymbolHasMistakeErrorEvent& event) {
+        std::cout << event.getRepresentation().toStdString() << "[style=filled,color=red]\n";
     }
 };
 
@@ -67,6 +84,40 @@ void test1() {
     std::cout << proc.process("import lib;import lib;main->;\n").toStdString() << "\n";
 }
 
+char* fuckThisShit(const int& v) {
+    char* res = new char[10];
+    sprintf(res, "%d", v);
+
+    return res;
+}
+
+class Proc : public Tree<char*>::DataProcessor, public Tree<int>::DataProcessor {
+
+    void processData(Tree<char*>& node) {
+        std::cout << "char*:" << node.get() << "\n";
+    }
+
+    void processData(Tree<int>& node) {
+        std::cout << "int:" << node.get() << "\n";
+    }
+
+    const TraverseType& getTraverseType() const {
+        return TraverseType::WIDTH_TRAVERSE;
+    }
+
+};
+
+void test2() {
+    Tree<int> t1;
+    t1[0] = 5;
+    t1[1][1] = 6;
+    t1.traverse(*new Proc());
+
+    Tree<char*> t2 =
+            t1.to<char*>(&fuckThisShit);
+    t2.traverse(*new Proc());
+}
+
 void test4() {
 
     Events::EventBroadcaster b;
@@ -74,18 +125,18 @@ void test4() {
 
     b.addEventListener(new Listener());
 
-    SyntaxTreeFactory f = SyntaxTreeFactory(&b);
-
     QFile file;
     file.open(fopen("/home/myzone/Рабочий стол/self.lng", "rt"), QFile::ReadOnly | QFile::Text);
 
     QString def = "";
     def += file.readAll();
-    std::cout << def.toStdString() << "\n";
 
 
+    SyntaxTreeFactory f = SyntaxTreeFactory(&b);
     Tree<Symbol> t = f.createTree(def);
     t.traverse(dot);
+    TreeAnalyzer an = TreeAnalyzer(&b);
+    an.analyzeTree(t);
 }
 
 int main() {

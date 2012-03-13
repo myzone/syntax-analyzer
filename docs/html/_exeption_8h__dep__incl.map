@@ -1,8 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_preprocessor_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Preprocessor.h" alt="" coords="516,83,887,112"/>
-<area shape="rect" id="node7" href="$_analyzer_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.cpp" alt="" coords="489,237,849,267"/>
-<area shape="rect" id="node11" href="$main_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/main.cpp" alt="" coords="819,160,1123,189"/>
-<area shape="rect" id="node14" href="$_exeption_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Exeption.cpp" alt="" coords="1197,83,1557,112"/>
+<area shape="rect" id="node3" href="$_preprocessor_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Preprocessor.h" alt="" coords="259,83,629,112"/>
+<area shape="rect" id="node7" href="$_analyzer_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.cpp" alt="" coords="268,237,628,267"/>
+<area shape="rect" id="node9" href="$main_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/main.cpp" alt="" coords="376,160,680,189"/>
+<area shape="rect" id="node12" href="$_exeption_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Exeption.cpp" alt="" coords="755,83,1115,112"/>
 <area shape="rect" id="node5" href="$_analyzer_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.h" alt="" coords="5,160,352,189"/>
-<area shape="rect" id="node9" href="$_syntax_tree_factory_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/SyntaxTreeFactory.cpp" alt="" coords="376,160,795,189"/>
 </map>

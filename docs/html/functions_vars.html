@@ -62,7 +62,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li class="current"><a href="functions_vars.html"><span>Variables</span></a></li>
-      <li><a href="functions_type.html"><span>Typedefs</span></a></li>
     </ul>
   </div>
 </div>
@@ -90,7 +89,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_traverse_type.html#a90eebe6b103d8a668d0e4bc86b6f65ae">TraverseType</a>
 </li>
 <li>id
-: <a class="el" href="struct_tree_1_1_node.html#a1996d9b284bc3695441601f9d3cdf7b0">Tree&lt; T &gt;::Node</a>
+: <a class="el" href="class_core_1_1_symbol.html#a94c3ff218c6ce0af4eaa1842c53414d7">Core::Symbol</a>
+, <a class="el" href="struct_tree_1_1_node.html#a1996d9b284bc3695441601f9d3cdf7b0">Tree&lt; T &gt;::Node</a>
 </li>
 <li>IDENTYFIER
 : <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a86daa79a33de2154b5f7f2e6e09c4a7b">Core::Symbol::SymbolType</a>
@@ -110,6 +110,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>OPEN_BRACKET
 : <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ac1caa2acdedd0427abfa9976a4850ac9">Core::Symbol::SymbolType</a>
 </li>
+<li>operation
+: <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a14d8c140064f25b0f4ee09a43206b113">Core::Symbol::SymbolTypeData</a>
+</li>
 <li>OR
 : <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a563996c28b2b721deeeff1ddbc88106b">Core::Symbol::SymbolType</a>
 </li>
@@ -122,14 +125,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>priority
 : <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#abb48369408953b42ef995d50fb7bdc55">Core::Symbol::SymbolTypeData</a>
 </li>
+<li>representation
+: <a class="el" href="class_core_1_1_symbol.html#a452dd356a9cb5a1621d11a422be34855">Core::Symbol</a>
+</li>
 <li>root
 : <a class="el" href="class_tree.html#a089fed4e761d328e5567b7906dfa3a7a">Tree&lt; T &gt;</a>
 </li>
 <li>SPACE
 : <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a961e8520c144b5d38d6b23f72fa734f9">Core::Symbol::SymbolType</a>
-</li>
-<li>string
-: <a class="el" href="class_core_1_1_symbol.html#a0ce4a0ac3b94813183ed0e42e7fe4464">Core::Symbol</a>
 </li>
 <li>symbol
 : <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ae532ed38390126ca7ea52711b8f112">Core::Symbol::SymbolTypeData</a>
@@ -153,7 +156,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -162,7 +165,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Mar 7 2012 02:02:17 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

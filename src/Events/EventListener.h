@@ -2,6 +2,7 @@
 
 #include "Event.h"
 
+#include <iostream>
 #define DECLARE_HANDLE_METHOD(class_name) \
         virtual void handle(const class_name& event) { }
 
@@ -29,6 +30,7 @@ namespace Events {
         DECLARE_HANDLE_METHOD(DoubleDefenitionErrorEvent);
         DECLARE_HANDLE_METHOD(SymbolIsNotUsedErrorEvent);
         DECLARE_HANDLE_METHOD(SymbolIsNotDefinedErrorEvent);
+        DECLARE_HANDLE_METHOD(SymbolHasMistakeErrorEvent);
 
         DECLARE_HANDLE_METHOD(LitheralIsNotClosedErrorEvent);
         DECLARE_HANDLE_METHOD(WrongBracketsNumberErrorEvent);

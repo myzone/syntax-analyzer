@@ -66,6 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Core::SyntaxTreeFactory Class Reference</div>  </div>
@@ -78,21 +79,23 @@ Collaboration diagram for Core::SyntaxTreeFactory:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_core_1_1_syntax_tree_factory__coll__graph.png" border="0" usemap="#_core_1_1_syntax_tree_factory_coll__map" alt="Collaboration graph"/></div>
 <map name="_core_1_1_syntax_tree_factory_coll__map" id="_core_1_1_syntax_tree_factory_coll__map">
-<area shape="rect" id="node2" href="class_events_1_1_event_broadcaster.html" title="{Events::EventBroadcaster\n|&#45; listeners\l|+ EventBroadcaster()\l+ ~EventBroadcaster()\l+ addErrorEventListener()\l+ removeErrorEventListener()\l+ broadcast()\l}" alt="" coords="5,5,197,160"/></map>
+<area shape="rect" id="node2" href="class_events_1_1_event_broadcaster.html" title="{Events::EventBroadcaster\n|&#45; listeners\l|+ EventBroadcaster()\l+ ~EventBroadcaster()\l+ addEventListener()\l+ removeEventListener()\l+ broadcast()\l}" alt="" coords="5,5,179,160"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>TreeProcessor</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#ac9ed6c1a3eb987b62d7668822d3ecc9b">SyntaxTreeFactory</a> (<a class="el" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a> *)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a1da8ef08824945e66bb156edd32b53cc">createTree</a> (const QString &amp;text) const throws(AnalyzeCrashExeption)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a1c70f2cd0a1b0931d0d1b0ada69ff5a2">processLine</a> (const QString &amp;line, <a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; tree) const throws(AnalyzeCrashExeption)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#ac957cb36feaffd6515bd86f7f19ecb1b">toPostfixSymbolsList</a> (const QString &amp;line) const throws(AnalyzeCrashExeption)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a13506da3906e613c795dd6a84ca92c27">SyntaxTreeFactory</a> (<a class="el" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a> *broadcaster)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a6f6f6c74db5a8a1279817101cc1fa8a6">createTree</a> (const QString &amp;text) const throws(AnalyzeCrashExeption)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="#L130">130</a> of file <a class="el" href="">SyntaxTreeFactory.h</a>.</p>
+<div class="textblock"><p>Класс реализующий семантический анализ </p>
+
+<p>Definition at line <a class="el" href="#L19">19</a> of file <a class="el" href="">SyntaxTreeFactory.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac9ed6c1a3eb987b62d7668822d3ecc9b"></a><!-- doxytag: member="Core::SyntaxTreeFactory::SyntaxTreeFactory" ref="ac9ed6c1a3eb987b62d7668822d3ecc9b" args="(Events::EventBroadcaster *)" -->
+<a class="anchor" id="a13506da3906e613c795dd6a84ca92c27"></a><!-- doxytag: member="Core::SyntaxTreeFactory::SyntaxTreeFactory" ref="a13506da3906e613c795dd6a84ca92c27" args="(Events::EventBroadcaster *broadcaster)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -100,22 +103,25 @@ Public Member Functions</h2></td></tr>
           <td class="memname">Core::SyntaxTreeFactory::SyntaxTreeFactory </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a> *&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>broadcaster</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="#L12">12</a> of file <a class="el" href="">SyntaxTreeFactory.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">: broadcaster(broacaster) { }
+</pre></div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a1da8ef08824945e66bb156edd32b53cc"></a><!-- doxytag: member="Core::SyntaxTreeFactory::createTree" ref="a1da8ef08824945e66bb156edd32b53cc" args="(const QString &amp;text) const throws(AnalyzeCrashExeption)" -->
+<a class="anchor" id="a6f6f6c74db5a8a1279817101cc1fa8a6"></a><!-- doxytag: member="Core::SyntaxTreeFactory::createTree" ref="a6f6f6c74db5a8a1279817101cc1fa8a6" args="(const QString &amp;text) const throws(AnalyzeCrashExeption)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_tree.html">Tree</a>&lt;<a class="el" href="class_core_1_1_symbol.html">Symbol</a>&gt; Core::SyntaxTreeFactory::createTree </td>
+          <td class="memname"><a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; Core::SyntaxTreeFactory::createTree </td>
           <td>(</td>
           <td class="paramtype">const QString &amp;&#160;</td>
           <td class="paramname"><em>text</em></td><td>)</td>
@@ -125,54 +131,68 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a1c70f2cd0a1b0931d0d1b0ada69ff5a2"></a><!-- doxytag: member="Core::SyntaxTreeFactory::processLine" ref="a1c70f2cd0a1b0931d0d1b0ada69ff5a2" args="(const QString &amp;line, Tree&lt; Symbol &gt; tree) const throws(AnalyzeCrashExeption)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Core::SyntaxTreeFactory::processLine </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>line</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt;&#160;</td>
-          <td class="paramname"><em>tree</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="#L14">14</a> of file <a class="el" href="">SyntaxTreeFactory.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                                     {
+        <span class="keyword">const</span> QString MAIN_SYMBOL = <span class="stringliteral">&quot;main&quot;</span>;
 
-</div>
-</div>
-<a class="anchor" id="ac957cb36feaffd6515bd86f7f19ecb1b"></a><!-- doxytag: member="Core::SyntaxTreeFactory::toPostfixSymbolsList" ref="ac957cb36feaffd6515bd86f7f19ecb1b" args="(const QString &amp;line) const throws(AnalyzeCrashExeption)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QList&lt;<a class="el" href="class_core_1_1_symbol.html">Symbol</a>&gt; Core::SyntaxTreeFactory::toPostfixSymbolsList </td>
-          <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>line</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+        QMap&lt;QString, QString&gt; linesMap = createLinesMap(text);
+        QSet&lt;QString&gt; linesSet = createLinesSet(linesMap);
+        
+        <a class="code" href="class_tree.html">Tree&lt;Symbol&gt;</a> tree = <a class="code" href="class_tree.html">Tree&lt;Symbol &gt;</a> ();
+        QMap&lt;QString, QString&gt;::Iterator it = linesMap.find(MAIN_SYMBOL);
+        QString value = *it;
+        linesMap.erase(it);
+        linesSet.erase(linesSet.find(MAIN_SYMBOL));
 
+        tree = Symbol(MAIN_SYMBOL, <a class="code" href="class_core_1_1_symbol_1_1_symbol_type.html#a86daa79a33de2154b5f7f2e6e09c4a7b">Symbol::SymbolType::IDENTYFIER</a>);
+        tree.<a class="code" href="class_tree.html#a0fde092d58dc5d448f2698062a69cf2e">get</a>().setId(<span class="stringliteral">&quot;a&quot;</span>);
+
+        processLine(value, tree);
+        TreeProcessor processor = TreeProcessor();
+
+        <span class="keywordtype">bool</span> ok = <span class="keyword">true</span>;
+        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
+            tree.<a class="code" href="class_tree.html#a0c8d2bb42f5fa5ad8b2da05d34b4c09b">traverse</a>(processor);
+
+            <span class="keywordflow">if</span> (processor.isEnd())
+                <span class="keywordflow">break</span>;
+
+            QList&lt;Tree&lt;Symbol&gt; &gt; nodes = processor.getNodes();
+
+            <span class="keywordflow">for</span> (QList&lt;<a class="code" href="class_tree.html">Tree&lt;Symbol&gt;</a> &gt;::Iterator it = nodes.begin(); it != nodes.end(); ++it) {
+                QString current = (*it).get().getRepresentation();
+                
+                <span class="keywordflow">if</span>(!linesMap.contains(current)) {
+                    Events::SymbolIsNotDefinedErrorEvent <span class="keyword">event</span> = Events::SymbolIsNotDefinedErrorEvent(current);
+                    <span class="keyword">event</span>.share(*broadcaster);
+                    
+                    (*it).clear();
+                     
+                    ok = <span class="keyword">false</span>;
+                    <span class="keywordflow">continue</span>;
+                }
+                
+                linesSet.erase(linesSet.find(current));
+                processLine(linesMap.value(current), *it);
+            }
+
+        }
+
+        <span class="keywordflow">for</span> (QSet&lt;QString&gt;::ConstIterator it = linesSet.begin(); it != linesSet.end(); ++it) {
+            Events::SymbolIsNotUsedErrorEvent <span class="keyword">event</span> = Events::SymbolIsNotUsedErrorEvent(*it);
+            <span class="keyword">event</span>.share(*broadcaster);
+        }
+        
+        <span class="keywordflow">if</span>(!ok) <span class="keywordflow">throw</span> AnalyzeCrashExeption();
+
+        <span class="keywordflow">return</span> tree;
+    }
+</pre></div>
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/host/Coding/C++/Syntax Analyzer/src/Core/<a class="el" href="">SyntaxTreeFactory.h</a></li>
+<li>/host/Coding/C++/Syntax Analyzer/src/Core/<a class="el" href="">SyntaxTreeFactory.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -180,7 +200,7 @@ Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -189,7 +209,7 @@ Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Mar 7 2012 02:02:17 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

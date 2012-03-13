@@ -1,8 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node7" href="$class_core_1_1_symbol_1_1_symbol_type_1_1_and.html" title="{Core::Symbol::SymbolType::And\n||+ operation()\l# And()\l}" alt="" coords="5,798,219,901"/>
-<area shape="rect" id="node9" href="$class_core_1_1_symbol_1_1_symbol_type_1_1_identifier.html" title="{Core::Symbol::SymbolType::Identifier\n||+ operation()\l# Identifier()\l}" alt="" coords="243,798,483,901"/>
-<area shape="rect" id="node11" href="$class_core_1_1_symbol_1_1_symbol_type_1_1_litheral.html" title="{Core::Symbol::SymbolType::Litheral\n||+ operation()\l# Litheral()\l}" alt="" coords="507,798,739,901"/>
-<area shape="rect" id="node13" href="$class_core_1_1_symbol_1_1_symbol_type_1_1_or.html" title="{Core::Symbol::SymbolType::Or\n||+ operation()\l# Or()\l}" alt="" coords="763,798,968,901"/>
-<area shape="rect" id="node2" href="$class_enum.html" title="{Enum\&lt; Symbol::SymbolTypeData \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const Symbol::SymbolTypeData &amp;()\l# Enum()\l}" alt="" coords="345,246,639,418"/>
-<area shape="rect" id="node4" href="$class_enum.html" title="{Enum\&lt; T \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const T &amp;()\l# Enum()\l}" alt="" coords="417,6,567,178"/>
+<area shape="rect" id="node2" href="$class_enum.html" title="{Enum\&lt; Symbol::SymbolTypeData \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const Symbol::SymbolTypeData &amp;()\l# Enum()\l}" alt="" coords="5,246,299,418"/>
+<area shape="rect" id="node4" href="$class_enum.html" title="{Enum\&lt; T \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const T &amp;()\l# Enum()\l}" alt="" coords="77,6,227,178"/>
 </map>

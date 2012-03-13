@@ -67,20 +67,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p><a href="inherits.html">Go to the graphical class hierarchy</a></p>
 This inheritance list is sorted roughly, but not completely, alphabetically:</div><ul>
 <li><a class="el" href="class_core_1_1_analyzer.html">Core::Analyzer</a></li>
-<li><a class="el" href="class_tree_1_1_data_provider.html">Tree&lt; T &gt;::DataProvider</a></li>
+<li><a class="el" href="class_tree_1_1_data_processor.html">Tree&lt; T &gt;::DataProcessor</a><ul>
+<li><a class="el" href="class_to_d_o_t.html">ToDOT</a></li>
+</ul>
+</li>
 <li><a class="el" href="class_enum.html">Enum&lt; T &gt;</a></li>
 <li><a class="el" href="class_enum.html">Enum&lt; QString &gt;</a><ul>
 <li><a class="el" href="class_traverse_type.html">TraverseType</a></li>
+<li><a class="el" href="class_tree_1_1_tree_getter.html">Tree&lt; T &gt;::TreeGetter</a></li>
 </ul>
 </li>
 <li><a class="el" href="class_enum.html">Enum&lt; Symbol::SymbolTypeData &gt;</a><ul>
-<li><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Core::Symbol::SymbolType</a><ul>
-<li><a class="el" href="class_core_1_1_symbol_1_1_symbol_type_1_1_and.html">Core::Symbol::SymbolType::And</a></li>
-<li><a class="el" href="class_core_1_1_symbol_1_1_symbol_type_1_1_identifier.html">Core::Symbol::SymbolType::Identifier</a></li>
-<li><a class="el" href="class_core_1_1_symbol_1_1_symbol_type_1_1_litheral.html">Core::Symbol::SymbolType::Litheral</a></li>
-<li><a class="el" href="class_core_1_1_symbol_1_1_symbol_type_1_1_or.html">Core::Symbol::SymbolType::Or</a></li>
-</ul>
-</li>
+<li><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Core::Symbol::SymbolType</a></li>
 </ul>
 </li>
 <li><a class="el" href="class_events_1_1_event.html">Events::Event</a><ul>
@@ -88,9 +86,11 @@ This inheritance list is sorted roughly, but not completely, alphabetically:</di
 </ul>
 </li>
 <li><a class="el" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a></li>
-<li><a class="el" href="class_events_1_1_event_listener.html">Events::EventListener</a></li>
+<li><a class="el" href="class_events_1_1_event_listener.html">Events::EventListener</a><ul>
+<li><a class="el" href="class_listener.html">Listener</a></li>
+</ul>
+</li>
 <li><a class="el" href="class_core_1_1_exeption.html">Core::Exeption</a></li>
-<li><a class="el" href="class_tree_1_1_i_data_processor.html">Tree&lt; T &gt;::IDataProcessor</a></li>
 <li><a class="el" href="struct_tree_1_1_node.html">Tree&lt; T &gt;::Node</a></li>
 <li><a class="el" href="class_tree_1_1_out_of_bounds_exeption.html">Tree&lt; T &gt;::OutOfBoundsExeption</a></li>
 <li><a class="el" href="class_core_1_1_preprocessor.html">Core::Preprocessor</a></li>
@@ -98,6 +98,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically:</di
 <li><a class="el" href="class_core_1_1_symbol_factory.html">Core::SymbolFactory</a></li>
 <li><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html">Core::Symbol::SymbolTypeData</a></li>
 <li><a class="el" href="class_core_1_1_syntax_tree_factory.html">Core::SyntaxTreeFactory</a></li>
+<li><a class="el" href="class_tree_1_1_traverse_stopped_exeption.html">Tree&lt; T &gt;::TraverseStoppedExeption</a></li>
 <li><a class="el" href="class_tree.html">Tree&lt; T &gt;</a></li>
 <li><a class="el" href="class_core_1_1_tree_analyzer.html">Core::TreeAnalyzer</a></li>
 </ul>
@@ -107,7 +108,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically:</di
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -116,7 +117,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically:</di
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Mar 7 2012 02:02:17 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

@@ -4,7 +4,7 @@ namespace Core {
 
     bool Symbol::SymbolType::andOperation(const QList<bool>& args) {
         for (QList<bool>::ConstIterator it = args.begin(); it != args.end(); ++it) {
-            if (*it) {
+            if (!*it) {
                 return false;
             }
         }
@@ -23,7 +23,7 @@ namespace Core {
     }
 
     bool Symbol::SymbolType::equalOperation(const QList<bool>& args) {
-        return args[0];
+        return !args.isEmpty() ? args[0] : false;
     }
 
     bool Symbol::SymbolType::litheralOperation(const QList<bool>& args) {

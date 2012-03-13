@@ -23,33 +23,44 @@ namespace Core {
         linesMap.erase(it);
         linesSet.erase(linesSet.find(MAIN_SYMBOL));
 
-        tree.set(Symbol(MAIN_SYMBOL, Symbol::SymbolType::IDENTYFIER));
+        tree = Symbol(MAIN_SYMBOL, Symbol::SymbolType::IDENTYFIER);
         tree.get().setId("a");
 
         processLine(value, tree);
-        TreeProcessor processor = TreeProcessor(&linesMap);
+        TreeProcessor processor = TreeProcessor();
 
+        bool ok = true;
         while (true) {
             tree.traverse(processor);
 
-            if (processor.isEnd()) {
+            if (processor.isEnd())
                 break;
-            } else {
-                QList<Tree<Symbol> > nodes = processor.getNodes();
 
-                for (QList<Tree<Symbol> >::ConstIterator it = nodes.begin(); it != nodes.end(); ++it) {
-                    QString line = *linesMap.find((*it).get().getRepresentation());
+            QList<Tree<Symbol> > nodes = processor.getNodes();
 
-                    linesSet.erase(linesSet.find((*it).get().getRepresentation()));
-                    processLine(line, *it);
+            for (QList<Tree<Symbol> >::Iterator it = nodes.begin(); it != nodes.end(); ++it) {
+                QString current = (*it).get().getRepresentation();
+
+                if (!linesMap.contains(current)) {
+                    Events::SymbolIsNotDefinedErrorEvent event = Events::SymbolIsNotDefinedErrorEvent(current);
+                    event.share(*broadcaster);
+
+                    ok = false;
+                    continue;
                 }
+
+                linesSet.erase(linesSet.find(current));
+                processLine(linesMap.value(current), *it);
             }
+
         }
 
         for (QSet<QString>::ConstIterator it = linesSet.begin(); it != linesSet.end(); ++it) {
             Events::SymbolIsNotUsedErrorEvent event = Events::SymbolIsNotUsedErrorEvent(*it);
             event.share(*broadcaster);
         }
+
+        if (!ok) throw AnalyzeCrashExeption();
 
         return tree;
     }
@@ -65,12 +76,12 @@ namespace Core {
         for (QStringList::ConstIterator it = lines.begin(); it != lines.end(); ++it) {
             QStringList temp = (*it).split(LINE_SEPARATOR, QString::SkipEmptyParts);
 
-            if(temp.count() > 2) {
+            if (temp.count() > 2) {
                 for (int i = 2; i < temp.count(); i++) {
                     temp[1] += temp[i];
                 }
             }
-            
+
             map.insert(temp[0], temp[1]);
         }
 

@@ -1,6 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_tree_8h.html" title="Utils/Tree.h" alt="" coords="199,83,289,112"/>
-<area shape="rect" id="node15" href="$_preprocessor_8h.html" title="Core/Preprocessor.h" alt="" coords="452,83,593,112"/>
-<area shape="rect" id="node26" href="$_syntax_tree_factory_8h.html" title="Core/SyntaxTreeFactory.h" alt="" coords="617,83,793,112"/>
-<area shape="rect" id="node34" href="$_exeption_8h.html" title="Core/Exeption.h" alt="" coords="313,83,428,112"/>
+<area shape="rect" id="node3" href="$_tree_8h.html" title="Utils/Tree.h" alt="" coords="229,83,320,112"/>
+<area shape="rect" id="node15" href="$_preprocessor_8h.html" title="Core/Preprocessor.h" alt="" coords="513,83,655,112"/>
+<area shape="rect" id="node26" href="$_syntax_tree_factory_8h.html" title="Core/SyntaxTreeFactory.h" alt="" coords="679,83,855,112"/>
+<area shape="rect" id="node38" href="$_exeption_8h.html" title="Core/Exeption.h" alt="" coords="375,83,489,112"/>
+<area shape="rect" id="node42" href="$defines_8h.html" title="defines.h" alt="" coords="929,83,1004,112"/>
 </map>

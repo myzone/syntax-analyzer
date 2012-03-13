@@ -62,7 +62,8 @@ namespace Events {
     DECLARE_ERROR_EVENT_SUBCLASS(DoubleDefenitionErrorEvent);
     DECLARE_ERROR_EVENT_SUBCLASS(SymbolIsNotUsedErrorEvent);
     DECLARE_ERROR_EVENT_SUBCLASS(SymbolIsNotDefinedErrorEvent);
-
+    DECLARE_ERROR_EVENT_SUBCLASS(SymbolHasMistakeErrorEvent);
+    
     DECLARE_ERROR_EVENT_SUBCLASS(LitheralIsNotClosedErrorEvent);
     DECLARE_ERROR_EVENT_SUBCLASS(WrongBracketsNumberErrorEvent);
 }

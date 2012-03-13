@@ -56,6 +56,7 @@ namespace Events {
     IMPLEMENT_ERROR_EVENT_SUBCLASS(DoubleDefenitionErrorEvent);
     IMPLEMENT_ERROR_EVENT_SUBCLASS(SymbolIsNotUsedErrorEvent);
     IMPLEMENT_ERROR_EVENT_SUBCLASS(SymbolIsNotDefinedErrorEvent);
+    IMPLEMENT_ERROR_EVENT_SUBCLASS(SymbolHasMistakeErrorEvent);
     
     IMPLEMENT_ERROR_EVENT_SUBCLASS(LitheralIsNotClosedErrorEvent);
     IMPLEMENT_ERROR_EVENT_SUBCLASS(WrongBracketsNumberErrorEvent);

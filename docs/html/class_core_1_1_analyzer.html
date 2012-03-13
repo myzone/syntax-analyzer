@@ -78,7 +78,7 @@ Collaboration diagram for Core::Analyzer:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_core_1_1_analyzer__coll__graph.png" border="0" usemap="#_core_1_1_analyzer_coll__map" alt="Collaboration graph"/></div>
 <map name="_core_1_1_analyzer_coll__map" id="_core_1_1_analyzer_coll__map">
-<area shape="rect" id="node2" href="class_core_1_1_syntax_tree_factory.html" title="{Core::SyntaxTreeFactory\n|&#45; broadcaster\l|+ SyntaxTreeFactory()\l+ createTree()\l+ processLine()\l+ toPostfixSymbolsList()\l&#45; SyntaxTreeFactory()\l}" alt="" coords="121,279,289,433"/><area shape="rect" id="node4" href="class_events_1_1_event_broadcaster.html" title="{Events::EventBroadcaster\n|&#45; listeners\l|+ EventBroadcaster()\l+ ~EventBroadcaster()\l+ addErrorEventListener()\l+ removeErrorEventListener()\l+ broadcast()\l}" alt="" coords="109,5,301,160"/><area shape="rect" id="node6" href="class_core_1_1_preprocessor.html" title="{Core::Preprocessor\n|&#45; pathToLibrary\l&#45; broadcaster\l&#45; FILE_FORMAT_MASK\l&#45; TEXT_SPLITTER\l&#45; LINE_SPLITTER\l&#45; COMMENTS_REMOVER\l&#45; SPACES_REMOVER\l|+ Preprocessor()\l+ ~Preprocessor()\l+ process()\l&#45; removeComments()\l&#45; import()\l}" alt="" coords="313,227,494,485"/></map>
+<area shape="rect" id="node2" href="class_core_1_1_syntax_tree_factory.html" title="{Core::SyntaxTreeFactory\n|&#45; broadcaster\l|+ SyntaxTreeFactory()\l+ createTree()\l&#45; SyntaxTreeFactory()\l&#45; createLinesMap()\l&#45; createLinesSet()\l&#45; processLine()\l&#45; toPostfixSymbolsList()\l}" alt="" coords="120,261,288,451"/><area shape="rect" id="node4" href="class_events_1_1_event_broadcaster.html" title="{Events::EventBroadcaster\n|&#45; listeners\l|+ EventBroadcaster()\l+ ~EventBroadcaster()\l+ addEventListener()\l+ removeEventListener()\l+ broadcast()\l}" alt="" coords="117,5,291,160"/><area shape="rect" id="node6" href="class_core_1_1_preprocessor.html" title="{Core::Preprocessor\n|&#45; pathToLibrary\l&#45; broadcaster\l&#45; FILE_FORMAT_MASK\l&#45; TEXT_SPLITTER\l&#45; LINE_SPLITTER\l&#45; COMMENTS_REMOVER\l&#45; SPACES_REMOVER\l|+ Preprocessor()\l+ ~Preprocessor()\l+ process()\l&#45; removeComments()\l&#45; import()\l}" alt="" coords="312,227,493,485"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
@@ -110,8 +110,7 @@ Public Member Functions</h2></td></tr>
 <div class="memdoc">
 
 <p>Definition at line <a class="el" href="#L6">6</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                   : broadcaster(), preprocessor(pathToLibrary), syntaxTreeFactory(&amp;this-&gt;broadcaster) {
-    }
+<div class="fragment"><pre class="fragment">: broadcaster(), preprocessor(pathToLibrary), syntaxTreeFactory(&amp;this-&gt;broadcaster) { }
 </pre></div>
 </div>
 </div>
@@ -129,9 +128,8 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L9">9</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                        {
-    }
+<p>Definition at line <a class="el" href="#L8">8</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{ }
 </pre></div>
 </div>
 </div>
@@ -151,9 +149,9 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L23">23</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L27">27</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                      {
-        broadcaster.<a class="code" href="class_events_1_1_event_broadcaster.html#a29ad8721a66f6413cdf940fe5dfe00dc">addErrorEventListener</a>(listener);
+        broadcaster.<a class="code" href="class_events_1_1_event_broadcaster.html#a0029dca602485849c39afd2e1a5437c6">addEventListener</a>(listener);
     }
 </pre></div>
 </div>
@@ -173,12 +171,18 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L12">12</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L10">10</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">                                                    {
-        <span class="keywordflow">try</span> {
+        shareStartEvent();
 
+        <span class="keywordflow">try</span> {
+            QString source = preprocessor.process(text);
+            <a class="code" href="class_tree.html">Tree&lt;Symbol&gt;</a> tree = syntaxTreeFactory.createTree(source);
         } <span class="keywordflow">catch</span> (AnalyzeCrashExeption) {
+            shareEndEvent();
         }
+
+        shareEndEvent();
     }
 </pre></div>
 </div>
@@ -197,7 +201,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L19">19</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L23">23</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                           {
         <span class="keywordflow">return</span> broadcaster;
     }
@@ -219,9 +223,9 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L27">27</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L31">31</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                         {
-        broadcaster.<a class="code" href="class_events_1_1_event_broadcaster.html#a59838a4507a35581d37d4a3da293c285">removeErrorEventListener</a>(listener);
+        broadcaster.<a class="code" href="class_events_1_1_event_broadcaster.html#a585614e047e8b51ff3309e9dedba267f">removeEventListener</a>(listener);
     }
 </pre></div>
 </div>
@@ -236,7 +240,7 @@ Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -245,7 +249,7 @@ Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Mar 7 2012 02:02:17 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

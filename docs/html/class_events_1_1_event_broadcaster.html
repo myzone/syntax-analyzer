@@ -78,10 +78,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_broadcaster.html#ac1afab3f7ffcc0e48a83d4132ba59f29">EventBroadcaster</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_broadcaster.html#a1060e10ef721978fa75ad1ac8dc1bc8a">~EventBroadcaster</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_broadcaster.html#a29ad8721a66f6413cdf940fe5dfe00dc">addErrorEventListener</a> (<a class="el" href="class_events_1_1_event_listener.html">EventListener</a> *listener)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_broadcaster.html#a59838a4507a35581d37d4a3da293c285">removeErrorEventListener</a> (<a class="el" href="class_events_1_1_event_listener.html">EventListener</a> *listener)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_broadcaster.html#a0029dca602485849c39afd2e1a5437c6">addEventListener</a> (<a class="el" href="class_events_1_1_event_listener.html">EventListener</a> *listener)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_broadcaster.html#a585614e047e8b51ff3309e9dedba267f">removeEventListener</a> (<a class="el" href="class_events_1_1_event_listener.html">EventListener</a> *listener)</td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_broadcaster.html#a53379fd41e28cb0745a7d3c3326ac32b">broadcast</a> (T event) const </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_broadcaster.html#af4082166a41560a3cd6ed4442fabe6cc">broadcast</a> (const T &amp;event) const </td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -128,12 +128,12 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a29ad8721a66f6413cdf940fe5dfe00dc"></a><!-- doxytag: member="Events::EventBroadcaster::addErrorEventListener" ref="a29ad8721a66f6413cdf940fe5dfe00dc" args="(EventListener *listener)" -->
+<a class="anchor" id="a0029dca602485849c39afd2e1a5437c6"></a><!-- doxytag: member="Events::EventBroadcaster::addEventListener" ref="a0029dca602485849c39afd2e1a5437c6" args="(EventListener *listener)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Events::EventBroadcaster::addErrorEventListener </td>
+          <td class="memname">void Events::EventBroadcaster::addEventListener </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_events_1_1_event_listener.html">EventListener</a> *&#160;</td>
           <td class="paramname"><em>listener</em></td><td>)</td>
@@ -144,13 +144,13 @@ Public Member Functions</h2></td></tr>
 <div class="memdoc">
 
 <p>Definition at line <a class="el" href="#L11">11</a> of file <a class="el" href="">EventBroadcaster.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                        {
+<div class="fragment"><pre class="fragment">                                                                   {
         listeners.push_back(listener);
     }
 </pre></div>
 </div>
 </div>
-<a class="anchor" id="a53379fd41e28cb0745a7d3c3326ac32b"></a><!-- doxytag: member="Events::EventBroadcaster::broadcast" ref="a53379fd41e28cb0745a7d3c3326ac32b" args="(T event) const " -->
+<a class="anchor" id="af4082166a41560a3cd6ed4442fabe6cc"></a><!-- doxytag: member="Events::EventBroadcaster::broadcast" ref="af4082166a41560a3cd6ed4442fabe6cc" args="(const T &amp;event) const " -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -159,7 +159,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void Events::EventBroadcaster::broadcast </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
+          <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>event</em></td><td>)</td>
           <td> const<code> [inline]</code></td>
         </tr>
@@ -168,7 +168,7 @@ template&lt;typename T &gt; </div>
 <div class="memdoc">
 
 <p>Definition at line <a class="el" href="#L20">20</a> of file <a class="el" href="">EventBroadcaster.h</a>.</p>
-<div class="fragment"><pre class="fragment">                                                           {
+<div class="fragment"><pre class="fragment">                                                                  {
             <span class="keywordflow">for</span> (QLinkedList&lt;EventListener*&gt;::ConstIterator it = listeners.begin(); it != listeners.end(); it++) {
                 (*it)-&gt;handle(event);
             }
@@ -176,12 +176,12 @@ template&lt;typename T &gt; </div>
 </pre></div>
 </div>
 </div>
-<a class="anchor" id="a59838a4507a35581d37d4a3da293c285"></a><!-- doxytag: member="Events::EventBroadcaster::removeErrorEventListener" ref="a59838a4507a35581d37d4a3da293c285" args="(EventListener *listener)" -->
+<a class="anchor" id="a585614e047e8b51ff3309e9dedba267f"></a><!-- doxytag: member="Events::EventBroadcaster::removeEventListener" ref="a585614e047e8b51ff3309e9dedba267f" args="(EventListener *listener)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Events::EventBroadcaster::removeErrorEventListener </td>
+          <td class="memname">void Events::EventBroadcaster::removeEventListener </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_events_1_1_event_listener.html">EventListener</a> *&#160;</td>
           <td class="paramname"><em>listener</em></td><td>)</td>
@@ -192,7 +192,7 @@ template&lt;typename T &gt; </div>
 <div class="memdoc">
 
 <p>Definition at line <a class="el" href="#L15">15</a> of file <a class="el" href="">EventBroadcaster.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                           {
+<div class="fragment"><pre class="fragment">                                                                      {
         listeners.removeOne(listener);
     }
 </pre></div>
@@ -208,7 +208,7 @@ template&lt;typename T &gt; </div>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -217,7 +217,7 @@ template&lt;typename T &gt; </div>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Mar 7 2012 02:02:17 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

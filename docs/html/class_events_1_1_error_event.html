@@ -92,7 +92,7 @@ Collaboration diagram for Events::ErrorEvent:</div>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_error_event.html#ad2ae2c1c2a67c3d384291fa1e10423c2">ErrorEvent</a> (const QString &amp;symbol)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_error_event.html#afe163666aa89bd9b7f39fa81f88ed4d3">~ErrorEvent</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_error_event.html#a1f169de1adf324dc953c610554e17d14">getSymbol</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_error_event.html#ac6a119f9d12a0341ae451ab473760499">getRepresentation</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_error_event.html#a153fde8655e5a0bdd488fda4ec3efb8b">DECLARE_SHARE_METHOD</a> (<a class="el" href="class_events_1_1_error_event.html">ErrorEvent</a>)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_error_event.html#a42780f6f3971685004f012d75f9b33fe">DECLARE_TO_STRING_METHOD</a> (<a class="el" href="class_events_1_1_error_event.html">ErrorEvent</a>)</td></tr>
 </table>
@@ -116,7 +116,7 @@ Public Member Functions</h2></td></tr>
 <div class="memdoc">
 
 <p>Definition at line <a class="el" href="#L38">38</a> of file <a class="el" href="">Event.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                : symbol(symbol) {
+<div class="fragment"><pre class="fragment">                                                : representation(symbol) {
     }
 </pre></div>
 </div>
@@ -176,12 +176,12 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1f169de1adf324dc953c610554e17d14"></a><!-- doxytag: member="Events::ErrorEvent::getSymbol" ref="a1f169de1adf324dc953c610554e17d14" args="() const " -->
+<a class="anchor" id="ac6a119f9d12a0341ae451ab473760499"></a><!-- doxytag: member="Events::ErrorEvent::getRepresentation" ref="ac6a119f9d12a0341ae451ab473760499" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const QString &amp; Events::ErrorEvent::getSymbol </td>
+          <td class="memname">const QString &amp; Events::ErrorEvent::getRepresentation </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -191,8 +191,8 @@ Public Member Functions</h2></td></tr>
 <div class="memdoc">
 
 <p>Definition at line <a class="el" href="#L44">44</a> of file <a class="el" href="">Event.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                               {
-        <span class="keywordflow">return</span> symbol;
+<div class="fragment"><pre class="fragment">                                                       {
+        <span class="keywordflow">return</span> representation;
     };
 </pre></div>
 </div>
@@ -207,7 +207,7 @@ Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -216,7 +216,7 @@ Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Mar 7 2012 02:02:17 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

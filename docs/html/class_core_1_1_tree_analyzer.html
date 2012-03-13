@@ -73,34 +73,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <!-- doxytag: class="Core::TreeAnalyzer" -->
 <p><code>#include &lt;<a class="el" href="">TreeAnalyzer.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Core::TreeAnalyzer:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_core_1_1_tree_analyzer__coll__graph.png" border="0" usemap="#_core_1_1_tree_analyzer_coll__map" alt="Collaboration graph"/></div>
+<map name="_core_1_1_tree_analyzer_coll__map" id="_core_1_1_tree_analyzer_coll__map">
+<area shape="rect" id="node2" href="class_events_1_1_event_broadcaster.html" title="{Events::EventBroadcaster\n|&#45; listeners\l|+ EventBroadcaster()\l+ ~EventBroadcaster()\l+ addEventListener()\l+ removeEventListener()\l+ broadcast()\l}" alt="" coords="5,5,179,160"/></map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_tree_analyzer.html#aba718bfaaf09cb180c6c6d0e317ce1f0">TreeAnalyzer</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_tree_analyzer.html#a221da56f81a87e3746b1d082b50d35f4">TreeAnalyzer</a> (const <a class="el" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a> *broadcaster)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_tree_analyzer.html#a553af6e7240862729802294fdf4db523">~TreeAnalyzer</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_tree_analyzer.html#a5c8b08ae816cf918b2f8e458bdd54b4a">analyzeTree</a> (const <a class="el" href="class_tree.html">Tree</a>&lt; QString &gt; &amp;tree, const <a class="el" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a> &amp;broadcaster) const </td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="#L10">10</a> of file <a class="el" href="">TreeAnalyzer.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aba718bfaaf09cb180c6c6d0e317ce1f0"></a><!-- doxytag: member="Core::TreeAnalyzer::TreeAnalyzer" ref="aba718bfaaf09cb180c6c6d0e317ce1f0" args="()" -->
+<a class="anchor" id="a221da56f81a87e3746b1d082b50d35f4"></a><!-- doxytag: member="Core::TreeAnalyzer::TreeAnalyzer" ref="a221da56f81a87e3746b1d082b50d35f4" args="(const Events::EventBroadcaster *broadcaster)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Core::TreeAnalyzer::TreeAnalyzer </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a> *&#160;</td>
+          <td class="paramname"><em>broadcaster</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L5">5</a> of file <a class="el" href="">TreeAnalyzer.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                               {
-    }
+<p>Definition at line <a class="el" href="#L10">10</a> of file <a class="el" href="">TreeAnalyzer.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">: broadcaster(broadcaster) { }
 </pre></div>
 </div>
 </div>
@@ -118,42 +124,8 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L8">8</a> of file <a class="el" href="">TreeAnalyzer.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                {
-    }
-</pre></div>
-</div>
-</div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a5c8b08ae816cf918b2f8e458bdd54b4a"></a><!-- doxytag: member="Core::TreeAnalyzer::analyzeTree" ref="a5c8b08ae816cf918b2f8e458bdd54b4a" args="(const Tree&lt; QString &gt; &amp;tree, const Events::EventBroadcaster &amp;broadcaster) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Core::TreeAnalyzer::analyzeTree </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_tree.html">Tree</a>&lt; QString &gt; &amp;&#160;</td>
-          <td class="paramname"><em>tree</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a> &amp;&#160;</td>
-          <td class="paramname"><em>broadcaster</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="#L11">11</a> of file <a class="el" href="">TreeAnalyzer.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                                                             {
-        
-    }
+<p>Definition at line <a class="el" href="#L12">12</a> of file <a class="el" href="">TreeAnalyzer.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{ }
 </pre></div>
 </div>
 </div>
@@ -167,7 +139,7 @@ Public Member Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -176,7 +148,7 @@ Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Mar 7 2012 02:02:17 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

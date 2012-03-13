@@ -91,41 +91,25 @@ Namespaces</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html">Events</a></td></tr>
 <tr><td colspan="2"><h2><a name="define-members"></a>
 Defines</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_event_listener_8h.html#a92b5552092e8e63e7e7e7cd27867c95e">pure</a>&#160;&#160;&#160;=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_event_listener_8h.html#a0a3e8965f3533291989bf411f4b05a95">DECLARE_PURE_HANDLE_METHOD</a>(class_name)&#160;&#160;&#160;virtual void handle(const class_name&amp; event) pure;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_event_listener_8h.html#aff6ac69384add46e7cfc74d493233768">DECLARE_HANDLE_METHOD</a>(class_name)&#160;&#160;&#160;virtual void handle(const class_name&amp; event) { }</td></tr>
 </table>
 <hr/><h2>Define Documentation</h2>
-<a class="anchor" id="a0a3e8965f3533291989bf411f4b05a95"></a><!-- doxytag: member="EventListener.h::DECLARE_PURE_HANDLE_METHOD" ref="a0a3e8965f3533291989bf411f4b05a95" args="(class_name)" -->
+<a class="anchor" id="aff6ac69384add46e7cfc74d493233768"></a><!-- doxytag: member="EventListener.h::DECLARE_HANDLE_METHOD" ref="aff6ac69384add46e7cfc74d493233768" args="(class_name)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DECLARE_PURE_HANDLE_METHOD</td>
+          <td class="memname">#define DECLARE_HANDLE_METHOD</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">class_name</td><td>)</td>
-          <td>&#160;&#160;&#160;virtual void handle(const class_name&amp; event) pure;</td>
+          <td>&#160;&#160;&#160;virtual void handle(const class_name&amp; event) { }</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L9">9</a> of file <a class="el" href="">EventListener.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a92b5552092e8e63e7e7e7cd27867c95e"></a><!-- doxytag: member="EventListener.h::pure" ref="a92b5552092e8e63e7e7e7cd27867c95e" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define pure&#160;&#160;&#160;=0</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="#L6">6</a> of file <a class="el" href="">EventListener.h</a>.</p>
+<p>Definition at line <a class="el" href="#L5">5</a> of file <a class="el" href="">EventListener.h</a>.</p>
 
 </div>
 </div>
@@ -135,7 +119,7 @@ Defines</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -144,7 +128,7 @@ Defines</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Mar 7 2012 02:02:17 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

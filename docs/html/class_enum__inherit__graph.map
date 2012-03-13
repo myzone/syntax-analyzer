@@ -1,10 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_enum.html" title="{Enum\&lt; Symbol::SymbolTypeData \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const Symbol::SymbolTypeData &amp;()\l# Enum()\l}" alt="" coords="345,246,639,418"/>
-<area shape="rect" id="node15" href="$class_enum.html" title="{Enum\&lt; QString \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const QString &amp;()\l# Enum()\l}" alt="" coords="663,246,849,418"/>
-<area shape="rect" id="node5" href="$class_core_1_1_symbol_1_1_symbol_type.html" title="{Core::Symbol::SymbolType\n|+ CLOSE_BRACKET\l+ OPEN_BRACKET\l+ OR\l+ AND\l+ LITHERAL\l+ IDENTYFIER\l+ SPACE\l+ BACKSLASH\l|+ SymbolType()\l+ operation()\l+ toChar()\l+ getPriority()\l# SymbolType()\l}" alt="" coords="401,470,583,746"/>
-<area shape="rect" id="node7" href="$class_core_1_1_symbol_1_1_symbol_type_1_1_and.html" title="{Core::Symbol::SymbolType::And\n||+ operation()\l# And()\l}" alt="" coords="5,798,219,901"/>
-<area shape="rect" id="node9" href="$class_core_1_1_symbol_1_1_symbol_type_1_1_identifier.html" title="{Core::Symbol::SymbolType::Identifier\n||+ operation()\l# Identifier()\l}" alt="" coords="243,798,483,901"/>
-<area shape="rect" id="node11" href="$class_core_1_1_symbol_1_1_symbol_type_1_1_litheral.html" title="{Core::Symbol::SymbolType::Litheral\n||+ operation()\l# Litheral()\l}" alt="" coords="507,798,739,901"/>
-<area shape="rect" id="node13" href="$class_core_1_1_symbol_1_1_symbol_type_1_1_or.html" title="{Core::Symbol::SymbolType::Or\n||+ operation()\l# Or()\l}" alt="" coords="763,798,968,901"/>
-<area shape="rect" id="node19" href="$class_traverse_type.html" title="{TraverseType\n|+ DEPTH_TRAVERSE\l+ WIDTH_TRAVERSE\l|&#45; TraverseType()\l}" alt="" coords="851,557,1011,659"/>
+<area shape="rect" id="node3" href="$class_enum.html" title="{Enum\&lt; Symbol::SymbolTypeData \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const Symbol::SymbolTypeData &amp;()\l# Enum()\l}" alt="" coords="5,246,299,418"/>
+<area shape="rect" id="node7" href="$class_enum.html" title="{Enum\&lt; QString \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const QString &amp;()\l# Enum()\l}" alt="" coords="397,246,584,418"/>
+<area shape="rect" id="node5" href="$class_core_1_1_symbol_1_1_symbol_type.html" title="{Core::Symbol::SymbolType\n|+ CLOSE_BRACKET\l+ OPEN_BRACKET\l+ OR\l+ AND\l+ LITHERAL\l+ IDENTYFIER\l+ SPACE\l+ BACKSLASH\l|+ SymbolType()\l+ operation()\l+ toChar()\l+ getArgsNumber()\l+ getPriority()\l# SymbolType()\l&#45; andOperation()\l&#45; orOperation()\l&#45; equalOperation()\l&#45; litheralOperation()\l&#45; otherOperation()\l}" alt="" coords="24,470,205,850"/>
+<area shape="rect" id="node11" href="$class_traverse_type.html" title="{TraverseType\n|+ DEPTH_TRAVERSE\l+ WIDTH_TRAVERSE\l|# TraverseType()\l}" alt="" coords="448,609,608,711"/>
+<area shape="rect" id="node13" href="$class_tree_1_1_tree_getter.html" title="{Tree\&lt; T \&gt;::TreeGetter\n||# TreeGetter()\l}" alt="" coords="632,617,781,703"/>
 </map>

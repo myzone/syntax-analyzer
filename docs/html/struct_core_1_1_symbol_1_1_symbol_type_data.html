@@ -74,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="Core::Symbol::SymbolTypeData" -->
-<p><code>#include &lt;<a class="el" href="">SyntaxTreeFactory.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="">Symbol.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -86,10 +86,11 @@ Data Fields</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QChar&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ae532ed38390126ca7ea52711b8f112">symbol</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#ab0bc26e468258bd793b5c4aa6f0d4133">argsNumber</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#abb48369408953b42ef995d50fb7bdc55">priority</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a14d8c140064f25b0f4ee09a43206b113">operation</a> )(const QList&lt; bool &gt; &amp;args)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="#L18">18</a> of file <a class="el" href="">SyntaxTreeFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="#L19">19</a> of file <a class="el" href="">Symbol.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a05d6dd95329508a07fd8a189fdc782bb"></a><!-- doxytag: member="Core::Symbol::SymbolTypeData::operator!=" ref="a05d6dd95329508a07fd8a189fdc782bb" args="(const SymbolTypeData &amp;that) const " -->
 <div class="memitem">
@@ -106,9 +107,9 @@ Data Fields</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L34">34</a> of file <a class="el" href="">SyntaxTreeFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="#L38">38</a> of file <a class="el" href="">Symbol.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                {
-                <span class="keywordflow">return</span> <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ae532ed38390126ca7ea52711b8f112">symbol</a> != that.symbol || <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#abb48369408953b42ef995d50fb7bdc55">priority</a> != that.priority;
+                <span class="keywordflow">return</span> <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ae532ed38390126ca7ea52711b8f112">symbol</a> != that.symbol || <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#ab0bc26e468258bd793b5c4aa6f0d4133">argsNumber</a> != that.argsNumber || <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#abb48369408953b42ef995d50fb7bdc55">priority</a> != that.priority;
             }
 </pre></div>
 </div>
@@ -128,10 +129,12 @@ Data Fields</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L23">23</a> of file <a class="el" href="">SyntaxTreeFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="#L25">25</a> of file <a class="el" href="">Symbol.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                    {
                 <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ae532ed38390126ca7ea52711b8f112">symbol</a> = that.symbol;
+                <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#ab0bc26e468258bd793b5c4aa6f0d4133">argsNumber</a> = that.argsNumber;
                 <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#abb48369408953b42ef995d50fb7bdc55">priority</a> = that.priority;
+                <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a14d8c140064f25b0f4ee09a43206b113">operation</a> = that.operation;
 
                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
             }
@@ -153,9 +156,9 @@ Data Fields</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L30">30</a> of file <a class="el" href="">SyntaxTreeFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="#L34">34</a> of file <a class="el" href="">Symbol.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                {
-                <span class="keywordflow">return</span> <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ae532ed38390126ca7ea52711b8f112">symbol</a> == that.symbol &amp;&amp; <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#abb48369408953b42ef995d50fb7bdc55">priority</a> == that.priority;
+                <span class="keywordflow">return</span> <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ae532ed38390126ca7ea52711b8f112">symbol</a> == that.symbol &amp;&amp; <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#ab0bc26e468258bd793b5c4aa6f0d4133">argsNumber</a> == that.argsNumber &amp;&amp; <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#abb48369408953b42ef995d50fb7bdc55">priority</a> == that.priority;
             }
 </pre></div>
 </div>
@@ -172,7 +175,22 @@ Data Fields</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L20">20</a> of file <a class="el" href="">SyntaxTreeFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="#L21">21</a> of file <a class="el" href="">Symbol.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a14d8c140064f25b0f4ee09a43206b113"></a><!-- doxytag: member="Core::Symbol::SymbolTypeData::operation" ref="a14d8c140064f25b0f4ee09a43206b113" args=")(const QList&lt; bool &gt; &amp;args)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool(* <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a14d8c140064f25b0f4ee09a43206b113">Core::Symbol::SymbolTypeData::operation</a>)(const QList&lt; bool &gt; &amp;args)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L23">23</a> of file <a class="el" href="">Symbol.h</a>.</p>
 
 </div>
 </div>
@@ -187,7 +205,7 @@ Data Fields</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L21">21</a> of file <a class="el" href="">SyntaxTreeFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="#L22">22</a> of file <a class="el" href="">Symbol.h</a>.</p>
 
 </div>
 </div>
@@ -202,12 +220,12 @@ Data Fields</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L19">19</a> of file <a class="el" href="">SyntaxTreeFactory.h</a>.</p>
+<p>Definition at line <a class="el" href="#L20">20</a> of file <a class="el" href="">Symbol.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/host/Coding/C++/Syntax Analyzer/src/Core/<a class="el" href="">SyntaxTreeFactory.h</a></li>
+<li>/host/Coding/C++/Syntax Analyzer/src/Core/<a class="el" href="">Symbol.h</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -215,7 +233,7 @@ Data Fields</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -224,7 +242,7 @@ Data Fields</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Feb 28 2012 20:15:35 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Mar 7 2012 02:02:17 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

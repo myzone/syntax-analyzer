@@ -1,5 +1,5 @@
 <map id="G" name="G">
 <area shape="rect" id="node2" href="$class_enum.html" title="{Enum\&lt; Symbol::SymbolTypeData \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const Symbol::SymbolTypeData &amp;()\l# Enum()\l}" alt="" coords="31,398,324,570"/>
-<area shape="rect" id="node4" href="$struct_core_1_1_symbol_1_1_symbol_type_data.html" title="{Core::Symbol::SymbolTypeData\n|+ symbol\l+ argsNumber\l+ priority\l|+ operator=()\l+ operator==()\l+ operator!=()\l}" alt="" coords="5,167,216,321"/>
+<area shape="rect" id="node4" href="$struct_core_1_1_symbol_1_1_symbol_type_data.html" title="{Core::Symbol::SymbolTypeData\n|+ symbol\l+ argsNumber\l+ priority\l+ operation\l|+ operator=()\l+ operator==()\l+ operator!=()\l}" alt="" coords="5,158,216,330"/>
 <area shape="rect" id="node6" href="$class_enum.html" title="{Enum\&lt; T \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const T &amp;()\l# Enum()\l}" alt="" coords="240,158,389,330"/>
 </map>

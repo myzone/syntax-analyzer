@@ -103,13 +103,23 @@ namespace Core {
             this->id = id;
         }
 
-        inline const QString& getId() {
+        inline const QString& getId() const {
             return id;
+        }
+
+        inline bool operation(const QList<bool>& args) {
+            return type.operation(args);
         }
 
         inline QString toString() const {
             return representation + "{@" + id + "}";
         }
+
+        inline bool operator==(const Symbol& that) const {
+            return type == that.type
+                    && representation == that.representation;
+        }
+
     };
 
     /**

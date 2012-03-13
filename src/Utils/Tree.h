@@ -10,7 +10,9 @@
 
 class TraverseType : public Enum<QString> {
 protected:
-    TraverseType(const QString& value) : Enum<QString>(value) {}
+
+    TraverseType(const QString& value) : Enum<QString>(value) {
+    }
 
 public:
     static const TraverseType DEPTH_TRAVERSE;
@@ -18,7 +20,7 @@ public:
 
 };
 
-template<typename T>class Tree {
+template<typename T> class Tree {
 protected:
 
     struct Node {
@@ -42,7 +44,7 @@ protected:
             this->prev = null;
         }
 
-        Node(const T* data, size_t id, Node * parent) {
+        Node(T* data, size_t id, Node * parent) {
             this->id = id;
             this->data = data;
 
@@ -141,16 +143,9 @@ protected:
 
 public:
 
-    class TreeGetter : public Enum<QString> {
-    protected:
-        TreeGetter(const QString& value) : Enum<QString>(value) {}
-
-    public:
-        //static const TreeGetter SUPER_TREE = TreeGetter("super");
-
+    enum TreeGetter {
+        SUPER
     };
-
-    //static const TreeGetter SUPER_TREE = TreeGetter::SUPER_TREE;
 
     class OutOfBoundsExeption {
     public:
@@ -177,25 +172,15 @@ public:
 
     class DataProcessor {
     protected:
-
-        void stop() throws(TraverseStoppedExeption) {
+        void stop() const throws(TraverseStoppedExeption) {
             throw TraverseStoppedExeption();
         }
 
     public:
-
-        virtual void dataProcessingStarts() {
-        }
-
-        virtual void dataProcessingEnds() {
-        }
-
-        virtual void processData(Tree<T>& nodeProvider) {
-        }
-
-        virtual void processData(const Tree<T>& nodeProvider) const {
-        }
-
+        virtual void dataProcessingStarts() const { }
+        virtual void dataProcessingEnds() const { }
+        virtual void processData(Tree<T>& nodeProvider) { }
+        virtual void processData(const Tree<T>& nodeProvider) const { }
         virtual const TraverseType& getTraverseType() const pure;
 
     };
@@ -210,9 +195,7 @@ public:
         iterator = orig.iterator;
     }
 
-    virtual ~Tree() {
-
-    }
+    virtual ~Tree() { }
 
     inline Tree getSupertree() const throws(OutOfBoundsExeption) {
         if (!root->parent) throw OutOfBoundsExeption();
@@ -235,19 +218,11 @@ public:
     }
 
     inline T& get() const throws(OutOfBoundsExeption) {
-        if (!root->data) {
+        if (!root || !root->data) {
             throw OutOfBoundsExeption();
         }
 
         return *root->data;
-    }
-
-    inline void insert(const Tree<T>& data) {
-        if (root->parent) {
-            if (root->prev) root->prev->next = data.root;
-            if (root->next) root->next->prev = data.root;
-            if (root->parent->child == root) root->parent->child = data.root;
-        }
     }
 
     void traverse(DataProcessor& processor) {
@@ -262,7 +237,7 @@ public:
                 while (!nodesStack.empty()) {
                     Node* current = nodesStack.pop();
                     if (current->data) {
-                        Tree<T> provider = Tree<T>(current);
+                        Tree<T> provider = Tree<T > (current);
                         processor.processData(provider);
                     }
 
@@ -307,7 +282,7 @@ public:
         processor.dataProcessingEnds();
     }
 
-    void walk(const DataProcessor& processor) const {
+    void traverse(const DataProcessor& processor) const {
         processor.dataProcessingStarts();
 
         try {
@@ -319,7 +294,7 @@ public:
                 while (!nodesStack.empty()) {
                     Node* current = nodesStack.pop();
                     if (current->data) {
-                        const Tree<T> provider = Tree<T > (current);
+                        Tree<T> provider = Tree<T > (current);
                         processor.processData(provider);
                     }
 
@@ -342,7 +317,7 @@ public:
                     Node* firstChild = current->child;
 
                     if (current->data) {
-                        const Tree<T> provider = Tree<T > (current);
+                        Tree<T> provider = Tree<T > (current);
                         processor.processData(provider);
                     }
 
@@ -365,8 +340,8 @@ public:
     }
 
     Tree clone() const {
-        Tree newTree = Tree();
-        newTree.root = new Node(root->data, 0, null);
+        Tree<T> newTree = Tree<T > ();
+        newTree.root = new Node(root->data ? new T(*root->data) : null, 0, null);
 
         QQueue<Node*> nodesQueue = QQueue<Node*>();
         QQueue<Node*> newNodesQueue = QQueue<Node*>();
@@ -389,7 +364,7 @@ public:
             newCurrent->child = new Node(current->data ? new T(*current->data) : null, current->id, newCurrent);
             newCurrent = newCurrent->child;
 
-            newNodesQueue.push_back();
+            newNodesQueue.push_back(newCurrent);
             while (current->next) {
                 current = current->next;
                 nodesQueue.push_back(current);
@@ -401,6 +376,52 @@ public:
         }
 
         return newTree;
+    }
+
+    template<typename> friend class Tree;
+
+    template<typename ResultType> Tree<ResultType> to(ResultType(*transform)(const T&)) const {
+        Tree<ResultType> newTree = Tree<ResultType > ();
+        newTree.root = new typename Tree<ResultType>::Node(root->data ? new ResultType(transform(*root->data)) : null, 0, null);
+
+        QQueue<typename Tree<T>::Node*> nodesQueue = QQueue<typename Tree<T>::Node*>();
+        QQueue<typename Tree<ResultType>::Node*> newNodesQueue = QQueue<typename Tree<ResultType>::Node*>();
+
+        nodesQueue.push_back(root);
+        newNodesQueue.push_back(newTree.root);
+
+        while (!nodesQueue.empty()) {
+            typename Tree<T>::Node* current = nodesQueue.front();
+            typename Tree<ResultType>::Node* newCurrent = newNodesQueue.front();
+
+            nodesQueue.pop_front();
+            newNodesQueue.pop_front();
+
+            Node* firstChild = current->child;
+            if (!firstChild) continue;
+            current = firstChild;
+            nodesQueue.push_back(current);
+
+            newCurrent->child = new typename Tree<ResultType>::Node(current->data ? new ResultType(transform(*current->data)) : null, current->id, newCurrent);
+            newCurrent = newCurrent->child;
+
+            newNodesQueue.push_back(newCurrent);
+            while (current->next) {
+                current = current->next;
+                nodesQueue.push_back(current);
+
+                newCurrent->next = new typename Tree<ResultType>::Node(current->data ? new ResultType(transform(*current->data)) : null, current->id, newCurrent);
+                newCurrent = newCurrent->next;
+                newNodesQueue.push_back(newCurrent);
+            }
+        }
+
+        return newTree;
+    }
+
+    void clear() {
+        delete root->data;
+        root->data = null;
     }
 
     void dispose() {
@@ -417,6 +438,7 @@ public:
             if (current->child) {
                 nodesStack.push(current->child);
             }
+
             delete current;
         }
     }
@@ -452,12 +474,9 @@ public:
         return getSubtree(index);
     }
 
-    /*
-     *  has error
-     *  
-    inline Tree operator[](const TreeGetter&) const {
+    inline Tree operator[](TreeGetter) const {
         return getSupertree();
-    }*/
+    }
 
     inline bool operator==(const Tree<T> other) const {
         return equals(other);
@@ -466,12 +485,6 @@ public:
     inline const Tree<T>& operator=(const Tree<T>& data) {
         root = data.root;
         iterator = data.iterator;
-
-        return *this;
-    }
-
-    inline const Tree<T>& operator <<(const Tree& data) {
-        insert(data);
 
         return *this;
     }
