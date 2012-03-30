@@ -28,7 +28,7 @@ private:
 public:
 
     virtual void dataProcessingStarts() const {
-        outFile = fopen("/home/myzone/Рабочий стол/tree.dot", "wt");
+        outFile = fopen("/home/myzone/Рабочий стол/tree.dot", "w");
         fprintf(outFile, "digraph G {\n");
     }
 
@@ -72,7 +72,7 @@ class Listener : public Events::EventListener {
     virtual void handle(const Events::SymbolIsNotDefinedErrorEvent& event) {
         std::cout << event.toString().toStdString() << ":" << event.getRepresentation().toStdString() << "|\n";
     }
-    
+
     virtual void handle(const Events::SymbolHasMistakeErrorEvent& event) {
         std::cout << event.getRepresentation().toStdString() << "[style=filled,color=red]\n";
     }
@@ -113,8 +113,7 @@ void test2() {
     t1[1][1] = 6;
     t1.traverse(*new Proc());
 
-    Tree<char*> t2 =
-            t1.to<char*>(&fuckThisShit);
+    Tree<char*> t2 = t1.to<char*>(&fuckThisShit);
     t2.traverse(*new Proc());
 }
 
@@ -135,9 +134,10 @@ void test4() {
     SyntaxTreeFactory f = SyntaxTreeFactory(&b);
     Tree<Symbol> t = f.createTree(def);
     t.traverse(dot);
-    TreeAnalyzer an = TreeAnalyzer(&b);
-    an.analyzeTree(t);
+    //TreeAnalyzer an = TreeAnalyzer(&b);
+    //an.analyzeTree(t);
 }
+
 
 int main() {
     std::cout << "Start\n";

@@ -15,13 +15,15 @@ namespace Core {
         const QString MAIN_SYMBOL = "main";
 
         QMap<QString, QString> linesMap = createLinesMap(text);
-        QSet<QString> linesSet = createLinesSet(linesMap);
+
+        QSet<QString> notUsedSymbolsSet = createLinesSet(linesMap);
+        QSet<QString> notDefinedSymbolsSet = QSet<QString > ();
 
         Tree<Symbol> tree = Tree<Symbol > ();
         QMap<QString, QString>::Iterator it = linesMap.find(MAIN_SYMBOL);
         QString value = *it;
         linesMap.erase(it);
-        linesSet.erase(linesSet.find(MAIN_SYMBOL));
+        notUsedSymbolsSet.erase(notUsedSymbolsSet.find(MAIN_SYMBOL));
 
         tree = Symbol(MAIN_SYMBOL, Symbol::SymbolType::IDENTYFIER);
         tree.get().setId("a");
@@ -42,20 +44,25 @@ namespace Core {
                 QString current = (*it).get().getRepresentation();
 
                 if (!linesMap.contains(current)) {
-                    Events::SymbolIsNotDefinedErrorEvent event = Events::SymbolIsNotDefinedErrorEvent(current);
-                    event.share(*broadcaster);
+                    std::cout << "not def: " << current.toStdString() << "\n";
+                    notDefinedSymbolsSet.insert(current);
 
                     ok = false;
                     continue;
                 }
 
-                linesSet.erase(linesSet.find(current));
+                notUsedSymbolsSet.erase(notUsedSymbolsSet.find(current));
                 processLine(linesMap.value(current), *it);
             }
 
         }
 
-        for (QSet<QString>::ConstIterator it = linesSet.begin(); it != linesSet.end(); ++it) {
+        for (QSet<QString>::ConstIterator it = notDefinedSymbolsSet.begin(); it != notDefinedSymbolsSet.end(); ++it) {
+            Events::SymbolIsNotDefinedErrorEvent event = Events::SymbolIsNotDefinedErrorEvent(*it);
+            event.share(*broadcaster);
+        }
+
+        for (QSet<QString>::ConstIterator it = notUsedSymbolsSet.begin(); it != notUsedSymbolsSet.end(); ++it) {
             Events::SymbolIsNotUsedErrorEvent event = Events::SymbolIsNotUsedErrorEvent(*it);
             event.share(*broadcaster);
         }

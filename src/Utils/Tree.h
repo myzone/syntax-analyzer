@@ -27,16 +27,20 @@ protected:
         size_t id;
         T* data;
 
+        size_t* referencesCounter;
+        
         Node* parent;
         Node* child; // first child
 
         Node* next;
         Node* prev;
 
-        Node(size_t id, Node * parent) {
+        Node(size_t id, Node* parent, size_t* referencesCounter = new size_t(1)) {
             this->id = id;
             this->data = null;
-
+            
+            this->referencesCounter = referencesCounter;
+            
             this->parent = parent;
             this->child = null;
 
@@ -44,26 +48,17 @@ protected:
             this->prev = null;
         }
 
-        Node(T* data, size_t id, Node * parent) {
+        Node(T* data, size_t id, Node* parent) {
             this->id = id;
             this->data = data;
+            
+            this->referencesCounter = parent->referencesCounter;
 
             this->parent = parent;
             this->child = null;
 
             this->next = null;
             this->prev = null;
-        }
-
-        Node(const Node & orig) {
-            this->id = orig.id;
-            this->data = orig.data;
-
-            this->parent = orig.parent;
-            this->child = orig.child;
-
-            this->next = orig.next;
-            this->prev = orig.prev;
         }
 
         ~Node() {
@@ -94,7 +89,7 @@ protected:
     Node* getNode(size_t index) const {
         if (!iterator) {
             if (!root->child) {
-                root->child = new Node(0, root);
+                root->child = new Node(0, root, root->referencesCounter);
             }
 
             iterator = root->child;
@@ -115,7 +110,7 @@ protected:
         }
 
         if (iterator->id != index) {
-            Node* node = new Node(index, root);
+            Node* node = new Node(index, root, root->referencesCounter);
 
             if (iterator->id < index) {
                 node->prev = iterator;
@@ -137,8 +132,9 @@ protected:
 
     Tree(Node* root) {
         this->root = root;
-
-        iterator = root ? root->child : null;
+        this->iterator = root ? root->child : null;
+        
+        (*this->root->referencesCounter)++;
     }
 
 public:
@@ -191,11 +187,20 @@ public:
     }
 
     Tree(const Tree& orig) {
-        root = orig.root;
-        iterator = orig.iterator;
+        this->root = orig.root;
+        this->iterator = orig.iterator;
+        
+        (*this->root->referencesCounter)++;
     }
 
-    virtual ~Tree() { }
+    virtual ~Tree() { 
+        (*root->referencesCounter)--;
+        if(!(*root->referencesCounter)) {
+            delete root->referencesCounter;
+            
+            dispose();
+        }
+    }
 
     inline Tree getSupertree() const throws(OutOfBoundsExeption) {
         if (!root->parent) throw OutOfBoundsExeption();
@@ -382,7 +387,7 @@ public:
 
     template<typename ResultType> Tree<ResultType> to(ResultType(*transform)(const T&)) const {
         Tree<ResultType> newTree = Tree<ResultType > ();
-        newTree.root = new typename Tree<ResultType>::Node(root->data ? new ResultType(transform(*root->data)) : null, 0, null);
+        newTree.root->data = new ResultType(transform(*root->data));
 
         QQueue<typename Tree<T>::Node*> nodesQueue = QQueue<typename Tree<T>::Node*>();
         QQueue<typename Tree<ResultType>::Node*> newNodesQueue = QQueue<typename Tree<ResultType>::Node*>();

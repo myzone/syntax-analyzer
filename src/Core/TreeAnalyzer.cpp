@@ -17,8 +17,8 @@ namespace Core {
         QList<Tree<Symbol> > nodes = treeConverter.getNodes();
 
         QMap<QString, bool> cache = QMap<QString, bool>();
-        QList<Symbol> wrongSymbols = QList<Symbol > ();
-        
+        QMap<QString, bool> wrongSymbols = QMap<QString, bool>();
+
         for (QList<Tree<Symbol> >::Iterator it = nodes.begin(); it != nodes.end(); ++it) {
             if ((*it).isEmpty()) continue;
 
@@ -33,28 +33,18 @@ namespace Core {
             bool result = (*it).get().operation(args);
             cache.insert((*it).get().getId(), result);
 
-            std::cout << (*it).get().getId().toStdString();
-            if (result) {
-                std::cout << "[style=filled,color=green]\n";
+            if (wrongSymbols.contains((*it).get().getRepresentation())) {
+                wrongSymbols[(*it).get().getRepresentation()] |= result;
             } else {
-                std::cout << "[style=filled,color=red]\n";
-            }
-
-            if (!(*it).isLeaf()
-                    && (*it).get().getType() == Symbol::SymbolType::IDENTYFIER
-                    && !result) {
-                if (!wrongSymbols.contains((*it).get())) {
-                    wrongSymbols.append((*it).get());
-                }
-                std::cout << (*it).get().toString().toStdString() << "\n";
+                wrongSymbols.insert((*it).get().getRepresentation(), result);
             }
         }
 
-        for (QList<Symbol>::ConstIterator it = wrongSymbols.begin(); it != wrongSymbols.end(); ++it) {
-            Events::SymbolHasMistakeErrorEvent event = Events::SymbolHasMistakeErrorEvent((*it).getId());
-            event.share(*broadcaster);
-
-            std::cout << (*it).toString().toStdString() << "\n";
+        for (QMap < QString, bool>::ConstIterator it = wrongSymbols.begin(); it != wrongSymbols.end(); ++it) {
+            if (*it) {
+                Events::SymbolHasMistakeErrorEvent event = Events::SymbolHasMistakeErrorEvent(it.key());
+                //event.share(*broadcaster);
+            }
         }
 
     }

@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.02</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.05</span></div>
   </td>
  </tr>
  </tbody>
@@ -62,6 +62,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
+      <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
+      <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -102,6 +105,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>Analyzer()
 : <a class="el" href="class_core_1_1_analyzer.html#aeb24b63109aa4533778f850f5e69d3ef">Core::Analyzer</a>
+</li>
+<li>analyzeTree()
+: <a class="el" href="class_core_1_1_tree_analyzer.html#ae8ccb6d8eb2fdddba46f483d5f3216d0">Core::TreeAnalyzer</a>
 </li>
 <li>AND
 : <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ad2ab23c914b63d14b394442530e6af65">Core::Symbol::SymbolType</a>
@@ -146,19 +152,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="struct_tree_1_1_node.html#a9b1b59aeac593e26b87fd6af218160c8">Tree&lt; T &gt;::Node</a>
 </li>
 <li>dataProcessingEnds()
-: <a class="el" href="class_to_d_o_t.html#a361e2d5893b27b860c0ab3b4deb2a5e4">ToDOT</a>
-, <a class="el" href="class_tree_1_1_data_processor.html#aae4d9f39cb3a2958e44cfd0f4d12fc48">Tree&lt; T &gt;::DataProcessor</a>
+: <a class="el" href="class_to_d_o_t.html#ac3145afafc223295227a421f85521383">ToDOT</a>
+, <a class="el" href="class_tree_1_1_data_processor.html#acb04e80f2071ef1f6f4f7268db70f93d">Tree&lt; T &gt;::DataProcessor</a>
 </li>
 <li>dataProcessingStarts()
-: <a class="el" href="class_to_d_o_t.html#a6d3b6ce82bffa031692f73378f845471">ToDOT</a>
-, <a class="el" href="class_tree_1_1_data_processor.html#ab62b750ed770eb0b22663e2af8d4f99c">Tree&lt; T &gt;::DataProcessor</a>
+: <a class="el" href="class_to_d_o_t.html#a82e3ec4624c2bec292ae05e08e4287cc">ToDOT</a>
+, <a class="el" href="class_tree_1_1_data_processor.html#a658f534a704e103fa876445b5e690de3">Tree&lt; T &gt;::DataProcessor</a>
 </li>
 <li>DECLARE_HANDLE_METHOD()
 : <a class="el" href="class_events_1_1_event_listener.html#a0975f9f21f548e26cf6f81e9e0430e35">Events::EventListener</a>
 </li>
 <li>DECLARE_SHARE_METHOD()
-: <a class="el" href="class_events_1_1_event.html#ab72d891f8de24447defdce68132247e7">Events::Event</a>
-, <a class="el" href="class_events_1_1_error_event.html#a153fde8655e5a0bdd488fda4ec3efb8b">Events::ErrorEvent</a>
+: <a class="el" href="class_events_1_1_error_event.html#a153fde8655e5a0bdd488fda4ec3efb8b">Events::ErrorEvent</a>
+, <a class="el" href="class_events_1_1_event.html#ab72d891f8de24447defdce68132247e7">Events::Event</a>
 </li>
 <li>DECLARE_TO_STRING_METHOD()
 : <a class="el" href="class_events_1_1_error_event.html#a42780f6f3971685004f012d75f9b33fe">Events::ErrorEvent</a>
@@ -208,7 +214,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_core_1_1_analyzer.html#a6a324e6df8f5e4f95abe8f0f73b48c29">Core::Analyzer</a>
 </li>
 <li>getId()
-: <a class="el" href="class_core_1_1_symbol.html#af8f779660695994872661818cfc1babd">Core::Symbol</a>
+: <a class="el" href="class_core_1_1_symbol.html#a0018b6eef6f2666c2667345052910485">Core::Symbol</a>
 </li>
 <li>getMessage()
 : <a class="el" href="class_core_1_1_exeption.html#a96c8de3b4282b9f6d48e69b4f07a30e2">Core::Exeption</a>
@@ -250,9 +256,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>IDENTYFIER
 : <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a86daa79a33de2154b5f7f2e6e09c4a7b">Core::Symbol::SymbolType</a>
 </li>
-<li>insert()
-: <a class="el" href="class_tree.html#a021e9e20d4aa71092f78173530e060d0">Tree&lt; T &gt;</a>
-</li>
 <li>isEmpty()
 : <a class="el" href="class_tree.html#acbe928fcc01c69045a9bcb100a9d7700">Tree&lt; T &gt;</a>
 </li>
@@ -290,7 +293,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="struct_tree_1_1_node.html#a19d8cd69a82ac19ad212dbb132c92ace">Tree&lt; T &gt;::Node</a>
 </li>
 <li>Node()
-: <a class="el" href="struct_tree_1_1_node.html#af339553d17f86b0029365e411a732c3c">Tree&lt; T &gt;::Node</a>
+: <a class="el" href="struct_tree_1_1_node.html#a6027336b3f2d0eea9de8fa152e7dd105">Tree&lt; T &gt;::Node</a>
 </li>
 </ul>
 
@@ -301,6 +304,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>operation
 : <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a14d8c140064f25b0f4ee09a43206b113">Core::Symbol::SymbolTypeData</a>
+, <a class="el" href="class_core_1_1_symbol.html#a695cdc342af7e9b4a95d4d356b924d89">Core::Symbol</a>
 , <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a064493c0dac4787b7cf5f24ff14ada2d">Core::Symbol::SymbolType</a>
 </li>
 <li>operator const T &amp;()
@@ -311,20 +315,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_tree.html#a35547a14c9b515c02fae1ef313c8eab8">Tree&lt; T &gt;</a>
 </li>
 <li>operator!=()
-: <a class="el" href="class_enum.html#ae59e1e2026166a21b4e6af26863a3c6d">Enum&lt; T &gt;</a>
-, <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a05d6dd95329508a07fd8a189fdc782bb">Core::Symbol::SymbolTypeData</a>
-</li>
-<li>operator&lt;&lt;()
-: <a class="el" href="class_tree.html#aa231a6e0d344800a18a475d6afbf169c">Tree&lt; T &gt;</a>
+: <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a05d6dd95329508a07fd8a189fdc782bb">Core::Symbol::SymbolTypeData</a>
+, <a class="el" href="class_enum.html#ae59e1e2026166a21b4e6af26863a3c6d">Enum&lt; T &gt;</a>
 </li>
 <li>operator=()
-: <a class="el" href="class_tree.html#ac5c243e936153c0b288b9a9f58c50b68">Tree&lt; T &gt;</a>
-, <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ec73bed8ce2ab7a686c7c039db51824">Core::Symbol::SymbolTypeData</a>
-, <a class="el" href="class_tree.html#a78c655087b58f40cf88be68ba8a1e54f">Tree&lt; T &gt;</a>
+: <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ec73bed8ce2ab7a686c7c039db51824">Core::Symbol::SymbolTypeData</a>
+, <a class="el" href="class_tree.html#ac5c243e936153c0b288b9a9f58c50b68">Tree&lt; T &gt;</a>
 </li>
 <li>operator==()
 : <a class="el" href="class_tree.html#a297f3afdd24759b3bfafd1d9beaf1c4b">Tree&lt; T &gt;</a>
 , <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#ad7841ee0d336ca5d06b09791f4e10270">Core::Symbol::SymbolTypeData</a>
+, <a class="el" href="class_core_1_1_symbol.html#a2819bc802af6ed1bcd68274cec802058">Core::Symbol</a>
 , <a class="el" href="class_enum.html#a4d4553c17ce45b3a5b09b5ed9134230e">Enum&lt; T &gt;</a>
 </li>
 <li>operator[]()
@@ -363,6 +364,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>referencesCounter
+: <a class="el" href="struct_tree_1_1_node.html#a98fd35dd7970b577095ba5cdbb5846a0">Tree&lt; T &gt;::Node</a>
+</li>
 <li>removeErrorEventListener()
 : <a class="el" href="class_core_1_1_analyzer.html#a9897fbe76e0b4d66ce29d1b65242a2b1">Core::Analyzer</a>
 </li>
@@ -390,16 +394,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a961e8520c144b5d38d6b23f72fa734f9">Core::Symbol::SymbolType</a>
 </li>
 <li>stop()
-: <a class="el" href="class_tree_1_1_data_processor.html#ab4900d5e1d5ebc3f3bc9136a87575b87">Tree&lt; T &gt;::DataProcessor</a>
+: <a class="el" href="class_tree_1_1_data_processor.html#a4750aad2e0fe80972d2907c4bac93864">Tree&lt; T &gt;::DataProcessor</a>
+</li>
+<li>SUPER
+: <a class="el" href="class_tree.html#ad85215e24960216d1613f81ad9a615b0a55e7ceb88284d46654e566328b46e01a">Tree&lt; T &gt;</a>
 </li>
 <li>Symbol()
-: <a class="el" href="class_core_1_1_symbol.html#a346e4c9cc337bac0cfdc8d7c2bbdc25d">Core::Symbol</a>
+: <a class="el" href="class_core_1_1_symbol.html#a876c7426171cf652934e7998becac986">Core::Symbol</a>
 </li>
 <li>symbol
 : <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ae532ed38390126ca7ea52711b8f112">Core::Symbol::SymbolTypeData</a>
-</li>
-<li>Symbol()
-: <a class="el" href="class_core_1_1_symbol.html#a45647b25e459e95997327a2b2a21207c">Core::Symbol</a>
 </li>
 <li>SymbolFactory()
 : <a class="el" href="class_core_1_1_symbol_factory.html#a5ff99992494e9b45a3262652f3e7d346">Core::SymbolFactory</a>
@@ -414,6 +418,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>to()
+: <a class="el" href="class_tree.html#a12e58ff4b56770d78b55efa671cf2829">Tree&lt; T &gt;</a>
+</li>
 <li>toChar()
 : <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ab60527074a9163dbb29efcbc2227ebf3">Core::Symbol::SymbolType</a>
 </li>
@@ -421,7 +428,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_core_1_1_symbol.html#aaa21d4b1a11f1023dd9869b114a5dcd0">Core::Symbol</a>
 </li>
 <li>traverse()
-: <a class="el" href="class_tree.html#a7f910276fe20c8312885847988388499">Tree&lt; T &gt;</a>
+: <a class="el" href="class_tree.html#a0c8d2bb42f5fa5ad8b2da05d34b4c09b">Tree&lt; T &gt;</a>
 </li>
 <li>TraverseStoppedExeption()
 : <a class="el" href="class_tree_1_1_traverse_stopped_exeption.html#abe37694085b09176d174d5e7b3973bf6">Tree&lt; T &gt;::TraverseStoppedExeption</a>
@@ -435,8 +442,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>TreeAnalyzer()
 : <a class="el" href="class_core_1_1_tree_analyzer.html#a221da56f81a87e3746b1d082b50d35f4">Core::TreeAnalyzer</a>
 </li>
-<li>TreeGetter()
-: <a class="el" href="class_tree_1_1_tree_getter.html#a363d365e75a0806f1d1521fb5357b789">Tree&lt; T &gt;::TreeGetter</a>
+<li>TreeGetter
+: <a class="el" href="class_tree.html#ad85215e24960216d1613f81ad9a615b0">Tree&lt; T &gt;</a>
 </li>
 <li>type
 : <a class="el" href="class_core_1_1_symbol.html#a7241b64d3dd0b7c8d6b04b2289439fb6">Core::Symbol</a>
@@ -505,7 +512,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -514,7 +521,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Mar 7 2012 02:02:17 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Mar 19 2012 18:30:21 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

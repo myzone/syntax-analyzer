@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.02</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.05</span></div>
   </td>
  </tr>
  </tbody>
@@ -95,8 +95,10 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol.html#afb00fde4f246b0dcd249372f5a8b3983">getRepresentation</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol.html#a93bafe5ffd6b13f2763f5089d7c08c95">getType</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol.html#a4828895b0f9de508382dc85b005d29fb">setId</a> (const QString &amp;<a class="el" href="class_core_1_1_symbol.html#a94c3ff218c6ce0af4eaa1842c53414d7">id</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol.html#af8f779660695994872661818cfc1babd">getId</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol.html#a0018b6eef6f2666c2667345052910485">getId</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol.html#a695cdc342af7e9b4a95d4d356b924d89">operation</a> (const QList&lt; bool &gt; &amp;args)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol.html#aaa21d4b1a11f1023dd9869b114a5dcd0">toString</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol.html#a2819bc802af6ed1bcd68274cec802058">operator==</a> (const <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &amp;that) const </td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol.html#a452dd356a9cb5a1621d11a422be34855">representation</a></td></tr>
@@ -180,7 +182,7 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="af8f779660695994872661818cfc1babd"></a><!-- doxytag: member="Core::Symbol::getId" ref="af8f779660695994872661818cfc1babd" args="()" -->
+<a class="anchor" id="a0018b6eef6f2666c2667345052910485"></a><!-- doxytag: member="Core::Symbol::getId" ref="a0018b6eef6f2666c2667345052910485" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -188,14 +190,14 @@ Protected Attributes</h2></td></tr>
           <td class="memname">const QString&amp; Core::Symbol::getId </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>Definition at line <a class="el" href="#L106">106</a> of file <a class="el" href="">Symbol.h</a>.</p>
-<div class="fragment"><pre class="fragment">                                      {
+<div class="fragment"><pre class="fragment">                                            {
             <span class="keywordflow">return</span> <a class="code" href="class_core_1_1_symbol.html#a94c3ff218c6ce0af4eaa1842c53414d7">id</a>;
         }
 </pre></div>
@@ -243,6 +245,51 @@ Protected Attributes</h2></td></tr>
 </pre></div>
 </div>
 </div>
+<a class="anchor" id="a695cdc342af7e9b4a95d4d356b924d89"></a><!-- doxytag: member="Core::Symbol::operation" ref="a695cdc342af7e9b4a95d4d356b924d89" args="(const QList&lt; bool &gt; &amp;args)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Core::Symbol::operation </td>
+          <td>(</td>
+          <td class="paramtype">const QList&lt; bool &gt; &amp;&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L110">110</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<div class="fragment"><pre class="fragment">                                                       {
+            <span class="keywordflow">return</span> <a class="code" href="class_core_1_1_symbol.html#a7241b64d3dd0b7c8d6b04b2289439fb6">type</a>.<a class="code" href="class_core_1_1_symbol_1_1_symbol_type.html#a064493c0dac4787b7cf5f24ff14ada2d">operation</a>(args);
+        }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a2819bc802af6ed1bcd68274cec802058"></a><!-- doxytag: member="Core::Symbol::operator==" ref="a2819bc802af6ed1bcd68274cec802058" args="(const Symbol &amp;that) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Core::Symbol::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &amp;&#160;</td>
+          <td class="paramname"><em>that</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L118">118</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<div class="fragment"><pre class="fragment">                                                         {
+            <span class="keywordflow">return</span> <a class="code" href="class_core_1_1_symbol.html#a7241b64d3dd0b7c8d6b04b2289439fb6">type</a> == that.type
+                    &amp;&amp; <a class="code" href="class_core_1_1_symbol.html#a452dd356a9cb5a1621d11a422be34855">representation</a> == that.representation;
+        }
+</pre></div>
+</div>
+</div>
 <a class="anchor" id="a4828895b0f9de508382dc85b005d29fb"></a><!-- doxytag: member="Core::Symbol::setId" ref="a4828895b0f9de508382dc85b005d29fb" args="(const QString &amp;id)" -->
 <div class="memitem">
 <div class="memproto">
@@ -279,7 +326,7 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L110">110</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L114">114</a> of file <a class="el" href="">Symbol.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                        {
             <span class="keywordflow">return</span> <a class="code" href="class_core_1_1_symbol.html#a452dd356a9cb5a1621d11a422be34855">representation</a> + <span class="stringliteral">&quot;{@&quot;</span> + <span class="keywordtype">id</span> + <span class="stringliteral">&quot;}&quot;</span>;
         }
@@ -342,7 +389,7 @@ Protected Attributes</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -351,7 +398,7 @@ Protected Attributes</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Mar 7 2012 02:02:17 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Mar 19 2012 18:30:21 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

@@ -17,19 +17,19 @@ namespace Core {
     public:
 
         struct SymbolTypeData {
-            QChar symbol;
+            QString symbol;
             unsigned int argsNumber;
             unsigned int priority;
             bool (*operation) (const QList<bool>& args);
 
-            SymbolTypeData& operator =(const SymbolTypeData & that) {
+            /*SymbolTypeData& operator =(const SymbolTypeData & that) {
                 symbol = that.symbol;
                 argsNumber = that.argsNumber;
                 priority = that.priority;
                 operation = that.operation;
 
                 return *this;
-            }
+            }*/
 
             bool operator ==(const SymbolTypeData & that) const {
                 return symbol == that.symbol && argsNumber == that.argsNumber && priority == that.priority;
@@ -43,7 +43,7 @@ namespace Core {
 
         class SymbolType : public Enum<Symbol::SymbolTypeData> {
         protected:
-            SymbolType(const QChar& symbol, bool (*operation) (const QList<bool>& args), unsigned int argsNumber, unsigned int priority = ~0u);
+            SymbolType(const QString& symbol, bool (*operation) (const QList<bool>& args), unsigned int argsNumber, unsigned int priority = ~0u);
 
         public:
             SymbolType();
@@ -56,12 +56,14 @@ namespace Core {
             static const SymbolType IDENTYFIER;
             static const SymbolType SPACE;
             static const SymbolType BACKSLASH;
+            static const SymbolType DEFINE;
+            static const SymbolType DEFINE_END;
 
             inline bool operation(const QList<bool>& args) const {
                 return value.operation(args);
             }
 
-            inline const QChar& toChar() const {
+            inline const QString& toString() const {
                 return value.symbol;
             }
 
@@ -126,7 +128,7 @@ namespace Core {
      * Класс, реализующий Lexer, т.е. класс разбивающий входную строку на Token'ы
      */
     class SymbolFactory {
-    private:
+    public://private:
         QString line;
         QString::ConstIterator position;
         QString::ConstIterator end;
@@ -140,9 +142,11 @@ namespace Core {
         Symbol getNextSymbol() throws(AnalyzeCrashExeption, WarningExeption);
         bool isNextSymbol();
 
-    private:
+    //private:
         void skipFirst(const Symbol::SymbolType& symbolType);
         void skipAll(const Symbol::SymbolType& symbolType);
+        
+        bool whetherNextSymbol(const Symbol::SymbolType& symbolType);
     };
 
 }

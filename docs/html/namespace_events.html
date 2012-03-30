@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.02</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.05</span></div>
   </td>
  </tr>
  </tbody>
@@ -83,6 +83,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#adafb9fb0d5493a438b57014c294d0bab">IMPLEMENT_ERROR_EVENT_SUBCLASS</a> (DoubleDefenitionErrorEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#a9f59786296e51383c91454327d082416">IMPLEMENT_ERROR_EVENT_SUBCLASS</a> (SymbolIsNotUsedErrorEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#a2c602652925834be2191dd56bc664e8b">IMPLEMENT_ERROR_EVENT_SUBCLASS</a> (SymbolIsNotDefinedErrorEvent)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#ad3a2d4e7f383ecdfba2163cfe51c2810">IMPLEMENT_ERROR_EVENT_SUBCLASS</a> (SymbolHasMistakeErrorEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#aed11e1e6cbb2307e5dc2137cbfadf6c1">IMPLEMENT_ERROR_EVENT_SUBCLASS</a> (LitheralIsNotClosedErrorEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#ab7f7fd40422b8848ec0f8908652ab214">IMPLEMENT_ERROR_EVENT_SUBCLASS</a> (WrongBracketsNumberErrorEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#a8678800a1c94b8ea26d62e840013c969">DECLARE_EVENT_SUBCLASS</a> (AnalysingWasStartedEvent)</td></tr>
@@ -91,6 +92,7 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#ade1ce16d42a109028ec9abe3ece90cf0">DECLARE_ERROR_EVENT_SUBCLASS</a> (DoubleDefenitionErrorEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#a8f18dd324dc823b44f09689aad93a6af">DECLARE_ERROR_EVENT_SUBCLASS</a> (SymbolIsNotUsedErrorEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#a4a80892bfa6a95a443367259d509635c">DECLARE_ERROR_EVENT_SUBCLASS</a> (SymbolIsNotDefinedErrorEvent)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#a567f86093bd7dec7befdec85a0bdd7a5">DECLARE_ERROR_EVENT_SUBCLASS</a> (SymbolHasMistakeErrorEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#a37c20b3896f9d91b01935a90cf49a326">DECLARE_ERROR_EVENT_SUBCLASS</a> (LitheralIsNotClosedErrorEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_events.html#aead6c5e5946c9d802b771b213ae5e7b2">DECLARE_ERROR_EVENT_SUBCLASS</a> (WrongBracketsNumberErrorEvent)</td></tr>
 </table>
@@ -154,6 +156,23 @@ Functions</h2></td></tr>
           <td class="memname">Events::DECLARE_ERROR_EVENT_SUBCLASS </td>
           <td>(</td>
           <td class="paramtype">SymbolIsNotDefinedErrorEvent&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a567f86093bd7dec7befdec85a0bdd7a5"></a><!-- doxytag: member="Events::DECLARE_ERROR_EVENT_SUBCLASS" ref="a567f86093bd7dec7befdec85a0bdd7a5" args="(SymbolHasMistakeErrorEvent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::DECLARE_ERROR_EVENT_SUBCLASS </td>
+          <td>(</td>
+          <td class="paramtype">SymbolHasMistakeErrorEvent&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -231,23 +250,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="adafb9fb0d5493a438b57014c294d0bab"></a><!-- doxytag: member="Events::IMPLEMENT_ERROR_EVENT_SUBCLASS" ref="adafb9fb0d5493a438b57014c294d0bab" args="(DoubleDefenitionErrorEvent)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Events::IMPLEMENT_ERROR_EVENT_SUBCLASS </td>
-          <td>(</td>
-          <td class="paramtype">DoubleDefenitionErrorEvent&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a9f59786296e51383c91454327d082416"></a><!-- doxytag: member="Events::IMPLEMENT_ERROR_EVENT_SUBCLASS" ref="a9f59786296e51383c91454327d082416" args="(SymbolIsNotUsedErrorEvent)" -->
 <div class="memitem">
 <div class="memproto">
@@ -265,6 +267,23 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="adafb9fb0d5493a438b57014c294d0bab"></a><!-- doxytag: member="Events::IMPLEMENT_ERROR_EVENT_SUBCLASS" ref="adafb9fb0d5493a438b57014c294d0bab" args="(DoubleDefenitionErrorEvent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::IMPLEMENT_ERROR_EVENT_SUBCLASS </td>
+          <td>(</td>
+          <td class="paramtype">DoubleDefenitionErrorEvent&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a2c602652925834be2191dd56bc664e8b"></a><!-- doxytag: member="Events::IMPLEMENT_ERROR_EVENT_SUBCLASS" ref="a2c602652925834be2191dd56bc664e8b" args="(SymbolIsNotDefinedErrorEvent)" -->
 <div class="memitem">
 <div class="memproto">
@@ -273,6 +292,23 @@ Functions</h2></td></tr>
           <td class="memname">Events::IMPLEMENT_ERROR_EVENT_SUBCLASS </td>
           <td>(</td>
           <td class="paramtype">SymbolIsNotDefinedErrorEvent&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad3a2d4e7f383ecdfba2163cfe51c2810"></a><!-- doxytag: member="Events::IMPLEMENT_ERROR_EVENT_SUBCLASS" ref="ad3a2d4e7f383ecdfba2163cfe51c2810" args="(SymbolHasMistakeErrorEvent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::IMPLEMENT_ERROR_EVENT_SUBCLASS </td>
+          <td>(</td>
+          <td class="paramtype">SymbolHasMistakeErrorEvent&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -441,7 +477,7 @@ Functions</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -450,7 +486,7 @@ Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Mar 7 2012 02:02:17 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Mon Mar 19 2012 18:30:21 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

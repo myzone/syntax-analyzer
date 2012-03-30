@@ -1,5 +1,7 @@
 #include "Symbol.h"
 
+#include <iostream>
+
 namespace Core {
 
     bool Symbol::SymbolType::andOperation(const QList<bool>& args) {
@@ -34,19 +36,21 @@ namespace Core {
         return false;
     }
 
-    const Symbol::SymbolType Symbol::SymbolType::CLOSE_BRACKET = Symbol::SymbolType(')', &otherOperation, 0, 0);
-    const Symbol::SymbolType Symbol::SymbolType::OPEN_BRACKET = Symbol::SymbolType('(', &otherOperation, 0, 1);
-    const Symbol::SymbolType Symbol::SymbolType::OR = Symbol::SymbolType('|', &orOperation, 2, 2);
-    const Symbol::SymbolType Symbol::SymbolType::AND = Symbol::SymbolType('&', &andOperation, 2, 3);
+    const Symbol::SymbolType Symbol::SymbolType::CLOSE_BRACKET = Symbol::SymbolType(")", &otherOperation, 0, 0);
+    const Symbol::SymbolType Symbol::SymbolType::OPEN_BRACKET = Symbol::SymbolType("(", &otherOperation, 0, 1);
+    const Symbol::SymbolType Symbol::SymbolType::OR = Symbol::SymbolType("|", &orOperation, 2, 2);
+    const Symbol::SymbolType Symbol::SymbolType::AND = Symbol::SymbolType("&", &andOperation, 2, 3);
 
-    const Symbol::SymbolType Symbol::SymbolType::LITHERAL = Symbol::SymbolType('\"', &litheralOperation, 0);
-    const Symbol::SymbolType Symbol::SymbolType::IDENTYFIER = Symbol::SymbolType('*', &equalOperation, 1);
-    const Symbol::SymbolType Symbol::SymbolType::SPACE = Symbol::SymbolType(' ', &otherOperation, 0);
-    const Symbol::SymbolType Symbol::SymbolType::BACKSLASH = Symbol::SymbolType('\\', &otherOperation, 0);
+    const Symbol::SymbolType Symbol::SymbolType::LITHERAL = Symbol::SymbolType("\"", &litheralOperation, 0);
+    const Symbol::SymbolType Symbol::SymbolType::IDENTYFIER = Symbol::SymbolType("", &equalOperation, 1);
+    const Symbol::SymbolType Symbol::SymbolType::SPACE = Symbol::SymbolType(" ", &otherOperation, 0);
+    const Symbol::SymbolType Symbol::SymbolType::BACKSLASH = Symbol::SymbolType("\\", &otherOperation, 0);
+    const Symbol::SymbolType Symbol::SymbolType::DEFINE = Symbol::SymbolType("->", &otherOperation, 0);
+    const Symbol::SymbolType Symbol::SymbolType::DEFINE_END = Symbol::SymbolType(";", &otherOperation, 0);
 
     Symbol::SymbolType::SymbolType() : Enum<Symbol::SymbolTypeData>() { }
 
-    Symbol::SymbolType::SymbolType(const QChar& symbol, bool (*operation) (const QList<bool>& args), unsigned int argsNumber, unsigned int priority) {
+    Symbol::SymbolType::SymbolType(const QString& symbol, bool (*operation) (const QList<bool>& args), unsigned int argsNumber, unsigned int priority) {
         value.symbol = symbol;
         value.operation = operation;
         value.argsNumber = argsNumber;
@@ -58,7 +62,7 @@ namespace Core {
     Symbol::Symbol(const QString& representation, const Symbol::SymbolType& type) : representation(representation), type(type), id("") { }
 
     Symbol::Symbol(const Symbol::SymbolType& type) : representation(), type(type) {
-        this->representation += type.toChar();
+        this->representation += type.toString();
     }
 
     ///////////////////////////////////////////////////////////////////////////
@@ -70,8 +74,6 @@ namespace Core {
     lastSymbolType(Symbol::SymbolType::OPEN_BRACKET) { }
 
     Symbol SymbolFactory::getNextSymbol() throws(AnalyzeCrashExeption, WarningExeption) {
-        skipAll(Symbol::SymbolType::BACKSLASH);
-
         if (lastString != "") {
             Symbol result = Symbol(lastString, lastSymbolType);
             lastString = "";
@@ -81,14 +83,15 @@ namespace Core {
         QString currentString = "";
 
         while (position != line.end()) {
-            if (*position == Symbol::SymbolType::OPEN_BRACKET.toChar()) {
-                ++position;
-                skipAll(Symbol::SymbolType::SPACE);
+            skipAll(Symbol::SymbolType::SPACE);
+
+            if (whetherNextSymbol(Symbol::SymbolType::OPEN_BRACKET)) {
+                position += Symbol::SymbolType::OPEN_BRACKET.toString().length();
 
                 if (lastSymbolType == Symbol::SymbolType::CLOSE_BRACKET
                         || lastSymbolType == Symbol::SymbolType::IDENTYFIER
                         || lastSymbolType == Symbol::SymbolType::LITHERAL) {
-                    lastString += Symbol::SymbolType::OPEN_BRACKET.toChar();
+                    lastString += Symbol::SymbolType::OPEN_BRACKET.toString();
 
                     lastSymbolType = Symbol::SymbolType::OPEN_BRACKET;
                     return Symbol(Symbol::SymbolType::AND);
@@ -96,25 +99,32 @@ namespace Core {
 
                 lastSymbolType = Symbol::SymbolType::OPEN_BRACKET;
                 return Symbol(Symbol::SymbolType::OPEN_BRACKET);
-            } else if (*position == Symbol::SymbolType::CLOSE_BRACKET.toChar()) {
-                ++position;
-                skipAll(Symbol::SymbolType::SPACE);
+            } else if (whetherNextSymbol(Symbol::SymbolType::CLOSE_BRACKET)) {
+                position += Symbol::SymbolType::CLOSE_BRACKET.toString().length();
 
                 lastSymbolType = Symbol::SymbolType::CLOSE_BRACKET;
                 return Symbol(Symbol::SymbolType::CLOSE_BRACKET);
-            } else if (*position == Symbol::SymbolType::AND.toChar()) {
-                ++position;
-                skipAll(Symbol::SymbolType::SPACE);
+            } else if (whetherNextSymbol(Symbol::SymbolType::AND)) {
+                position += Symbol::SymbolType::AND.toString().length();
 
                 lastSymbolType = Symbol::SymbolType::AND;
                 return Symbol(Symbol::SymbolType::AND);
-            } else if (*position == Symbol::SymbolType::OR.toChar()) {
-                ++position;
-                skipAll(Symbol::SymbolType::SPACE);
+            } else if (whetherNextSymbol(Symbol::SymbolType::OR)) {
+                position += Symbol::SymbolType::OR.toString().length();
 
                 lastSymbolType = Symbol::SymbolType::OR;
                 return Symbol(Symbol::SymbolType::OR);
-            } else if (*position == Symbol::SymbolType::LITHERAL.toChar()) {
+            } else if (whetherNextSymbol(Symbol::SymbolType::DEFINE)) {
+                position += Symbol::SymbolType::DEFINE.toString().length();
+
+                lastSymbolType = Symbol::SymbolType::DEFINE;
+                return Symbol(Symbol::SymbolType::DEFINE);
+            } else if (whetherNextSymbol(Symbol::SymbolType::DEFINE_END)) {
+                position += Symbol::SymbolType::DEFINE_END.toString().length();
+
+                lastSymbolType = Symbol::SymbolType::DEFINE_END;
+                return Symbol(Symbol::SymbolType::DEFINE_END);
+            } else if (whetherNextSymbol(Symbol::SymbolType::LITHERAL)) {
                 currentString += *position;
                 ++position;
 
@@ -126,7 +136,7 @@ namespace Core {
 
                     currentString += *position;
 
-                    if (*position == Symbol::SymbolType::LITHERAL.toChar() && !escaped) {
+                    if (whetherNextSymbol(Symbol::SymbolType::LITHERAL) && !escaped) {
                         ++position;
                         break;
                     }
@@ -135,14 +145,13 @@ namespace Core {
                         escaped = false;
                     }
 
-                    if (*position == Symbol::SymbolType::BACKSLASH.toChar() && !escaped) {
+                    if (whetherNextSymbol(Symbol::SymbolType::BACKSLASH) && !escaped) {
                         escaped = true;
                     }
 
                     ++position;
                 }
 
-                skipAll(Symbol::SymbolType::SPACE);
 
                 if (lastSymbolType == Symbol::SymbolType::CLOSE_BRACKET
                         || lastSymbolType == Symbol::SymbolType::IDENTYFIER
@@ -158,18 +167,18 @@ namespace Core {
                 return Symbol(currentString, Symbol::SymbolType::LITHERAL);
             } else {
                 while (position != line.end()
-                        && *position != Symbol::SymbolType::AND.toChar()
-                        && *position != Symbol::SymbolType::OR.toChar()
-                        && *position != Symbol::SymbolType::OPEN_BRACKET.toChar()
-                        && *position != Symbol::SymbolType::CLOSE_BRACKET.toChar()
-                        && *position != Symbol::SymbolType::BACKSLASH.toChar()
-                        && *position != Symbol::SymbolType::LITHERAL.toChar()
-                        && *position != Symbol::SymbolType::SPACE.toChar()) {
+                        && !whetherNextSymbol(Symbol::SymbolType::AND)
+                        && !whetherNextSymbol(Symbol::SymbolType::OR)
+                        && !whetherNextSymbol(Symbol::SymbolType::OPEN_BRACKET)
+                        && !whetherNextSymbol(Symbol::SymbolType::CLOSE_BRACKET)
+                        && !whetherNextSymbol(Symbol::SymbolType::BACKSLASH)
+                        && !whetherNextSymbol(Symbol::SymbolType::LITHERAL)
+                        && !whetherNextSymbol(Symbol::SymbolType::DEFINE)
+                        && !whetherNextSymbol(Symbol::SymbolType::DEFINE_END)
+                        && !whetherNextSymbol(Symbol::SymbolType::SPACE)) {
                     currentString += *position;
                     ++position;
                 }
-
-                skipAll(Symbol::SymbolType::SPACE);
 
                 if (lastSymbolType == Symbol::SymbolType::CLOSE_BRACKET
                         || lastSymbolType == Symbol::SymbolType::IDENTYFIER
@@ -192,19 +201,33 @@ namespace Core {
         return position != line.end() || !lastString.isEmpty();
     }
 
-    void SymbolFactory::skipFirst(const Symbol::SymbolType & symbolType) {
-        if (position != line.end() && *position != symbolType.toChar()) {
-            position++;
+    void SymbolFactory::skipFirst(const Symbol::SymbolType& symbolType) {
+        if (position != line.end() && whetherNextSymbol(symbolType)) {
+            position += symbolType.toString().length();
         }
     }
 
-    void SymbolFactory::skipAll(const Symbol::SymbolType & symbolType) {
+    void SymbolFactory::skipAll(const Symbol::SymbolType& symbolType) {
         while (position != line.end()) {
-            if (*position != symbolType.toChar()) {
+            if (!whetherNextSymbol(symbolType)) {
                 return;
             }
-            position++;
+            position += symbolType.toString().length();
         }
+    }
+
+    bool SymbolFactory::whetherNextSymbol(const Symbol::SymbolType& symbolType) {
+        QString::ConstIterator temp = position;
+
+        QString symbolTypeRepresentation = symbolType.toString();
+        for (QString::ConstIterator it = symbolTypeRepresentation.begin(); it != symbolTypeRepresentation.end(); ++it) {
+            if (*temp != *it || temp == end)
+                return false;
+
+            ++temp;
+        }
+
+        return true;
     }
 
 }
