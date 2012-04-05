@@ -10,9 +10,6 @@
 
 namespace Core {
 
-    /**
-     * Класс, реализующий Token
-     */
     class Symbol {
     public:
 
@@ -21,15 +18,6 @@ namespace Core {
             unsigned int argsNumber;
             unsigned int priority;
             bool (*operation) (const QList<bool>& args);
-
-            /*SymbolTypeData& operator =(const SymbolTypeData & that) {
-                symbol = that.symbol;
-                argsNumber = that.argsNumber;
-                priority = that.priority;
-                operation = that.operation;
-
-                return *this;
-            }*/
 
             bool operator ==(const SymbolTypeData & that) const {
                 return symbol == that.symbol && argsNumber == that.argsNumber && priority == that.priority;
@@ -52,13 +40,21 @@ namespace Core {
             static const SymbolType OPEN_BRACKET;
             static const SymbolType OR;
             static const SymbolType AND;
+
             static const SymbolType LITHERAL;
             static const SymbolType IDENTYFIER;
+            
             static const SymbolType SPACE;
+            static const SymbolType LINE_END;
+            
             static const SymbolType BACKSLASH;
             static const SymbolType DEFINE;
             static const SymbolType DEFINE_END;
-
+            static const SymbolType SINGLE_LINE_COMMENT_BEGIN;
+            static const SymbolType MULTI_LINE_COMMENT_BEGIN;
+            static const SymbolType MULTI_LINE_COMMENT_END;
+            
+            
             inline bool operation(const QList<bool>& args) const {
                 return value.operation(args);
             }
@@ -118,18 +114,14 @@ namespace Core {
         }
 
         inline bool operator==(const Symbol& that) const {
-            return type == that.type
-                    && representation == that.representation;
+            return type == that.type && representation == that.representation;
         }
 
     };
 
-    /**
-     * Класс, реализующий Lexer, т.е. класс разбивающий входную строку на Token'ы
-     */
     class SymbolFactory {
-    public://private:
-        QString line;
+    private:
+        QString source;
         QString::ConstIterator position;
         QString::ConstIterator end;
 
@@ -142,9 +134,10 @@ namespace Core {
         Symbol getNextSymbol() throws(AnalyzeCrashExeption, WarningExeption);
         bool isNextSymbol();
 
-    //private:
+    private:
         void skipFirst(const Symbol::SymbolType& symbolType);
         void skipAll(const Symbol::SymbolType& symbolType);
+        void skipAll(const Symbol::SymbolType& symbolTypeA, const Symbol::SymbolType& symbolTypeB);
         
         bool whetherNextSymbol(const Symbol::SymbolType& symbolType);
     };

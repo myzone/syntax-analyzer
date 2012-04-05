@@ -3,6 +3,7 @@
 #include "../Events/EventBroadcaster.h"
 #include "../Core/Preprocessor.h"
 #include "../Core/SyntaxTreeFactory.h"
+#include "../Core/TreeAnalyzer.h"
 
 #include "../defines.h"
 
@@ -13,6 +14,7 @@ namespace Core {
         Events::EventBroadcaster broadcaster;
         Preprocessor preprocessor;
         SyntaxTreeFactory syntaxTreeFactory;
+        TreeAnalyzer treeAnalyzer;
     public:
         Analyzer(const QString& pathToLibrary);
         virtual ~Analyzer();

@@ -13,9 +13,6 @@
 
 namespace Core {
 
-    /**
-     * Класс реализующий семантический анализ
-     */
     class SyntaxTreeFactory {
     private:
         Events::EventBroadcaster* broadcaster;
@@ -25,13 +22,13 @@ namespace Core {
 
     public:
         SyntaxTreeFactory(Events::EventBroadcaster* broadcaster);
-        Tree<Symbol> createTree(const QString& text) const throws(AnalyzeCrashExeption);
+        Tree<Symbol> createTree(const QList<Symbol>& text) const throws(AnalyzeCrashExeption);
 
     private:
-        QMap<QString, QString> createLinesMap(const QString& text) const;
-        QSet<QString> createLinesSet(const QMap<QString, QString>& map) const;
-        void processLine(const QString& line, Tree<Symbol> tree) const throws(AnalyzeCrashExeption);
-        QList<Symbol> toPostfixSymbolsList(const QString & line) const throws(AnalyzeCrashExeption);
+        QMap<QString, QList<Symbol> > createLinesMap(const QList<Symbol>& text) const;
+        QSet<QString> createLinesSet(const QMap<QString, QList<Symbol> >& map) const;
+        void processLine(const QList<Symbol>& line, Tree<Symbol> tree) const throws(AnalyzeCrashExeption);
+        QList<Symbol> toPostfixSymbolsList(const QList<Symbol>& line) const throws(AnalyzeCrashExeption);
 
         class TreeProcessor : public Tree<Symbol>::DataProcessor {
         private:

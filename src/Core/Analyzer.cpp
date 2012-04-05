@@ -1,9 +1,13 @@
 #include "Analyzer.h"
 #include "Exeption.h"
+#include "TreeAnalyzer.h"
 
 namespace Core {
 
-    Analyzer::Analyzer(const QString& pathToLibrary) : broadcaster(), preprocessor(pathToLibrary), syntaxTreeFactory(&this->broadcaster) { }
+    Analyzer::Analyzer(const QString& pathToLibrary) : broadcaster(), 
+                                                        preprocessor(&broadcaster, pathToLibrary),
+                                                        syntaxTreeFactory(&broadcaster), 
+                                                        treeAnalyzer(&broadcaster){ }
 
     Analyzer::~Analyzer() { }
 
@@ -11,10 +15,8 @@ namespace Core {
         shareStartEvent();
 
         try {
-            QString source = preprocessor.process(text);
-            Tree<Symbol> tree = syntaxTreeFactory.createTree(source);
-        } catch (AnalyzeCrashExeption) {
-            shareEndEvent();
+            treeAnalyzer.analyzeTree(syntaxTreeFactory.createTree(preprocessor.process(text)));
+        } catch (AnalyzeCrashExeption e) {
         }
 
         shareEndEvent();
