@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Syntax Analyzer: Класс Core::TreeAnalyzer::TreeConverter</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Создано системой Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.95</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="dirs.html"><span>Алфавитный&#160;указатель&#160;директорий</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;структур&#160;данных</span></a></li>
+      <li><a href="inherits.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Поля&#160;структур</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespace_core.html">Core</a>      </li>
+      <li class="navelem"><a class="el" href="class_core_1_1_tree_analyzer.html">TreeAnalyzer</a>      </li>
+      <li class="navelem"><a class="el" href="class_core_1_1_tree_analyzer_1_1_tree_converter.html">TreeConverter</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pro-methods">Защищенные члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс Core::TreeAnalyzer::TreeConverter</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="Core::TreeAnalyzer::TreeConverter" --><!-- doxytag: inherits="Tree::DataProcessor" --><div class="dynheader">
+Граф наследования:Core::TreeAnalyzer::TreeConverter:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_core_1_1_tree_analyzer_1_1_tree_converter__inherit__graph.png" border="0" usemap="#_core_1_1_tree_analyzer_1_1_tree_converter_inherit__map" alt="Inheritance graph"/></div>
+<map name="_core_1_1_tree_analyzer_1_1_tree_converter_inherit__map" id="_core_1_1_tree_analyzer_1_1_tree_converter_inherit__map">
+<area shape="rect" id="node2" href="class_tree_1_1_data_processor.html" title="{Tree\&lt; T \&gt;::DataProcessor\n||+ dataProcessingStarts()\l+ dataProcessingEnds()\l+ processData()\l+ processData()\l+ getTraverseType()\l# stop()\l}" alt="" coords="32,6,205,178"/></map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<div class="dynheader">
+Граф связей класса Core::TreeAnalyzer::TreeConverter:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_core_1_1_tree_analyzer_1_1_tree_converter__coll__graph.png" border="0" usemap="#_core_1_1_tree_analyzer_1_1_tree_converter_coll__map" alt="Collaboration graph"/></div>
+<map name="_core_1_1_tree_analyzer_1_1_tree_converter_coll__map" id="_core_1_1_tree_analyzer_1_1_tree_converter_coll__map">
+<area shape="rect" id="node2" href="class_tree_1_1_data_processor.html" title="{Tree\&lt; T \&gt;::DataProcessor\n||+ dataProcessingStarts()\l+ dataProcessingEnds()\l+ processData()\l+ processData()\l+ getTraverseType()\l# stop()\l}" alt="" coords="32,6,205,178"/></map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_tree_analyzer_1_1_tree_converter.html#a6753c744229953aa698fcd6f0689d7b0">dataProcessingStarts</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_tree_analyzer_1_1_tree_converter.html#ac58933ce6a39e4d8a92a8d5878c3c0bd">processData</a> (const <a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; &amp;node) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_traverse_type.html">TraverseType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_tree_analyzer_1_1_tree_converter.html#a3e67ad1e7e21c17f6c7ff594cc05197e">getTraverseType</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QList&lt; <a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_tree_analyzer_1_1_tree_converter.html#ad75620a82743f965b96e9d8c6992e50b">getNodes</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_data_processor.html#acb04e80f2071ef1f6f4f7268db70f93d">dataProcessingEnds</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_data_processor.html#a0c58a66a9b4d1ffbbd6c40dd418cf000">processData</a> (<a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;nodeProvider)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_data_processor.html#a52518342e3183225ebaf8328a13efdbf">processData</a> (const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;nodeProvider) const </td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_data_processor.html#a4750aad2e0fe80972d2907c4bac93864">stop</a> () const throws(TraverseStoppedExeption)</td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_tree_analyzer_1_1_tree_converter.html#a0f13615ba6575078c26e2c07f275aa8f">nodes</a></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Подробное описание</h2>
+<div class="textblock">
+<p>См. определение в файле <a class="el" href="">TreeAnalyzer.h</a> строка <a class="el" href="#L17">17</a></p>
+</div><hr/><h2>Методы</h2>
+<a class="anchor" id="acb04e80f2071ef1f6f4f7268db70f93d"></a><!-- doxytag: member="Core::TreeAnalyzer::TreeConverter::dataProcessingEnds" ref="acb04e80f2071ef1f6f4f7268db70f93d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::DataProcessor::dataProcessingEnds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">Tree.h</a> строка <a class="el" href="#L177">177</a></p>
+<div class="fragment"><pre class="fragment">{ }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a6753c744229953aa698fcd6f0689d7b0"></a><!-- doxytag: member="Core::TreeAnalyzer::TreeConverter::dataProcessingStarts" ref="a6753c744229953aa698fcd6f0689d7b0" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Core::TreeAnalyzer::TreeConverter::dataProcessingStarts </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Переопределяет метод предка <a class="el" href="class_tree_1_1_data_processor.html#a658f534a704e103fa876445b5e690de3">Tree&lt; T &gt;::DataProcessor</a>.</p>
+
+<p>См. определение в файле <a class="el" href="">TreeAnalyzer.h</a> строка <a class="el" href="#L22">22</a></p>
+<div class="fragment"><pre class="fragment">                                                      {
+                <a class="code" href="class_core_1_1_tree_analyzer_1_1_tree_converter.html#a0f13615ba6575078c26e2c07f275aa8f">nodes</a>.clear();
+            }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ad75620a82743f965b96e9d8c6992e50b"></a><!-- doxytag: member="Core::TreeAnalyzer::TreeConverter::getNodes" ref="ad75620a82743f965b96e9d8c6992e50b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QList&lt;<a class="el" href="class_tree.html">Tree</a>&lt;<a class="el" href="class_core_1_1_symbol.html">Symbol</a>&gt; &gt;&amp; Core::TreeAnalyzer::TreeConverter::getNodes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TreeAnalyzer.h</a> строка <a class="el" href="#L34">34</a></p>
+<div class="fragment"><pre class="fragment">                                                         {
+                <span class="keywordflow">return</span> <a class="code" href="class_core_1_1_tree_analyzer_1_1_tree_converter.html#a0f13615ba6575078c26e2c07f275aa8f">nodes</a>;
+            } 
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a3e67ad1e7e21c17f6c7ff594cc05197e"></a><!-- doxytag: member="Core::TreeAnalyzer::TreeConverter::getTraverseType" ref="a3e67ad1e7e21c17f6c7ff594cc05197e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const <a class="el" href="class_traverse_type.html">TraverseType</a>&amp; Core::TreeAnalyzer::TreeConverter::getTraverseType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Переопределяет метод предка <a class="el" href="class_tree_1_1_data_processor.html#aad9d6f92de0c5ce723e4ae0b3092dfe2">Tree&lt; T &gt;::DataProcessor</a>.</p>
+
+<p>См. определение в файле <a class="el" href="">TreeAnalyzer.h</a> строка <a class="el" href="#L30">30</a></p>
+<div class="fragment"><pre class="fragment">                                                                {
+                <span class="keywordflow">return</span> <a class="code" href="class_traverse_type.html#a16739a062a76d85e74f28b5fe19c642f">TraverseType::WIDTH_TRAVERSE</a>;
+            }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a0c58a66a9b4d1ffbbd6c40dd418cf000"></a><!-- doxytag: member="Core::TreeAnalyzer::TreeConverter::processData" ref="a0c58a66a9b4d1ffbbd6c40dd418cf000" args="(Tree&lt; T &gt; &amp;nodeProvider)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::DataProcessor::processData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>nodeProvider</em></td><td>)</td>
+          <td><code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">Tree.h</a> строка <a class="el" href="#L178">178</a></p>
+<div class="fragment"><pre class="fragment">{ }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ac58933ce6a39e4d8a92a8d5878c3c0bd"></a><!-- doxytag: member="Core::TreeAnalyzer::TreeConverter::processData" ref="ac58933ce6a39e4d8a92a8d5878c3c0bd" args="(const Tree&lt; Symbol &gt; &amp;node) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Core::TreeAnalyzer::TreeConverter::processData </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TreeAnalyzer.h</a> строка <a class="el" href="#L26">26</a></p>
+<div class="fragment"><pre class="fragment">                                                                     {
+                <a class="code" href="class_core_1_1_tree_analyzer_1_1_tree_converter.html#a0f13615ba6575078c26e2c07f275aa8f">nodes</a>.prepend(node);
+            }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a52518342e3183225ebaf8328a13efdbf"></a><!-- doxytag: member="Core::TreeAnalyzer::TreeConverter::processData" ref="a52518342e3183225ebaf8328a13efdbf" args="(const Tree&lt; T &gt; &amp;nodeProvider) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::DataProcessor::processData </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>nodeProvider</em></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">Tree.h</a> строка <a class="el" href="#L179">179</a></p>
+<div class="fragment"><pre class="fragment">{ }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a4750aad2e0fe80972d2907c4bac93864"></a><!-- doxytag: member="Core::TreeAnalyzer::TreeConverter::stop" ref="a4750aad2e0fe80972d2907c4bac93864" args="() const throws(TraverseStoppedExeption)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::DataProcessor::stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, protected, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">Tree.h</a> строка <a class="el" href="#L171">171</a></p>
+<div class="fragment"><pre class="fragment">                                                          {
+            <span class="keywordflow">throw</span> TraverseStoppedExeption();
+        }
+</pre></div>
+</div>
+</div>
+<hr/><h2>Поля</h2>
+<a class="anchor" id="a0f13615ba6575078c26e2c07f275aa8f"></a><!-- doxytag: member="Core::TreeAnalyzer::TreeConverter::nodes" ref="a0f13615ba6575078c26e2c07f275aa8f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;<a class="el" href="class_tree.html">Tree</a>&lt;<a class="el" href="class_core_1_1_symbol.html">Symbol</a>&gt; &gt; <a class="el" href="class_core_1_1_tree_analyzer_1_1_tree_converter.html#a0f13615ba6575078c26e2c07f275aa8f">Core::TreeAnalyzer::TreeConverter::nodes</a><code> [mutable, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TreeAnalyzer.h</a> строка <a class="el" href="#L19">19</a></p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>/host/Coding/C++/Syntax Analyzer/src/Core/<a class="el" href="">TreeAnalyzer.h</a></li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Структуры данных</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Друзья</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Макросы</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Документация по Syntax Analyzer. Последние изменения: Пт 13 Апр 2012 23:59:02. Создано системой&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

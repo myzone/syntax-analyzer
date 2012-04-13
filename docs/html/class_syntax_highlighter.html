@@ -1,0 +1,632 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Syntax Analyzer: Класс SyntaxHighlighter</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Создано системой Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.95</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="dirs.html"><span>Алфавитный&#160;указатель&#160;директорий</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;структур&#160;данных</span></a></li>
+      <li><a href="inherits.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Поля&#160;структур</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Структуры данных</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pro-methods">Защищенные члены</a> &#124;
+<a href="#pro-static-methods">Защищенные статические члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="#pri-static-attribs">Закрытые статические данные</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс SyntaxHighlighter</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="SyntaxHighlighter" --><!-- doxytag: inherits="Events::EventListener" -->
+<p><code>#include &lt;<a class="el" href="">MainWindow.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:SyntaxHighlighter:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_syntax_highlighter__inherit__graph.png" border="0" usemap="#_syntax_highlighter_inherit__map" alt="Inheritance graph"/></div>
+<map name="_syntax_highlighter_inherit__map" id="_syntax_highlighter_inherit__map">
+<area shape="rect" id="node2" href="class_events_1_1_event_listener.html" title="{Events::EventListener\n||+ EventListener()\l+ ~EventListener()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l}" alt="" coords="5,5,237,299"/></map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<div class="dynheader">
+Граф связей класса SyntaxHighlighter:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_syntax_highlighter__coll__graph.png" border="0" usemap="#_syntax_highlighter_coll__map" alt="Collaboration graph"/></div>
+<map name="_syntax_highlighter_coll__map" id="_syntax_highlighter_coll__map">
+<area shape="rect" id="node2" href="class_events_1_1_event_listener.html" title="{Events::EventListener\n||+ EventListener()\l+ ~EventListener()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l+ DECLARE_HANDLE_METHOD()\l}" alt="" coords="5,5,237,299"/></map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Структуры данных</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_highlighter_1_1_format_type.html">FormatType</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_syntax_highlighter_1_1_highlight_rule.html">HighlightRule</a></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_highlighter.html#ac3e4176c6b7d2d7b07e9dbb061452b07">SyntaxHighlighter</a> (QTextDocument *parent=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_highlighter.html#a7385d7cbea93c35f53543d6b3c71d2fb">handle</a> (const Events::AnalysingWasStartedEvent &amp;event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_highlighter.html#a18212a3859c031b61f06fdd4dbbb7e2d">handle</a> (const Events::SymbolIsNotDefinedErrorEvent &amp;event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_highlighter.html#af7402e8b50ddeb3b5299bf8ebf43a908">handle</a> (const Events::SymbolHasMistakeErrorEvent &amp;event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_highlighter.html#ab3118d20259ec7f81e0adb1e11caa624">handle</a> (const Events::LibraryFileCannotBeFoundErrorEvent &amp;event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_highlighter.html#a41a8bba6415f30486f93cdd264ef2bae">handle</a> (const Events::LitheralIsNotClosedErrorEvent &amp;event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_highlighter.html#aa9138e845d52c068a51dfe9c5b141de6">handle</a> (const Events::DoubleDefenitionErrorEvent &amp;event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_listener.html#ace6fe1cc4af7f731e728d7c9706ee280">DECLARE_HANDLE_METHOD</a> (Event)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Don't implement it;.  <a href="#ace6fe1cc4af7f731e728d7c9706ee280"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_listener.html#afe6a5fd46c4098871551246dd2908b0d">DECLARE_HANDLE_METHOD</a> (ErrorEvent)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Don't implement it;.  <a href="#afe6a5fd46c4098871551246dd2908b0d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_listener.html#a0975f9f21f548e26cf6f81e9e0430e35">DECLARE_HANDLE_METHOD</a> (AnalysingWasStartedEvent)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_listener.html#a19afa2b74e6be53e27047a126fadcc5f">DECLARE_HANDLE_METHOD</a> (AnalysingWasEndedEvent)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_listener.html#abf211f1aab924925067d41e1bc279817">DECLARE_HANDLE_METHOD</a> (LibraryFileCannotBeFoundErrorEvent)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_listener.html#a1c91dcfd06a54a1973684d674e9fbb5f">DECLARE_HANDLE_METHOD</a> (DoubleDefenitionErrorEvent)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_listener.html#a87bf8f30adc89a4fa3c4844a8ca0cdfc">DECLARE_HANDLE_METHOD</a> (SymbolIsNotUsedErrorEvent)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_listener.html#a9af1e7aef0555328fb81b299ebc679e8">DECLARE_HANDLE_METHOD</a> (SymbolIsNotDefinedErrorEvent)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_listener.html#afbc5098e745d463db7a36471f1aaca49">DECLARE_HANDLE_METHOD</a> (SymbolHasMistakeErrorEvent)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_listener.html#a92c069f34e7c7e69cc5b687f227d1f58">DECLARE_HANDLE_METHOD</a> (LitheralIsNotClosedErrorEvent)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_events_1_1_event_listener.html#a8de98886903579c7fc1d274abbd14ab4">DECLARE_HANDLE_METHOD</a> (WrongBracketsNumberErrorEvent)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_highlighter.html#a2633163bedde0a890f27d4d47614f1ad">highlightBlock</a> (const QString &amp;text)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-static-methods"></a>
+Защищенные статические члены</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static QList&lt; <a class="el" href="struct_syntax_highlighter_1_1_highlight_rule.html">HighlightRule</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_highlighter.html#a9815a9ce5803e875f38b7aa55722b68f">initStaticRules</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="struct_syntax_highlighter_1_1_highlight_rule.html">HighlightRule</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_highlighter.html#a1dbfade67ff79cb30825011b167ca887">dymamicRules</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_highlighter.html#a6747fc61e4ba1d5d795cf1748f32b042">rehighlightTimer</a></td></tr>
+<tr><td colspan="2"><h2><a name="pri-static-attribs"></a>
+Закрытые статические данные</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const QList&lt; <a class="el" href="struct_syntax_highlighter_1_1_highlight_rule.html">HighlightRule</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_syntax_highlighter.html#a7c3dc002bfa002dca83e57052847440b">staticRules</a> = SyntaxHighlighter::initStaticRules()</td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Подробное описание</h2>
+<div class="textblock">
+<p>См. определение в файле <a class="el" href="">MainWindow.h</a> строка <a class="el" href="#L12">12</a></p>
+</div><hr/><h2>Конструктор(ы)</h2>
+<a class="anchor" id="ac3e4176c6b7d2d7b07e9dbb061452b07"></a><!-- doxytag: member="SyntaxHighlighter::SyntaxHighlighter" ref="ac3e4176c6b7d2d7b07e9dbb061452b07" args="(QTextDocument *parent=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SyntaxHighlighter::SyntaxHighlighter </td>
+          <td>(</td>
+          <td class="paramtype">QTextDocument *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">MainWindow.cpp</a> строка <a class="el" href="#L83">83</a></p>
+<div class="fragment"><pre class="fragment">                                                          : QSyntaxHighlighter(parent), <a class="code" href="class_syntax_highlighter.html#a6747fc61e4ba1d5d795cf1748f32b042">rehighlightTimer</a>(<span class="keyword">this</span>) {
+    connect(&amp;<a class="code" href="class_syntax_highlighter.html#a6747fc61e4ba1d5d795cf1748f32b042">rehighlightTimer</a>, SIGNAL(timeout()), <span class="keyword">this</span>, SLOT(rehighlight()));
+    <a class="code" href="class_syntax_highlighter.html#a6747fc61e4ba1d5d795cf1748f32b042">rehighlightTimer</a>.start(1000);
+}
+</pre></div>
+</div>
+</div>
+<hr/><h2>Методы</h2>
+<a class="anchor" id="ace6fe1cc4af7f731e728d7c9706ee280"></a><!-- doxytag: member="SyntaxHighlighter::DECLARE_HANDLE_METHOD" ref="ace6fe1cc4af7f731e728d7c9706ee280" args="(Event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::EventListener::DECLARE_HANDLE_METHOD </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_events_1_1_event.html">Event</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Don't implement it;. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8de98886903579c7fc1d274abbd14ab4"></a><!-- doxytag: member="SyntaxHighlighter::DECLARE_HANDLE_METHOD" ref="a8de98886903579c7fc1d274abbd14ab4" args="(WrongBracketsNumberErrorEvent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::EventListener::DECLARE_HANDLE_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">WrongBracketsNumberErrorEvent&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afe6a5fd46c4098871551246dd2908b0d"></a><!-- doxytag: member="SyntaxHighlighter::DECLARE_HANDLE_METHOD" ref="afe6a5fd46c4098871551246dd2908b0d" args="(ErrorEvent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::EventListener::DECLARE_HANDLE_METHOD </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_events_1_1_error_event.html">ErrorEvent</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Don't implement it;. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9af1e7aef0555328fb81b299ebc679e8"></a><!-- doxytag: member="SyntaxHighlighter::DECLARE_HANDLE_METHOD" ref="a9af1e7aef0555328fb81b299ebc679e8" args="(SymbolIsNotDefinedErrorEvent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::EventListener::DECLARE_HANDLE_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">SymbolIsNotDefinedErrorEvent&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afbc5098e745d463db7a36471f1aaca49"></a><!-- doxytag: member="SyntaxHighlighter::DECLARE_HANDLE_METHOD" ref="afbc5098e745d463db7a36471f1aaca49" args="(SymbolHasMistakeErrorEvent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::EventListener::DECLARE_HANDLE_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">SymbolHasMistakeErrorEvent&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a87bf8f30adc89a4fa3c4844a8ca0cdfc"></a><!-- doxytag: member="SyntaxHighlighter::DECLARE_HANDLE_METHOD" ref="a87bf8f30adc89a4fa3c4844a8ca0cdfc" args="(SymbolIsNotUsedErrorEvent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::EventListener::DECLARE_HANDLE_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">SymbolIsNotUsedErrorEvent&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a92c069f34e7c7e69cc5b687f227d1f58"></a><!-- doxytag: member="SyntaxHighlighter::DECLARE_HANDLE_METHOD" ref="a92c069f34e7c7e69cc5b687f227d1f58" args="(LitheralIsNotClosedErrorEvent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::EventListener::DECLARE_HANDLE_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">LitheralIsNotClosedErrorEvent&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0975f9f21f548e26cf6f81e9e0430e35"></a><!-- doxytag: member="SyntaxHighlighter::DECLARE_HANDLE_METHOD" ref="a0975f9f21f548e26cf6f81e9e0430e35" args="(AnalysingWasStartedEvent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::EventListener::DECLARE_HANDLE_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">AnalysingWasStartedEvent&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a19afa2b74e6be53e27047a126fadcc5f"></a><!-- doxytag: member="SyntaxHighlighter::DECLARE_HANDLE_METHOD" ref="a19afa2b74e6be53e27047a126fadcc5f" args="(AnalysingWasEndedEvent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::EventListener::DECLARE_HANDLE_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">AnalysingWasEndedEvent&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abf211f1aab924925067d41e1bc279817"></a><!-- doxytag: member="SyntaxHighlighter::DECLARE_HANDLE_METHOD" ref="abf211f1aab924925067d41e1bc279817" args="(LibraryFileCannotBeFoundErrorEvent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::EventListener::DECLARE_HANDLE_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">LibraryFileCannotBeFoundErrorEvent&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1c91dcfd06a54a1973684d674e9fbb5f"></a><!-- doxytag: member="SyntaxHighlighter::DECLARE_HANDLE_METHOD" ref="a1c91dcfd06a54a1973684d674e9fbb5f" args="(DoubleDefenitionErrorEvent)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Events::EventListener::DECLARE_HANDLE_METHOD </td>
+          <td>(</td>
+          <td class="paramtype">DoubleDefenitionErrorEvent&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a18212a3859c031b61f06fdd4dbbb7e2d"></a><!-- doxytag: member="SyntaxHighlighter::handle" ref="a18212a3859c031b61f06fdd4dbbb7e2d" args="(const Events::SymbolIsNotDefinedErrorEvent &amp;event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SyntaxHighlighter::handle </td>
+          <td>(</td>
+          <td class="paramtype">const Events::SymbolIsNotDefinedErrorEvent &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">MainWindow.cpp</a> строка <a class="el" href="#L36">36</a></p>
+<div class="fragment"><pre class="fragment">                                                                              {
+    <a class="code" href="class_syntax_highlighter.html#a1dbfade67ff79cb30825011b167ca887">dymamicRules</a>.append(HighlightRule(<span class="stringliteral">&quot;\\b&quot;</span> + event.getRepresentation() + <span class="stringliteral">&quot;\\b&quot;</span>, <a class="code" href="class_syntax_highlighter_1_1_format_type.html#ac4ca2ef8bd109faf00da942fadbfd44c">FormatType::WRONG_SYMBOL_FORMAT</a>));
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="af7402e8b50ddeb3b5299bf8ebf43a908"></a><!-- doxytag: member="SyntaxHighlighter::handle" ref="af7402e8b50ddeb3b5299bf8ebf43a908" args="(const Events::SymbolHasMistakeErrorEvent &amp;event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SyntaxHighlighter::handle </td>
+          <td>(</td>
+          <td class="paramtype">const Events::SymbolHasMistakeErrorEvent &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">MainWindow.cpp</a> строка <a class="el" href="#L40">40</a></p>
+<div class="fragment"><pre class="fragment">                                                                            {
+    <a class="code" href="class_syntax_highlighter.html#a1dbfade67ff79cb30825011b167ca887">dymamicRules</a>.append(HighlightRule(<span class="stringliteral">&quot;\\b&quot;</span> + event.getRepresentation() + <span class="stringliteral">&quot;\\b&quot;</span>, <a class="code" href="class_syntax_highlighter_1_1_format_type.html#ac4ca2ef8bd109faf00da942fadbfd44c">FormatType::WRONG_SYMBOL_FORMAT</a>));
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a7385d7cbea93c35f53543d6b3c71d2fb"></a><!-- doxytag: member="SyntaxHighlighter::handle" ref="a7385d7cbea93c35f53543d6b3c71d2fb" args="(const Events::AnalysingWasStartedEvent &amp;event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SyntaxHighlighter::handle </td>
+          <td>(</td>
+          <td class="paramtype">const Events::AnalysingWasStartedEvent &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">MainWindow.cpp</a> строка <a class="el" href="#L32">32</a></p>
+<div class="fragment"><pre class="fragment">                                                                          {
+    <a class="code" href="class_syntax_highlighter.html#a1dbfade67ff79cb30825011b167ca887">dymamicRules</a>.clear();
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ab3118d20259ec7f81e0adb1e11caa624"></a><!-- doxytag: member="SyntaxHighlighter::handle" ref="ab3118d20259ec7f81e0adb1e11caa624" args="(const Events::LibraryFileCannotBeFoundErrorEvent &amp;event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SyntaxHighlighter::handle </td>
+          <td>(</td>
+          <td class="paramtype">const Events::LibraryFileCannotBeFoundErrorEvent &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">MainWindow.cpp</a> строка <a class="el" href="#L44">44</a></p>
+<div class="fragment"><pre class="fragment">                                                                                    {
+    <a class="code" href="class_syntax_highlighter.html#a1dbfade67ff79cb30825011b167ca887">dymamicRules</a>.append(HighlightRule(<span class="stringliteral">&quot;\\b&quot;</span> + event.getRepresentation() + <span class="stringliteral">&quot;\\b&quot;</span>, <a class="code" href="class_syntax_highlighter_1_1_format_type.html#ac4ca2ef8bd109faf00da942fadbfd44c">FormatType::WRONG_SYMBOL_FORMAT</a>));
+
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a41a8bba6415f30486f93cdd264ef2bae"></a><!-- doxytag: member="SyntaxHighlighter::handle" ref="a41a8bba6415f30486f93cdd264ef2bae" args="(const Events::LitheralIsNotClosedErrorEvent &amp;event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SyntaxHighlighter::handle </td>
+          <td>(</td>
+          <td class="paramtype">const Events::LitheralIsNotClosedErrorEvent &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">MainWindow.cpp</a> строка <a class="el" href="#L49">49</a></p>
+<div class="fragment"><pre class="fragment">                                                                               {
+    <a class="code" href="class_syntax_highlighter.html#a1dbfade67ff79cb30825011b167ca887">dymamicRules</a>.append(HighlightRule(<span class="stringliteral">&quot;\\b&quot;</span> + event.getRepresentation() + <span class="stringliteral">&quot;\\b&quot;</span>, <a class="code" href="class_syntax_highlighter_1_1_format_type.html#ac4ca2ef8bd109faf00da942fadbfd44c">FormatType::WRONG_SYMBOL_FORMAT</a>));
+
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aa9138e845d52c068a51dfe9c5b141de6"></a><!-- doxytag: member="SyntaxHighlighter::handle" ref="aa9138e845d52c068a51dfe9c5b141de6" args="(const Events::DoubleDefenitionErrorEvent &amp;event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SyntaxHighlighter::handle </td>
+          <td>(</td>
+          <td class="paramtype">const Events::DoubleDefenitionErrorEvent &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">MainWindow.cpp</a> строка <a class="el" href="#L54">54</a></p>
+<div class="fragment"><pre class="fragment">                                                                            {
+    <a class="code" href="class_syntax_highlighter.html#a1dbfade67ff79cb30825011b167ca887">dymamicRules</a>.append(HighlightRule(<span class="stringliteral">&quot;\\b&quot;</span> + event.getRepresentation() + <span class="stringliteral">&quot;\\b&quot;</span>, <a class="code" href="class_syntax_highlighter_1_1_format_type.html#ac4ca2ef8bd109faf00da942fadbfd44c">FormatType::WRONG_SYMBOL_FORMAT</a>));
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a2633163bedde0a890f27d4d47614f1ad"></a><!-- doxytag: member="SyntaxHighlighter::highlightBlock" ref="a2633163bedde0a890f27d4d47614f1ad" args="(const QString &amp;text)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SyntaxHighlighter::highlightBlock </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">MainWindow.cpp</a> строка <a class="el" href="#L88">88</a></p>
+<div class="fragment"><pre class="fragment">                                                          {
+    <span class="keywordflow">for</span> (QList&lt;SyntaxHighlighter::HighlightRule&gt;::ConstIterator it = <a class="code" href="class_syntax_highlighter.html#a1dbfade67ff79cb30825011b167ca887">dymamicRules</a>.constBegin(), end = <a class="code" href="class_syntax_highlighter.html#a1dbfade67ff79cb30825011b167ca887">dymamicRules</a>.constEnd(); it != end; ++it) {
+        QRegExp expression = (*it).pattern;
+
+        <span class="keywordtype">int</span> index = expression.indexIn(text);
+        <span class="keywordflow">while</span> (index &gt;= 0) {
+            <span class="keywordtype">int</span> length = expression.matchedLength();
+            setFormat(index, length, (*it).format);
+            index = expression.indexIn(text, index + length);
+            
+            <span class="keywordflow">if</span>(length &lt;= 0) 
+                <span class="keywordflow">break</span>;
+        }
+    }
+
+    <span class="keywordflow">for</span> (QList&lt;SyntaxHighlighter::HighlightRule&gt;::ConstIterator it = <a class="code" href="class_syntax_highlighter.html#a7c3dc002bfa002dca83e57052847440b">staticRules</a>.constBegin(), end = <a class="code" href="class_syntax_highlighter.html#a7c3dc002bfa002dca83e57052847440b">staticRules</a>.constEnd(); it != end; ++it) {
+        QRegExp expression = (*it).pattern;
+
+        <span class="keywordtype">int</span> index = expression.indexIn(text);
+        <span class="keywordflow">while</span> (index &gt;= 0) {
+            <span class="keywordtype">int</span> length = expression.matchedLength();
+            setFormat(index, length, (*it).format);
+            index = expression.indexIn(text, index + length);
+        }
+    }
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a9815a9ce5803e875f38b7aa55722b68f"></a><!-- doxytag: member="SyntaxHighlighter::initStaticRules" ref="a9815a9ce5803e875f38b7aa55722b68f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt; <a class="el" href="struct_syntax_highlighter_1_1_highlight_rule.html">SyntaxHighlighter::HighlightRule</a> &gt; SyntaxHighlighter::initStaticRules </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [static, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">MainWindow.cpp</a> строка <a class="el" href="#L115">115</a></p>
+<div class="fragment"><pre class="fragment">                                                                         {
+    QList&lt;SyntaxHighlighter::HighlightRule&gt; rules = QList&lt;SyntaxHighlighter::HighlightRule &gt; ();
+
+    rules.append(<a class="code" href="struct_syntax_highlighter_1_1_highlight_rule.html">SyntaxHighlighter::HighlightRule</a>(<span class="stringliteral">&quot;\\bimport\\b&quot;</span>, <a class="code" href="class_syntax_highlighter_1_1_format_type.html#ae3f1b681de99d2a7c47acc7c1b6740e1">FormatType::KEYWORD_FORMAT</a>));
+
+    rules.append(<a class="code" href="struct_syntax_highlighter_1_1_highlight_rule.html">SyntaxHighlighter::HighlightRule</a>(<span class="stringliteral">&quot;-&gt;&quot;</span>, <a class="code" href="class_syntax_highlighter_1_1_format_type.html#ab1827c52372821ed0fbcc3d0d93d7758">FormatType::KEYWORD_SYMBOLS_FORMAT</a>));
+    rules.append(<a class="code" href="struct_syntax_highlighter_1_1_highlight_rule.html">SyntaxHighlighter::HighlightRule</a>(<span class="stringliteral">&quot;\\(&quot;</span>, <a class="code" href="class_syntax_highlighter_1_1_format_type.html#ab1827c52372821ed0fbcc3d0d93d7758">FormatType::KEYWORD_SYMBOLS_FORMAT</a>));
+    rules.append(<a class="code" href="struct_syntax_highlighter_1_1_highlight_rule.html">SyntaxHighlighter::HighlightRule</a>(<span class="stringliteral">&quot;\\)&quot;</span>, <a class="code" href="class_syntax_highlighter_1_1_format_type.html#ab1827c52372821ed0fbcc3d0d93d7758">FormatType::KEYWORD_SYMBOLS_FORMAT</a>));
+    rules.append(<a class="code" href="struct_syntax_highlighter_1_1_highlight_rule.html">SyntaxHighlighter::HighlightRule</a>(<span class="stringliteral">&quot;\\|&quot;</span>, <a class="code" href="class_syntax_highlighter_1_1_format_type.html#ab1827c52372821ed0fbcc3d0d93d7758">FormatType::KEYWORD_SYMBOLS_FORMAT</a>));
+    rules.append(<a class="code" href="struct_syntax_highlighter_1_1_highlight_rule.html">SyntaxHighlighter::HighlightRule</a>(<span class="stringliteral">&quot;\\&amp;&quot;</span>, <a class="code" href="class_syntax_highlighter_1_1_format_type.html#ab1827c52372821ed0fbcc3d0d93d7758">FormatType::KEYWORD_SYMBOLS_FORMAT</a>));
+    rules.append(<a class="code" href="struct_syntax_highlighter_1_1_highlight_rule.html">SyntaxHighlighter::HighlightRule</a>(<span class="stringliteral">&quot;;&quot;</span>, <a class="code" href="class_syntax_highlighter_1_1_format_type.html#ab1827c52372821ed0fbcc3d0d93d7758">FormatType::KEYWORD_SYMBOLS_FORMAT</a>));
+
+    rules.append(<a class="code" href="struct_syntax_highlighter_1_1_highlight_rule.html">SyntaxHighlighter::HighlightRule</a>(<span class="stringliteral">&quot;\&quot;([^\&quot;]|(\\\\\&quot;))*\&quot;?&quot;</span>, <a class="code" href="class_syntax_highlighter_1_1_format_type.html#af9b37eecb8cbe4cb1926384b39fddfd8">FormatType::QUOTED_STRING_FORMAT</a>));
+
+    <span class="keywordflow">return</span> rules;
+}
+</pre></div>
+</div>
+</div>
+<hr/><h2>Поля</h2>
+<a class="anchor" id="a1dbfade67ff79cb30825011b167ca887"></a><!-- doxytag: member="SyntaxHighlighter::dymamicRules" ref="a1dbfade67ff79cb30825011b167ca887" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;<a class="el" href="struct_syntax_highlighter_1_1_highlight_rule.html">HighlightRule</a>&gt; <a class="el" href="class_syntax_highlighter.html#a1dbfade67ff79cb30825011b167ca887">SyntaxHighlighter::dymamicRules</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">MainWindow.h</a> строка <a class="el" href="#L43">43</a></p>
+
+</div>
+</div>
+<a class="anchor" id="a6747fc61e4ba1d5d795cf1748f32b042"></a><!-- doxytag: member="SyntaxHighlighter::rehighlightTimer" ref="a6747fc61e4ba1d5d795cf1748f32b042" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTimer <a class="el" href="class_syntax_highlighter.html#a6747fc61e4ba1d5d795cf1748f32b042">SyntaxHighlighter::rehighlightTimer</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">MainWindow.h</a> строка <a class="el" href="#L45">45</a></p>
+
+</div>
+</div>
+<a class="anchor" id="a7c3dc002bfa002dca83e57052847440b"></a><!-- doxytag: member="SyntaxHighlighter::staticRules" ref="a7c3dc002bfa002dca83e57052847440b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QList&lt; <a class="el" href="struct_syntax_highlighter_1_1_highlight_rule.html">SyntaxHighlighter::HighlightRule</a> &gt; <a class="el" href="class_syntax_highlighter.html#a7c3dc002bfa002dca83e57052847440b">SyntaxHighlighter::staticRules</a> = SyntaxHighlighter::initStaticRules()<code> [static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">MainWindow.h</a> строка <a class="el" href="#L42">42</a></p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>/host/Coding/C++/Syntax Analyzer/src/GUI/<a class="el" href="">MainWindow.h</a></li>
+<li>/host/Coding/C++/Syntax Analyzer/src/GUI/<a class="el" href="">MainWindow.cpp</a></li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Структуры данных</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Друзья</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Макросы</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Документация по Syntax Analyzer. Последние изменения: Пт 13 Апр 2012 23:59:02. Создано системой&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

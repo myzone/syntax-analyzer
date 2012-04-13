@@ -1,6 +1,6 @@
 <map id="G" name="G">
 <area shape="rect" id="node2" href="$class_core_1_1_syntax_tree_factory.html" title="{Core::SyntaxTreeFactory\n|&#45; broadcaster\l|+ SyntaxTreeFactory()\l+ createTree()\l&#45; SyntaxTreeFactory()\l&#45; createLinesMap()\l&#45; createLinesSet()\l&#45; processLine()\l&#45; toPostfixSymbolsList()\l}" alt="" coords="117,227,285,416"/>
-<area shape="rect" id="node4" href="$class_events_1_1_event_broadcaster.html" title="{Events::EventBroadcaster\n|&#45; listeners\l|+ EventBroadcaster()\l+ ~EventBroadcaster()\l+ addEventListener()\l+ removeEventListener()\l+ broadcast()\l}" alt="" coords="210,5,384,160"/>
-<area shape="rect" id="node6" href="$class_core_1_1_preprocessor.html" title="{Core::Preprocessor\n|+ FILE_FORMAT_MASK\l+ IMPORT_DERECTIVE\l&#45; pathToLibrary\l&#45; broadcaster\l|+ Preprocessor()\l+ ~Preprocessor()\l+ process()\l&#45; import()\l}" alt="" coords="309,227,480,416"/>
-<area shape="rect" id="node10" href="$class_core_1_1_tree_analyzer.html" title="{Core::TreeAnalyzer\n|&#45; broadcaster\l|+ TreeAnalyzer()\l+ ~TreeAnalyzer()\l+ analyzeTree()\l}" alt="" coords="504,261,637,381"/>
+<area shape="rect" id="node4" href="$class_events_1_1_event_broadcaster.html" title="{Events::EventBroadcaster\n|&#45; listeners\l|+ EventBroadcaster()\l+ ~EventBroadcaster()\l+ addEventListener()\l+ removeEventListener()\l+ broadcast()\l}" alt="" coords="210,5,383,160"/>
+<area shape="rect" id="node6" href="$class_core_1_1_preprocessor.html" title="{Core::Preprocessor\n|+ FILE_FORMAT_MASK\l+ IMPORT_DERECTIVE\l&#45; pathToLibrary\l&#45; broadcaster\l|+ Preprocessor()\l+ ~Preprocessor()\l+ process()\l&#45; import()\l}" alt="" coords="309,227,479,416"/>
+<area shape="rect" id="node10" href="$class_core_1_1_tree_analyzer.html" title="{Core::TreeAnalyzer\n|&#45; broadcaster\l|+ TreeAnalyzer()\l+ ~TreeAnalyzer()\l+ analyzeTree()\l}" alt="" coords="503,261,637,381"/>
 </map>

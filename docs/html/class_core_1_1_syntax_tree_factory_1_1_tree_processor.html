@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Syntax Analyzer: Класс Core::SyntaxTreeFactory::TreeProcessor</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Создано системой Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.95</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="dirs.html"><span>Алфавитный&#160;указатель&#160;директорий</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;структур&#160;данных</span></a></li>
+      <li><a href="inherits.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Поля&#160;структур</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="namespace_core.html">Core</a>      </li>
+      <li class="navelem"><a class="el" href="class_core_1_1_syntax_tree_factory.html">SyntaxTreeFactory</a>      </li>
+      <li class="navelem"><a class="el" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html">TreeProcessor</a>      </li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pro-methods">Защищенные члены</a> &#124;
+<a href="#pri-static-methods">Закрытые статические члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс Core::SyntaxTreeFactory::TreeProcessor</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="Core::SyntaxTreeFactory::TreeProcessor" --><!-- doxytag: inherits="Tree::DataProcessor" --><div class="dynheader">
+Граф наследования:Core::SyntaxTreeFactory::TreeProcessor:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_core_1_1_syntax_tree_factory_1_1_tree_processor__inherit__graph.png" border="0" usemap="#_core_1_1_syntax_tree_factory_1_1_tree_processor_inherit__map" alt="Inheritance graph"/></div>
+<map name="_core_1_1_syntax_tree_factory_1_1_tree_processor_inherit__map" id="_core_1_1_syntax_tree_factory_1_1_tree_processor_inherit__map">
+<area shape="rect" id="node2" href="class_tree_1_1_data_processor.html" title="{Tree\&lt; T \&gt;::DataProcessor\n||+ dataProcessingStarts()\l+ dataProcessingEnds()\l+ processData()\l+ processData()\l+ getTraverseType()\l# stop()\l}" alt="" coords="49,6,223,178"/></map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<div class="dynheader">
+Граф связей класса Core::SyntaxTreeFactory::TreeProcessor:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_core_1_1_syntax_tree_factory_1_1_tree_processor__coll__graph.png" border="0" usemap="#_core_1_1_syntax_tree_factory_1_1_tree_processor_coll__map" alt="Collaboration graph"/></div>
+<map name="_core_1_1_syntax_tree_factory_1_1_tree_processor_coll__map" id="_core_1_1_syntax_tree_factory_1_1_tree_processor_coll__map">
+<area shape="rect" id="node2" href="class_tree_1_1_data_processor.html" title="{Tree\&lt; T \&gt;::DataProcessor\n||+ dataProcessingStarts()\l+ dataProcessingEnds()\l+ processData()\l+ processData()\l+ getTraverseType()\l# stop()\l}" alt="" coords="49,6,223,178"/></map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a6bf14d24a4ef00877ec15f9fe82f0fe6">TreeProcessor</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a8fdfaa6c7d1b7f535cc78fc871ae7915">dataProcessingStarts</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a69a31c39cfbb736c75bf1b4b5bde26f8">processData</a> (<a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; &amp;nodeProvider) throws(<a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="class_traverse_type.html">TraverseType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a950230f98a4526578942ec0d9947caee">getTraverseType</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QList&lt; <a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a76713cab03ce53107cdd347988d24d5e">getNodes</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#ad3f8a8dc98ea9ad8908c4dcdf4a35e00">isEnd</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_data_processor.html#acb04e80f2071ef1f6f4f7268db70f93d">dataProcessingEnds</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_data_processor.html#a0c58a66a9b4d1ffbbd6c40dd418cf000">processData</a> (<a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;nodeProvider)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_data_processor.html#a52518342e3183225ebaf8328a13efdbf">processData</a> (const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;nodeProvider) const </td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_1_1_data_processor.html#a4750aad2e0fe80972d2907c4bac93864">stop</a> () const throws(TraverseStoppedExeption)</td></tr>
+<tr><td colspan="2"><h2><a name="pri-static-methods"></a>
+Закрытые статические члены</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a4b96f1dbcb4aa322e6e9cbeb771d3735">containsInSupertree</a> (const <a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; &amp;tree)</td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a56075a00a2a4113dfbfd0a4be5cc83cf">nodes</a></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Подробное описание</h2>
+<div class="textblock">
+<p>См. определение в файле <a class="el" href="">SyntaxTreeFactory.h</a> строка <a class="el" href="#L33">33</a></p>
+</div><hr/><h2>Конструктор(ы)</h2>
+<a class="anchor" id="a6bf14d24a4ef00877ec15f9fe82f0fe6"></a><!-- doxytag: member="Core::SyntaxTreeFactory::TreeProcessor::TreeProcessor" ref="a6bf14d24a4ef00877ec15f9fe82f0fe6" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Core::SyntaxTreeFactory::TreeProcessor::TreeProcessor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">SyntaxTreeFactory.h</a> строка <a class="el" href="#L38">38</a></p>
+<div class="fragment"><pre class="fragment">                            : <a class="code" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a56075a00a2a4113dfbfd0a4be5cc83cf">nodes</a>() {
+            }
+</pre></div>
+</div>
+</div>
+<hr/><h2>Методы</h2>
+<a class="anchor" id="a4b96f1dbcb4aa322e6e9cbeb771d3735"></a><!-- doxytag: member="Core::SyntaxTreeFactory::TreeProcessor::containsInSupertree" ref="a4b96f1dbcb4aa322e6e9cbeb771d3735" args="(const Tree&lt; Symbol &gt; &amp;tree)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool Core::SyntaxTreeFactory::TreeProcessor::containsInSupertree </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>tree</em></td><td>)</td>
+          <td><code> [inline, static, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">SyntaxTreeFactory.h</a> строка <a class="el" href="#L68">68</a></p>
+<div class="fragment"><pre class="fragment">                                                                      {
+                <span class="keywordflow">if</span> (tree.<a class="code" href="class_tree.html#a5057acefe504e6a599a0547f54b9fff9">isRoot</a>()) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+
+                Symbol symbol = tree.<a class="code" href="class_tree.html#a0fde092d58dc5d448f2698062a69cf2e">get</a>();
+                <a class="code" href="class_tree.html">Tree&lt;Symbol&gt;</a> current = tree.<a class="code" href="class_tree.html#a43e70705755bd813c6f27f570ead29ab">getSupertree</a>();
+
+                <span class="keywordflow">while</span> (!current.<a class="code" href="class_tree.html#a5057acefe504e6a599a0547f54b9fff9">isRoot</a>()) {
+                    <span class="keywordflow">if</span> (!current.<a class="code" href="class_tree.html#acbe928fcc01c69045a9bcb100a9d7700">isEmpty</a>()) {
+                        <span class="keywordflow">if</span> (current.<a class="code" href="class_tree.html#a0fde092d58dc5d448f2698062a69cf2e">get</a>().getRepresentation() == symbol.getRepresentation()) {
+                            <span class="keywordflow">return</span> <span class="keyword">true</span>;
+                        }
+                    }
+
+                    current = current.<a class="code" href="class_tree.html#a43e70705755bd813c6f27f570ead29ab">getSupertree</a>();
+                }
+
+                <span class="keywordflow">return</span> <span class="keyword">false</span>;
+            }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="acb04e80f2071ef1f6f4f7268db70f93d"></a><!-- doxytag: member="Core::SyntaxTreeFactory::TreeProcessor::dataProcessingEnds" ref="acb04e80f2071ef1f6f4f7268db70f93d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::DataProcessor::dataProcessingEnds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">Tree.h</a> строка <a class="el" href="#L177">177</a></p>
+<div class="fragment"><pre class="fragment">{ }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a8fdfaa6c7d1b7f535cc78fc871ae7915"></a><!-- doxytag: member="Core::SyntaxTreeFactory::TreeProcessor::dataProcessingStarts" ref="a8fdfaa6c7d1b7f535cc78fc871ae7915" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Core::SyntaxTreeFactory::TreeProcessor::dataProcessingStarts </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Переопределяет метод предка <a class="el" href="class_tree_1_1_data_processor.html#a658f534a704e103fa876445b5e690de3">Tree&lt; T &gt;::DataProcessor</a>.</p>
+
+<p>См. определение в файле <a class="el" href="">SyntaxTreeFactory.h</a> строка <a class="el" href="#L41">41</a></p>
+<div class="fragment"><pre class="fragment">                                                      {
+                <a class="code" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a56075a00a2a4113dfbfd0a4be5cc83cf">nodes</a>.clear();
+            }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a76713cab03ce53107cdd347988d24d5e"></a><!-- doxytag: member="Core::SyntaxTreeFactory::TreeProcessor::getNodes" ref="a76713cab03ce53107cdd347988d24d5e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QList&lt;<a class="el" href="class_tree.html">Tree</a>&lt;<a class="el" href="class_core_1_1_symbol.html">Symbol</a>&gt; &gt;&amp; Core::SyntaxTreeFactory::TreeProcessor::getNodes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">SyntaxTreeFactory.h</a> строка <a class="el" href="#L59">59</a></p>
+<div class="fragment"><pre class="fragment">                                                         {
+                <span class="keywordflow">return</span> <a class="code" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a56075a00a2a4113dfbfd0a4be5cc83cf">nodes</a>;
+            }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a950230f98a4526578942ec0d9947caee"></a><!-- doxytag: member="Core::SyntaxTreeFactory::TreeProcessor::getTraverseType" ref="a950230f98a4526578942ec0d9947caee" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const <a class="el" href="class_traverse_type.html">TraverseType</a>&amp; Core::SyntaxTreeFactory::TreeProcessor::getTraverseType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Переопределяет метод предка <a class="el" href="class_tree_1_1_data_processor.html#aad9d6f92de0c5ce723e4ae0b3092dfe2">Tree&lt; T &gt;::DataProcessor</a>.</p>
+
+<p>См. определение в файле <a class="el" href="">SyntaxTreeFactory.h</a> строка <a class="el" href="#L55">55</a></p>
+<div class="fragment"><pre class="fragment">                                                                {
+                <span class="keywordflow">return</span> <a class="code" href="class_traverse_type.html#a16739a062a76d85e74f28b5fe19c642f">TraverseType::WIDTH_TRAVERSE</a>;
+            }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="ad3f8a8dc98ea9ad8908c4dcdf4a35e00"></a><!-- doxytag: member="Core::SyntaxTreeFactory::TreeProcessor::isEnd" ref="ad3f8a8dc98ea9ad8908c4dcdf4a35e00" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Core::SyntaxTreeFactory::TreeProcessor::isEnd </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">SyntaxTreeFactory.h</a> строка <a class="el" href="#L63">63</a></p>
+<div class="fragment"><pre class="fragment">                               {
+                <span class="keywordflow">return</span> <a class="code" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a56075a00a2a4113dfbfd0a4be5cc83cf">nodes</a>.isEmpty();
+            }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a69a31c39cfbb736c75bf1b4b5bde26f8"></a><!-- doxytag: member="Core::SyntaxTreeFactory::TreeProcessor::processData" ref="a69a31c39cfbb736c75bf1b4b5bde26f8" args="(Tree&lt; Symbol &gt; &amp;nodeProvider) throws(Tree&lt; Symbol &gt;" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Core::SyntaxTreeFactory::TreeProcessor::processData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>nodeProvider</em></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">SyntaxTreeFactory.h</a> строка <a class="el" href="#L45">45</a></p>
+<div class="fragment"><pre class="fragment">                                                                                                             {
+                <span class="keywordflow">if</span> (!nodeProvider.<a class="code" href="class_tree.html#aed6f553447d49ef779c46ed605de4481">isLeaf</a>()) <span class="keywordflow">return</span>;
+
+                <span class="keywordflow">if</span> (nodeProvider.<a class="code" href="class_tree.html#a0fde092d58dc5d448f2698062a69cf2e">get</a>().getType() == <a class="code" href="class_core_1_1_symbol_1_1_symbol_type.html#a86daa79a33de2154b5f7f2e6e09c4a7b">Symbol::SymbolType::IDENTYFIER</a>) {
+                    <span class="keywordflow">if</span> (!nodeProvider.<a class="code" href="class_tree.html#acbe928fcc01c69045a9bcb100a9d7700">isEmpty</a>() &amp;&amp; !<a class="code" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a4b96f1dbcb4aa322e6e9cbeb771d3735">containsInSupertree</a>(nodeProvider)) {
+                        <a class="code" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a56075a00a2a4113dfbfd0a4be5cc83cf">nodes</a>.append(nodeProvider);
+                    }
+                }
+            }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a52518342e3183225ebaf8328a13efdbf"></a><!-- doxytag: member="Core::SyntaxTreeFactory::TreeProcessor::processData" ref="a52518342e3183225ebaf8328a13efdbf" args="(const Tree&lt; T &gt; &amp;nodeProvider) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::DataProcessor::processData </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>nodeProvider</em></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">Tree.h</a> строка <a class="el" href="#L179">179</a></p>
+<div class="fragment"><pre class="fragment">{ }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a0c58a66a9b4d1ffbbd6c40dd418cf000"></a><!-- doxytag: member="Core::SyntaxTreeFactory::TreeProcessor::processData" ref="a0c58a66a9b4d1ffbbd6c40dd418cf000" args="(Tree&lt; T &gt; &amp;nodeProvider)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::DataProcessor::processData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_tree.html">Tree</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>nodeProvider</em></td><td>)</td>
+          <td><code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">Tree.h</a> строка <a class="el" href="#L178">178</a></p>
+<div class="fragment"><pre class="fragment">{ }
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a4750aad2e0fe80972d2907c4bac93864"></a><!-- doxytag: member="Core::SyntaxTreeFactory::TreeProcessor::stop" ref="a4750aad2e0fe80972d2907c4bac93864" args="() const throws(TraverseStoppedExeption)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_tree.html">Tree</a>&lt; T &gt;::DataProcessor::stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, protected, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">Tree.h</a> строка <a class="el" href="#L171">171</a></p>
+<div class="fragment"><pre class="fragment">                                                          {
+            <span class="keywordflow">throw</span> TraverseStoppedExeption();
+        }
+</pre></div>
+</div>
+</div>
+<hr/><h2>Поля</h2>
+<a class="anchor" id="a56075a00a2a4113dfbfd0a4be5cc83cf"></a><!-- doxytag: member="Core::SyntaxTreeFactory::TreeProcessor::nodes" ref="a56075a00a2a4113dfbfd0a4be5cc83cf" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QList&lt;<a class="el" href="class_tree.html">Tree</a>&lt;<a class="el" href="class_core_1_1_symbol.html">Symbol</a>&gt; &gt; <a class="el" href="class_core_1_1_syntax_tree_factory_1_1_tree_processor.html#a56075a00a2a4113dfbfd0a4be5cc83cf">Core::SyntaxTreeFactory::TreeProcessor::nodes</a><code> [mutable, private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">SyntaxTreeFactory.h</a> строка <a class="el" href="#L35">35</a></p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>/host/Coding/C++/Syntax Analyzer/src/Core/<a class="el" href="">SyntaxTreeFactory.h</a></li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Структуры данных</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Друзья</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Макросы</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Документация по Syntax Analyzer. Последние изменения: Пт 13 Апр 2012 23:59:02. Создано системой&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

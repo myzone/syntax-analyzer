@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Syntax Analyzer: Класс TextTabWidget</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body onload='searchBox.OnSelectItem(0);'>
+<!-- Создано системой Doxygen 1.7.4 -->
+<script type="text/javascript"><!--
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+--></script>
+<div id="top">
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.95</span></div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="dirs.html"><span>Алфавитный&#160;указатель&#160;директорий</span></a></li>
+      <li id="searchli">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Структуры&#160;данных</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;структур&#160;данных</span></a></li>
+      <li><a href="inherits.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Поля&#160;структур</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="header">
+  <div class="summary">
+<a href="#signals">Сигналы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pro-slots">Защищенные слоты</a> &#124;
+<a href="#pro-attribs">Защищенные данные</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс TextTabWidget</div>  </div>
+</div>
+<div class="contents">
+<!-- doxytag: class="TextTabWidget" -->
+<p><code>#include &lt;<a class="el" href="">TextTabWidget.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="signals"></a>
+Сигналы</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#acf722e541e3e0f12a7d67c8b67332f6a">onTabAdded</a> (QTextEdit *textEdit)</td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#ac6fdbd0dc1424853b30224119f140f80">TextTabWidget</a> (QWidget *parent=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#a56bcdd2268828fcf70820b75cd186134">~TextTabWidget</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QTextEdit *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#a538a53296800ecc2ac58e7cddf43ebb7">addTextTab</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#a2ef73dbaab33b78e87d470cf90e93a55">markTabAsSaved</a> (int tabIndex)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#a821abb008e20cf27d5eaa7ecb39432a4">isTabSaved</a> (int tabIndex)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#a0969d8c686656a45a3736b163810dd0b">renameTab</a> (int tabIndex, const QString &amp;newTabName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QTextEdit *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#aa812b98f1447841539841719a3e19df3">getTab</a> (int tabIndex)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#a4e5c26f87c3401df4e16021898c92e83">getCurrentTabIndex</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#afbdfd8cd9b02cc4f8addb31e24b3100d">eventFilter</a> (QObject *object, QEvent *event)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-slots"></a>
+Защищенные слоты</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#a32b7e744fc6ffb387c73e5afc3424a2e">tabChanged</a> (int tabIndex)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#a200f09bc4a0d76938f1e444b5c0eb969">updateTextEditState</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#a6ac6ccfd806ab799b95187cbc05f70fc">confirmRemovingTab</a> (int tabIndex)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QSet&lt; QTextEdit * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#a17df6d7b1c1c67bb496d1b6b31835ef0">editedTextEdits</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QWidget *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_tab_widget.html#a62d53950504eb279275e163023f6260c">nullWidgetForAddButton</a></td></tr>
+</table>
+<hr/><a name="details" id="details"></a><h2>Подробное описание</h2>
+<div class="textblock">
+<p>См. определение в файле <a class="el" href="">TextTabWidget.h</a> строка <a class="el" href="#L9">9</a></p>
+</div><hr/><h2>Конструктор(ы)</h2>
+<a class="anchor" id="ac6fdbd0dc1424853b30224119f140f80"></a><!-- doxytag: member="TextTabWidget::TextTabWidget" ref="ac6fdbd0dc1424853b30224119f140f80" args="(QWidget *parent=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TextTabWidget::TextTabWidget </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code></td><td>)</td>
+          <td><code> [explicit]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.cpp</a> строка <a class="el" href="#L7">7</a></p>
+<div class="fragment"><pre class="fragment">                                            : QTabWidget(parent) {
+    setTabsClosable(<span class="keyword">true</span>);
+
+    <a class="code" href="class_text_tab_widget.html#a62d53950504eb279275e163023f6260c">nullWidgetForAddButton</a> = <span class="keyword">new</span> QWidget();
+
+    QPalette palette(<a class="code" href="class_text_tab_widget.html#a62d53950504eb279275e163023f6260c">nullWidgetForAddButton</a>-&gt;palette());
+    palette.setColor(QPalette::Background, Qt::gray);
+
+    <a class="code" href="class_text_tab_widget.html#a62d53950504eb279275e163023f6260c">nullWidgetForAddButton</a>-&gt;setPalette(palette);
+    <a class="code" href="class_text_tab_widget.html#a62d53950504eb279275e163023f6260c">nullWidgetForAddButton</a>-&gt;setStyleSheet(<span class="stringliteral">&quot;background-color:lightgray;&quot;</span>);
+    addTab(<a class="code" href="class_text_tab_widget.html#a62d53950504eb279275e163023f6260c">nullWidgetForAddButton</a>, <span class="stringliteral">&quot;+&quot;</span>);
+
+    tabBar()-&gt;setTabButton(0, QTabBar::RightSide, 0);
+    tabBar()-&gt;installEventFilter(<span class="keyword">this</span>);
+
+    connect(<span class="keyword">this</span>, SIGNAL(currentChanged(<span class="keywordtype">int</span>)), <span class="keyword">this</span>, SLOT(<a class="code" href="class_text_tab_widget.html#a32b7e744fc6ffb387c73e5afc3424a2e">tabChanged</a>(<span class="keywordtype">int</span>)));
+    connect(<span class="keyword">this</span>, SIGNAL(tabCloseRequested(<span class="keywordtype">int</span>)), <span class="keyword">this</span>, SLOT(<a class="code" href="class_text_tab_widget.html#a6ac6ccfd806ab799b95187cbc05f70fc">confirmRemovingTab</a>(<span class="keywordtype">int</span>)));
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a56bcdd2268828fcf70820b75cd186134"></a><!-- doxytag: member="TextTabWidget::~TextTabWidget" ref="a56bcdd2268828fcf70820b75cd186134" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TextTabWidget::~TextTabWidget </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.cpp</a> строка <a class="el" href="#L26">26</a></p>
+<div class="fragment"><pre class="fragment">                              {
+    <span class="keywordflow">while</span> (count())
+        <span class="keyword">delete</span> widget(0);
+}
+</pre></div>
+</div>
+</div>
+<hr/><h2>Методы</h2>
+<a class="anchor" id="a538a53296800ecc2ac58e7cddf43ebb7"></a><!-- doxytag: member="TextTabWidget::addTextTab" ref="a538a53296800ecc2ac58e7cddf43ebb7" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTextEdit * TextTabWidget::addTextTab </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.cpp</a> строка <a class="el" href="#L31">31</a></p>
+<div class="fragment"><pre class="fragment">                                     {
+    QTextEdit* textEdit = <span class="keyword">new</span> QTextEdit();
+
+    connect(textEdit, SIGNAL(textChanged()), <span class="keyword">this</span>, SLOT(<a class="code" href="class_text_tab_widget.html#a200f09bc4a0d76938f1e444b5c0eb969">updateTextEditState</a>()));
+
+    QString title = <span class="stringliteral">&quot;&quot;</span>;
+    <span class="keywordtype">int</span> tabsCount = count();
+    insertTab(tabsCount - 1, textEdit, tr(<span class="stringliteral">&quot;undefined&quot;</span>));
+
+    setCurrentWidget(textEdit);
+    
+    emit <a class="code" href="class_text_tab_widget.html#acf722e541e3e0f12a7d67c8b67332f6a">onTabAdded</a>(textEdit);
+
+    <span class="keywordflow">return</span> textEdit;
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a6ac6ccfd806ab799b95187cbc05f70fc"></a><!-- doxytag: member="TextTabWidget::confirmRemovingTab" ref="a6ac6ccfd806ab799b95187cbc05f70fc" args="(int tabIndex)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextTabWidget::confirmRemovingTab </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tabIndex</em></td><td>)</td>
+          <td><code> [protected, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.cpp</a> строка <a class="el" href="#L85">85</a></p>
+<div class="fragment"><pre class="fragment">                                                   {
+    <span class="keywordtype">bool</span> willBeClosed = <span class="keyword">true</span>;
+
+    QTextEdit* target = (QTextEdit*) widget(tabIndex);
+
+    <span class="keywordflow">if</span> (<a class="code" href="class_text_tab_widget.html#a17df6d7b1c1c67bb496d1b6b31835ef0">editedTextEdits</a>.contains(target)) {
+        QMessageBox yesNoDialog;
+        yesNoDialog.setWindowTitle(trUtf8(<span class="stringliteral">&quot;Подтвержение закрытия&quot;</span>));
+        yesNoDialog.setText(trUtf8(<span class="stringliteral">&quot;Данные будут утеряны, продолжить?&quot;</span>));
+        yesNoDialog.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+        yesNoDialog.setDefaultButton(QMessageBox::Cancel);
+
+        <span class="keywordflow">if</span> (yesNoDialog.exec() == QMessageBox::Cancel) {
+            willBeClosed = <span class="keyword">false</span>;
+        }
+    }
+
+    <span class="keywordflow">if</span> (willBeClosed) {
+        <span class="keyword">delete</span> target;
+    }
+
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="afbdfd8cd9b02cc4f8addb31e24b3100d"></a><!-- doxytag: member="TextTabWidget::eventFilter" ref="afbdfd8cd9b02cc4f8addb31e24b3100d" args="(QObject *object, QEvent *event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TextTabWidget::eventFilter </td>
+          <td>(</td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QEvent *&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.cpp</a> строка <a class="el" href="#L75">75</a></p>
+<div class="fragment"><pre class="fragment">                                                              {
+    QMouseEvent* mouseEvent = (QMouseEvent*) event;
+    <span class="keywordflow">if</span> (<a class="code" href="class_text_tab_widget.html#a62d53950504eb279275e163023f6260c">nullWidgetForAddButton</a> == widget(tabBar()-&gt;tabAt(mouseEvent-&gt;pos())) &amp;&amp; <span class="keyword">event</span>-&gt;type() == QEvent::MouseButtonPress) {
+        setCurrentWidget(<a class="code" href="class_text_tab_widget.html#a538a53296800ecc2ac58e7cddf43ebb7">addTextTab</a>());
+        <span class="keywordflow">return</span> <span class="keyword">true</span>;
+    }
+
+    <span class="keywordflow">return</span> <a class="code" href="class_text_tab_widget.html#afbdfd8cd9b02cc4f8addb31e24b3100d">QTabWidget::eventFilter</a>(<span class="keywordtype">object</span>, event);
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a4e5c26f87c3401df4e16021898c92e83"></a><!-- doxytag: member="TextTabWidget::getCurrentTabIndex" ref="a4e5c26f87c3401df4e16021898c92e83" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TextTabWidget::getCurrentTabIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.cpp</a> строка <a class="el" href="#L71">71</a></p>
+<div class="fragment"><pre class="fragment">                                      {
+    <span class="keywordflow">return</span> currentIndex();
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="aa812b98f1447841539841719a3e19df3"></a><!-- doxytag: member="TextTabWidget::getTab" ref="aa812b98f1447841539841719a3e19df3" args="(int tabIndex)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QTextEdit * TextTabWidget::getTab </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tabIndex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.cpp</a> строка <a class="el" href="#L67">67</a></p>
+<div class="fragment"><pre class="fragment">                                             {
+    <span class="keywordflow">return</span> (QTextEdit*) widget(tabIndex);
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a821abb008e20cf27d5eaa7ecb39432a4"></a><!-- doxytag: member="TextTabWidget::isTabSaved" ref="a821abb008e20cf27d5eaa7ecb39432a4" args="(int tabIndex)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TextTabWidget::isTabSaved </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tabIndex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.cpp</a> строка <a class="el" href="#L57">57</a></p>
+<div class="fragment"><pre class="fragment">                                           {
+    QTextEdit* target = (QTextEdit*) widget(tabIndex);
+
+    <span class="keywordflow">return</span> !<a class="code" href="class_text_tab_widget.html#a17df6d7b1c1c67bb496d1b6b31835ef0">editedTextEdits</a>.contains(target);
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a2ef73dbaab33b78e87d470cf90e93a55"></a><!-- doxytag: member="TextTabWidget::markTabAsSaved" ref="a2ef73dbaab33b78e87d470cf90e93a55" args="(int tabIndex)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextTabWidget::markTabAsSaved </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tabIndex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.cpp</a> строка <a class="el" href="#L47">47</a></p>
+<div class="fragment"><pre class="fragment">                                               {
+    QTextEdit* target = (QTextEdit*) widget(tabIndex);
+
+    <span class="keywordflow">if</span> (<a class="code" href="class_text_tab_widget.html#a17df6d7b1c1c67bb496d1b6b31835ef0">editedTextEdits</a>.contains(target)) {
+        QString tabName = tabText(indexOf(target));
+        setTabText(indexOf(target), tabName.left(tabName.length() - 1));
+        <a class="code" href="class_text_tab_widget.html#a17df6d7b1c1c67bb496d1b6b31835ef0">editedTextEdits</a>.remove(target);
+    }
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="acf722e541e3e0f12a7d67c8b67332f6a"></a><!-- doxytag: member="TextTabWidget::onTabAdded" ref="acf722e541e3e0f12a7d67c8b67332f6a" args="(QTextEdit *textEdit)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextTabWidget::onTabAdded </td>
+          <td>(</td>
+          <td class="paramtype">QTextEdit *&#160;</td>
+          <td class="paramname"><em>textEdit</em></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0969d8c686656a45a3736b163810dd0b"></a><!-- doxytag: member="TextTabWidget::renameTab" ref="a0969d8c686656a45a3736b163810dd0b" args="(int tabIndex, const QString &amp;newTabName)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextTabWidget::renameTab </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tabIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>newTabName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.cpp</a> строка <a class="el" href="#L63">63</a></p>
+<div class="fragment"><pre class="fragment">                                                                     {
+    setTabText(tabIndex, newTabName);
+}
+</pre></div>
+</div>
+</div>
+<a class="anchor" id="a32b7e744fc6ffb387c73e5afc3424a2e"></a><!-- doxytag: member="TextTabWidget::tabChanged" ref="a32b7e744fc6ffb387c73e5afc3424a2e" args="(int tabIndex)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextTabWidget::tabChanged </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tabIndex</em></td><td>)</td>
+          <td><code> [protected, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.cpp</a> строка <a class="el" href="#L117">117</a></p>
+<div class="fragment"><pre class="fragment">                                           {
+    <span class="keywordflow">if</span> (tabIndex == indexOf(<a class="code" href="class_text_tab_widget.html#a62d53950504eb279275e163023f6260c">nullWidgetForAddButton</a>)) {
+        <span class="keywordflow">if</span> (count() == 1) {
+            exit(0);
+        } <span class="keywordflow">else</span> {
+            setCurrentIndex(tabIndex - 1);
+        }
+    }
+}</pre></div>
+</div>
+</div>
+<a class="anchor" id="a200f09bc4a0d76938f1e444b5c0eb969"></a><!-- doxytag: member="TextTabWidget::updateTextEditState" ref="a200f09bc4a0d76938f1e444b5c0eb969" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextTabWidget::updateTextEditState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [protected, slot]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.cpp</a> строка <a class="el" href="#L108">108</a></p>
+<div class="fragment"><pre class="fragment">                                        {
+    QTextEdit* target = (QTextEdit*) sender();
+
+    <span class="keywordflow">if</span> (<a class="code" href="class_text_tab_widget.html#a17df6d7b1c1c67bb496d1b6b31835ef0">editedTextEdits</a>.contains(target)) <span class="keywordflow">return</span>;
+
+    setTabText(indexOf(target), tabText(indexOf(target)) + <span class="stringliteral">&quot;*&quot;</span>);
+    <a class="code" href="class_text_tab_widget.html#a17df6d7b1c1c67bb496d1b6b31835ef0">editedTextEdits</a>.insert(target);
+}
+</pre></div>
+</div>
+</div>
+<hr/><h2>Поля</h2>
+<a class="anchor" id="a17df6d7b1c1c67bb496d1b6b31835ef0"></a><!-- doxytag: member="TextTabWidget::editedTextEdits" ref="a17df6d7b1c1c67bb496d1b6b31835ef0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSet&lt;QTextEdit*&gt; <a class="el" href="class_text_tab_widget.html#a17df6d7b1c1c67bb496d1b6b31835ef0">TextTabWidget::editedTextEdits</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.h</a> строка <a class="el" href="#L13">13</a></p>
+
+</div>
+</div>
+<a class="anchor" id="a62d53950504eb279275e163023f6260c"></a><!-- doxytag: member="TextTabWidget::nullWidgetForAddButton" ref="a62d53950504eb279275e163023f6260c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QWidget* <a class="el" href="class_text_tab_widget.html#a62d53950504eb279275e163023f6260c">TextTabWidget::nullWidgetForAddButton</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>См. определение в файле <a class="el" href="">TextTabWidget.h</a> строка <a class="el" href="#L14">14</a></p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>/host/Coding/C++/Syntax Analyzer/src/GUI/<a class="el" href="">TextTabWidget.h</a></li>
+<li>/host/Coding/C++/Syntax Analyzer/src/GUI/<a class="el" href="">TextTabWidget.cpp</a></li>
+</ul>
+</div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Указатель</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Структуры данных</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Пространства имен</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Файлы</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Функции</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Переменные</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Перечисления</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Элементы перечислений</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Друзья</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Макросы</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<hr class="footer"/><address class="footer"><small>Документация по Syntax Analyzer. Последние изменения: Пт 13 Апр 2012 23:59:02. Создано системой&#160;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
+</body>
+</html>

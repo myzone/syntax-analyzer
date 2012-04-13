@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$class_enum.html" title="Enum\&lt; Symbol::SymbolTypeData \&gt;" alt="" coords="7,5,239,35"/>
-<area shape="rect" id="node3" href="$class_core_1_1_symbol_1_1_symbol_type.html" title="Core::Symbol::SymbolType" alt="" coords="289,5,471,35"/>
+<area shape="rect" id="node1" href="$class_enum.html" title="Enum\&lt; QTextCharFormat \&gt;" alt="" coords="7,5,191,35"/>
+<area shape="rect" id="node3" href="$class_syntax_highlighter_1_1_format_type.html" title="SyntaxHighlighter::FormatType" alt="" coords="240,5,443,35"/>
 </map>

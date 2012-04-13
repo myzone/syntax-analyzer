@@ -1,3 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_listener.html" title="{Listener\n||&#45; handle()\l&#45; handle()\l&#45; handle()\l&#45; handle()\l&#45; handle()\l}" alt="" coords="84,347,159,501"/>
+<area shape="rect" id="node3" href="$class_syntax_highlighter.html" title="{SyntaxHighlighter\n|&#45; dymamicRules\l&#45; rehighlightTimer\l&#45; staticRules\l|+ SyntaxHighlighter()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l# highlightBlock()\l# initStaticRules()\l}" alt="" coords="49,347,193,605"/>
 </map>

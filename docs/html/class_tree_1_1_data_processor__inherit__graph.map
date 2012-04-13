@@ -1,2 +1,4 @@
 <map id="G" name="G">
+<area shape="rect" id="node3" href="$class_core_1_1_syntax_tree_factory_1_1_tree_processor.html" title="{Core::SyntaxTreeFactory::TreeProcessor\n|&#45; nodes\l|+ TreeProcessor()\l+ dataProcessingStarts()\l+ processData()\l+ getTraverseType()\l+ getNodes()\l+ isEnd()\l&#45; containsInSupertree()\l}" alt="" coords="5,227,267,416"/>
+<area shape="rect" id="node5" href="$class_core_1_1_tree_analyzer_1_1_tree_converter.html" title="{Core::TreeAnalyzer::TreeConverter\n|&#45; nodes\l|+ dataProcessingStarts()\l+ processData()\l+ getTraverseType()\l+ getNodes()\l}" alt="" coords="291,253,517,390"/>
 </map>
