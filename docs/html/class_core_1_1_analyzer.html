@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.05</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.9</span></div>
   </td>
  </tr>
  </tbody>
@@ -78,7 +78,7 @@ Collaboration diagram for Core::Analyzer:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_core_1_1_analyzer__coll__graph.png" border="0" usemap="#_core_1_1_analyzer_coll__map" alt="Collaboration graph"/></div>
 <map name="_core_1_1_analyzer_coll__map" id="_core_1_1_analyzer_coll__map">
-<area shape="rect" id="node2" href="class_core_1_1_syntax_tree_factory.html" title="{Core::SyntaxTreeFactory\n|&#45; broadcaster\l|+ SyntaxTreeFactory()\l+ createTree()\l&#45; SyntaxTreeFactory()\l&#45; createLinesMap()\l&#45; createLinesSet()\l&#45; processLine()\l&#45; toPostfixSymbolsList()\l}" alt="" coords="120,261,288,451"/><area shape="rect" id="node4" href="class_events_1_1_event_broadcaster.html" title="{Events::EventBroadcaster\n|&#45; listeners\l|+ EventBroadcaster()\l+ ~EventBroadcaster()\l+ addEventListener()\l+ removeEventListener()\l+ broadcast()\l}" alt="" coords="117,5,291,160"/><area shape="rect" id="node6" href="class_core_1_1_preprocessor.html" title="{Core::Preprocessor\n|&#45; pathToLibrary\l&#45; broadcaster\l&#45; FILE_FORMAT_MASK\l&#45; TEXT_SPLITTER\l&#45; LINE_SPLITTER\l&#45; COMMENTS_REMOVER\l&#45; SPACES_REMOVER\l|+ Preprocessor()\l+ ~Preprocessor()\l+ process()\l&#45; removeComments()\l&#45; import()\l}" alt="" coords="312,227,493,485"/></map>
+<area shape="rect" id="node2" href="class_core_1_1_syntax_tree_factory.html" title="{Core::SyntaxTreeFactory\n|&#45; broadcaster\l|+ SyntaxTreeFactory()\l+ createTree()\l&#45; SyntaxTreeFactory()\l&#45; createLinesMap()\l&#45; createLinesSet()\l&#45; processLine()\l&#45; toPostfixSymbolsList()\l}" alt="" coords="117,227,285,416"/><area shape="rect" id="node4" href="class_events_1_1_event_broadcaster.html" title="{Events::EventBroadcaster\n|&#45; listeners\l|+ EventBroadcaster()\l+ ~EventBroadcaster()\l+ addEventListener()\l+ removeEventListener()\l+ broadcast()\l}" alt="" coords="210,5,384,160"/><area shape="rect" id="node6" href="class_core_1_1_preprocessor.html" title="{Core::Preprocessor\n|+ FILE_FORMAT_MASK\l+ IMPORT_DERECTIVE\l&#45; pathToLibrary\l&#45; broadcaster\l|+ Preprocessor()\l+ ~Preprocessor()\l+ process()\l&#45; import()\l}" alt="" coords="309,227,480,416"/><area shape="rect" id="node10" href="class_core_1_1_tree_analyzer.html" title="{Core::TreeAnalyzer\n|&#45; broadcaster\l|+ TreeAnalyzer()\l+ ~TreeAnalyzer()\l+ analyzeTree()\l}" alt="" coords="504,261,637,381"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
@@ -92,7 +92,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="#L11">11</a> of file <a class="el" href="">Analyzer.h</a>.</p>
+<p>Definition at line <a class="el" href="#L12">12</a> of file <a class="el" href="">Analyzer.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aeb24b63109aa4533778f850f5e69d3ef"></a><!-- doxytag: member="Core::Analyzer::Analyzer" ref="aeb24b63109aa4533778f850f5e69d3ef" args="(const QString &amp;pathToLibrary)" -->
 <div class="memitem">
@@ -109,8 +109,11 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L6">6</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">: broadcaster(), preprocessor(pathToLibrary), syntaxTreeFactory(&amp;this-&gt;broadcaster) { }
+<p>Definition at line <a class="el" href="#L7">7</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">                                                   : broadcaster(), 
+                                                        preprocessor(&amp;broadcaster, pathToLibrary),
+                                                        syntaxTreeFactory(&amp;broadcaster), 
+                                                        treeAnalyzer(&amp;broadcaster){ }
 </pre></div>
 </div>
 </div>
@@ -128,7 +131,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L8">8</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L12">12</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">{ }
 </pre></div>
 </div>
@@ -149,7 +152,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L27">27</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L29">29</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                      {
         broadcaster.<a class="code" href="class_events_1_1_event_broadcaster.html#a0029dca602485849c39afd2e1a5437c6">addEventListener</a>(listener);
     }
@@ -171,15 +174,13 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L10">10</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L14">14</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">                                                    {
         shareStartEvent();
 
         <span class="keywordflow">try</span> {
-            QString source = preprocessor.process(text);
-            <a class="code" href="class_tree.html">Tree&lt;Symbol&gt;</a> tree = syntaxTreeFactory.createTree(source);
-        } <span class="keywordflow">catch</span> (AnalyzeCrashExeption) {
-            shareEndEvent();
+            treeAnalyzer.analyzeTree(syntaxTreeFactory.createTree(preprocessor.process(text)));
+        } <span class="keywordflow">catch</span> (AnalyzeCrashExeption e) {
         }
 
         shareEndEvent();
@@ -201,7 +202,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L23">23</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L25">25</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                           {
         <span class="keywordflow">return</span> broadcaster;
     }
@@ -223,7 +224,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L31">31</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L33">33</a> of file <a class="el" href="">Analyzer.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                         {
         broadcaster.<a class="code" href="class_events_1_1_event_broadcaster.html#a585614e047e8b51ff3309e9dedba267f">removeEventListener</a>(listener);
     }
@@ -249,7 +250,7 @@ Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Mar 19 2012 18:30:21 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 6 2012 00:40:22 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

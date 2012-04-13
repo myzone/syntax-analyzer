@@ -9,7 +9,7 @@ namespace Events {
     }
 
     void EventBroadcaster::addEventListener(EventListener* listener) {
-        listeners.push_back(listener);
+        listeners.append(listener);
     }
 
     void EventBroadcaster::removeEventListener(EventListener* listener) {

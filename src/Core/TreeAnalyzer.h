@@ -12,7 +12,7 @@ namespace Core {
 
     class TreeAnalyzer {
     private:
-        const Events::EventBroadcaster* broadcaster;
+        Events::EventBroadcaster* broadcaster;
 
         class TreeConverter : public Tree<Symbol>::DataProcessor {
         private:
@@ -38,7 +38,7 @@ namespace Core {
         };
        
     public:
-        TreeAnalyzer(const Events::EventBroadcaster* broadcaster);
+        TreeAnalyzer(Events::EventBroadcaster* broadcaster);
         virtual ~TreeAnalyzer();
 
         void analyzeTree(const Tree<Symbol>& tree) const;

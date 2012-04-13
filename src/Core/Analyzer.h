@@ -11,11 +11,12 @@ namespace Core {
 
     class Analyzer {
     private:
-        Events::EventBroadcaster broadcaster;
+        mutable Events::EventBroadcaster broadcaster;
         Preprocessor preprocessor;
         SyntaxTreeFactory syntaxTreeFactory;
         TreeAnalyzer treeAnalyzer;
     public:
+        Analyzer();
         Analyzer(const QString& pathToLibrary);
         virtual ~Analyzer();
 

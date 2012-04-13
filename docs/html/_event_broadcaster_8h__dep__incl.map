@@ -1,5 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_analyzer_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.h" alt="" coords="12,83,359,112"/>
-<area shape="rect" id="node7" href="$_event_broadcaster_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Events/EventBroadcaster.cpp" alt="" coords="383,83,809,112"/>
+<area shape="rect" id="node3" href="$_analyzer_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.h" alt="" coords="189,83,536,112"/>
+<area shape="rect" id="node9" href="$_event_broadcaster_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Events/EventBroadcaster.cpp" alt="" coords="560,83,987,112"/>
 <area shape="rect" id="node5" href="$_analyzer_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.cpp" alt="" coords="5,160,365,189"/>
+<area shape="rect" id="node7" href="$main_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/main.cpp" alt="" coords="389,160,693,189"/>
 </map>

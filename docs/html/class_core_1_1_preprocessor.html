@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.05</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.9</span></div>
   </td>
  </tr>
  </tbody>
@@ -66,8 +66,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">Core::Preprocessor Class Reference</div>  </div>
 </div>
@@ -79,40 +79,50 @@ Collaboration diagram for Core::Preprocessor:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_core_1_1_preprocessor__coll__graph.png" border="0" usemap="#_core_1_1_preprocessor_coll__map" alt="Collaboration graph"/></div>
 <map name="_core_1_1_preprocessor_coll__map" id="_core_1_1_preprocessor_coll__map">
-<area shape="rect" id="node2" href="class_events_1_1_event_broadcaster.html" title="{Events::EventBroadcaster\n|&#45; listeners\l|+ EventBroadcaster()\l+ ~EventBroadcaster()\l+ addEventListener()\l+ removeEventListener()\l+ broadcast()\l}" alt="" coords="9,5,183,160"/></map>
+<area shape="rect" id="node2" href="class_events_1_1_event_broadcaster.html" title="{Events::EventBroadcaster\n|&#45; listeners\l|+ EventBroadcaster()\l+ ~EventBroadcaster()\l+ addEventListener()\l+ removeEventListener()\l+ broadcast()\l}" alt="" coords="5,5,179,160"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>Directive</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_preprocessor.html#ac1fed9b259466c9a509a45b9d651b1e1">Preprocessor</a> (const QString &amp;pathToLibrary)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_preprocessor.html#a531c04bd9e08ded26d825d755cd9fcb2">Preprocessor</a> (<a class="el" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a> *broadcaster, const QString &amp;pathToLibrary)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_preprocessor.html#ac1f877fb9a0ae18c85b48b2993549e23">~Preprocessor</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_preprocessor.html#ab975885101dabb0edbea8a338bb792ad">process</a> (const QString &amp;source) const throws(AnalyzeCrashExeption)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QList&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_preprocessor.html#abdb3b9a976f2e3933f012749bf7c229d">process</a> (const QString &amp;source) const throws(AnalyzeCrashExeption)</td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_preprocessor.html#a3114f991b26d1c38373b8fd723aa63f6">FILE_FORMAT_MASK</a> = &quot;.lng&quot;</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_preprocessor.html#ade1e5d783b9ec17cc8b5eb98862e1b67">IMPORT_DERECTIVE</a> = &quot;import&quot;</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="#L14">14</a> of file <a class="el" href="">Preprocessor.h</a>.</p>
+<p>Definition at line <a class="el" href="#L16">16</a> of file <a class="el" href="">Preprocessor.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac1fed9b259466c9a509a45b9d651b1e1"></a><!-- doxytag: member="Core::Preprocessor::Preprocessor" ref="ac1fed9b259466c9a509a45b9d651b1e1" args="(const QString &amp;pathToLibrary)" -->
+<a class="anchor" id="a531c04bd9e08ded26d825d755cd9fcb2"></a><!-- doxytag: member="Core::Preprocessor::Preprocessor" ref="a531c04bd9e08ded26d825d755cd9fcb2" args="(Events::EventBroadcaster *broadcaster, const QString &amp;pathToLibrary)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Core::Preprocessor::Preprocessor </td>
           <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
-          <td class="paramname"><em>pathToLibrary</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a> *&#160;</td>
+          <td class="paramname"><em>broadcaster</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>pathToLibrary</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L24">24</a> of file <a class="el" href="">Preprocessor.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                           : pathToLibrary(pathToLibrary) {
-    }
+<p>Definition at line <a class="el" href="#L14">14</a> of file <a class="el" href="">Preprocessor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">: broadcaster(broadcaster), pathToLibrary(pathToLibrary) { }
 </pre></div>
 </div>
 </div>
@@ -130,19 +140,18 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L27">27</a> of file <a class="el" href="">Preprocessor.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                {
-    }
+<p>Definition at line <a class="el" href="#L16">16</a> of file <a class="el" href="">Preprocessor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{ }
 </pre></div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ab975885101dabb0edbea8a338bb792ad"></a><!-- doxytag: member="Core::Preprocessor::process" ref="ab975885101dabb0edbea8a338bb792ad" args="(const QString &amp;source) const throws(AnalyzeCrashExeption)" -->
+<a class="anchor" id="abdb3b9a976f2e3933f012749bf7c229d"></a><!-- doxytag: member="Core::Preprocessor::process" ref="abdb3b9a976f2e3933f012749bf7c229d" args="(const QString &amp;source) const throws(AnalyzeCrashExeption)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QString Core::Preprocessor::process </td>
+          <td class="memname">QList&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; Core::Preprocessor::process </td>
           <td>(</td>
           <td class="paramtype">const QString &amp;&#160;</td>
           <td class="paramname"><em>source</em></td><td>)</td>
@@ -152,30 +161,64 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L30">30</a> of file <a class="el" href="">Preprocessor.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                                          {
-        QString result = source;
+<p>Definition at line <a class="el" href="#L18">18</a> of file <a class="el" href="">Preprocessor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                                {
+        QList&lt;Symbol&gt; libraryResult = QList&lt;Symbol &gt; ();
+        QList&lt;Symbol&gt; currentResult = QList&lt;Symbol &gt; ();
 
-        removeComments(result);
+        SymbolFactory symbolFactory = SymbolFactory(source);
+        <span class="keywordflow">while</span> (symbolFactory.isNextSymbol()) {
+            Symbol current = symbolFactory.getNextSymbol();
 
-        QStringList lines = result.split(TEXT_SPLITTER, QString::SkipEmptyParts);
+            <span class="keywordflow">if</span> (current.getType() == <a class="code" href="class_core_1_1_symbol_1_1_symbol_type.html#a86daa79a33de2154b5f7f2e6e09c4a7b">Symbol::SymbolType::IDENTYFIER</a>
+                    &amp;&amp; current.getRepresentation() == <a class="code" href="class_core_1_1_preprocessor.html#ade1e5d783b9ec17cc8b5eb98862e1b67">IMPORT_DERECTIVE</a>) {
+                symbolFactory.getNextSymbol(); <span class="comment">// skip AND symbol</span>
 
-        <span class="keywordtype">bool</span> ok = <span class="keyword">true</span>;
-        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; lines.size(); i++) {
-            <span class="keywordflow">if</span> (Directive::IMPORT.getMatcherRegExp().exactMatch(lines[i])) {
-                <span class="keywordflow">try</span>{
-                    <span class="keyword">import</span>(result, lines[i].split(LINE_SPLITTER, QString::SkipEmptyParts)[1]);
-                }<span class="keywordflow">catch</span>(AnalyzeCrashExeption) {
-                    ok = <span class="keyword">false</span>;
+                libraryResult += <span class="keyword">import</span>(symbolFactory.getNextSymbol().getRepresentation());
+
+                <span class="keywordflow">if</span> (symbolFactory.getNextSymbol().getType() != <a class="code" href="class_core_1_1_symbol_1_1_symbol_type.html#a3a14c62a23f8259fb0cced7d04ac611a">Symbol::SymbolType::DEFINE_END</a>) {
+                    <span class="keywordflow">throws</span> AnalyzeCrashExeption();
                 }
+
+            } <span class="keywordflow">else</span> {
+                currentResult += current;
             }
         }
         
-        <span class="keywordflow">if</span>(!ok) <span class="keywordflow">throw</span> AnalyzeCrashExeption();
-        
-        <span class="keywordflow">return</span> result.replace(SPACES_REMOVER, <span class="stringliteral">&quot;\n&quot;</span>);
+        <span class="keywordflow">return</span> currentResult + libraryResult;
     }
 </pre></div>
+</div>
+</div>
+<hr/><h2>Field Documentation</h2>
+<a class="anchor" id="a3114f991b26d1c38373b8fd723aa63f6"></a><!-- doxytag: member="Core::Preprocessor::FILE_FORMAT_MASK" ref="a3114f991b26d1c38373b8fd723aa63f6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString <a class="el" href="class_core_1_1_preprocessor.html#a3114f991b26d1c38373b8fd723aa63f6">Core::Preprocessor::FILE_FORMAT_MASK</a> = &quot;.lng&quot;<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L22">22</a> of file <a class="el" href="">Preprocessor.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ade1e5d783b9ec17cc8b5eb98862e1b67"></a><!-- doxytag: member="Core::Preprocessor::IMPORT_DERECTIVE" ref="ade1e5d783b9ec17cc8b5eb98862e1b67" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const QString <a class="el" href="class_core_1_1_preprocessor.html#ade1e5d783b9ec17cc8b5eb98862e1b67">Core::Preprocessor::IMPORT_DERECTIVE</a> = &quot;import&quot;<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L23">23</a> of file <a class="el" href="">Preprocessor.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -197,7 +240,7 @@ Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Mar 19 2012 18:30:21 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 6 2012 00:40:22 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

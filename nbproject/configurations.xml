@@ -13,13 +13,19 @@
         <itemPath>src/Core/Preprocessor.cpp</itemPath>
         <itemPath>src/Core/Symbol.cpp</itemPath>
         <itemPath>src/Core/SyntaxTreeFactory.cpp</itemPath>
-        <itemPath>src/Utils/Tree.cpp</itemPath>
         <itemPath>src/Core/TreeAnalyzer.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Events" projectFiles="true">
         <itemPath>src/Events/Event.cpp</itemPath>
         <itemPath>src/Events/EventBroadcaster.cpp</itemPath>
         <itemPath>src/Events/EventListener.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="GUI" projectFiles="true">
+        <itemPath>src/GUI/MainWindow.cpp</itemPath>
+        <itemPath>src/GUI/TextTabWidget.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="Utils" projectFiles="true">
+        <itemPath>src/Utils/Tree.cpp</itemPath>
       </logicalFolder>
       <itemPath>src/main.cpp</itemPath>
     </logicalFolder>
@@ -32,13 +38,20 @@
         <itemPath>src/Core/Preprocessor.h</itemPath>
         <itemPath>src/Core/Symbol.h</itemPath>
         <itemPath>src/Core/SyntaxTreeFactory.h</itemPath>
-        <itemPath>src/Utils/Tree.h</itemPath>
         <itemPath>src/Core/TreeAnalyzer.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Events" projectFiles="true">
         <itemPath>src/Events/Event.h</itemPath>
         <itemPath>src/Events/EventBroadcaster.h</itemPath>
         <itemPath>src/Events/EventListener.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="GUI" projectFiles="true">
+        <itemPath>src/GUI/MainWindow.h</itemPath>
+        <itemPath>src/GUI/TextTabWidget.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="Utils" projectFiles="true">
+        <itemPath>src/Utils/Enum.h</itemPath>
+        <itemPath>src/Utils/Tree.h</itemPath>
       </logicalFolder>
       <itemPath>src/defines.h</itemPath>
     </logicalFolder>

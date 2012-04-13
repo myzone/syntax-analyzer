@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.05</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.9</span></div>
   </td>
  </tr>
  </tbody>
@@ -157,8 +157,8 @@ Public Member Functions</h2></td></tr>
         QList&lt;Tree&lt;Symbol&gt; &gt; nodes = treeConverter.getNodes();
 
         QMap&lt;QString, bool&gt; cache = QMap&lt;QString, bool&gt;();
-        QList&lt;Symbol&gt; wrongSymbols = QList&lt;Symbol &gt; ();
-        
+        QMap&lt;QString, bool&gt; wrongSymbols = QMap&lt;QString, bool&gt;();
+
         <span class="keywordflow">for</span> (QList&lt;<a class="code" href="class_tree.html">Tree&lt;Symbol&gt;</a> &gt;::Iterator it = nodes.begin(); it != nodes.end(); ++it) {
             <span class="keywordflow">if</span> ((*it).isEmpty()) <span class="keywordflow">continue</span>;
 
@@ -173,28 +173,18 @@ Public Member Functions</h2></td></tr>
             <span class="keywordtype">bool</span> result = (*it).get().operation(args);
             cache.insert((*it).get().getId(), result);
 
-            std::cout &lt;&lt; (*it).get().getId().toStdString();
-            <span class="keywordflow">if</span> (result) {
-                std::cout &lt;&lt; <span class="stringliteral">&quot;[style=filled,color=green]\n&quot;</span>;
+            <span class="keywordflow">if</span> (wrongSymbols.contains((*it).get().getRepresentation())) {
+                wrongSymbols[(*it).get().getRepresentation()] |= result;
             } <span class="keywordflow">else</span> {
-                std::cout &lt;&lt; <span class="stringliteral">&quot;[style=filled,color=red]\n&quot;</span>;
-            }
-
-            <span class="keywordflow">if</span> (!(*it).isLeaf()
-                    &amp;&amp; (*it).get().getType() == <a class="code" href="class_core_1_1_symbol_1_1_symbol_type.html#a86daa79a33de2154b5f7f2e6e09c4a7b">Symbol::SymbolType::IDENTYFIER</a>
-                    &amp;&amp; !result) {
-                <span class="keywordflow">if</span> (!wrongSymbols.contains((*it).get())) {
-                    wrongSymbols.append((*it).get());
-                }
-                std::cout &lt;&lt; (*it).get().toString().toStdString() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+                wrongSymbols.insert((*it).get().getRepresentation(), result);
             }
         }
 
-        <span class="keywordflow">for</span> (QList&lt;Symbol&gt;::ConstIterator it = wrongSymbols.begin(); it != wrongSymbols.end(); ++it) {
-            Events::SymbolHasMistakeErrorEvent <span class="keyword">event</span> = Events::SymbolHasMistakeErrorEvent((*it).getId());
-            <span class="keyword">event</span>.share(*broadcaster);
-
-            std::cout &lt;&lt; (*it).toString().toStdString() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+        <span class="keywordflow">for</span> (QMap &lt; QString, bool&gt;::ConstIterator it = wrongSymbols.begin(); it != wrongSymbols.end(); ++it) {
+            <span class="keywordflow">if</span> (*it) {
+                Events::SymbolHasMistakeErrorEvent <span class="keyword">event</span> = Events::SymbolHasMistakeErrorEvent(it.key());
+                <span class="comment">//event.share(*broadcaster);</span>
+            }
         }
 
     }
@@ -220,7 +210,7 @@ Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Mar 19 2012 18:30:21 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 6 2012 00:40:22 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

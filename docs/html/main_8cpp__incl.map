@@ -1,8 +1,9 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_tree_8h.html" title="Utils/Tree.h" alt="" coords="225,83,316,112"/>
-<area shape="rect" id="node15" href="$_preprocessor_8h.html" title="Core/Preprocessor.h" alt="" coords="507,83,648,112"/>
-<area shape="rect" id="node26" href="$_syntax_tree_factory_8h.html" title="Core/SyntaxTreeFactory.h" alt="" coords="837,83,1013,112"/>
-<area shape="rect" id="node38" href="$_exeption_8h.html" title="Core/Exeption.h" alt="" coords="368,83,483,112"/>
-<area shape="rect" id="node42" href="$_tree_analyzer_8h.html" title="Core/TreeAnalyzer.h" alt="" coords="672,83,813,112"/>
-<area shape="rect" id="node49" href="$defines_8h.html" title="defines.h" alt="" coords="1088,83,1163,112"/>
+<area shape="rect" id="node3" href="$_tree_8h.html" title="Utils/Tree.h" alt="" coords="304,83,395,112"/>
+<area shape="rect" id="node15" href="$_preprocessor_8h.html" title="Core/Preprocessor.h" alt="" coords="661,83,803,112"/>
+<area shape="rect" id="node30" href="$_syntax_tree_factory_8h.html" title="Core/SyntaxTreeFactory.h" alt="" coords="992,83,1168,112"/>
+<area shape="rect" id="node41" href="$_exeption_8h.html" title="Core/Exeption.h" alt="" coords="523,83,637,112"/>
+<area shape="rect" id="node45" href="$_tree_analyzer_8h.html" title="Core/TreeAnalyzer.h" alt="" coords="827,83,968,112"/>
+<area shape="rect" id="node52" href="$defines_8h.html" title="defines.h" alt="" coords="1381,83,1456,112"/>
+<area shape="rect" id="node54" href="$_analyzer_8h.html" title="Core/Analyzer.h" alt="" coords="1243,83,1357,112"/>
 </map>

@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.05</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.9</span></div>
   </td>
  </tr>
  </tbody>
@@ -78,19 +78,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html">SymbolTypeData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ec73bed8ce2ab7a686c7c039db51824">operator=</a> (const <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html">SymbolTypeData</a> &amp;that)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#ad7841ee0d336ca5d06b09791f4e10270">operator==</a> (const <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html">SymbolTypeData</a> &amp;that) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a05d6dd95329508a07fd8a189fdc782bb">operator!=</a> (const <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html">SymbolTypeData</a> &amp;that) const </td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QChar&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ae532ed38390126ca7ea52711b8f112">symbol</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#aebbdba959d2b9dd087b8638741c6afce">symbol</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#ab0bc26e468258bd793b5c4aa6f0d4133">argsNumber</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#abb48369408953b42ef995d50fb7bdc55">priority</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a14d8c140064f25b0f4ee09a43206b113">operation</a> )(const QList&lt; bool &gt; &amp;args)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="#L19">19</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L16">16</a> of file <a class="el" href="">Symbol.h</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a05d6dd95329508a07fd8a189fdc782bb"></a><!-- doxytag: member="Core::Symbol::SymbolTypeData::operator!=" ref="a05d6dd95329508a07fd8a189fdc782bb" args="(const SymbolTypeData &amp;that) const " -->
 <div class="memitem">
@@ -107,36 +106,9 @@ Data Fields</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L38">38</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L26">26</a> of file <a class="el" href="">Symbol.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                {
-                <span class="keywordflow">return</span> <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ae532ed38390126ca7ea52711b8f112">symbol</a> != that.symbol || <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#ab0bc26e468258bd793b5c4aa6f0d4133">argsNumber</a> != that.argsNumber || <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#abb48369408953b42ef995d50fb7bdc55">priority</a> != that.priority;
-            }
-</pre></div>
-</div>
-</div>
-<a class="anchor" id="a2ec73bed8ce2ab7a686c7c039db51824"></a><!-- doxytag: member="Core::Symbol::SymbolTypeData::operator=" ref="a2ec73bed8ce2ab7a686c7c039db51824" args="(const SymbolTypeData &amp;that)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html">SymbolTypeData</a>&amp; Core::Symbol::SymbolTypeData::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html">SymbolTypeData</a> &amp;&#160;</td>
-          <td class="paramname"><em>that</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="#L25">25</a> of file <a class="el" href="">Symbol.h</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                    {
-                <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ae532ed38390126ca7ea52711b8f112">symbol</a> = that.symbol;
-                <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#ab0bc26e468258bd793b5c4aa6f0d4133">argsNumber</a> = that.argsNumber;
-                <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#abb48369408953b42ef995d50fb7bdc55">priority</a> = that.priority;
-                <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a14d8c140064f25b0f4ee09a43206b113">operation</a> = that.operation;
-
-                <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+                <span class="keywordflow">return</span> <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#aebbdba959d2b9dd087b8638741c6afce">symbol</a> != that.symbol || <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#ab0bc26e468258bd793b5c4aa6f0d4133">argsNumber</a> != that.argsNumber || <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#abb48369408953b42ef995d50fb7bdc55">priority</a> != that.priority;
             }
 </pre></div>
 </div>
@@ -156,9 +128,9 @@ Data Fields</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L34">34</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L22">22</a> of file <a class="el" href="">Symbol.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                {
-                <span class="keywordflow">return</span> <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ae532ed38390126ca7ea52711b8f112">symbol</a> == that.symbol &amp;&amp; <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#ab0bc26e468258bd793b5c4aa6f0d4133">argsNumber</a> == that.argsNumber &amp;&amp; <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#abb48369408953b42ef995d50fb7bdc55">priority</a> == that.priority;
+                <span class="keywordflow">return</span> <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#aebbdba959d2b9dd087b8638741c6afce">symbol</a> == that.symbol &amp;&amp; <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#ab0bc26e468258bd793b5c4aa6f0d4133">argsNumber</a> == that.argsNumber &amp;&amp; <a class="code" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#abb48369408953b42ef995d50fb7bdc55">priority</a> == that.priority;
             }
 </pre></div>
 </div>
@@ -175,7 +147,7 @@ Data Fields</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L21">21</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L18">18</a> of file <a class="el" href="">Symbol.h</a>.</p>
 
 </div>
 </div>
@@ -190,7 +162,7 @@ Data Fields</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L23">23</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L20">20</a> of file <a class="el" href="">Symbol.h</a>.</p>
 
 </div>
 </div>
@@ -205,22 +177,22 @@ Data Fields</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L22">22</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L19">19</a> of file <a class="el" href="">Symbol.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2ae532ed38390126ca7ea52711b8f112"></a><!-- doxytag: member="Core::Symbol::SymbolTypeData::symbol" ref="a2ae532ed38390126ca7ea52711b8f112" args="" -->
+<a class="anchor" id="aebbdba959d2b9dd087b8638741c6afce"></a><!-- doxytag: member="Core::Symbol::SymbolTypeData::symbol" ref="aebbdba959d2b9dd087b8638741c6afce" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QChar <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#a2ae532ed38390126ca7ea52711b8f112">Core::Symbol::SymbolTypeData::symbol</a></td>
+          <td class="memname">QString <a class="el" href="struct_core_1_1_symbol_1_1_symbol_type_data.html#aebbdba959d2b9dd087b8638741c6afce">Core::Symbol::SymbolTypeData::symbol</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L20">20</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L17">17</a> of file <a class="el" href="">Symbol.h</a>.</p>
 
 </div>
 </div>
@@ -242,7 +214,7 @@ Data Fields</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Mar 19 2012 18:30:21 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 6 2012 00:40:22 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

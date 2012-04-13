@@ -4,10 +4,15 @@
 
 namespace Core {
 
-    Analyzer::Analyzer(const QString& pathToLibrary) : broadcaster(), 
-                                                        preprocessor(&broadcaster, pathToLibrary),
-                                                        syntaxTreeFactory(&broadcaster), 
-                                                        treeAnalyzer(&broadcaster){ }
+    Analyzer::Analyzer() : broadcaster(),
+    preprocessor(&broadcaster, ""),
+    syntaxTreeFactory(&broadcaster),
+    treeAnalyzer(&broadcaster) { }
+    
+    Analyzer::Analyzer(const QString& pathToLibrary) : broadcaster(),
+    preprocessor(&broadcaster, pathToLibrary),
+    syntaxTreeFactory(&broadcaster),
+    treeAnalyzer(&broadcaster) { }
 
     Analyzer::~Analyzer() { }
 

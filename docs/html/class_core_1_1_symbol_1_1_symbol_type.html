@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.05</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.9</span></div>
   </td>
  </tr>
  </tbody>
@@ -88,42 +88,48 @@ Collaboration diagram for Core::Symbol::SymbolType:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_core_1_1_symbol_1_1_symbol_type__coll__graph.png" border="0" usemap="#_core_1_1_symbol_1_1_symbol_type_coll__map" alt="Collaboration graph"/></div>
 <map name="_core_1_1_symbol_1_1_symbol_type_coll__map" id="_core_1_1_symbol_1_1_symbol_type_coll__map">
-<area shape="rect" id="node2" href="class_enum.html" title="{Enum\&lt; Symbol::SymbolTypeData \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const Symbol::SymbolTypeData &amp;()\l# Enum()\l}" alt="" coords="31,398,324,570"/><area shape="rect" id="node4" href="struct_core_1_1_symbol_1_1_symbol_type_data.html" title="{Core::Symbol::SymbolTypeData\n|+ symbol\l+ argsNumber\l+ priority\l+ operation\l|+ operator=()\l+ operator==()\l+ operator!=()\l}" alt="" coords="5,158,216,330"/><area shape="rect" id="node6" href="class_enum.html" title="{Enum\&lt; T \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const T &amp;()\l# Enum()\l}" alt="" coords="240,158,389,330"/></map>
+<area shape="rect" id="node2" href="class_enum.html" title="{Enum\&lt; Symbol::SymbolTypeData \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const Symbol::SymbolTypeData &amp;()\l# Enum()\l}" alt="" coords="31,398,324,570"/><area shape="rect" id="node4" href="struct_core_1_1_symbol_1_1_symbol_type_data.html" title="{Core::Symbol::SymbolTypeData\n|+ symbol\l+ argsNumber\l+ priority\l+ operation\l|+ operator==()\l+ operator!=()\l}" alt="" coords="5,167,216,321"/><area shape="rect" id="node6" href="class_enum.html" title="{Enum\&lt; T \&gt;\n|# value\l|+ Enum()\l+ Enum()\l+ operator==()\l+ operator!=()\l+ operator const T &amp;()\l# Enum()\l}" alt="" coords="240,158,389,330"/></map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a50b9bea09b78ae489b502a2868819688">SymbolType</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a064493c0dac4787b7cf5f24ff14ada2d">operation</a> (const QList&lt; bool &gt; &amp;args) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const QChar &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ab60527074a9163dbb29efcbc2227ebf3">toChar</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const QString &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a5626493d36086fb47a03fbce448e3f22">toString</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#aed99b7cbd2f123e0c9f844787b6f61be">getArgsNumber</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a55b02571ad62e696befbe737bfbd7152">getPriority</a> () const </td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a6366787861ff7c6b86f69a8833bae73e">CLOSE_BRACKET</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(')', &amp;otherOperation, 0, 0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ac1caa2acdedd0427abfa9976a4850ac9">OPEN_BRACKET</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>('(', &amp;otherOperation, 0, 1)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a563996c28b2b721deeeff1ddbc88106b">OR</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>('|', &amp;orOperation, 2, 2)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ad2ab23c914b63d14b394442530e6af65">AND</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>('&amp;', &amp;andOperation, 2, 3)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a0bfa15962d3d77f28af8bae13211a012">LITHERAL</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>('\&quot;', &amp;litheralOperation, 0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a86daa79a33de2154b5f7f2e6e09c4a7b">IDENTYFIER</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>('*', &amp;equalOperation, 1)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a961e8520c144b5d38d6b23f72fa734f9">SPACE</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(' ', &amp;otherOperation, 0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a438b717c99e781e69b5450f5506ff360">BACKSLASH</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>('\\', &amp;otherOperation, 0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a6366787861ff7c6b86f69a8833bae73e">CLOSE_BRACKET</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;)&quot;, &amp;otherOperation, 0, 0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ac1caa2acdedd0427abfa9976a4850ac9">OPEN_BRACKET</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;(&quot;, &amp;otherOperation, 0, 1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a563996c28b2b721deeeff1ddbc88106b">OR</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;|&quot;, &amp;orOperation, 2, 2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ad2ab23c914b63d14b394442530e6af65">AND</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;&amp;&quot;, &amp;andOperation, 2, 3)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a0bfa15962d3d77f28af8bae13211a012">LITHERAL</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;\&quot;&quot;, &amp;litheralOperation, 0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a86daa79a33de2154b5f7f2e6e09c4a7b">IDENTYFIER</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;&quot;, &amp;equalOperation, 1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a961e8520c144b5d38d6b23f72fa734f9">SPACE</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot; &quot;, &amp;otherOperation, 0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#acf6b017a92684c48dc6d3c0752add47f">LINE_END</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;\n&quot;, &amp;otherOperation, 0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a438b717c99e781e69b5450f5506ff360">BACKSLASH</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;\\&quot;, &amp;otherOperation, 0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ab3ac1e79c18ef3e8e24fee8fa415e14c">DEFINE</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;-&gt;&quot;, &amp;otherOperation, 0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a3a14c62a23f8259fb0cced7d04ac611a">DEFINE_END</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;;&quot;, &amp;otherOperation, 0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a841f01b8ed6696a0c97bad76076414d3">SINGLE_LINE_COMMENT_BEGIN</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;//&quot;, &amp;otherOperation, 0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a22469278fc02bbc74f39138b741b955a">MULTI_LINE_COMMENT_BEGIN</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;/*&quot;, &amp;otherOperation, 0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">SymbolType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#aff879f6937889fc4c16fd1ec04e973d3">MULTI_LINE_COMMENT_END</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;*/&quot;, &amp;otherOperation, 0)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ac79bd84ce6df408b889fdb0556b1aae6">SymbolType</a> (const QChar &amp;symbol, bool(*operation)(const QList&lt; bool &gt; &amp;args), unsigned int argsNumber, unsigned int priority=~0u)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a84f10cd5c824810a5357496ceb91fb45">SymbolType</a> (const QString &amp;symbol, bool(*operation)(const QList&lt; bool &gt; &amp;args), unsigned int argsNumber, unsigned int priority=~0u)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="#L44">44</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L32">32</a> of file <a class="el" href="">Symbol.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac79bd84ce6df408b889fdb0556b1aae6"></a><!-- doxytag: member="Core::Symbol::SymbolType::SymbolType" ref="ac79bd84ce6df408b889fdb0556b1aae6" args="(const QChar &amp;symbol, bool(*operation)(const QList&lt; bool &gt; &amp;args), unsigned int argsNumber, unsigned int priority=~0u)" -->
+<a class="anchor" id="a84f10cd5c824810a5357496ceb91fb45"></a><!-- doxytag: member="Core::Symbol::SymbolType::SymbolType" ref="a84f10cd5c824810a5357496ceb91fb45" args="(const QString &amp;symbol, bool(*operation)(const QList&lt; bool &gt; &amp;args), unsigned int argsNumber, unsigned int priority=~0u)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Core::Symbol::SymbolType::SymbolType </td>
           <td>(</td>
-          <td class="paramtype">const QChar &amp;&#160;</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
           <td class="paramname"><em>symbol</em>, </td>
         </tr>
         <tr>
@@ -153,8 +159,8 @@ Protected Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L49">49</a> of file <a class="el" href="">Symbol.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                                                                                                 {
+<p>Definition at line <a class="el" href="#L59">59</a> of file <a class="el" href="">Symbol.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">                                                                                                                                                   {
         <a class="code" href="class_enum.html#a1e38e3be1a825de34d5341a7c7f7217c">value</a>.symbol = symbol;
         <a class="code" href="class_enum.html#a1e38e3be1a825de34d5341a7c7f7217c">value</a>.operation = <a class="code" href="class_core_1_1_symbol_1_1_symbol_type.html#a064493c0dac4787b7cf5f24ff14ada2d">operation</a>;
         <a class="code" href="class_enum.html#a1e38e3be1a825de34d5341a7c7f7217c">value</a>.argsNumber = argsNumber;
@@ -177,7 +183,7 @@ Protected Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L47">47</a> of file <a class="el" href="">Symbol.cpp</a>.</p>
+<p>Definition at line <a class="el" href="#L57">57</a> of file <a class="el" href="">Symbol.cpp</a>.</p>
 <div class="fragment"><pre class="fragment">: <a class="code" href="class_enum.html">Enum&lt;Symbol::SymbolTypeData&gt;</a>() { }
 </pre></div>
 </div>
@@ -197,7 +203,7 @@ Protected Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L68">68</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L66">66</a> of file <a class="el" href="">Symbol.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                                      {
                 <span class="keywordflow">return</span> <a class="code" href="class_enum.html#a1e38e3be1a825de34d5341a7c7f7217c">value</a>.argsNumber;
             }
@@ -218,7 +224,7 @@ Protected Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L72">72</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L70">70</a> of file <a class="el" href="">Symbol.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                                    {
                 <span class="keywordflow">return</span> <a class="code" href="class_enum.html#a1e38e3be1a825de34d5341a7c7f7217c">value</a>.priority;
             }
@@ -240,19 +246,19 @@ Protected Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L60">60</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L58">58</a> of file <a class="el" href="">Symbol.h</a>.</p>
 <div class="fragment"><pre class="fragment">                                                                 {
                 <span class="keywordflow">return</span> <a class="code" href="class_enum.html#a1e38e3be1a825de34d5341a7c7f7217c">value</a>.operation(args);
             }
 </pre></div>
 </div>
 </div>
-<a class="anchor" id="ab60527074a9163dbb29efcbc2227ebf3"></a><!-- doxytag: member="Core::Symbol::SymbolType::toChar" ref="ab60527074a9163dbb29efcbc2227ebf3" args="() const " -->
+<a class="anchor" id="a5626493d36086fb47a03fbce448e3f22"></a><!-- doxytag: member="Core::Symbol::SymbolType::toString" ref="a5626493d36086fb47a03fbce448e3f22" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const QChar&amp; Core::Symbol::SymbolType::toChar </td>
+          <td class="memname">const QString&amp; Core::Symbol::SymbolType::toString </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const<code> [inline]</code></td>
@@ -261,8 +267,8 @@ Protected Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L64">64</a> of file <a class="el" href="">Symbol.h</a>.</p>
-<div class="fragment"><pre class="fragment">                                               {
+<p>Definition at line <a class="el" href="#L62">62</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<div class="fragment"><pre class="fragment">                                                   {
                 <span class="keywordflow">return</span> <a class="code" href="class_enum.html#a1e38e3be1a825de34d5341a7c7f7217c">value</a>.symbol;
             }
 </pre></div>
@@ -274,13 +280,13 @@ Protected Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ad2ab23c914b63d14b394442530e6af65">Core::Symbol::SymbolType::AND</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>('&amp;', &amp;andOperation, 2, 3)<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ad2ab23c914b63d14b394442530e6af65">Core::Symbol::SymbolType::AND</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;&amp;&quot;, &amp;andOperation, 2, 3)<code> [static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L54">54</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L42">42</a> of file <a class="el" href="">Symbol.h</a>.</p>
 
 </div>
 </div>
@@ -289,13 +295,13 @@ Protected Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a438b717c99e781e69b5450f5506ff360">Core::Symbol::SymbolType::BACKSLASH</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>('\\', &amp;otherOperation, 0)<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a438b717c99e781e69b5450f5506ff360">Core::Symbol::SymbolType::BACKSLASH</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;\\&quot;, &amp;otherOperation, 0)<code> [static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L58">58</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L50">50</a> of file <a class="el" href="">Symbol.h</a>.</p>
 
 </div>
 </div>
@@ -304,7 +310,22 @@ Protected Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a6366787861ff7c6b86f69a8833bae73e">Core::Symbol::SymbolType::CLOSE_BRACKET</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(')', &amp;otherOperation, 0, 0)<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a6366787861ff7c6b86f69a8833bae73e">Core::Symbol::SymbolType::CLOSE_BRACKET</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;)&quot;, &amp;otherOperation, 0, 0)<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L39">39</a> of file <a class="el" href="">Symbol.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab3ac1e79c18ef3e8e24fee8fa415e14c"></a><!-- doxytag: member="Core::Symbol::SymbolType::DEFINE" ref="ab3ac1e79c18ef3e8e24fee8fa415e14c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ab3ac1e79c18ef3e8e24fee8fa415e14c">Core::Symbol::SymbolType::DEFINE</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;-&gt;&quot;, &amp;otherOperation, 0)<code> [static]</code></td>
         </tr>
       </table>
 </div>
@@ -314,18 +335,48 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a86daa79a33de2154b5f7f2e6e09c4a7b"></a><!-- doxytag: member="Core::Symbol::SymbolType::IDENTYFIER" ref="a86daa79a33de2154b5f7f2e6e09c4a7b" args="" -->
+<a class="anchor" id="a3a14c62a23f8259fb0cced7d04ac611a"></a><!-- doxytag: member="Core::Symbol::SymbolType::DEFINE_END" ref="a3a14c62a23f8259fb0cced7d04ac611a" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a86daa79a33de2154b5f7f2e6e09c4a7b">Core::Symbol::SymbolType::IDENTYFIER</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>('*', &amp;equalOperation, 1)<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a3a14c62a23f8259fb0cced7d04ac611a">Core::Symbol::SymbolType::DEFINE_END</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;;&quot;, &amp;otherOperation, 0)<code> [static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L56">56</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L52">52</a> of file <a class="el" href="">Symbol.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a86daa79a33de2154b5f7f2e6e09c4a7b"></a><!-- doxytag: member="Core::Symbol::SymbolType::IDENTYFIER" ref="a86daa79a33de2154b5f7f2e6e09c4a7b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a86daa79a33de2154b5f7f2e6e09c4a7b">Core::Symbol::SymbolType::IDENTYFIER</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;&quot;, &amp;equalOperation, 1)<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L45">45</a> of file <a class="el" href="">Symbol.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acf6b017a92684c48dc6d3c0752add47f"></a><!-- doxytag: member="Core::Symbol::SymbolType::LINE_END" ref="acf6b017a92684c48dc6d3c0752add47f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#acf6b017a92684c48dc6d3c0752add47f">Core::Symbol::SymbolType::LINE_END</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;\n&quot;, &amp;otherOperation, 0)<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L48">48</a> of file <a class="el" href="">Symbol.h</a>.</p>
 
 </div>
 </div>
@@ -334,7 +385,37 @@ Protected Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a0bfa15962d3d77f28af8bae13211a012">Core::Symbol::SymbolType::LITHERAL</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>('\&quot;', &amp;litheralOperation, 0)<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a0bfa15962d3d77f28af8bae13211a012">Core::Symbol::SymbolType::LITHERAL</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;\&quot;&quot;, &amp;litheralOperation, 0)<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L44">44</a> of file <a class="el" href="">Symbol.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a22469278fc02bbc74f39138b741b955a"></a><!-- doxytag: member="Core::Symbol::SymbolType::MULTI_LINE_COMMENT_BEGIN" ref="a22469278fc02bbc74f39138b741b955a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a22469278fc02bbc74f39138b741b955a">Core::Symbol::SymbolType::MULTI_LINE_COMMENT_BEGIN</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;/*&quot;, &amp;otherOperation, 0)<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L54">54</a> of file <a class="el" href="">Symbol.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aff879f6937889fc4c16fd1ec04e973d3"></a><!-- doxytag: member="Core::Symbol::SymbolType::MULTI_LINE_COMMENT_END" ref="aff879f6937889fc4c16fd1ec04e973d3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#aff879f6937889fc4c16fd1ec04e973d3">Core::Symbol::SymbolType::MULTI_LINE_COMMENT_END</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;*/&quot;, &amp;otherOperation, 0)<code> [static]</code></td>
         </tr>
       </table>
 </div>
@@ -349,13 +430,13 @@ Protected Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ac1caa2acdedd0427abfa9976a4850ac9">Core::Symbol::SymbolType::OPEN_BRACKET</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>('(', &amp;otherOperation, 0, 1)<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#ac1caa2acdedd0427abfa9976a4850ac9">Core::Symbol::SymbolType::OPEN_BRACKET</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;(&quot;, &amp;otherOperation, 0, 1)<code> [static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L52">52</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L40">40</a> of file <a class="el" href="">Symbol.h</a>.</p>
 
 </div>
 </div>
@@ -364,7 +445,22 @@ Protected Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a563996c28b2b721deeeff1ddbc88106b">Core::Symbol::SymbolType::OR</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>('|', &amp;orOperation, 2, 2)<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a563996c28b2b721deeeff1ddbc88106b">Core::Symbol::SymbolType::OR</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;|&quot;, &amp;orOperation, 2, 2)<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="#L41">41</a> of file <a class="el" href="">Symbol.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a841f01b8ed6696a0c97bad76076414d3"></a><!-- doxytag: member="Core::Symbol::SymbolType::SINGLE_LINE_COMMENT_BEGIN" ref="a841f01b8ed6696a0c97bad76076414d3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a841f01b8ed6696a0c97bad76076414d3">Core::Symbol::SymbolType::SINGLE_LINE_COMMENT_BEGIN</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot;//&quot;, &amp;otherOperation, 0)<code> [static]</code></td>
         </tr>
       </table>
 </div>
@@ -379,13 +475,13 @@ Protected Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a961e8520c144b5d38d6b23f72fa734f9">Core::Symbol::SymbolType::SPACE</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(' ', &amp;otherOperation, 0)<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a> <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html#a961e8520c144b5d38d6b23f72fa734f9">Core::Symbol::SymbolType::SPACE</a> = <a class="el" href="class_core_1_1_symbol_1_1_symbol_type.html">Symbol::SymbolType</a>(&quot; &quot;, &amp;otherOperation, 0)<code> [static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="#L57">57</a> of file <a class="el" href="">Symbol.h</a>.</p>
+<p>Definition at line <a class="el" href="#L47">47</a> of file <a class="el" href="">Symbol.h</a>.</p>
 
 </div>
 </div>
@@ -408,7 +504,7 @@ Protected Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Mar 19 2012 18:30:21 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 6 2012 00:40:22 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

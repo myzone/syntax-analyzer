@@ -20,6 +20,15 @@ namespace Core {
         QSet<QString> notDefinedSymbolsSet = QSet<QString > ();
 
         Tree<Symbol> tree = Tree<Symbol > ();
+
+        if (!linesMap.contains(MAIN_SYMBOL)) {
+            Events::SymbolIsNotDefinedErrorEvent event = Events::SymbolIsNotDefinedErrorEvent(MAIN_SYMBOL);
+            event.share(*broadcaster);
+
+            throw AnalyzeCrashExeption();
+        }
+
+
         QMap<QString, QList<Symbol> >::Iterator it = linesMap.find(MAIN_SYMBOL);
         QList<Symbol> value = *it;
         linesMap.erase(it);
@@ -74,25 +83,31 @@ namespace Core {
     QMap<QString, QList<Symbol> > SyntaxTreeFactory::createLinesMap(const QList<Symbol>& text) const {
         QMap<QString, QList<Symbol> > linesMap = QMap<QString, QList<Symbol> >();
 
-        for(QList<Symbol>::ConstIterator it = text.begin(), end = text.end(); it != end;   ++it) {
+        for (QList<Symbol>::ConstIterator it = text.begin(), end = text.end(); it != end; ++it) {
             Symbol key = *(it++);
             QList<Symbol> defineList;
-            
-            if(it == end) {
+
+            if (it == end) {
                 return linesMap;
             }
-            
-            if((*(it++)).getType() != Symbol::SymbolType::DEFINE) {
+
+            if ((*(it++)).getType() != Symbol::SymbolType::DEFINE) {
                 throw AnalyzeCrashExeption();
             }
-            
-            while((*it).getType() != Symbol::SymbolType::DEFINE_END) {
+
+            while (true) {
+                if (it == end) 
+                    return linesMap;
+                
+                if ((*it).getType() == Symbol::SymbolType::DEFINE_END) 
+                    break;
+
                 defineList += *(it++);
             }
-            
+
             linesMap.insert(key.getRepresentation(), toPostfixSymbolsList(defineList));
         }
-        
+
         return linesMap;
     }
 
@@ -109,18 +124,18 @@ namespace Core {
     void SyntaxTreeFactory::processLine(const QList<Symbol>& line, Tree<Symbol> tree) const throws(AnalyzeCrashExeption) {
         QStack<unsigned int> positions = QStack<unsigned int>();
         positions.push(tree.get().getType().getArgsNumber());
-        
+
         for (int i = line.size() - 1; i >= 0; i--) {
             while (!tree.isRoot() && positions.top() <= 0) {
                 tree = tree.getSupertree();
                 positions.pop();
             }
-                
+
             tree[positions.top() - 1] = line[i];
             tree[positions.top() - 1].get().setId(tree.get().getId()+(char) (positions.top() + 98));
             positions.top()--;
 
-            
+
             if (line[i].getType() == Symbol::SymbolType::AND
                     || line[i].getType() == Symbol::SymbolType::OR) {
                 tree = tree[positions.top()];

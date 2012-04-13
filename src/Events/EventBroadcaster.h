@@ -9,7 +9,7 @@ namespace Events {
 
     class EventBroadcaster {
     private:
-        QLinkedList<EventListener*> listeners;
+        QList<EventListener*> listeners;
     public:
         EventBroadcaster();
         virtual ~EventBroadcaster();
@@ -17,10 +17,14 @@ namespace Events {
         void addEventListener(EventListener* listener);
         void removeEventListener(EventListener* listener);
 
-        template<typename T> void broadcast(const T& event) const {
-            for (QLinkedList<EventListener*>::ConstIterator it = listeners.begin(); it != listeners.end(); it++) {
-                (*it)->handle(event);
+        template<typename T> void broadcast(const T& event) {
+            //for (QList<EventListener*>::Iterator it = listeners.begin(), end = listeners.end(); it != end; ++it) {
+            //    (*it)->handle(event);
+            //}
+            for (int i = 0; i < listeners.count(); i++) {
+                listeners[i]->handle(event);
             }
+
         }
     };
 }

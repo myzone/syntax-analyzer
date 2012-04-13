@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_analyzer_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.h" alt="" coords="12,83,359,112"/>
-<area shape="rect" id="node7" href="$_tree_analyzer_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/TreeAnalyzer.cpp" alt="" coords="383,83,769,112"/>
-<area shape="rect" id="node9" href="$main_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/main.cpp" alt="" coords="793,83,1097,112"/>
+<area shape="rect" id="node3" href="$_analyzer_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.h" alt="" coords="157,83,504,112"/>
+<area shape="rect" id="node7" href="$main_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/main.cpp" alt="" coords="389,160,693,189"/>
+<area shape="rect" id="node9" href="$_tree_analyzer_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/TreeAnalyzer.cpp" alt="" coords="579,83,965,112"/>
 <area shape="rect" id="node5" href="$_analyzer_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.cpp" alt="" coords="5,160,365,189"/>
 </map>

@@ -16,7 +16,7 @@ namespace Core {
     class Preprocessor {
     private:
         QString pathToLibrary;
-        const Events::EventBroadcaster* broadcaster;
+        Events::EventBroadcaster* broadcaster;
         
     public:
         static const QString FILE_FORMAT_MASK;

@@ -5,7 +5,7 @@
 #include "../defines.h"
 
 #define DECLARE_SHARE_METHOD(class_name) \
-    virtual void share(const EventBroadcaster& broadcaster) const;
+    virtual void share(EventBroadcaster& broadcaster);
 
 #define DECLARE_TO_STRING_METHOD(class_name) \
     virtual const QString toString() const;

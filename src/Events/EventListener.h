@@ -4,7 +4,7 @@
 
 #include <iostream>
 #define DECLARE_HANDLE_METHOD(class_name) \
-        virtual void handle(const class_name& event) { }
+        virtual void handle(const class_name& event) { std::cout<<#class_name<<"\n"; }
 
 namespace Events {
 

@@ -7,7 +7,7 @@
 
 namespace Core {
 
-    TreeAnalyzer::TreeAnalyzer(const Events::EventBroadcaster* broadcaster) : broadcaster(broadcaster) { }
+    TreeAnalyzer::TreeAnalyzer(Events::EventBroadcaster* broadcaster) : broadcaster(broadcaster) { }
 
     TreeAnalyzer::~TreeAnalyzer() { }
 
@@ -41,9 +41,9 @@ namespace Core {
         }
 
         for (QMap < QString, bool>::ConstIterator it = wrongSymbols.begin(); it != wrongSymbols.end(); ++it) {
-            if (*it) {
+            if (!*it) {
                 Events::SymbolHasMistakeErrorEvent event = Events::SymbolHasMistakeErrorEvent(it.key());
-                //event.share(*broadcaster);
+                event.share(*broadcaster);
             }
         }
 

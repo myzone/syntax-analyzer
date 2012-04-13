@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.05</span></div>
+   <div id="projectname">Syntax Analyzer&#160;<span id="projectnumber">0.9</span></div>
   </td>
  </tr>
  </tbody>
@@ -88,12 +88,11 @@ Data Structures</h2></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a13506da3906e613c795dd6a84ca92c27">SyntaxTreeFactory</a> (<a class="el" href="class_events_1_1_event_broadcaster.html">Events::EventBroadcaster</a> *broadcaster)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#a6f6f6c74db5a8a1279817101cc1fa8a6">createTree</a> (const QString &amp;text) const throws(AnalyzeCrashExeption)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_core_1_1_syntax_tree_factory.html#aeacdb6ec95dacf73005d82b762a9a61b">createTree</a> (const QList&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; &amp;text) const throws(AnalyzeCrashExeption)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Класс реализующий семантический анализ </p>
-
-<p>Definition at line <a class="el" href="#L19">19</a> of file <a class="el" href="">SyntaxTreeFactory.h</a>.</p>
+<div class="textblock">
+<p>Definition at line <a class="el" href="#L16">16</a> of file <a class="el" href="">SyntaxTreeFactory.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a13506da3906e613c795dd6a84ca92c27"></a><!-- doxytag: member="Core::SyntaxTreeFactory::SyntaxTreeFactory" ref="a13506da3906e613c795dd6a84ca92c27" args="(Events::EventBroadcaster *broadcaster)" -->
 <div class="memitem">
@@ -116,14 +115,14 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a6f6f6c74db5a8a1279817101cc1fa8a6"></a><!-- doxytag: member="Core::SyntaxTreeFactory::createTree" ref="a6f6f6c74db5a8a1279817101cc1fa8a6" args="(const QString &amp;text) const throws(AnalyzeCrashExeption)" -->
+<a class="anchor" id="aeacdb6ec95dacf73005d82b762a9a61b"></a><!-- doxytag: member="Core::SyntaxTreeFactory::createTree" ref="aeacdb6ec95dacf73005d82b762a9a61b" args="(const QList&lt; Symbol &gt; &amp;text) const throws(AnalyzeCrashExeption)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_tree.html">Tree</a>&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; Core::SyntaxTreeFactory::createTree </td>
           <td>(</td>
-          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramtype">const QList&lt; <a class="el" href="class_core_1_1_symbol.html">Symbol</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>text</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -132,27 +131,29 @@ Public Member Functions</h2></td></tr>
 <div class="memdoc">
 
 <p>Definition at line <a class="el" href="#L14">14</a> of file <a class="el" href="">SyntaxTreeFactory.cpp</a>.</p>
-<div class="fragment"><pre class="fragment">                                                                                                     {
+<div class="fragment"><pre class="fragment">                                                                                                           {
         <span class="keyword">const</span> QString MAIN_SYMBOL = <span class="stringliteral">&quot;main&quot;</span>;
 
-        QMap&lt;QString, QString&gt; linesMap = createLinesMap(text);
-        QSet&lt;QString&gt; linesSet = createLinesSet(linesMap);
+        QMap&lt;QString, QList&lt;Symbol&gt; &gt; linesMap = createLinesMap(text);
+
+        QSet&lt;QString&gt; notUsedSymbolsSet = createLinesSet(linesMap);
+        QSet&lt;QString&gt; notDefinedSymbolsSet = QSet&lt;QString &gt; ();
 
         <a class="code" href="class_tree.html">Tree&lt;Symbol&gt;</a> tree = <a class="code" href="class_tree.html">Tree&lt;Symbol &gt;</a> ();
-        QMap&lt;QString, QString&gt;::Iterator it = linesMap.find(MAIN_SYMBOL);
-        QString value = *it;
+        QMap&lt;QString, QList&lt;Symbol&gt; &gt;::Iterator it = linesMap.find(MAIN_SYMBOL);
+        QList&lt;Symbol&gt; value = *it;
         linesMap.erase(it);
-        linesSet.erase(linesSet.find(MAIN_SYMBOL));
+        notUsedSymbolsSet.erase(notUsedSymbolsSet.find(MAIN_SYMBOL));
 
         tree = Symbol(MAIN_SYMBOL, <a class="code" href="class_core_1_1_symbol_1_1_symbol_type.html#a86daa79a33de2154b5f7f2e6e09c4a7b">Symbol::SymbolType::IDENTYFIER</a>);
-        tree.<a class="code" href="class_tree.html#a0fde092d58dc5d448f2698062a69cf2e">get</a>().setId(<span class="stringliteral">&quot;a&quot;</span>);
+        tree.get().setId(<span class="stringliteral">&quot;a&quot;</span>);
 
         processLine(value, tree);
         TreeProcessor processor = TreeProcessor();
 
         <span class="keywordtype">bool</span> ok = <span class="keyword">true</span>;
-        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {
-            tree.<a class="code" href="class_tree.html#a0c8d2bb42f5fa5ad8b2da05d34b4c09b">traverse</a>(processor);
+        <span class="keywordflow">while</span> (ok) {
+            tree.traverse(processor);
 
             <span class="keywordflow">if</span> (processor.isEnd())
                 <span class="keywordflow">break</span>;
@@ -161,22 +162,26 @@ Public Member Functions</h2></td></tr>
 
             <span class="keywordflow">for</span> (QList&lt;<a class="code" href="class_tree.html">Tree&lt;Symbol&gt;</a> &gt;::Iterator it = nodes.begin(); it != nodes.end(); ++it) {
                 QString current = (*it).get().getRepresentation();
+                notUsedSymbolsSet.erase(notUsedSymbolsSet.find(current));
 
                 <span class="keywordflow">if</span> (!linesMap.contains(current)) {
-                    Events::SymbolIsNotDefinedErrorEvent <span class="keyword">event</span> = Events::SymbolIsNotDefinedErrorEvent(current);
-                    <span class="keyword">event</span>.share(*broadcaster);
+                    notDefinedSymbolsSet.insert(current);
 
                     ok = <span class="keyword">false</span>;
                     <span class="keywordflow">continue</span>;
                 }
 
-                linesSet.erase(linesSet.find(current));
                 processLine(linesMap.value(current), *it);
             }
 
         }
 
-        <span class="keywordflow">for</span> (QSet&lt;QString&gt;::ConstIterator it = linesSet.begin(); it != linesSet.end(); ++it) {
+        <span class="keywordflow">for</span> (QSet&lt;QString&gt;::ConstIterator it = notDefinedSymbolsSet.begin(); it != notDefinedSymbolsSet.end(); ++it) {
+            Events::SymbolIsNotDefinedErrorEvent <span class="keyword">event</span> = Events::SymbolIsNotDefinedErrorEvent(*it);
+            <span class="keyword">event</span>.share(*broadcaster);
+        }
+
+        <span class="keywordflow">for</span> (QSet&lt;QString&gt;::ConstIterator it = notUsedSymbolsSet.begin(); it != notUsedSymbolsSet.end(); ++it) {
             Events::SymbolIsNotUsedErrorEvent <span class="keyword">event</span> = Events::SymbolIsNotUsedErrorEvent(*it);
             <span class="keyword">event</span>.share(*broadcaster);
         }
@@ -207,7 +212,7 @@ Public Member Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon Mar 19 2012 18:30:21 for Syntax Analyzer by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Fri Apr 6 2012 00:40:22 for Syntax Analyzer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
