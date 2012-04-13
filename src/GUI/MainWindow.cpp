@@ -3,7 +3,9 @@
 
 #include <QFile>
 #include <QFileDialog>
-#include <qt4/QtGui/qmessagebox.h>
+#include <QMessageBox>
+#include <QBrush>
+#include <QTimer>
 
 #include "../GUI/MainWindow.h"
 
@@ -27,6 +29,32 @@ QTextCharFormat SyntaxHighlighter::FormatType::createKeywordFormat() {
     return format;
 }
 
+void SyntaxHighlighter::handle(const Events::AnalysingWasStartedEvent& event) {
+    dymamicRules.clear();
+}
+
+void SyntaxHighlighter::handle(const Events::SymbolIsNotDefinedErrorEvent& event) {
+    dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+}
+
+void SyntaxHighlighter::handle(const Events::SymbolHasMistakeErrorEvent& event) {
+    dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+}
+
+void SyntaxHighlighter::handle(const Events::LibraryFileCannotBeFoundErrorEvent& event) {
+    dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+
+}
+
+void SyntaxHighlighter::handle(const Events::LitheralIsNotClosedErrorEvent& event) {
+    dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+
+}
+
+void SyntaxHighlighter::handle(const Events::DoubleDefenitionErrorEvent& event) {
+    dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+}
+
 QTextCharFormat SyntaxHighlighter::FormatType::createKeywordSymbolFormat() {
     QTextCharFormat format = QTextCharFormat();
 
@@ -38,8 +66,8 @@ QTextCharFormat SyntaxHighlighter::FormatType::createKeywordSymbolFormat() {
 QTextCharFormat SyntaxHighlighter::FormatType::createQuotedStringFormat() {
     QTextCharFormat format = QTextCharFormat();
 
-    format.setForeground(Qt::magenta);
- 
+    format.setForeground(QBrush(QColor::fromRgb(180, 20, 100, 255)));
+
     return format;
 }
 
@@ -52,10 +80,27 @@ QTextCharFormat SyntaxHighlighter::FormatType::createWrongSymbolFormat() {
     return format;
 }
 
-SyntaxHighlighter::SyntaxHighlighter(QTextDocument *parent) : QSyntaxHighlighter(parent) { }
+SyntaxHighlighter::SyntaxHighlighter(QTextDocument *parent) : QSyntaxHighlighter(parent), rehighlightTimer(this) {
+    connect(&rehighlightTimer, SIGNAL(timeout()), this, SLOT(rehighlight()));
+    rehighlightTimer.start(1000);
+}
 
 void SyntaxHighlighter::highlightBlock(const QString& text) {
-    for (QList<SyntaxHighlighter::HighlightRule>::ConstIterator it = staticRules.begin(), end = staticRules.end(); it != end; ++it) {
+    for (QList<SyntaxHighlighter::HighlightRule>::ConstIterator it = dymamicRules.constBegin(), end = dymamicRules.constEnd(); it != end; ++it) {
+        QRegExp expression = (*it).pattern;
+
+        int index = expression.indexIn(text);
+        while (index >= 0) {
+            int length = expression.matchedLength();
+            setFormat(index, length, (*it).format);
+            index = expression.indexIn(text, index + length);
+            
+            if(length <= 0) 
+                break;
+        }
+    }
+
+    for (QList<SyntaxHighlighter::HighlightRule>::ConstIterator it = staticRules.constBegin(), end = staticRules.constEnd(); it != end; ++it) {
         QRegExp expression = (*it).pattern;
 
         int index = expression.indexIn(text);
@@ -68,11 +113,10 @@ void SyntaxHighlighter::highlightBlock(const QString& text) {
 }
 
 QList<SyntaxHighlighter::HighlightRule> SyntaxHighlighter::initStaticRules() {
-    QList<SyntaxHighlighter::HighlightRule> rules = QList<SyntaxHighlighter::HighlightRule>();
+    QList<SyntaxHighlighter::HighlightRule> rules = QList<SyntaxHighlighter::HighlightRule > ();
 
     rules.append(SyntaxHighlighter::HighlightRule("\\bimport\\b", FormatType::KEYWORD_FORMAT));
-    rules.append(SyntaxHighlighter::HighlightRule("\\bmain\\b", FormatType::KEYWORD_FORMAT));
-    
+
     rules.append(SyntaxHighlighter::HighlightRule("->", FormatType::KEYWORD_SYMBOLS_FORMAT));
     rules.append(SyntaxHighlighter::HighlightRule("\\(", FormatType::KEYWORD_SYMBOLS_FORMAT));
     rules.append(SyntaxHighlighter::HighlightRule("\\)", FormatType::KEYWORD_SYMBOLS_FORMAT));
@@ -80,13 +124,12 @@ QList<SyntaxHighlighter::HighlightRule> SyntaxHighlighter::initStaticRules() {
     rules.append(SyntaxHighlighter::HighlightRule("\\&", FormatType::KEYWORD_SYMBOLS_FORMAT));
     rules.append(SyntaxHighlighter::HighlightRule(";", FormatType::KEYWORD_SYMBOLS_FORMAT));
 
-    rules.append(SyntaxHighlighter::HighlightRule("\".*\n", FormatType::QUOTED_STRING_FORMAT));
-    rules.append(SyntaxHighlighter::HighlightRule("\".*\"", FormatType::QUOTED_STRING_FORMAT));
-    
+    rules.append(SyntaxHighlighter::HighlightRule("\"([^\"]|(\\\\\"))*\"?", FormatType::QUOTED_STRING_FORMAT));
+
     return rules;
 }
 
-MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags) : QMainWindow(parent, flags), filesMap(), analyzersMap() {
+MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags) : QMainWindow(parent, flags), filesMap(), analyzersMap(), analyzeTimer(this) {
     setWindowTitle(trUtf8("Cинтаксический анализатор"));
 
     QMenuBar* menuBar = new QMenuBar();
@@ -152,7 +195,8 @@ void MainWindow::openFile() {
     newTextEdit->setText(file.readAll());
     file.close();
 
-    tabsWidget->renameTab(tabsWidget->indexOf(newTextEdit), pathToFile.replace(QRegExp("^((.*)/)*"), ""));
+    filesMap.insert(newTextEdit, pathToFile);
+    tabsWidget->renameTab(tabsWidget->indexOf(newTextEdit), pathToFile.replace(QRegExp("^([A-Z]:)?((.*)(/|\\\\))*"), ""));
 }
 
 void MainWindow::saveFile() {
@@ -217,6 +261,10 @@ void MainWindow::initTextEdit(QTextEdit* textEdit) {
 
     Core::Analyzer* analyzer = new Core::Analyzer(PATH_TO_LIB);
     analyzer->addErrorEventListener(syntaxHighlighter);
-    
     analyzersMap.insert(textEdit, analyzer);
+
+    tabsWidget->markTabAsSaved(tabsWidget->indexOf(textEdit));
+
+    connect(&analyzeTimer, SIGNAL(timeout()), this, SLOT(analyze()));
+    analyzeTimer.start(1000);
 }

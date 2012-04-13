@@ -25,11 +25,17 @@ namespace Core {
 
             if (current.getType() == Symbol::SymbolType::IDENTYFIER
                     && current.getRepresentation() == IMPORT_DERECTIVE) {
+           
+                if(!symbolFactory.isNextSymbol()) throws AnalyzeCrashExeption();
+                
                 symbolFactory.getNextSymbol(); // skip AND symbol
 
+                if(!symbolFactory.isNextSymbol()) throws AnalyzeCrashExeption();     
+                
                 libraryResult += import(symbolFactory.getNextSymbol().getRepresentation());
 
-                if (symbolFactory.getNextSymbol().getType() != Symbol::SymbolType::DEFINE_END) {
+                
+                if (!symbolFactory.isNextSymbol() || symbolFactory.getNextSymbol().getType() != Symbol::SymbolType::DEFINE_END) {
                     throws AnalyzeCrashExeption();
                 }
 
@@ -45,12 +51,13 @@ namespace Core {
         File* fileDescriptor = null;
 
         // search lib file in current folder 
-        if (!fileDescriptor) fileDescriptor = fopen((importName + FILE_FORMAT_MASK).toLocal8Bit(), "rt");
+        if (!fileDescriptor) fileDescriptor = fopen((importName + FILE_FORMAT_MASK).toAscii(), "rt");
         // search lib file in libraries folder
-        if (!fileDescriptor) fileDescriptor = fopen((pathToLibrary + importName + FILE_FORMAT_MASK).toLocal8Bit(), "rt");
+        if (!fileDescriptor) fileDescriptor = fopen((pathToLibrary + importName + FILE_FORMAT_MASK).toAscii(), "rt");
         if (!fileDescriptor) {
             Events::LibraryFileCannotBeFoundErrorEvent event = Events::LibraryFileCannotBeFoundErrorEvent(importName);
             event.share(*broadcaster);
+            
             throws AnalyzeCrashExeption(importName);
         }
 
@@ -61,7 +68,8 @@ namespace Core {
         SymbolFactory symbolFactory = SymbolFactory(file.readAll());
 
         file.close();
-
+        fclose(fileDescriptor);
+        
         while (symbolFactory.isNextSymbol()) {
             result += symbolFactory.getNextSymbol();
         }

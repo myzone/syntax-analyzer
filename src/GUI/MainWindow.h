@@ -40,10 +40,20 @@ private:
     };
 
     static const QList<HighlightRule> staticRules;
+    QList<HighlightRule> dymamicRules;
 
+    QTimer rehighlightTimer;
 public:
     SyntaxHighlighter(QTextDocument *parent = 0);
 
+    void handle(const Events::AnalysingWasStartedEvent& event);
+    
+    void handle(const Events::SymbolIsNotDefinedErrorEvent& event);
+    void handle(const Events::SymbolHasMistakeErrorEvent& event);
+    void handle(const Events::LibraryFileCannotBeFoundErrorEvent& event);
+    void handle(const Events::LitheralIsNotClosedErrorEvent& event);
+    void handle(const Events::DoubleDefenitionErrorEvent& event);
+    
 protected:
     void highlightBlock(const QString &text);
 
@@ -57,9 +67,11 @@ private:
     QMap<QTextEdit*, QString> filesMap;
     QMap<QTextEdit*, Core::Analyzer*> analyzersMap;
     TextTabWidget* tabsWidget;
+    
+    QTimer analyzeTimer;
 public:
     explicit MainWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0);
-    ~MainWindow();
+    virtual ~MainWindow();
 
 private slots:
     void saveFile();

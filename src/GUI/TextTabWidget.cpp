@@ -38,7 +38,7 @@ QTextEdit* TextTabWidget::addTextTab() {
     insertTab(tabsCount - 1, textEdit, tr("undefined"));
 
     setCurrentWidget(textEdit);
-
+    
     emit onTabAdded(textEdit);
 
     return textEdit;

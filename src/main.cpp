@@ -43,9 +43,8 @@ int main(int argc, char** argv) {
     QApplication app(argc, argv);
     
     MainWindow mainWindow;
-    mainWindow.setSizeIncrement(640, 480);
-    mainWindow.show();
-            
+    mainWindow.resize(640, 480);
+    mainWindow.show();          
     
     return app.exec();
 }

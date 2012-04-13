@@ -83,7 +83,7 @@ namespace Core {
     QMap<QString, QList<Symbol> > SyntaxTreeFactory::createLinesMap(const QList<Symbol>& text) const {
         QMap<QString, QList<Symbol> > linesMap = QMap<QString, QList<Symbol> >();
 
-        for (QList<Symbol>::ConstIterator it = text.begin(), end = text.end(); it != end; ++it) {
+        for (QList<Symbol>::ConstIterator it = text.constBegin(), end = text.constEnd(); it != end; ++it) {
             Symbol key = *(it++);
             QList<Symbol> defineList;
 
@@ -96,13 +96,20 @@ namespace Core {
             }
 
             while (true) {
-                if (it == end) 
+                if (it == end)
                     return linesMap;
                 
-                if ((*it).getType() == Symbol::SymbolType::DEFINE_END) 
+                if ((*it).getType() == Symbol::SymbolType::DEFINE_END)
                     break;
 
                 defineList += *(it++);
+            }
+
+            if (linesMap.contains(key.getRepresentation())) {
+                Events::DoubleDefenitionErrorEvent event = Events::DoubleDefenitionErrorEvent(key.getRepresentation());
+                event.share(*broadcaster);
+
+                throw AnalyzeCrashExeption();
             }
 
             linesMap.insert(key.getRepresentation(), toPostfixSymbolsList(defineList));
@@ -114,7 +121,7 @@ namespace Core {
     QSet<QString> SyntaxTreeFactory::createLinesSet(const QMap<QString, QList<Symbol> >& map) const {
         QSet<QString> set = QSet<QString > ();
 
-        for (QMap<QString, QList<Symbol> >::ConstIterator it = map.begin(); it != map.end(); ++it) {
+        for (QMap<QString, QList<Symbol> >::ConstIterator it = map.constBegin(), end = map.constEnd(); it != end; ++it) {
             set.insert(it.key());
         }
 
