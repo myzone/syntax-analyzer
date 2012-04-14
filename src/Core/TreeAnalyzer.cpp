@@ -29,6 +29,9 @@ namespace Core {
                     try {
                         args.append(cache[(*it)[i].get().getId()]);
                     } catch (Tree<Symbol>::OutOfBoundsExeption exeption) {
+                        Events::SymbolHasMistakeErrorEvent event = Events::SymbolHasMistakeErrorEvent((*it).get().getRepresentation());
+                        event.share(*broadcaster);
+                        
                         throw AnalyzeCrashExeption();
                     }
                 }

@@ -21,20 +21,29 @@ namespace Core {
 
         SymbolFactory symbolFactory = SymbolFactory(source);
         while (symbolFactory.isNextSymbol()) {
-            Symbol current = symbolFactory.getNextSymbol();
+            Symbol current;
+
+            try {
+                current = symbolFactory.getNextSymbol();
+            } catch (AnalyzeCrashExeption exeption) {
+                Events::LitheralIsNotClosedErrorEvent event = Events::LitheralIsNotClosedErrorEvent(exeption.getMessage());
+                event.share(*broadcaster);
+
+                throw;
+            }
 
             if (current.getType() == Symbol::SymbolType::IDENTYFIER
                     && current.getRepresentation() == IMPORT_DERECTIVE) {
-           
-                if(!symbolFactory.isNextSymbol()) throws AnalyzeCrashExeption();
-                
+
+                if (!symbolFactory.isNextSymbol()) throws AnalyzeCrashExeption();
+
                 symbolFactory.getNextSymbol(); // skip AND symbol
 
-                if(!symbolFactory.isNextSymbol()) throws AnalyzeCrashExeption();     
-                
+                if (!symbolFactory.isNextSymbol()) throws AnalyzeCrashExeption();
+
                 libraryResult += import(symbolFactory.getNextSymbol().getRepresentation());
 
-                
+
                 if (!symbolFactory.isNextSymbol() || symbolFactory.getNextSymbol().getType() != Symbol::SymbolType::DEFINE_END) {
                     throws AnalyzeCrashExeption();
                 }
@@ -43,7 +52,7 @@ namespace Core {
                 currentResult += current;
             }
         }
-        
+
         return currentResult + libraryResult;
     }
 
@@ -57,7 +66,7 @@ namespace Core {
         if (!fileDescriptor) {
             Events::LibraryFileCannotBeFoundErrorEvent event = Events::LibraryFileCannotBeFoundErrorEvent(importName);
             event.share(*broadcaster);
-            
+
             throws AnalyzeCrashExeption(importName);
         }
 
@@ -69,9 +78,16 @@ namespace Core {
 
         file.close();
         fclose(fileDescriptor);
-        
+
         while (symbolFactory.isNextSymbol()) {
-            result += symbolFactory.getNextSymbol();
+            try {
+                result += symbolFactory.getNextSymbol();
+            } catch (AnalyzeCrashExeption exeption) {
+                Events::LitheralIsNotClosedErrorEvent event = Events::LitheralIsNotClosedErrorEvent(exeption.getMessage());
+                event.share(*broadcaster);
+
+                throw;
+            }
         }
 
         return result;

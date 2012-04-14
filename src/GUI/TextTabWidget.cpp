@@ -2,6 +2,7 @@
 #include <QMessageBox>
 #include <QMouseEvent>
 #include <QAction>
+#include <QTimer>
 
 #include "../GUI/TextTabWidget.h"
 
@@ -19,9 +20,12 @@ TextTabWidget::TextTabWidget(QWidget* parent) : QTabWidget(parent) {
 
     tabBar()->setTabButton(0, QTabBar::RightSide, 0);
     tabBar()->installEventFilter(this);
-    
+
     QAction* openTabAction = new QAction(this);
     openTabAction->setShortcut(QKeySequence::AddTab);
+
+    lastTabIndex = 0;
+    lastTabText = "";
 
     connect(openTabAction, SIGNAL(triggered()), this, SLOT(addTabSlot()));
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)));
@@ -36,13 +40,13 @@ TextTabWidget::~TextTabWidget() {
 QTextEdit* TextTabWidget::addTextTab() {
     QTextEdit* textEdit = new QTextEdit();
 
-    connect(textEdit, SIGNAL(textChanged()), this, SLOT(updateTextEditState()));
-
-    QString title = "";
     int tabsCount = count();
     insertTab(tabsCount - 1, textEdit, tr("undefined"));
-
     setCurrentWidget(textEdit);
+
+    QTimer* checkTimer = new QTimer(this);
+    connect(checkTimer, SIGNAL(timeout()), this, SLOT(updateTextEditState()));
+    checkTimer->start(500);
     
     emit onTabAdded(textEdit);
 
@@ -111,12 +115,19 @@ void TextTabWidget::confirmRemovingTab(int tabIndex) {
 }
 
 void TextTabWidget::updateTextEditState() {
-    QTextEdit* target = (QTextEdit*) sender();
+    QTextEdit* target = (QTextEdit*) currentWidget();
 
-    if (editedTextEdits.contains(target)) return;
+    if (currentIndex() == lastTabIndex) {
+        if (target->toPlainText() != lastTabText) {
+            if (!editedTextEdits.contains(target)) {
+                setTabText(indexOf(target), tabText(indexOf(target)) + "*");
+                editedTextEdits.insert(target);
+            }
+        }
+    }
 
-    setTabText(indexOf(target), tabText(indexOf(target)) + "*");
-    editedTextEdits.insert(target);
+    lastTabIndex = currentIndex();
+    lastTabText = target->toPlainText();
 }
 
 void TextTabWidget::tabChanged(int tabIndex) {

@@ -13,6 +13,8 @@ protected:
     QSet<QTextEdit*> editedTextEdits;
     QWidget* nullWidgetForAddButton;
 
+    int lastTabIndex;
+    QString lastTabText;
 public:
     explicit TextTabWidget(QWidget* parent = 0);
     virtual ~TextTabWidget();

@@ -35,9 +35,7 @@ void SyntaxHighlighter::handle(const Events::AnalysingWasStartedEvent& event) {
     dymamicRules.clear();
 }
 
-void SyntaxHighlighter::handle(const Events::AnalysingWasEndedEvent& event) {
-    qDebug("END >>>>>\n");
-}
+void SyntaxHighlighter::handle(const Events::AnalysingWasEndedEvent& event) { }
 
 void SyntaxHighlighter::handle(const Events::SymbolIsNotDefinedErrorEvent& event) {
     dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
@@ -53,7 +51,8 @@ void SyntaxHighlighter::handle(const Events::LibraryFileCannotBeFoundErrorEvent&
 }
 
 void SyntaxHighlighter::handle(const Events::LitheralIsNotClosedErrorEvent& event) {
-    dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+    qDebug(event.getRepresentation().toAscii());
+    dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
 
 }
 
@@ -64,8 +63,6 @@ void SyntaxHighlighter::handle(const Events::DoubleDefenitionErrorEvent& event) 
 void SyntaxHighlighter::handle(const Events::SymbolIsNotUsedErrorEvent& event) {
     dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WARNING_SYMBOL_FORMAT));
 }
-
-
 
 QTextCharFormat SyntaxHighlighter::FormatType::createKeywordSymbolFormat() {
     QTextCharFormat format = QTextCharFormat();
@@ -103,31 +100,43 @@ QTextCharFormat SyntaxHighlighter::FormatType::createWarningSymbolFormat() {
 
 SyntaxHighlighter::SyntaxHighlighter(QTextDocument *parent) : QSyntaxHighlighter(parent), rehighlightTimer(this) {
     connect(&rehighlightTimer, SIGNAL(timeout()), this, SLOT(rehighlight()));
-    rehighlightTimer.start(1000);
+    rehighlightTimer.start(500);
 }
 
 void SyntaxHighlighter::highlightBlock(const QString& text) {
+
     for (QList<SyntaxHighlighter::HighlightRule>::ConstIterator it = dymamicRules.constBegin(), end = dymamicRules.constEnd(); it != end; ++it) {
         QRegExp expression = (*it).pattern;
-
+        
         int index = expression.indexIn(text);
         while (index >= 0) {
             int length = expression.matchedLength();
-            setFormat(index, length, (*it).format);
-            index = expression.indexIn(text, index + length);
-            
             if(length <= 0) 
                 break;
+            
+            QTextCharFormat temp = (*it).format;
+            temp.merge(format(index));
+            
+            setFormat(index, length, temp);
+
+            index = expression.indexIn(text, index + length);
         }
     }
 
     for (QList<SyntaxHighlighter::HighlightRule>::ConstIterator it = staticRules.constBegin(), end = staticRules.constEnd(); it != end; ++it) {
         QRegExp expression = (*it).pattern;
-
+        
         int index = expression.indexIn(text);
         while (index >= 0) {
             int length = expression.matchedLength();
-            setFormat(index, length, (*it).format);
+            if(length <= 0) 
+                break;
+            
+            QTextCharFormat temp = (*it).format;
+            temp.merge(format(index));
+            
+            setFormat(index, length, temp);
+
             index = expression.indexIn(text, index + length);
         }
     }
@@ -151,6 +160,7 @@ QList<SyntaxHighlighter::HighlightRule> SyntaxHighlighter::initStaticRules() {
 }
 
 MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags) : QMainWindow(parent, flags), filesMap(), analyzersMap(), analyzeTimer(this) {
+
     setWindowTitle(trUtf8("Cинтаксический анализатор"));
 
     QMenuBar* menuBar = new QMenuBar();
@@ -163,14 +173,14 @@ MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags) : QMainWindow(par
     QAction* exitAction = new QAction(trUtf8("Выход"), fileMenu);
 
     QAction* analyzeAction = new QAction(trUtf8("Проверить"), toolsMenu);
-    
+
     openFileAction->setShortcut(QKeySequence::Open);
     saveFileAction->setShortcut(QKeySequence::Save);
     saveFileAsAction->setShortcut(QKeySequence::SaveAs);
-    exitAction->setShortcut(QKeySequence::Quit);    
+    exitAction->setShortcut(QKeySequence::Quit);
 
-    analyzeAction->setShortcut(QKeySequence(Qt::Key_F6));    
-    
+    analyzeAction->setShortcut(QKeySequence(Qt::Key_F6));
+
     connect(openFileAction, SIGNAL(triggered()), this, SLOT(openFile()));
     connect(saveFileAsAction, SIGNAL(triggered()), this, SLOT(saveFileAs()));
     connect(saveFileAction, SIGNAL(triggered()), this, SLOT(saveFile()));
@@ -200,6 +210,7 @@ MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags) : QMainWindow(par
 }
 
 MainWindow::~MainWindow() {
+
     delete tabsWidget;
 }
 
@@ -208,7 +219,8 @@ void MainWindow::openFile() {
             this,
             trUtf8("Открыть файл"),
             QDir::currentPath(),
-            trUtf8("Файлы грамматик(*.lng)"));
+            trUtf8("Файлы грамматик(*.lng)")
+            );
 
     if (pathToFile == "") return;
 
@@ -216,6 +228,7 @@ void MainWindow::openFile() {
 
     if (!file.open(QFile::ReadOnly | QFile::Text)) {
         QMessageBox::warning(this, trUtf8("Ошибка отрытия файла"), trUtf8("Невозможно открыть файл"));
+
         return;
     }
 
@@ -241,6 +254,7 @@ void MainWindow::saveFile() {
 
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(this, trUtf8("Ошибка отрытия файла"), trUtf8("Невозможно открыть файл"));
+
         return;
     }
 
@@ -258,7 +272,7 @@ void MainWindow::saveFileAs() {
             trUtf8("Открыть файл"),
             QDir::currentPath(),
             trUtf8("Файлы грамматик(*.lng)")
-    );
+            );
 
 
     if (pathToFile == "") return;
@@ -266,6 +280,7 @@ void MainWindow::saveFileAs() {
     QFile file(pathToFile);
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(this, trUtf8("Ошибка отрытия файла"), trUtf8("Невозможно открыть файл"));
+
         return;
     }
 
@@ -278,6 +293,7 @@ void MainWindow::saveFileAs() {
 }
 
 void MainWindow::analyze() {
+
     QTextEdit* target = tabsWidget->getTab(tabsWidget->getCurrentTabIndex());
 
     analyzersMap.value(target)->analyze(target->toPlainText());
@@ -295,5 +311,5 @@ void MainWindow::initTextEdit(QTextEdit* textEdit) {
     tabsWidget->markTabAsSaved(tabsWidget->indexOf(textEdit));
 
     connect(&analyzeTimer, SIGNAL(timeout()), this, SLOT(analyze()));
-    //analyzeTimer.start(1000);
+    analyzeTimer.start(1000);
 }

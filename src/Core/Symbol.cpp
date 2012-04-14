@@ -1,4 +1,5 @@
 #include "Symbol.h"
+#include "src/Events/Event.h"
 
 #include <iostream>
 

@@ -35,7 +35,7 @@ private:
     };
 
     struct HighlightRule {
-        HighlightRule(const QString& pattern, const QTextCharFormat & format) : pattern(QRegExp(pattern)), format(format) { }
+        HighlightRule(const QString& pattern, const QTextCharFormat& format) : pattern(QRegExp(pattern)), format(format) { }
 
         QRegExp pattern;
         QTextCharFormat format;
