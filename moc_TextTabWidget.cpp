@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'TextTabWidget.h'
 **
-** Created: Fri Apr 13 01:31:27 2012
+** Created: Sat Apr 14 15:06:55 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_TextTabWidget[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -34,17 +34,18 @@ static const uint qt_meta_data_TextTabWidget[] = {
       24,   15,   14,   14, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      56,   47,   14,   14, 0x09,
-      72,   14,   14,   14, 0x09,
-      94,   47,   14,   14, 0x09,
+      47,   14,   14,   14, 0x09,
+      69,   60,   14,   14, 0x09,
+      85,   14,   14,   14, 0x09,
+     107,   60,   14,   14, 0x09,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_TextTabWidget[] = {
     "TextTabWidget\0\0textEdit\0onTabAdded(QTextEdit*)\0"
-    "tabIndex\0tabChanged(int)\0updateTextEditState()\0"
-    "confirmRemovingTab(int)\0"
+    "addTabSlot()\0tabIndex\0tabChanged(int)\0"
+    "updateTextEditState()\0confirmRemovingTab(int)\0"
 };
 
 const QMetaObject TextTabWidget::staticMetaObject = {
@@ -77,12 +78,13 @@ int TextTabWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: onTabAdded((*reinterpret_cast< QTextEdit*(*)>(_a[1]))); break;
-        case 1: tabChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: updateTextEditState(); break;
-        case 3: confirmRemovingTab((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: addTabSlot(); break;
+        case 2: tabChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: updateTextEditState(); break;
+        case 4: confirmRemovingTab((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

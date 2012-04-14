@@ -239,7 +239,7 @@ public:
 
                 nodesStack.push(root);
 
-                while (!nodesStack.empty()) {
+                while (!nodesStack.isEmpty()) {
                     Node* current = nodesStack.pop();
                     if (current->data) {
                         Tree<T> provider = Tree<T > (current);
@@ -258,7 +258,7 @@ public:
                 QQueue<Node*> nodesQueue = QQueue<Node*>();
                 nodesQueue.push_back(root);
 
-                while (!nodesQueue.empty()) {
+                while (!nodesQueue.isEmpty()) {
                     Node* current = nodesQueue.front();
                     nodesQueue.pop_front();
 
@@ -296,7 +296,7 @@ public:
 
                 nodesStack.push(root);
 
-                while (!nodesStack.empty()) {
+                while (!nodesStack.isEmpty()) {
                     Node* current = nodesStack.pop();
                     if (current->data) {
                         Tree<T> provider = Tree<T > (current);
@@ -315,7 +315,7 @@ public:
                 QQueue<Node*> nodesQueue = QQueue<Node*>();
                 nodesQueue.push_back(root);
 
-                while (!nodesQueue.empty()) {
+                while (!nodesQueue.isEmpty()) {
                     Node* current = nodesQueue.front();
                     nodesQueue.pop_front();
 
@@ -354,7 +354,7 @@ public:
         nodesQueue.push_back(root);
         newNodesQueue.push_back(newTree.root);
 
-        while (!nodesQueue.empty()) {
+        while (!nodesQueue.isEmpty()) {
             Node* current = nodesQueue.front();
             Node* newCurrent = newNodesQueue.front();
 
@@ -395,7 +395,7 @@ public:
         nodesQueue.push_back(root);
         newNodesQueue.push_back(newTree.root);
 
-        while (!nodesQueue.empty()) {
+        while (!nodesQueue.isEmpty()) {
             typename Tree<T>::Node* current = nodesQueue.front();
             typename Tree<ResultType>::Node* newCurrent = newNodesQueue.front();
 
@@ -434,7 +434,7 @@ public:
 
         nodesStack.push(root);
 
-        while (!nodesStack.empty()) {
+        while (!nodesStack.isEmpty()) {
             Node* current = nodesStack.pop();
 
             if (current->next) {

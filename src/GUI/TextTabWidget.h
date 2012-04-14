@@ -35,6 +35,7 @@ signals:
 public slots:
 
 protected slots:
+    void addTabSlot();
     void tabChanged(int tabIndex);
     void updateTextEditState();
     void confirmRemovingTab(int tabIndex);

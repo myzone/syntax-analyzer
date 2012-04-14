@@ -11,7 +11,7 @@ namespace Core {
 
     TreeAnalyzer::~TreeAnalyzer() { }
 
-    void TreeAnalyzer::analyzeTree(const Tree<Symbol>& tree) const {
+    void TreeAnalyzer::analyzeTree(const Tree<Symbol>& tree) const throws(AnalyzeCrashExeption) {
         TreeConverter treeConverter;
         tree.traverse(treeConverter);
         QList<Tree<Symbol> > nodes = treeConverter.getNodes();
@@ -26,7 +26,11 @@ namespace Core {
 
             if (!(*it).isLeaf()) {
                 for (unsigned int i = 0; i < (*it).get().getType().getArgsNumber(); i++) {
-                    args.append(cache[(*it)[i].get().getId()]);
+                    try {
+                        args.append(cache[(*it)[i].get().getId()]);
+                    } catch (Tree<Symbol>::OutOfBoundsExeption exeption) {
+                        throw AnalyzeCrashExeption();
+                    }
                 }
             }
 

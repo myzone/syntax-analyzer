@@ -28,7 +28,6 @@ namespace Core {
             throw AnalyzeCrashExeption();
         }
 
-
         QMap<QString, QList<Symbol> >::Iterator it = linesMap.find(MAIN_SYMBOL);
         QList<Symbol> value = *it;
         linesMap.erase(it);
@@ -65,12 +64,12 @@ namespace Core {
 
         }
 
-        for (QSet<QString>::ConstIterator it = notDefinedSymbolsSet.begin(); it != notDefinedSymbolsSet.end(); ++it) {
+        for (QSet<QString>::ConstIterator it = notDefinedSymbolsSet.constBegin(); it != notDefinedSymbolsSet.constEnd(); ++it) {
             Events::SymbolIsNotDefinedErrorEvent event = Events::SymbolIsNotDefinedErrorEvent(*it);
             event.share(*broadcaster);
         }
 
-        for (QSet<QString>::ConstIterator it = notUsedSymbolsSet.begin(); it != notUsedSymbolsSet.end(); ++it) {
+        for (QSet<QString>::ConstIterator it = notUsedSymbolsSet.constBegin(); it != notUsedSymbolsSet.constEnd(); ++it) {
             Events::SymbolIsNotUsedErrorEvent event = Events::SymbolIsNotUsedErrorEvent(*it);
             event.share(*broadcaster);
         }
@@ -98,7 +97,7 @@ namespace Core {
             while (true) {
                 if (it == end)
                     return linesMap;
-                
+
                 if ((*it).getType() == Symbol::SymbolType::DEFINE_END)
                     break;
 
@@ -133,15 +132,21 @@ namespace Core {
         positions.push(tree.get().getType().getArgsNumber());
 
         for (int i = line.size() - 1; i >= 0; i--) {
-            while (!tree.isRoot() && positions.top() <= 0) {
+            while (!tree.isRoot()) {
+                if (positions.isEmpty())
+                    throws AnalyzeCrashExeption();
+
+                if (positions.top() > 0)
+                    break;
+
                 tree = tree.getSupertree();
                 positions.pop();
+
             }
 
             tree[positions.top() - 1] = line[i];
             tree[positions.top() - 1].get().setId(tree.get().getId()+(char) (positions.top() + 98));
             positions.top()--;
-
 
             if (line[i].getType() == Symbol::SymbolType::AND
                     || line[i].getType() == Symbol::SymbolType::OR) {
@@ -155,7 +160,7 @@ namespace Core {
         QList<Symbol> result = QList<Symbol > ();
         QStack<Symbol> stack = QStack<Symbol > ();
 
-        for (QList<Symbol>::ConstIterator it = line.begin(), end = line.end(); it != end; ++it) {
+        for (QList<Symbol>::ConstIterator it = line.constBegin(), end = line.constEnd(); it != end; ++it) {
             if ((*it).getType() == Symbol::SymbolType::LITHERAL
                     || (*it).getType() == Symbol::SymbolType::IDENTYFIER) {
                 result.append(*it);
@@ -164,7 +169,7 @@ namespace Core {
                     stack.push(*it);
                 } else if ((*it).getType() == Symbol::SymbolType::CLOSE_BRACKET) {
                     while (true) {
-                        if (stack.empty()) {
+                        if (stack.isEmpty()) {
                             Events::WrongBracketsNumberErrorEvent event = Events::WrongBracketsNumberErrorEvent();
                             event.share(*broadcaster);
                             throw AnalyzeCrashExeption((*it).getRepresentation());
@@ -175,7 +180,7 @@ namespace Core {
                         result.append(top);
                     }
                 } else {
-                    while (!stack.empty() && (*it).getType().getPriority() <= stack.top().getType().getPriority()) {
+                    while (!stack.isEmpty() && (*it).getType().getPriority() <= stack.top().getType().getPriority()) {
                         result.append(stack.pop());
                     }
                     stack.push(*it);
@@ -183,7 +188,7 @@ namespace Core {
             }
         }
 
-        while (!stack.empty()) {
+        while (!stack.isEmpty()) {
             Symbol top = stack.pop();
             if (top.getType() == Symbol::SymbolType::OPEN_BRACKET
                     || top.getType() == Symbol::SymbolType::CLOSE_BRACKET) {

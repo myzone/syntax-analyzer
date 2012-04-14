@@ -33,13 +33,12 @@ int main(int argc, char** argv) {
     Analyzer an = Analyzer("/home/myzone/Рабочий стол/");
     an.addErrorEventListener(new Events::EventListener());
     
-    QFile file;
-    file.open(fopen("/home/myzone/Рабочий стол/self.lng", "rt"), QFile::ReadOnly | QFile::Text);
-
-    an.analyze(file.readAll());
+    an.analyze("main -> a;a -> a|;");
+   
 
     std::cout << "End\n";
     return 0;*/
+    
     QApplication app(argc, argv);
     
     MainWindow mainWindow;

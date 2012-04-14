@@ -24,12 +24,14 @@ private:
         static const FormatType KEYWORD_SYMBOLS_FORMAT;
         static const FormatType QUOTED_STRING_FORMAT;
         static const FormatType WRONG_SYMBOL_FORMAT;
+        static const FormatType WARNING_SYMBOL_FORMAT;
 
     protected:
         static QTextCharFormat createKeywordFormat();
         static QTextCharFormat createKeywordSymbolFormat();
         static QTextCharFormat createQuotedStringFormat();
         static QTextCharFormat createWrongSymbolFormat();
+        static QTextCharFormat createWarningSymbolFormat();
     };
 
     struct HighlightRule {
@@ -47,12 +49,15 @@ public:
     SyntaxHighlighter(QTextDocument *parent = 0);
 
     void handle(const Events::AnalysingWasStartedEvent& event);
+    void handle(const Events::AnalysingWasEndedEvent& event);
     
     void handle(const Events::SymbolIsNotDefinedErrorEvent& event);
     void handle(const Events::SymbolHasMistakeErrorEvent& event);
     void handle(const Events::LibraryFileCannotBeFoundErrorEvent& event);
     void handle(const Events::LitheralIsNotClosedErrorEvent& event);
     void handle(const Events::DoubleDefenitionErrorEvent& event);
+    
+    void handle(const Events::SymbolIsNotUsedErrorEvent& event);
     
 protected:
     void highlightBlock(const QString &text);

@@ -1,6 +1,7 @@
 #include <QTabBar>
 #include <QMessageBox>
 #include <QMouseEvent>
+#include <QAction>
 
 #include "../GUI/TextTabWidget.h"
 
@@ -18,7 +19,11 @@ TextTabWidget::TextTabWidget(QWidget* parent) : QTabWidget(parent) {
 
     tabBar()->setTabButton(0, QTabBar::RightSide, 0);
     tabBar()->installEventFilter(this);
+    
+    QAction* openTabAction = new QAction(this);
+    openTabAction->setShortcut(QKeySequence::AddTab);
 
+    connect(openTabAction, SIGNAL(triggered()), this, SLOT(addTabSlot()));
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)));
     connect(this, SIGNAL(tabCloseRequested(int)), this, SLOT(confirmRemovingTab(int)));
 }
@@ -122,4 +127,8 @@ void TextTabWidget::tabChanged(int tabIndex) {
             setCurrentIndex(tabIndex - 1);
         }
     }
+}
+
+void TextTabWidget::addTabSlot() {
+    addTextTab();
 }

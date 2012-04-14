@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QBrush>
 #include <QTimer>
+#include <QKeySequence>
 
 #include "../GUI/MainWindow.h"
 
@@ -13,6 +14,7 @@ const SyntaxHighlighter::FormatType SyntaxHighlighter::FormatType::KEYWORD_FORMA
 const SyntaxHighlighter::FormatType SyntaxHighlighter::FormatType::KEYWORD_SYMBOLS_FORMAT = SyntaxHighlighter::FormatType(createKeywordSymbolFormat());
 const SyntaxHighlighter::FormatType SyntaxHighlighter::FormatType::QUOTED_STRING_FORMAT = SyntaxHighlighter::FormatType(createQuotedStringFormat());
 const SyntaxHighlighter::FormatType SyntaxHighlighter::FormatType::WRONG_SYMBOL_FORMAT = SyntaxHighlighter::FormatType(createWrongSymbolFormat());
+const SyntaxHighlighter::FormatType SyntaxHighlighter::FormatType::WARNING_SYMBOL_FORMAT = SyntaxHighlighter::FormatType(createWarningSymbolFormat());
 
 SyntaxHighlighter::FormatType::FormatType() : Enum<QTextCharFormat>() { }
 
@@ -31,6 +33,10 @@ QTextCharFormat SyntaxHighlighter::FormatType::createKeywordFormat() {
 
 void SyntaxHighlighter::handle(const Events::AnalysingWasStartedEvent& event) {
     dymamicRules.clear();
+}
+
+void SyntaxHighlighter::handle(const Events::AnalysingWasEndedEvent& event) {
+    qDebug("END >>>>>\n");
 }
 
 void SyntaxHighlighter::handle(const Events::SymbolIsNotDefinedErrorEvent& event) {
@@ -55,6 +61,12 @@ void SyntaxHighlighter::handle(const Events::DoubleDefenitionErrorEvent& event) 
     dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
 }
 
+void SyntaxHighlighter::handle(const Events::SymbolIsNotUsedErrorEvent& event) {
+    dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WARNING_SYMBOL_FORMAT));
+}
+
+
+
 QTextCharFormat SyntaxHighlighter::FormatType::createKeywordSymbolFormat() {
     QTextCharFormat format = QTextCharFormat();
 
@@ -75,6 +87,15 @@ QTextCharFormat SyntaxHighlighter::FormatType::createWrongSymbolFormat() {
     QTextCharFormat format = QTextCharFormat();
 
     format.setUnderlineColor(Qt::red);
+    format.setUnderlineStyle(QTextCharFormat::WaveUnderline);
+
+    return format;
+}
+
+QTextCharFormat SyntaxHighlighter::FormatType::createWarningSymbolFormat() {
+    QTextCharFormat format = QTextCharFormat();
+
+    format.setUnderlineColor(Qt::yellow);
     format.setUnderlineStyle(QTextCharFormat::WaveUnderline);
 
     return format;
@@ -142,7 +163,14 @@ MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags) : QMainWindow(par
     QAction* exitAction = new QAction(trUtf8("Выход"), fileMenu);
 
     QAction* analyzeAction = new QAction(trUtf8("Проверить"), toolsMenu);
+    
+    openFileAction->setShortcut(QKeySequence::Open);
+    saveFileAction->setShortcut(QKeySequence::Save);
+    saveFileAsAction->setShortcut(QKeySequence::SaveAs);
+    exitAction->setShortcut(QKeySequence::Quit);    
 
+    analyzeAction->setShortcut(QKeySequence(Qt::Key_F6));    
+    
     connect(openFileAction, SIGNAL(triggered()), this, SLOT(openFile()));
     connect(saveFileAsAction, SIGNAL(triggered()), this, SLOT(saveFileAs()));
     connect(saveFileAction, SIGNAL(triggered()), this, SLOT(saveFile()));
@@ -229,7 +257,8 @@ void MainWindow::saveFileAs() {
             this,
             trUtf8("Открыть файл"),
             QDir::currentPath(),
-            trUtf8("Файлы грамматик(*.lng)"));
+            trUtf8("Файлы грамматик(*.lng)")
+    );
 
 
     if (pathToFile == "") return;
@@ -266,5 +295,5 @@ void MainWindow::initTextEdit(QTextEdit* textEdit) {
     tabsWidget->markTabAsSaved(tabsWidget->indexOf(textEdit));
 
     connect(&analyzeTimer, SIGNAL(timeout()), this, SLOT(analyze()));
-    analyzeTimer.start(1000);
+    //analyzeTimer.start(1000);
 }

@@ -1,0 +1,15 @@
+S -> (("#" preProcCom)|) func ;
+
+preProcCom -> ("include" ("<"|"\"") "text" ("\""|">") | "define" "text" ("text"| )) (("#" preProcCom)|);
+
+func -> "type" "text" "(" arg ")" "{" funcBoby "}"; 
+
+arg-> (|("type" "text") ("," arg|));
+
+
+#include <asdasd>
+#define asd asd
+
+int main() {
+
+}

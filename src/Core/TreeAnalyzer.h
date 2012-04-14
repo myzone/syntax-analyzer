@@ -41,7 +41,7 @@ namespace Core {
         TreeAnalyzer(Events::EventBroadcaster* broadcaster);
         virtual ~TreeAnalyzer();
 
-        void analyzeTree(const Tree<Symbol>& tree) const;
+        void analyzeTree(const Tree<Symbol>& tree) const throws(AnalyzeCrashExeption);
     };
 
 }
