@@ -51,9 +51,7 @@ void SyntaxHighlighter::handle(const Events::LibraryFileCannotBeFoundErrorEvent&
 }
 
 void SyntaxHighlighter::handle(const Events::LitheralIsNotClosedErrorEvent& event) {
-    qDebug(event.getRepresentation().toAscii());
     dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
-
 }
 
 void SyntaxHighlighter::handle(const Events::DoubleDefenitionErrorEvent& event) {
