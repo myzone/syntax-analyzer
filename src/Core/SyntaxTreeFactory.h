@@ -17,8 +17,7 @@ namespace Core {
     private:
         Events::EventBroadcaster* broadcaster;
 
-        SyntaxTreeFactory() {
-        }
+        SyntaxTreeFactory() { }
 
     public:
         SyntaxTreeFactory(Events::EventBroadcaster* broadcaster);
@@ -29,7 +28,7 @@ namespace Core {
         QSet<QString> createLinesSet(const QMap<QString, QList<Symbol> >& map) const;
         void processLine(const QList<Symbol>& line, Tree<Symbol> tree) const throws(AnalyzeCrashExeption);
         QList<Symbol> toPostfixSymbolsList(const QList<Symbol>& line) const throws(AnalyzeCrashExeption);
-
+        
         class TreeProcessor : public Tree<Symbol>::DataProcessor {
         private:
             mutable QList<Tree<Symbol> > nodes;

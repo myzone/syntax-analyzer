@@ -19,38 +19,38 @@ namespace Core {
         QList<Symbol> libraryResult = QList<Symbol > ();
         QList<Symbol> currentResult = QList<Symbol > ();
 
-        SymbolFactory symbolFactory = SymbolFactory(source);
+        BufferedFilteredSymbolFactory symbolFactory = BufferedFilteredSymbolFactory(source);
         while (symbolFactory.isNextSymbol()) {
             Symbol current;
 
             try {
                 current = symbolFactory.getNextSymbol();
             } catch (AnalyzeCrashExeption exeption) {
-                Events::LitheralIsNotClosedErrorEvent event = Events::LitheralIsNotClosedErrorEvent(exeption.getMessage());
+                Events::SymbolIsNotClosedErrorEvent event = Events::SymbolIsNotClosedErrorEvent(exeption.getMessage());
                 event.share(*broadcaster);
 
                 throw;
             }
 
-            if (current.getType() == Symbol::SymbolType::IDENTYFIER
-                    && current.getRepresentation() == IMPORT_DERECTIVE) {
+            try {
+                if (current.getType() == Symbol::SymbolType::IDENTYFIER
+                        && current.getRepresentation() == IMPORT_DERECTIVE) {
 
-                if (!symbolFactory.isNextSymbol()) throws AnalyzeCrashExeption();
+                    symbolFactory.getNextSymbol(); // skip AND symbol
 
-                symbolFactory.getNextSymbol(); // skip AND symbol
+                    libraryResult += import(symbolFactory.getNextSymbol().getRepresentation());
 
-                if (!symbolFactory.isNextSymbol()) throws AnalyzeCrashExeption();
+                    if (symbolFactory.getNextSymbol().getType() != Symbol::SymbolType::DEFINE_END)
+                        throw AnalyzeCrashExeption();
 
-                libraryResult += import(symbolFactory.getNextSymbol().getRepresentation());
-
-
-                if (!symbolFactory.isNextSymbol() || symbolFactory.getNextSymbol().getType() != Symbol::SymbolType::DEFINE_END) {
-                    throws AnalyzeCrashExeption();
+                    continue;
                 }
-
-            } else {
-                currentResult += current;
+            } catch (WarningExeption) {
+                 throw AnalyzeCrashExeption();
             }
+
+            currentResult += current;
+
         }
 
         return currentResult + libraryResult;
@@ -73,22 +73,19 @@ namespace Core {
         QFile file;
         file.open(fileDescriptor, QFile::ReadOnly | QFile::Text);
 
-        QList<Symbol> result = QList<Symbol > ();
-        SymbolFactory symbolFactory = SymbolFactory(file.readAll());
+        QList<Symbol> result;
+
+        try {
+            result = process(file.readAll());
+        } catch (AnalyzeCrashExeption) {
+            Events::LibraryFileHasMistakeErrorEvent event = Events::LibraryFileHasMistakeErrorEvent(importName);
+            event.share(*broadcaster);
+
+            throw;
+        }
 
         file.close();
         fclose(fileDescriptor);
-
-        while (symbolFactory.isNextSymbol()) {
-            try {
-                result += symbolFactory.getNextSymbol();
-            } catch (AnalyzeCrashExeption exeption) {
-                Events::LitheralIsNotClosedErrorEvent event = Events::LitheralIsNotClosedErrorEvent(exeption.getMessage());
-                event.share(*broadcaster);
-
-                throw;
-            }
-        }
 
         return result;
     }

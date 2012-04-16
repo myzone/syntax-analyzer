@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QString>
+#include <QThread>
 
 #include "../defines.h"
 
@@ -58,12 +59,14 @@ namespace Events {
     DECLARE_EVENT_SUBCLASS(AnalysingWasEndedEvent);
     
     DECLARE_ERROR_EVENT_SUBCLASS(LibraryFileCannotBeFoundErrorEvent);
+    DECLARE_ERROR_EVENT_SUBCLASS(LibraryFileHasMistakeErrorEvent);
 
     DECLARE_ERROR_EVENT_SUBCLASS(DoubleDefenitionErrorEvent);
     DECLARE_ERROR_EVENT_SUBCLASS(SymbolIsNotUsedErrorEvent);
     DECLARE_ERROR_EVENT_SUBCLASS(SymbolIsNotDefinedErrorEvent);
     DECLARE_ERROR_EVENT_SUBCLASS(SymbolHasMistakeErrorEvent);
+    DECLARE_ERROR_EVENT_SUBCLASS(WrongSymbolDefinitionErrorEvent);
     
-    DECLARE_ERROR_EVENT_SUBCLASS(LitheralIsNotClosedErrorEvent);
+    DECLARE_ERROR_EVENT_SUBCLASS(SymbolIsNotClosedErrorEvent);
     DECLARE_ERROR_EVENT_SUBCLASS(WrongBracketsNumberErrorEvent);
 }

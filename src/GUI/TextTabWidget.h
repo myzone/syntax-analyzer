@@ -6,40 +6,43 @@
 #include <QSet>
 #include <QEvent>
 
-class TextTabWidget : public QTabWidget {
-    Q_OBJECT
+namespace GUI {
 
-protected:
-    QSet<QTextEdit*> editedTextEdits;
-    QWidget* nullWidgetForAddButton;
+    class TextTabWidget : public QTabWidget {
+        Q_OBJECT
 
-    int lastTabIndex;
-    QString lastTabText;
-public:
-    explicit TextTabWidget(QWidget* parent = 0);
-    virtual ~TextTabWidget();
+    protected:
+        QSet<QTextEdit*> editedTextEdits;
+        QWidget* nullWidgetForAddButton;
 
-    QTextEdit* addTextTab();
-    
-    void markTabAsSaved(int tabIndex);
-    bool isTabSaved(int tabIndex);
-    
-    void renameTab(int tabIndex, const QString& newTabName);
-                
-    QTextEdit* getTab(int tabIndex);
-    int getCurrentTabIndex();
+        int lastTabIndex;
+        QString lastTabText;
+    public:
+        explicit TextTabWidget(QWidget* parent = 0);
+        virtual ~TextTabWidget();
 
-    bool eventFilter(QObject* object, QEvent* event);
+        QTextEdit* addTextTab();
 
-signals:
-    void onTabAdded(QTextEdit* textEdit);
+        void markTabAsSaved(int tabIndex);
+        bool isTabSaved(int tabIndex);
 
-public slots:
+        void renameTab(int tabIndex, const QString& newTabName);
 
-protected slots:
-    void addTabSlot();
-    void tabChanged(int tabIndex);
-    void updateTextEditState();
-    void confirmRemovingTab(int tabIndex);
-};
+        QTextEdit* getTab(int tabIndex);
+        int getCurrentTabIndex();
 
+        bool eventFilter(QObject* object, QEvent* event);
+
+    signals:
+        void onTabAdded(QTextEdit* textEdit);
+
+    public slots:
+
+    protected slots:
+        void addTabSlot();
+        void tabChanged(int tabIndex);
+        void updateTextEditState();
+        void confirmRemovingTab(int tabIndex);
+    };
+
+}

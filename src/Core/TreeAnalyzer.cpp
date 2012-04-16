@@ -20,12 +20,12 @@ namespace Core {
         QMap<QString, bool> wrongSymbols = QMap<QString, bool>();
 
         for (QList<Tree<Symbol> >::Iterator it = nodes.begin(); it != nodes.end(); ++it) {
-            if ((*it).isEmpty()) continue;
+            if (it->isEmpty()) continue;
 
             QList<bool> args = QList<bool>();
 
-            if (!(*it).isLeaf()) {
-                for (unsigned int i = 0; i < (*it).get().getType().getArgsNumber(); i++) {
+            if (!it->isLeaf()) {
+                for (unsigned int i = 0; i < it->get().getType().getArgsNumber(); i++) {
                     try {
                         args.append(cache[(*it)[i].get().getId()]);
                     } catch (Tree<Symbol>::OutOfBoundsExeption exeption) {
@@ -47,7 +47,7 @@ namespace Core {
             }
         }
 
-        for (QMap < QString, bool>::ConstIterator it = wrongSymbols.begin(); it != wrongSymbols.end(); ++it) {
+        for (QMap < QString, bool>::ConstIterator it = wrongSymbols.constBegin(), end = wrongSymbols.constEnd(); it != end; ++it) {
             if (!*it) {
                 Events::SymbolHasMistakeErrorEvent event = Events::SymbolHasMistakeErrorEvent(it.key());
                 event.share(*broadcaster);

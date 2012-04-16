@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'MainWindow.h'
 **
-** Created: Sun Apr 15 01:59:02 2012
+** Created: Tue Apr 17 00:36:39 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_SyntaxHighlighter[] = {
+static const uint qt_meta_data_GUI__SyntaxHighlighter[] = {
 
  // content:
        5,       // revision
@@ -33,42 +33,42 @@ static const uint qt_meta_data_SyntaxHighlighter[] = {
        0        // eod
 };
 
-static const char qt_meta_stringdata_SyntaxHighlighter[] = {
-    "SyntaxHighlighter\0"
+static const char qt_meta_stringdata_GUI__SyntaxHighlighter[] = {
+    "GUI::SyntaxHighlighter\0"
 };
 
-const QMetaObject SyntaxHighlighter::staticMetaObject = {
-    { &QSyntaxHighlighter::staticMetaObject, qt_meta_stringdata_SyntaxHighlighter,
-      qt_meta_data_SyntaxHighlighter, 0 }
+const QMetaObject GUI::SyntaxHighlighter::staticMetaObject = {
+    { &QSyntaxHighlighter::staticMetaObject, qt_meta_stringdata_GUI__SyntaxHighlighter,
+      qt_meta_data_GUI__SyntaxHighlighter, 0 }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &SyntaxHighlighter::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &GUI::SyntaxHighlighter::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *SyntaxHighlighter::metaObject() const
+const QMetaObject *GUI::SyntaxHighlighter::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *SyntaxHighlighter::qt_metacast(const char *_clname)
+void *GUI::SyntaxHighlighter::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_SyntaxHighlighter))
+    if (!strcmp(_clname, qt_meta_stringdata_GUI__SyntaxHighlighter))
         return static_cast<void*>(const_cast< SyntaxHighlighter*>(this));
     if (!strcmp(_clname, "Events::EventListener"))
         return static_cast< Events::EventListener*>(const_cast< SyntaxHighlighter*>(this));
     return QSyntaxHighlighter::qt_metacast(_clname);
 }
 
-int SyntaxHighlighter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int GUI::SyntaxHighlighter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QSyntaxHighlighter::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     return _id;
 }
-static const uint qt_meta_data_MainWindow[] = {
+static const uint qt_meta_data_GUI__MainWindow[] = {
 
  // content:
        5,       // revision
@@ -82,44 +82,44 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-      12,   11,   11,   11, 0x08,
-      23,   11,   11,   11, 0x08,
-      36,   11,   11,   11, 0x08,
-      47,   11,   11,   11, 0x08,
-      66,   57,   11,   11, 0x08,
+      17,   16,   16,   16, 0x08,
+      28,   16,   16,   16, 0x08,
+      41,   16,   16,   16, 0x08,
+      52,   16,   16,   16, 0x08,
+      71,   62,   16,   16, 0x08,
 
        0        // eod
 };
 
-static const char qt_meta_stringdata_MainWindow[] = {
-    "MainWindow\0\0saveFile()\0saveFileAs()\0"
+static const char qt_meta_stringdata_GUI__MainWindow[] = {
+    "GUI::MainWindow\0\0saveFile()\0saveFileAs()\0"
     "openFile()\0analyze()\0textEdit\0"
     "initTextEdit(QTextEdit*)\0"
 };
 
-const QMetaObject MainWindow::staticMetaObject = {
-    { &QMainWindow::staticMetaObject, qt_meta_stringdata_MainWindow,
-      qt_meta_data_MainWindow, 0 }
+const QMetaObject GUI::MainWindow::staticMetaObject = {
+    { &QMainWindow::staticMetaObject, qt_meta_stringdata_GUI__MainWindow,
+      qt_meta_data_GUI__MainWindow, 0 }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &MainWindow::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &GUI::MainWindow::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *MainWindow::metaObject() const
+const QMetaObject *GUI::MainWindow::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *MainWindow::qt_metacast(const char *_clname)
+void *GUI::MainWindow::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_MainWindow))
+    if (!strcmp(_clname, qt_meta_stringdata_GUI__MainWindow))
         return static_cast<void*>(const_cast< MainWindow*>(this));
     return QMainWindow::qt_metacast(_clname);
 }
 
-int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int GUI::MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)

@@ -31,8 +31,9 @@ namespace Events {
         DECLARE_HANDLE_METHOD(SymbolIsNotUsedErrorEvent);
         DECLARE_HANDLE_METHOD(SymbolIsNotDefinedErrorEvent);
         DECLARE_HANDLE_METHOD(SymbolHasMistakeErrorEvent);
+        DECLARE_HANDLE_METHOD(WrongSymbolDefinitionErrorEvent);
 
-        DECLARE_HANDLE_METHOD(LitheralIsNotClosedErrorEvent);
+        DECLARE_HANDLE_METHOD(SymbolIsNotClosedErrorEvent);
         DECLARE_HANDLE_METHOD(WrongBracketsNumberErrorEvent);
     };
 

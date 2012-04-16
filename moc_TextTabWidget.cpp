@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'TextTabWidget.h'
 **
-** Created: Sun Apr 15 01:04:25 2012
+** Created: Mon Apr 16 00:57:12 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_TextTabWidget[] = {
+static const uint qt_meta_data_GUI__TextTabWidget[] = {
 
  // content:
        5,       // revision
@@ -31,46 +31,47 @@ static const uint qt_meta_data_TextTabWidget[] = {
        1,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
-      24,   15,   14,   14, 0x05,
+      29,   20,   19,   19, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      47,   14,   14,   14, 0x09,
-      69,   60,   14,   14, 0x09,
-      85,   14,   14,   14, 0x09,
-     107,   60,   14,   14, 0x09,
+      52,   19,   19,   19, 0x09,
+      74,   65,   19,   19, 0x09,
+      90,   19,   19,   19, 0x09,
+     112,   65,   19,   19, 0x09,
 
        0        // eod
 };
 
-static const char qt_meta_stringdata_TextTabWidget[] = {
-    "TextTabWidget\0\0textEdit\0onTabAdded(QTextEdit*)\0"
-    "addTabSlot()\0tabIndex\0tabChanged(int)\0"
-    "updateTextEditState()\0confirmRemovingTab(int)\0"
+static const char qt_meta_stringdata_GUI__TextTabWidget[] = {
+    "GUI::TextTabWidget\0\0textEdit\0"
+    "onTabAdded(QTextEdit*)\0addTabSlot()\0"
+    "tabIndex\0tabChanged(int)\0updateTextEditState()\0"
+    "confirmRemovingTab(int)\0"
 };
 
-const QMetaObject TextTabWidget::staticMetaObject = {
-    { &QTabWidget::staticMetaObject, qt_meta_stringdata_TextTabWidget,
-      qt_meta_data_TextTabWidget, 0 }
+const QMetaObject GUI::TextTabWidget::staticMetaObject = {
+    { &QTabWidget::staticMetaObject, qt_meta_stringdata_GUI__TextTabWidget,
+      qt_meta_data_GUI__TextTabWidget, 0 }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &TextTabWidget::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &GUI::TextTabWidget::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *TextTabWidget::metaObject() const
+const QMetaObject *GUI::TextTabWidget::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *TextTabWidget::qt_metacast(const char *_clname)
+void *GUI::TextTabWidget::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_TextTabWidget))
+    if (!strcmp(_clname, qt_meta_stringdata_GUI__TextTabWidget))
         return static_cast<void*>(const_cast< TextTabWidget*>(this));
     return QTabWidget::qt_metacast(_clname);
 }
 
-int TextTabWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int GUI::TextTabWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QTabWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
@@ -90,7 +91,7 @@ int TextTabWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void TextTabWidget::onTabAdded(QTextEdit * _t1)
+void GUI::TextTabWidget::onTabAdded(QTextEdit * _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

@@ -43,18 +43,17 @@ namespace Core {
 
             static const SymbolType LITHERAL;
             static const SymbolType IDENTYFIER;
-            
+
             static const SymbolType SPACE;
             static const SymbolType LINE_END;
-            
+
             static const SymbolType BACKSLASH;
             static const SymbolType DEFINE;
             static const SymbolType DEFINE_END;
             static const SymbolType SINGLE_LINE_COMMENT_BEGIN;
             static const SymbolType MULTI_LINE_COMMENT_BEGIN;
             static const SymbolType MULTI_LINE_COMMENT_END;
-            
-            
+
             inline bool operation(const QList<bool>& args) const {
                 return value.operation(args);
             }
@@ -120,10 +119,10 @@ namespace Core {
     };
 
     class SymbolFactory {
-    private:
+    protected:
         QString source;
-        QString::ConstIterator position;
-        QString::ConstIterator end;
+        QString::ConstIterator sourcePosition;
+        QString::ConstIterator sourceEnd;
 
         QString lastString;
         Symbol::SymbolType lastSymbolType;
@@ -131,15 +130,29 @@ namespace Core {
     public:
         SymbolFactory(const QString& string);
 
-        Symbol getNextSymbol() throws(AnalyzeCrashExeption, WarningExeption);
-        bool isNextSymbol();
+        virtual Symbol getNextSymbol() throws(AnalyzeCrashExeption, WarningExeption);
+        virtual bool isNextSymbol() const;
 
-    private:
+    protected:
         void skipFirst(const Symbol::SymbolType& symbolType);
         void skipAll(const Symbol::SymbolType& symbolType);
         void skipAll(const Symbol::SymbolType& symbolTypeA, const Symbol::SymbolType& symbolTypeB);
+        void skipAll(const Symbol::SymbolType& symbolTypeA, const Symbol::SymbolType& symbolTypeB, const Symbol::SymbolType& symbolTypeC);
+
+        bool whetherNextSymbol(const Symbol::SymbolType& symbolType) const;
+    };
+
+    class BufferedFilteredSymbolFactory : public SymbolFactory {
+    private:
+        QList<Symbol> symbols;
+        QList<Symbol>::ConstIterator currentSymbol, symbolsEnd;
         
-        bool whetherNextSymbol(const Symbol::SymbolType& symbolType);
+        QString analyzeCrashHappened;
+    public:
+        BufferedFilteredSymbolFactory(const QString& text);
+        Symbol getNextSymbol() throws(AnalyzeCrashExeption, WarningExeption);
+        bool isNextSymbol() const;
+    
     };
 
 }

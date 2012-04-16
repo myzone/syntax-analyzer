@@ -25,25 +25,30 @@
 #include <string>
 #include <iostream>
 
-using namespace Core;
+class A : public Events::EventListener {
+public:
+    A() : EventListener() {}
+    
+    void handle(const Events::WrongSymbolDefinitionErrorEvent& e) {
+        std::cout << e.toString().toStdString() << "\n";
+    }
+};
+
+int main_() {
+    Core::Analyzer an("/home/myzone/Рабочий стол/");
+    an.addErrorEventListener(new A());
+
+    an.analyze("/*");
+    return 0;
+}
 
 int main(int argc, char** argv) {
-    /*std::cout << "Start\n";
 
-    Analyzer an = Analyzer("/home/myzone/Рабочий стол/");
-    an.addErrorEventListener(new Events::EventListener());
-    
-    an.analyze("main -> a;a -> a|;");
-   
-
-    std::cout << "End\n";
-    return 0;*/
-    
     QApplication app(argc, argv);
-    
-    MainWindow mainWindow;
+
+    GUI::MainWindow mainWindow;
     mainWindow.resize(640, 480);
-    mainWindow.show();          
-    
+    mainWindow.show();
+
     return app.exec();
 }
