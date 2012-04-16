@@ -27,8 +27,9 @@
 
 class A : public Events::EventListener {
 public:
-    A() : EventListener() {}
-    
+
+    A() : EventListener() { }
+
     void handle(const Events::WrongSymbolDefinitionErrorEvent& e) {
         std::cout << e.toString().toStdString() << "\n";
     }
@@ -38,7 +39,11 @@ int main_() {
     Core::Analyzer an("/home/myzone/Рабочий стол/");
     an.addErrorEventListener(new A());
 
-    an.analyze("/*");
+    an.analyze(
+            "main -> a;\n"
+            "a -> \"a\";\n"
+            );
+    
     return 0;
 }
 

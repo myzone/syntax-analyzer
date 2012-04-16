@@ -78,7 +78,7 @@ namespace Core {
         return tree;
     }
 
-    QMap<QString, QList<Symbol> > SyntaxTreeFactory::createLinesMap(const QList<Symbol>& text) const {
+    QMap<QString, QList<Symbol> > SyntaxTreeFactory::createLinesMap(const QList<Symbol>& text) const throws(AnalyzeCrashExeption) {
         QMap<QString, QList<Symbol> > linesMap = QMap<QString, QList<Symbol> >();
 
         for (QList<Symbol>::ConstIterator it = text.constBegin(), end = text.constEnd(); it != end; ++it) {
@@ -159,7 +159,7 @@ namespace Core {
         for (int i = line.size() - 1; i >= 0; i--) {
             while (!tree.isRoot()) {
                 if (positions.isEmpty())
-                    throws AnalyzeCrashExeption();
+                    throw AnalyzeCrashExeption();
 
                 if (positions.top() > 0)
                     break;

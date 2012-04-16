@@ -24,7 +24,7 @@ namespace Core {
         Tree<Symbol> createTree(const QList<Symbol>& text) const throws(AnalyzeCrashExeption);
 
     private:
-        QMap<QString, QList<Symbol> > createLinesMap(const QList<Symbol>& text) const;
+        QMap<QString, QList<Symbol> > createLinesMap(const QList<Symbol>& text) const throws(AnalyzeCrashExeption);
         QSet<QString> createLinesSet(const QMap<QString, QList<Symbol> >& map) const;
         void processLine(const QList<Symbol>& line, Tree<Symbol> tree) const throws(AnalyzeCrashExeption);
         QList<Symbol> toPostfixSymbolsList(const QList<Symbol>& line) const throws(AnalyzeCrashExeption);

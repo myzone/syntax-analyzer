@@ -42,39 +42,39 @@ namespace GUI {
     void SyntaxHighlighter::handle(const Events::AnalysingWasEndedEvent& event) { }
 
     void SyntaxHighlighter::handle(const Events::SymbolIsNotDefinedErrorEvent& event) {
-        dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
     }
 
     void SyntaxHighlighter::handle(const Events::SymbolHasMistakeErrorEvent& event) {
-        dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
     }
 
     void SyntaxHighlighter::handle(const Events::LibraryFileCannotBeFoundErrorEvent& event) {
-        dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
     }
 
     void SyntaxHighlighter::handle(const Events::LibraryFileHasMistakeErrorEvent& event) {
-        dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
     }
 
     void SyntaxHighlighter::handle(const Events::SymbolIsNotClosedErrorEvent& event) {
-        dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
     }
 
     void SyntaxHighlighter::handle(const Events::DoubleDefenitionErrorEvent& event) {
-        dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
     }
 
     void SyntaxHighlighter::handle(const Events::SymbolIsNotUsedErrorEvent& event) {
-        dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WARNING_SYMBOL_FORMAT));
+        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WARNING_SYMBOL_FORMAT));
     }
 
     void SyntaxHighlighter::handle(const Events::WrongSymbolDefinitionErrorEvent& event) {
-        dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
     }
     
     void SyntaxHighlighter::handle(const Events::WrongBracketsNumberErrorEvent& event) {
-        dymamicRules.append(HighlightRule("\\b" + event.getRepresentation() + "\\b", FormatType::WRONG_SYMBOL_FORMAT));
+        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
     }
 
     QTextCharFormat SyntaxHighlighter::FormatType::createKeywordSymbolFormat() {
