@@ -2,6 +2,7 @@
 #include "src/Events/Event.h"
 
 #include <iostream>
+#include <qt4/QtCore/qregexp.h>
 
 namespace Core {
 
@@ -51,9 +52,6 @@ namespace Core {
     const Symbol::SymbolType Symbol::SymbolType::BACKSLASH = Symbol::SymbolType("\\", &otherOperation, 0);
     const Symbol::SymbolType Symbol::SymbolType::DEFINE = Symbol::SymbolType("->", &otherOperation, 0);
     const Symbol::SymbolType Symbol::SymbolType::DEFINE_END = Symbol::SymbolType(";", &otherOperation, 0);
-    const Symbol::SymbolType Symbol::SymbolType::SINGLE_LINE_COMMENT_BEGIN = Symbol::SymbolType("//", &otherOperation, 0);
-    const Symbol::SymbolType Symbol::SymbolType::MULTI_LINE_COMMENT_BEGIN = Symbol::SymbolType("/*", &otherOperation, 0);
-    const Symbol::SymbolType Symbol::SymbolType::MULTI_LINE_COMMENT_END = Symbol::SymbolType("*/", &otherOperation, 0);
 
     Symbol::SymbolType::SymbolType() : Enum<Symbol::SymbolTypeData>() { }
 
@@ -64,8 +62,8 @@ namespace Core {
         value.priority = priority;
     }
 
-    Symbol::Symbol() { }
-
+    Symbol::Symbol() {}
+    
     Symbol::Symbol(const QString& representation, const Symbol::SymbolType& type) : representation(representation), type(type), id("") { }
 
     Symbol::Symbol(const Symbol::SymbolType& type) : representation(), type(type) {
@@ -136,37 +134,6 @@ namespace Core {
                 lastSymbolType = Symbol::SymbolType::DEFINE_END;
                 skipAll(Symbol::SymbolType::SPACE, Symbol::SymbolType::LINE_END);
                 return Symbol(Symbol::SymbolType::DEFINE_END);
-            } else if (whetherNextSymbol(Symbol::SymbolType::SINGLE_LINE_COMMENT_BEGIN)) {
-                sourcePosition += Symbol::SymbolType::SINGLE_LINE_COMMENT_BEGIN.toString().length();
-
-                while (!whetherNextSymbol(Symbol::SymbolType::LINE_END)) {
-                    if (sourcePosition == sourceEnd)
-                        break;
-
-                    ++sourcePosition;
-                }
-
-                skipAll(Symbol::SymbolType::SPACE, Symbol::SymbolType::LINE_END);
-                return Symbol(Symbol::SymbolType::SINGLE_LINE_COMMENT_BEGIN);
-            } else if (whetherNextSymbol(Symbol::SymbolType::MULTI_LINE_COMMENT_BEGIN)) {
-                currentString += Symbol::SymbolType::MULTI_LINE_COMMENT_BEGIN.toString();
-                sourcePosition += Symbol::SymbolType::MULTI_LINE_COMMENT_BEGIN.toString().length();
-
-                while (!whetherNextSymbol(Symbol::SymbolType::MULTI_LINE_COMMENT_END)) {
-                    if (sourcePosition == sourceEnd)
-                        throw AnalyzeCrashExeption(currentString);
-
-                    currentString += *sourcePosition;
-                    ++sourcePosition;
-                }
-
-                skipAll(Symbol::SymbolType::SPACE, Symbol::SymbolType::LINE_END);
-                return Symbol(Symbol::SymbolType::MULTI_LINE_COMMENT_BEGIN);
-            } else if (whetherNextSymbol(Symbol::SymbolType::MULTI_LINE_COMMENT_END)) {
-                sourcePosition += Symbol::SymbolType::MULTI_LINE_COMMENT_END.toString().length();
-
-                skipAll(Symbol::SymbolType::SPACE, Symbol::SymbolType::LINE_END);
-                return Symbol(Symbol::SymbolType::MULTI_LINE_COMMENT_END);
             } else if (whetherNextSymbol(Symbol::SymbolType::LITHERAL)) {
                 currentString += *sourcePosition;
                 ++sourcePosition;
@@ -218,9 +185,6 @@ namespace Core {
                         && !whetherNextSymbol(Symbol::SymbolType::LITHERAL)
                         && !whetherNextSymbol(Symbol::SymbolType::DEFINE)
                         && !whetherNextSymbol(Symbol::SymbolType::DEFINE_END)
-                        && !whetherNextSymbol(Symbol::SymbolType::SINGLE_LINE_COMMENT_BEGIN)
-                        && !whetherNextSymbol(Symbol::SymbolType::MULTI_LINE_COMMENT_BEGIN)
-                        && !whetherNextSymbol(Symbol::SymbolType::MULTI_LINE_COMMENT_END)
                         && !whetherNextSymbol(Symbol::SymbolType::SPACE)
                         && !whetherNextSymbol(Symbol::SymbolType::LINE_END)) {
                     currentString += *sourcePosition;
@@ -321,47 +285,4 @@ namespace Core {
         return true;
     }
 
-    BufferedFilteredSymbolFactory::BufferedFilteredSymbolFactory(const QString& text) : SymbolFactory(text), analyzeCrashHappened("") {
-        try {
-            while (SymbolFactory::isNextSymbol()) {
-                Symbol symbol;
-
-                while (true) {
-                    symbol = SymbolFactory::getNextSymbol();
-
-                    if (symbol.getType() != Symbol::SymbolType::SINGLE_LINE_COMMENT_BEGIN
-                            && symbol.getType() != Symbol::SymbolType::MULTI_LINE_COMMENT_BEGIN
-                            && symbol.getType() != Symbol::SymbolType::MULTI_LINE_COMMENT_END)
-                        break;
-
-                }
-
-                symbols.append(symbol);
-            }
-
-            currentSymbol = symbols.constBegin();
-            symbolsEnd = symbols.constEnd();
-        } catch (AnalyzeCrashExeption exeption) {
-            analyzeCrashHappened = exeption.getMessage();
-        } catch (WarningExeption) {
-            // Unbelievable ;)
-        }
-    }
-
-    Symbol BufferedFilteredSymbolFactory::getNextSymbol() throws(AnalyzeCrashExeption, WarningExeption) {
-        if (!analyzeCrashHappened.isEmpty()) {
-            QString temp = analyzeCrashHappened;
-            analyzeCrashHappened = "";
-            throw AnalyzeCrashExeption(temp);
-        }
-
-        if (currentSymbol == symbolsEnd)
-            throw WarningExeption();
-
-        return *(currentSymbol++);
-    }
-
-    bool BufferedFilteredSymbolFactory::isNextSymbol() const {
-        return currentSymbol != symbolsEnd;
-    }
 }

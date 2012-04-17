@@ -18,7 +18,7 @@ namespace Core {
         QMap<QString, QList<Symbol> > linesMap = createLinesMap(text);
 
         QSet<QString> notUsedSymbolsSet = createLinesSet(linesMap);
-        QSet<QString> notDefinedSymbolsSet = QSet<QString > ();
+        QSet<QString> notDefinedSymbolsSet = QSet<QString> ();
 
         Tree<Symbol> tree = Tree<Symbol > ();
 
@@ -31,7 +31,7 @@ namespace Core {
 
         QMap<QString, QList<Symbol> >::Iterator it = linesMap.find(MAIN_SYMBOL);
         QList<Symbol> value = *it;
-        notUsedSymbolsSet.erase(notUsedSymbolsSet.find(MAIN_SYMBOL));
+        notUsedSymbolsSet.remove(MAIN_SYMBOL);
 
         tree = Symbol(MAIN_SYMBOL, Symbol::SymbolType::IDENTYFIER);
         tree.get().setId("a");
@@ -41,7 +41,7 @@ namespace Core {
         bool ok = true;
         while (ok) {
             tree.traverse(processor);
-
+            
             if (processor.isEnd())
                 break;
  
@@ -49,7 +49,7 @@ namespace Core {
 
             for (QList<Tree<Symbol> >::ConstIterator it = nodes.constBegin(), end = nodes.constEnd(); it != end; ++it) {
                 QString current = it->get().getRepresentation();
-                notUsedSymbolsSet.erase(notUsedSymbolsSet.find(current));
+                notUsedSymbolsSet.remove(current);
 
                 if (!linesMap.contains(current)) {
                     notDefinedSymbolsSet.insert(current);

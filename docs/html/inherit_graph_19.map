@@ -1,5 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$class_tree_1_1_data_processor.html" title="Tree\&lt; T \&gt;::DataProcessor" alt="" coords="7,32,180,61"/>
-<area shape="rect" id="node3" href="$class_core_1_1_syntax_tree_factory_1_1_tree_processor.html" title="Core::SyntaxTreeFactory::TreeProcessor" alt="" coords="231,5,492,35"/>
-<area shape="rect" id="node5" href="$class_core_1_1_tree_analyzer_1_1_tree_converter.html" title="Core::TreeAnalyzer::TreeConverter" alt="" coords="248,59,475,88"/>
+<area shape="rect" id="node1" href="$class_tree_1_1_data_processor.html" title="Tree\&lt; T \&gt;::DataProcessor" alt="" coords="7,5,180,35"/>
 </map>

@@ -2,6 +2,7 @@
 
 #include <QString>
 #include <QList>
+#include <QSet>
 
 #include "../Events/EventBroadcaster.h"
 #include "../Events/Event.h"
@@ -15,9 +16,10 @@ namespace Core {
 
     class Preprocessor {
     private:
-        QString pathToLibrary;
         Events::EventBroadcaster* broadcaster;
+        QString pathToLibrary;
         
+        mutable QSet<QString> allreadyImported;
     public:
         static const QString FILE_FORMAT_MASK;
         static const QString IMPORT_DERECTIVE;
@@ -29,6 +31,7 @@ namespace Core {
     private:
         QList<Symbol> import(const QString& importName) const throws(AnalyzeCrashExeption);
 
+        File* openFile(const QString& pathToFile) const;
     };
 
 }

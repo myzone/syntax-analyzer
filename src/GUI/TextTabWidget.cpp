@@ -3,6 +3,7 @@
 #include <QMouseEvent>
 #include <QAction>
 #include <QTimer>
+#include <qt4/QtGui/qmessagebox.h>
 
 #include "../GUI/TextTabWidget.h"
 
@@ -99,13 +100,12 @@ namespace GUI {
         QTextEdit* target = (QTextEdit*) widget(tabIndex);
 
         if (editedTextEdits.contains(target)) {
-            QMessageBox yesNoDialog;
-            yesNoDialog.setWindowTitle(trUtf8("Подтвержение закрытия"));
-            yesNoDialog.setText(trUtf8("Данные будут утеряны, продолжить?"));
-            yesNoDialog.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
-            yesNoDialog.setDefaultButton(QMessageBox::Cancel);
 
-            if (yesNoDialog.exec() == QMessageBox::Cancel) {
+            if (QMessageBox::question(this,
+                    trUtf8("Подтвержение закрытия"),
+                    trUtf8("Данные будут утеряны, продолжить?"),
+                    QMessageBox::Ok | QMessageBox::Cancel,
+                    QMessageBox::Cancel) == QMessageBox::Cancel) {
                 willBeClosed = false;
             }
         }

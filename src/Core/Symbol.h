@@ -50,9 +50,6 @@ namespace Core {
             static const SymbolType BACKSLASH;
             static const SymbolType DEFINE;
             static const SymbolType DEFINE_END;
-            static const SymbolType SINGLE_LINE_COMMENT_BEGIN;
-            static const SymbolType MULTI_LINE_COMMENT_BEGIN;
-            static const SymbolType MULTI_LINE_COMMENT_END;
 
             inline bool operation(const QList<bool>& args) const {
                 return value.operation(args);
@@ -140,19 +137,6 @@ namespace Core {
         void skipAll(const Symbol::SymbolType& symbolTypeA, const Symbol::SymbolType& symbolTypeB, const Symbol::SymbolType& symbolTypeC);
 
         bool whetherNextSymbol(const Symbol::SymbolType& symbolType) const;
-    };
-
-    class BufferedFilteredSymbolFactory : public SymbolFactory {
-    private:
-        QList<Symbol> symbols;
-        QList<Symbol>::ConstIterator currentSymbol, symbolsEnd;
-        
-        QString analyzeCrashHappened;
-    public:
-        BufferedFilteredSymbolFactory(const QString& text);
-        Symbol getNextSymbol() throws(AnalyzeCrashExeption, WarningExeption);
-        bool isNextSymbol() const;
-    
     };
 
 }

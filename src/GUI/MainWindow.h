@@ -12,6 +12,7 @@
 namespace GUI {
 
     class SyntaxHighlighter : public QSyntaxHighlighter, public Events::EventListener {
+
         Q_OBJECT
     private:
         class FormatType : public Enum<QTextCharFormat> {
@@ -39,6 +40,7 @@ namespace GUI {
         };
 
     public:
+
         enum HighlightBlockState {
             NORMAL_STATE = -1,
             IN_LITHERAL,
@@ -51,7 +53,7 @@ namespace GUI {
             QTextCharFormat format;
 
             HighlightBlockState neededState, resultState;
-
+            
         public:
             HighlightRule(const QString& pattern, const QTextCharFormat& format);
             HighlightRule(const QString& pattern, const QTextCharFormat& format, const HighlightBlockState& neededState, const HighlightBlockState& resultState);
@@ -61,14 +63,17 @@ namespace GUI {
             const QRegExp& getPattern() const;
             const QTextCharFormat& getFormat() const;
             const HighlightBlockState& getResultState() const;
+        
+            QString reason;
         };
 
         static const QList<HighlightRule> staticRules;
         QList<HighlightRule> dymamicRules;
-
+        QTextEdit* target;
+        
         QTimer rehighlightTimer;
     public:
-        SyntaxHighlighter(QTextDocument* parent = 0);
+        SyntaxHighlighter(QTextEdit* target);
 
         void handle(const Events::AnalysingWasStartedEvent& event);
         void handle(const Events::AnalysingWasEndedEvent& event);
@@ -98,8 +103,10 @@ namespace GUI {
         QMap<QTextEdit*, QString> filesMap;
         QMap<QTextEdit*, Core::Analyzer*> analyzersMap;
         TextTabWidget* tabsWidget;
-
+ 
+#ifdef TIMERED_ANALYZE 
         QTimer analyzeTimer;
+#endif
     public:
         explicit MainWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0);
         virtual ~MainWindow();

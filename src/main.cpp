@@ -24,6 +24,7 @@
 
 #include <string>
 #include <iostream>
+#include <QDebug>
 
 class A : public Events::EventListener {
 public:
@@ -40,8 +41,10 @@ int main_() {
     an.addErrorEventListener(new A());
 
     an.analyze(
+            "import std;\n"
             "main -> a;\n"
             "a -> \"a\";\n"
+            "/* hi, bug */"
             );
     
     return 0;

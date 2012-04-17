@@ -4,6 +4,7 @@
 #include <QString>
 
 #include "../Core/Preprocessor.h"
+#include "../Core/Symbol.h"
 #include "../Core/SyntaxTreeFactory.h"
 
 namespace Core {
@@ -19,7 +20,13 @@ namespace Core {
         QList<Symbol> libraryResult = QList<Symbol > ();
         QList<Symbol> currentResult = QList<Symbol > ();
 
-        BufferedFilteredSymbolFactory symbolFactory = BufferedFilteredSymbolFactory(source);
+        /*
+         * Hack. Need to fix;
+         */
+        QString temp = source;
+        temp = temp.replace(QRegExp("(//[^\n]*\n)|(/\\*.*\\*/)"),"");
+
+        SymbolFactory symbolFactory = SymbolFactory(temp);
         while (symbolFactory.isNextSymbol()) {
             Symbol current;
 
@@ -37,8 +44,19 @@ namespace Core {
                         && current.getRepresentation() == IMPORT_DERECTIVE) {
 
                     symbolFactory.getNextSymbol(); // skip AND symbol
+                    Symbol importSymbol = symbolFactory.getNextSymbol();
 
-                    libraryResult += import(symbolFactory.getNextSymbol().getRepresentation());
+                    if (importSymbol.getType() != Symbol::SymbolType::IDENTYFIER 
+                                || allreadyImported.contains(importSymbol.getRepresentation())) {
+                        Events::LibraryFileHasMistakeErrorEvent event = Events::LibraryFileHasMistakeErrorEvent(importSymbol.getRepresentation());
+                        event.share(*broadcaster);
+
+                        throw AnalyzeCrashExeption();
+                    }
+
+                    allreadyImported.insert(importSymbol.getRepresentation());
+                    libraryResult += import(importSymbol.getRepresentation());
+                    allreadyImported.remove(importSymbol.getRepresentation());
 
                     if (symbolFactory.getNextSymbol().getType() != Symbol::SymbolType::DEFINE_END)
                         throw AnalyzeCrashExeption();
@@ -46,11 +64,10 @@ namespace Core {
                     continue;
                 }
             } catch (WarningExeption) {
-                 throw AnalyzeCrashExeption();
+                throw AnalyzeCrashExeption();
             }
 
             currentResult += current;
-
         }
 
         return currentResult + libraryResult;
@@ -60,14 +77,14 @@ namespace Core {
         File* fileDescriptor = null;
 
         // search lib file in current folder 
-        if (!fileDescriptor) fileDescriptor = fopen((importName + FILE_FORMAT_MASK).toAscii(), "rt");
+        if (!fileDescriptor) fileDescriptor = openFile(importName + FILE_FORMAT_MASK);
         // search lib file in libraries folder
-        if (!fileDescriptor) fileDescriptor = fopen((pathToLibrary + importName + FILE_FORMAT_MASK).toAscii(), "rt");
+        if (!fileDescriptor) fileDescriptor = openFile(pathToLibrary + importName + FILE_FORMAT_MASK);
         if (!fileDescriptor) {
             Events::LibraryFileCannotBeFoundErrorEvent event = Events::LibraryFileCannotBeFoundErrorEvent(importName);
             event.share(*broadcaster);
 
-            throws AnalyzeCrashExeption(importName);
+            throw AnalyzeCrashExeption();
         }
 
         QFile file;
@@ -77,6 +94,9 @@ namespace Core {
 
         try {
             result = process(file.readAll());
+
+            file.close();
+            fclose(fileDescriptor);
         } catch (AnalyzeCrashExeption) {
             Events::LibraryFileHasMistakeErrorEvent event = Events::LibraryFileHasMistakeErrorEvent(importName);
             event.share(*broadcaster);
@@ -84,10 +104,11 @@ namespace Core {
             throw;
         }
 
-        file.close();
-        fclose(fileDescriptor);
-
         return result;
+    }
+
+    File* Preprocessor::openFile(const QString& pathToFile) const {
+        return fopen(pathToFile.toLatin1(), "rt");
     }
 
 }

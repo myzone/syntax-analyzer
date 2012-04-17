@@ -1,3 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$class_syntax_highlighter.html" title="{SyntaxHighlighter\n|&#45; dymamicRules\l&#45; rehighlightTimer\l&#45; staticRules\l|+ SyntaxHighlighter()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l# highlightBlock()\l# initStaticRules()\l}" alt="" coords="49,347,193,605"/>
+<area shape="rect" id="node3" href="$class_a.html" title="{A\n||+ A()\l+ handle()\l}" alt="" coords="5,495,85,598"/>
+<area shape="rect" id="node5" href="$class_g_u_i_1_1_syntax_highlighter.html" title="{GUI::SyntaxHighlighter\n|+ dymamicRules\l+ rehighlightTimer\l+ staticRules\l|+ SyntaxHighlighter()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l+ handle()\l# highlightBlock()\l# highlightBlockWithRulesList()\l# initStaticRules()\l}" alt="" coords="109,365,312,728"/>
 </map>

@@ -1,6 +1,7 @@
 #include "Analyzer.h"
 #include "Exeption.h"
 #include "TreeAnalyzer.h"
+#include "qwindowdefs.h"
 
 namespace Core {
 

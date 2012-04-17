@@ -1,1 +1,9 @@
-ASDFASDFddfafsasds -> "a";
+import std;
+
+main -> a;
+a -> "ad";
+
+/***
+ * CHECK VERDICT: ERROR
+ * SymbolIsNotDefinedErrorEvent: main
+ */

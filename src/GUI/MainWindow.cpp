@@ -8,6 +8,9 @@
 #include <QTimer>
 #include <QKeySequence>
 #include <qt4/QtGui/qsyntaxhighlighter.h>
+#include <qt4/QtGui/qtextdocument.h>
+#include <qt4/QtGui/qtextcursor.h>
+#include <qt4/QtGui/qtextedit.h>
 
 #include "../GUI/MainWindow.h"
 
@@ -39,42 +42,79 @@ namespace GUI {
         dymamicRules.clear();
     }
 
-    void SyntaxHighlighter::handle(const Events::AnalysingWasEndedEvent& event) { }
+    void SyntaxHighlighter::handle(const Events::AnalysingWasEndedEvent& event) {
+        const QRegExp REPLACE_VERDICT_REG_EXP = QRegExp("\n?\n/\\*\n \\* CHECK VERDICT: (OK|ERROR)[\n\\s\\S]*\n \\*/$");
+
+        QString errorList = "\n";
+
+        for (QList<HighlightRule>::ConstIterator it = dymamicRules.constBegin(), end = dymamicRules.constEnd(); it != end; it++) {
+            errorList += " * " + it->reason + "\n";
+        }
+
+        int position = target->textCursor().position();
+        
+        target->setPlainText(target->toPlainText().replace(REPLACE_VERDICT_REG_EXP, "")
+                + "\n\n/*\n * CHECK VERDICT: "
+                + (dymamicRules.isEmpty() ? "OK" : "ERROR") + errorList + " */");
+    
+        QTextCursor cursor = target->textCursor();
+        cursor.setPosition(position, QTextCursor::MoveAnchor);
+        target->setTextCursor(cursor);
+    }
 
     void SyntaxHighlighter::handle(const Events::SymbolIsNotDefinedErrorEvent& event) {
-        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
+        HighlightRule rule = HighlightRule("\\b?" + event.getRepresentation() + "\\b?", FormatType::WRONG_SYMBOL_FORMAT);
+        rule.reason = event.toString() + ": " + event.getRepresentation();
+        dymamicRules.append(rule);
+
     }
 
     void SyntaxHighlighter::handle(const Events::SymbolHasMistakeErrorEvent& event) {
-        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
+        HighlightRule rule = HighlightRule("\\b?" + event.getRepresentation() + "\\b?", FormatType::WRONG_SYMBOL_FORMAT);
+        rule.reason = event.toString() + ": " + event.getRepresentation();
+        dymamicRules.append(rule);
     }
 
     void SyntaxHighlighter::handle(const Events::LibraryFileCannotBeFoundErrorEvent& event) {
-        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
+        HighlightRule rule = HighlightRule("\\b?" + event.getRepresentation() + "\\b?", FormatType::WRONG_SYMBOL_FORMAT);
+        rule.reason = event.toString() + ": " + event.getRepresentation();
+        dymamicRules.append(rule);
     }
 
     void SyntaxHighlighter::handle(const Events::LibraryFileHasMistakeErrorEvent& event) {
-        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
+        HighlightRule rule = HighlightRule("\\b?" + event.getRepresentation() + "\\b?", FormatType::WRONG_SYMBOL_FORMAT);
+        rule.reason = event.toString() + ": " + event.getRepresentation();
+        dymamicRules.append(rule);
     }
 
     void SyntaxHighlighter::handle(const Events::SymbolIsNotClosedErrorEvent& event) {
-        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
+        HighlightRule rule = HighlightRule("\\b?" + event.getRepresentation() + "\\b?", FormatType::WRONG_SYMBOL_FORMAT);
+        rule.reason = event.toString() + ": " + event.getRepresentation();
+        dymamicRules.append(rule);
     }
 
     void SyntaxHighlighter::handle(const Events::DoubleDefenitionErrorEvent& event) {
-        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
+        HighlightRule rule = HighlightRule("\\b?" + event.getRepresentation() + "\\b?", FormatType::WRONG_SYMBOL_FORMAT);
+        rule.reason = event.toString() + ": " + event.getRepresentation();
+        dymamicRules.append(rule);
     }
 
     void SyntaxHighlighter::handle(const Events::SymbolIsNotUsedErrorEvent& event) {
-        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WARNING_SYMBOL_FORMAT));
+        HighlightRule rule = HighlightRule("\\b?" + event.getRepresentation() + "\\b?", FormatType::WARNING_SYMBOL_FORMAT);
+        rule.reason = event.toString() + ": " + event.getRepresentation();
+        dymamicRules.append(rule);
     }
 
     void SyntaxHighlighter::handle(const Events::WrongSymbolDefinitionErrorEvent& event) {
-        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
+        HighlightRule rule = HighlightRule("\\b?" + event.getRepresentation() + "\\b?", FormatType::WRONG_SYMBOL_FORMAT);
+        rule.reason = event.toString() + ": " + event.getRepresentation();
+        dymamicRules.append(rule);
     }
-    
+
     void SyntaxHighlighter::handle(const Events::WrongBracketsNumberErrorEvent& event) {
-        dymamicRules.append(HighlightRule(event.getRepresentation(), FormatType::WRONG_SYMBOL_FORMAT));
+        HighlightRule rule = HighlightRule("\\b?" + event.getRepresentation() + "\\b?", FormatType::WRONG_SYMBOL_FORMAT);
+        rule.reason = event.toString() + ": " + event.getRepresentation();
+        dymamicRules.append(rule);
     }
 
     QTextCharFormat SyntaxHighlighter::FormatType::createKeywordSymbolFormat() {
@@ -119,12 +159,16 @@ namespace GUI {
         return format;
     }
 
-    SyntaxHighlighter::HighlightRule::HighlightRule(const QString& pattern, const QTextCharFormat& format) : pattern(QRegExp(pattern)),
+    SyntaxHighlighter::HighlightRule::HighlightRule(const QString& pattern,
+            const QTextCharFormat& format) : pattern(QRegExp(pattern)),
     format(format),
     neededState(NORMAL_STATE),
     resultState(NORMAL_STATE) { }
 
-    SyntaxHighlighter::HighlightRule::HighlightRule(const QString& pattern, const QTextCharFormat& format, const HighlightBlockState& neededState, const HighlightBlockState& resultState) : pattern(QRegExp(pattern)),
+    SyntaxHighlighter::HighlightRule::HighlightRule(const QString& pattern,
+            const QTextCharFormat& format,
+            const HighlightBlockState& neededState,
+            const HighlightBlockState& resultState) : pattern(QRegExp(pattern)),
     format(format),
     neededState(neededState),
     resultState(resultState) { }
@@ -145,7 +189,7 @@ namespace GUI {
         return resultState;
     }
 
-    SyntaxHighlighter::SyntaxHighlighter(QTextDocument *parent) : QSyntaxHighlighter(parent), rehighlightTimer(this) {
+    SyntaxHighlighter::SyntaxHighlighter(QTextEdit* target) : QSyntaxHighlighter(target->document()), target(target), rehighlightTimer(this) {
         connect(&rehighlightTimer, SIGNAL(timeout()), this, SLOT(rehighlight()));
         rehighlightTimer.start(500);
     }
@@ -168,7 +212,7 @@ namespace GUI {
 
                 int index = expression.indexIn(text, i);
                 int length = expression.matchedLength();
-                
+
                 if (index != i || length == 0)
                     continue;
 
@@ -202,16 +246,21 @@ namespace GUI {
         rules.append(SyntaxHighlighter::HighlightRule("\"", FormatType::QUOTED_STRING_FORMAT, IN_LITHERAL, NORMAL_STATE));
 
         rules.append(SyntaxHighlighter::HighlightRule("//.*", FormatType::COMMENT_FORMAT, NORMAL_STATE, NORMAL_STATE));
-        
+
         rules.append(SyntaxHighlighter::HighlightRule("/\\*", FormatType::COMMENT_FORMAT, NORMAL_STATE, IN_MULTILINE_COMMENT));
-        rules.append(SyntaxHighlighter::HighlightRule("(([^(\\*/)])|(\\*)(?!/)|\\(|\\))*", FormatType::COMMENT_FORMAT, IN_MULTILINE_COMMENT, IN_MULTILINE_COMMENT));
+        rules.append(SyntaxHighlighter::HighlightRule("(([^(\\*/)])|(\\*)(?!/)|\\(|\\)|/)*", FormatType::COMMENT_FORMAT, IN_MULTILINE_COMMENT, IN_MULTILINE_COMMENT));
         rules.append(SyntaxHighlighter::HighlightRule("\\*/", FormatType::COMMENT_FORMAT, IN_MULTILINE_COMMENT, NORMAL_STATE));
-     
+
         return rules;
     }
 
-    MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags) : QMainWindow(parent, flags), filesMap(), analyzersMap(), analyzeTimer(this) {
-
+    MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags) : QMainWindow(parent, flags),
+    filesMap(),
+    analyzersMap()
+#ifdef TIMERED_ANALYZE
+    , analyzeTimer(this)
+#endif
+    {
         setWindowTitle(trUtf8("Cинтаксический анализатор"));
 
         QMenuBar* menuBar = new QMenuBar();
@@ -309,7 +358,7 @@ namespace GUI {
             return;
         }
 
-        file.write(currentTextEdit->toPlainText().toAscii());
+        file.write(currentTextEdit->toPlainText().toLatin1());
         file.close();
 
         tabsWidget->markTabAsSaved(tabsWidget->getCurrentTabIndex());
@@ -335,7 +384,7 @@ namespace GUI {
             return;
         }
 
-        file.write(currentTextEdit->toPlainText().toAscii());
+        file.write(currentTextEdit->toPlainText().toLatin1());
         file.close();
 
         tabsWidget->markTabAsSaved(tabsWidget->getCurrentTabIndex());
@@ -344,7 +393,7 @@ namespace GUI {
     }
 
     void MainWindow::analyze() {
-        QTextEdit* target = tabsWidget->getTab(tabsWidget->getCurrentTabIndex());
+        QTextEdit* target = (QTextEdit*)tabsWidget->currentWidget();    
 
         analyzersMap.value(target)->analyze(target->toPlainText());
     }
@@ -352,7 +401,7 @@ namespace GUI {
     void MainWindow::initTextEdit(QTextEdit* textEdit) {
         const QString PATH_TO_LIB = "/home/myzone/Рабочий стол/";
 
-        SyntaxHighlighter* syntaxHighlighter = new SyntaxHighlighter(textEdit->document());
+        SyntaxHighlighter* syntaxHighlighter = new SyntaxHighlighter(textEdit);
 
         Core::Analyzer* analyzer = new Core::Analyzer(PATH_TO_LIB);
         analyzer->addErrorEventListener(syntaxHighlighter);
@@ -360,8 +409,11 @@ namespace GUI {
 
         tabsWidget->markTabAsSaved(tabsWidget->indexOf(textEdit));
 
+
+#ifdef TIMERED_ANALYZE 
         connect(&analyzeTimer, SIGNAL(timeout()), this, SLOT(analyze()));
         analyzeTimer.start(500);
+#endif
     }
 
 }

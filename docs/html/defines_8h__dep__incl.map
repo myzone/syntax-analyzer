@@ -1,7 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_event_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Events/Event.h" alt="" coords="485,83,827,112"/>
+<area shape="rect" id="node3" href="$_event_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Events/Event.h" alt="" coords="496,83,837,112"/>
 <area shape="rect" id="node13" href="$main_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/main.cpp" alt="" coords="571,392,875,421"/>
-<area shape="rect" id="node5" href="$_event_listener_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Events/EventListener.h" alt="" coords="448,160,835,189"/>
+<area shape="rect" id="node5" href="$_event_listener_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Events/EventListener.h" alt="" coords="80,160,467,189"/>
+<area shape="rect" id="node19" href="$_symbol_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Symbol.cpp" alt="" coords="491,160,843,189"/>
 <area shape="rect" id="node7" href="$_event_broadcaster_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Events/EventBroadcaster.h" alt="" coords="5,237,416,267"/>
 <area shape="rect" id="node17" href="$_event_listener_8cpp.html" title="/host/Coding/C++/Syntax Analyzer/src/Events/EventListener.cpp" alt="" coords="440,237,843,267"/>
 <area shape="rect" id="node9" href="$_analyzer_8h.html" title="/host/Coding/C++/Syntax Analyzer/src/Core/Analyzer.h" alt="" coords="37,315,384,344"/>

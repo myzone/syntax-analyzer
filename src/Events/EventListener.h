@@ -26,6 +26,7 @@ namespace Events {
         DECLARE_HANDLE_METHOD(AnalysingWasEndedEvent);
 
         DECLARE_HANDLE_METHOD(LibraryFileCannotBeFoundErrorEvent);
+        DECLARE_HANDLE_METHOD(LibraryFileHasMistakeErrorEvent);
 
         DECLARE_HANDLE_METHOD(DoubleDefenitionErrorEvent);
         DECLARE_HANDLE_METHOD(SymbolIsNotUsedErrorEvent);
